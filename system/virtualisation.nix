@@ -1,6 +1,9 @@
 { pkgs, ... }: {
   virtualisation = {
-    docker.enable = true;
+    docker = {
+      enable = true;
+      storageDriver = "btrfs";
+    };
     kvmgt.enable = true;
     libvirtd = {
       enable = true;
