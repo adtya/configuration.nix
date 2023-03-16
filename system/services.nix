@@ -17,6 +17,7 @@
       pulse.enable = true;
     };
     power-profiles-daemon.enable = true;
+    resolved.enable = true;
     thermald.enable = true;
     udisks2.enable = true;
   };
