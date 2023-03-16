@@ -45,10 +45,12 @@
     networkmanager = {
       enable = true;
       wifi = {
+        backend = "iwd";
         powersave = false;
       };
     };
     useDHCP = lib.mkDefault false;
+    wireless.iwd.enable = true;
   };
 
   security = {
