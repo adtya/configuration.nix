@@ -42,7 +42,12 @@
 
   networking = {
     hostName = "Skipper";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi = {
+        powersave = false;
+      };
+    };
     useDHCP = lib.mkDefault false;
   };
 
