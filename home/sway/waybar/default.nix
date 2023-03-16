@@ -91,13 +91,14 @@
       "custom/power_profile" =
         let
           script = "${config.xdg.configHome}/scripts/power_profile.sh";
-        in {
-        exec = "${script} icon";
-        on-click = "${script} toggle";
-        format = "{}";
-        tooltip = false;
-        interval = "10";
-      };
+        in
+        {
+          exec = "${script} icon";
+          on-click = "${script} toggle";
+          format = "{}";
+          tooltip = false;
+          interval = "10";
+        };
     };
   };
 }
