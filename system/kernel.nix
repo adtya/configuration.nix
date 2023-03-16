@@ -14,7 +14,7 @@
       kernelModules = [ "i915" ];
     };
     kernelModules = [ "kvm-intel" ];
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   };
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
