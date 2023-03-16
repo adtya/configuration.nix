@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.waybar.enable = true;
@@ -12,7 +12,7 @@
       height = 28;
       modules-left = [ "sway/workspaces" "sway/window" "sway/mode" ];
       modules-center = [ ];
-      modules-right = [ "tray" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock" ];
+      modules-right = [ "tray" "custom/power_profile" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock" ];
       "sway/mode" = {
         "format" = "{}";
       };
@@ -87,6 +87,16 @@
       };
       "tray" = {
         "spacing" = 4;
+      };
+      "custom/power_profile" =
+        let
+          script = "${config.xdg.configHome}/scripts/power_profile.sh";
+        in {
+        exec = "${script} icon";
+        on-click = "${script} toggle";
+        format = "{}";
+        tooltip = false;
+        interval = "10";
       };
     };
   };

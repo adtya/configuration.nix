@@ -58,7 +58,8 @@ window#waybar.solo {
 #tray,
 #mode,
 #idle_inhibitor,
-#bluetooth {
+#bluetooth,
+#custom-power_profile {
     padding: 0 10px;
     color: @foreground;
     background-color: @background;
