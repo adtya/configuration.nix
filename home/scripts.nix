@@ -1,5 +1,8 @@
 { osConfig, pkgs, ... }:
-
+let
+  notify-send = "${pkgs.libnotify}/bin/notify-send";
+  dmenu = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
+in
 {
   xdg.configFile = {
     "scripts/power_menu.sh" = {
@@ -26,45 +29,54 @@
               swaymsg exit
             ;;
             *)
-              ${pkgs.libnotify}/bin/notify-send -t 1500 -u low "Invalid Option"
+              ${notify-send} -t 1500 -u low "Invalid Option"
             ;;
           esac
         }
 
         OPTIONS="Shutdown\nReboot\nHibernate\nLogout"
 
-        chpower "$(printf "%b" "$OPTIONS" | sort | ${pkgs.rofi-wayland}/bin/rofi -dmenu -p "Power Menu")"
+        chpower "$(printf "%b" "$OPTIONS" | sort | ${dmenu} -p "Power Menu")"
       '';
     };
 
-    "scripts/volume_up.sh" = {
-      executable = true;
-      text = ''
-        #!/bin/sh
+    "scripts/volume_up.sh" =
+      let
+        wpctl = "${pkgs.wireplumber}/bin/wpctl";
+      in
+      {
+        executable = true;
+        text = ''
+          #!/bin/sh
 
-        set -eu
+          set -eu
 
-        ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
-        [ $(${pkgs.wireplumber}/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk -F': ' '{print $2}' | sed 's/\.//') -lt 100 ] && ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-      '';
-    };
+          ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ 0
+          [ $(${wpctl} get-volume @DEFAULT_AUDIO_SINK@ | awk -F': ' '{print $2}' | sed 's/\.//') -lt 100 ] && ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+
+        '';
+      };
 
-    "scripts/tmux_sessions.sh" = {
-      executable = true;
-      text = ''
-        #!/bin/sh
+    "scripts/tmux_sessions.sh" =
+      let
+        kitty = "${pkgs.kitty}/bin/kitty";
+        tmux = "${pkgs.tmux}/bin/tmux";
+      in
+      {
+        executable = true;
+        text = ''
+          #!/bin/sh
 
-        set -eu
+          set -eu
 
-        SESSION="$(${pkgs.tmux}/bin/tmux list-sessions -F "(#{session_attached}) #S [#{pane_current_command} in #{pane_current_path}] #{pane_title}" | sort | ${pkgs.rofi-wayland}/bin/rofi -dmenu -p "Running TMUX Sessions" | awk '{print $2}')"
-        case "$SESSION" in
-          "")
-            ;;
-          *)
-            ${pkgs.kitty}/bin/kitty ${pkgs.tmux}/bin/tmux -u attach-session -dEt "$SESSION"
-            ;;
-        esac'';
-    };
+          SESSION="$(${tmux} list-sessions -F "(#{session_attached}) #S [#{pane_current_command} in #{pane_current_path}] #{pane_title}" | sort | ${dmenu} -p "Running TMUX Sessions" | awk '{print $2}')"
+          case "$SESSION" in
+            "")
+              ;;
+            *)
+              ${kitty} ${tmux} -u attach-session -dEt "$SESSION"
+              ;;
+          esac'';
+      };
     "scripts/power_profile.sh" =
       let
         sudo = "/run/wrappers/bin/sudo";
@@ -97,6 +109,7 @@
                 POWER_PROFILE="powersave"
               fi
               echo $POWER_PROFILE > $POWER_PROFILE_FILE
+              ${notify-send} -u normal "Power Profile" "Switched to $POWER_PROFILE mode."
             ;;
             "icon")
               if [ "$POWER_PROFILE" == "powersave" ]; then
