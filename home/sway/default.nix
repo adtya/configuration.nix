@@ -5,7 +5,7 @@
     ./gnome-keyring.nix
     ./gtk.nix
     ./kanshi.nix
-    ./mako.nix
+    ./dunst.nix
     ./rofi
     ./swayidle.nix
     ./wallpapers.nix
