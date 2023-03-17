@@ -11,25 +11,32 @@
             DisableTelemetry = true;
             DisplayBookmarksToolbar = "always";
             EnableTrackingProtection = {
-              "Value" = true;
-              "Locked" = true;
-              "Cryptomining" = true;
-              "Fingerprinting" = true;
+              Value = true;
+              Locked = true;
+              Cryptomining = true;
+              Fingerprinting = true;
             };
             FirefoxHome = {
-              "Search" = true;
-              "TopSites" = false;
-              "SponsoredTopSites" = false;
-              "Highlights" = false;
-              "Pocket" = false;
-              "SponsoredPocket" = false;
-              "Snippets" = false;
-              "Locked" = true;
+              Search = true;
+              TopSites = false;
+              SponsoredTopSites = false;
+              Highlights = false;
+              Pocket = false;
+              SponsoredPocket = false;
+              Snippets = false;
+              Locked = true;
+            };
+            UserMessaging = {
+              WhatsNew = false;
+              ExtensionRecommendations = false;
+              FeatureRecommendations = false;
+              UrlbarInterventions = false;
+              SkipOnboarding = true;
+              MoreFromMozilla = false;
             };
             NoDefaultBookmarks = true;
             OfferToSaveLogins = false;
             SearchSuggestEnabled = false;
-            StartDownloadsInTempDirectory = true;
             OverrideFirstRunPage = "";
             OverridePostUpdatePage = "";
             ExtensionSettings = {
