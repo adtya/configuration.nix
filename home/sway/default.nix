@@ -138,7 +138,7 @@
       };
     }
     {
-      command = "floating enable, focus, sticky enable, resize set width 99ppt";
+      command = "floating enable, focus, resize set width 95ppt";
       criteria = {
         app_id = "mpv";
       };
