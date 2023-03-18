@@ -1,6 +1,9 @@
 { pkgs, ... }: {
 
-  fonts.fonts = with pkgs; [
+  fonts = {
+    enableDefaultFonts = true;
+    fontDir.enable = true;
+    fonts = with pkgs; [
     cantarell-fonts
     liberation_ttf
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -8,6 +11,7 @@
     noto-fonts-cjk
     noto-fonts-emoji
   ];
+};
 
   programs = {
     git.enable = true;
