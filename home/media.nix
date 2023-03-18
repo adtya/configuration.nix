@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     celluloid
-    spotify
     spotify-tui
     playerctl
   ];
