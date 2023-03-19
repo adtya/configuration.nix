@@ -32,6 +32,7 @@ in
     home.packages = with pkgs; [
       _1password-gui
       brightnessctl
+      discord
       evince
       gnome.eog
       gnome.gnome-system-monitor

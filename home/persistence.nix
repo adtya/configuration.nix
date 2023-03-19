@@ -7,6 +7,7 @@
       ".cache/nix"
       ".config/1Password"
       ".config/dconf"
+      ".config/discord"
       ".config/lazygit"
       ".config/spotify-tui"
       ".gnupg"
