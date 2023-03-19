@@ -9,7 +9,6 @@
       "/var/cache/apparmor"
       "/var/lib/bluetooth"
       "/var/lib/docker"
-      "/var/lib/flatpak"
       "/var/lib/iwd"
       "/var/lib/libvirt"
       "/var/lib/NetworkManager"

@@ -6,7 +6,6 @@
       apparmor = "enabled";
       packages = [ pkgs.gcr pkgs.gcr_4 ];
     };
-    flatpak.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
     gvfs.enable = true;
