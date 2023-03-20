@@ -35,6 +35,7 @@
       set -g visual-activity on
       set -g visual-bell on
 
+      set -g renumber-windows on
       set -g base-index 1
       setw -g pane-base-index 1
 
