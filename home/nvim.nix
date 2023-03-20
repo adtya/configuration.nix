@@ -109,7 +109,7 @@
         type = "lua";
         config = ''
           require('nvim-web-devicons').setup {
-            default = true;
+            default = true
           }
         '';
       }

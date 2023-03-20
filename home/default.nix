@@ -29,6 +29,10 @@ in
       ./virt-manager.nix
     ];
 
+    home.sessionVariables = {
+      NIXOS_OZONE_WL = 1;
+    };
+
     home.packages = with pkgs; [
       _1password-gui
       brightnessctl
