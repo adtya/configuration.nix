@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, osConfig, ... }:
 {
   programs = {
     firefox = {
@@ -14,7 +14,6 @@
               Value = true;
               Locked = true;
               Cryptomining = true;
-              Fingerprinting = true;
             };
             FirefoxHome = {
               Search = true;
@@ -64,8 +63,6 @@
               "browser.startup.homepage_override.mstone" = { Value = "ignore"; Status = "locked"; };
               "browser.startup.homepage_override.buildID" = { Value = ""; Status = "locked"; };
               "browser.tabs.firefox-view" = { Value = false; Status = "locked"; };
-              "dom.event.contextmenu.enabled" = { Value = false; Status = "locked"; };
-              "dom.event.clipboardevents.enabled" = { Value = false; Status = "locked"; };
               "dom.security.https_only_mode" = { Value = true; Status = "locked"; };
               "extensions.htmlaboutaddons.recommendations.enabled" = { Value = false; Status = "locked"; };
               "extensions.recommendations.themeRecommendationUrl" = { Value = ""; Status = "locked"; };
@@ -79,7 +76,7 @@
         isDefault = true;
         settings = {
           "app.shield.optoutstudies.enabled" = false;
-          "identity.fxaccounts.account.device.name" = "Skipper";
+          "identity.fxaccounts.account.device.name" = osConfig.networking.hostName;
           "privacy.donottrackheader.enabled" = true;
           "privacy.firstparty.isolate" = true;
           "startup.homepage_welcome_url" = "";
