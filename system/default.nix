@@ -49,6 +49,10 @@
         backend = "iwd";
         powersave = false;
       };
+      extraConfig = ''
+        [device]
+        wifi.iwd.autoconnect=yes
+      '';
     };
     useDHCP = lib.mkDefault false;
     wireless.iwd.enable = true;
