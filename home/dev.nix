@@ -33,6 +33,7 @@ in
       };
       extraConfig = {
         init.defaultBranch = "main";
+        push.autoSetupRemote = true;
       };
       ignores = [ "/.nix" "/.direnv" ];
     };
