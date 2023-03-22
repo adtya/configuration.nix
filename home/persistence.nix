@@ -15,6 +15,7 @@
       ".local/share/keyrings"
       ".local/share/nix"
       ".local/share/zsh"
+      ".local/state"
       ".mozilla"
       ".nixos-config"
       ".ssh"
