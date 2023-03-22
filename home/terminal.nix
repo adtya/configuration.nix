@@ -70,9 +70,6 @@
         grep = "grep --color=auto";
         ln = "ln -v";
         mv = "mv -v";
-        file = "nix run nixpkgs#file --";
-        nurl = "nix run nixpkgs#nurl --";
-        unzip = "nix run nixpkgs#unzip --";
         rebuild_system = "sudo nixos-rebuild --flake /persist/home/.nixos-config# --cores 0 --max-jobs 8";
       };
     };
