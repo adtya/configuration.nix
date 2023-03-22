@@ -63,9 +63,18 @@ in
           keyserver = "hkps://keys.openpgp.org";
         };
       };
+      ssh = {
+        enable = true;
+      };
     };
 
     services.blueman-applet.enable = true;
+    services.gpg-agent = {
+      enable = true;
+      enableExtraSocket = true;
+      enableSshSupport = true;
+      pinentryFlavor = "gnome3";
+    };
 
     xdg.enable = true;
     xdg.mime.enable = true;

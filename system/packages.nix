@@ -15,6 +15,12 @@
 
   programs = {
     git.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableExtraSocket = true;
+      enableSSHSupport = true;
+      pinentryFlavor = "gnome3";
+    };
     neovim = {
       enable = true;
       defaultEditor = true;
