@@ -72,6 +72,10 @@ in
     xdg.mimeApps.enable = true;
     xdg.userDirs.enable = true;
 
+    xdg.desktopEntries."nixos-manual".name = "NixOS Manual";
+    xdg.desktopEntries."nixos-manual".exec = "nixos-help";
+    xdg.desktopEntries."nixos-manual".noDisplay = true;
+
     home.stateVersion = "23.05";
   };
 }

@@ -6,6 +6,11 @@
     ./tmux.nix
   ];
 
+
+  xdg.desktopEntries."btop".name = "btop++";
+  xdg.desktopEntries."btop".exec = "btop";
+  xdg.desktopEntries."btop".noDisplay = true;
+
   programs = {
     atuin.enable = true;
     bat = {
