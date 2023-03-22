@@ -36,7 +36,7 @@ in
     home.packages = with pkgs; [
       _1password-gui
       brightnessctl
-      discord
+      (discord.override { withOpenASAR = true; })
       evince
       gnome.eog
       gnome.gnome-system-monitor
