@@ -41,7 +41,7 @@
             options = {
               offsets = {
                 {
-                  filetype = "neo-tree",
+                  filetype = "NvimTree",
                   separator = true
                 }
               },
@@ -152,11 +152,11 @@
 
       colorscheme dracula
 
-      nmap <C-a> gT
-      nmap <C-d> gt
+      nmap <C-a> :bp<Return>
+      nmap <C-d> :bn<Return>
       nnoremap <C-h> :noh<Return>
       nnoremap <leader>` :ToggleTerm<Return>
-      nnoremap <leader>1 :NeoTreeFocusToggle<Return>
+      nnoremap <leader>1 :NvimTreeToggle<Return>
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
       nnoremap <leader>fg <cmd>Telescope live_grep<cr>
       nnoremap <leader>fb <cmd>Telescope buffers<cr>
