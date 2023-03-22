@@ -4,14 +4,14 @@
     enableDefaultFonts = true;
     fontDir.enable = true;
     fonts = with pkgs; [
-    cantarell-fonts
-    liberation_ttf
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-  ];
-};
+      cantarell-fonts
+      liberation_ttf
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+    ];
+  };
 
   programs = {
     git.enable = true;
