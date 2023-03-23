@@ -45,6 +45,7 @@ in
       pantheon.elementary-files
       pavucontrol
       xdg-utils
+      yubikey-manager
     ];
 
     dconf.settings = {
@@ -62,6 +63,9 @@ in
         settings = {
           keyserver = "hkps://keys.openpgp.org";
         };
+        scdaemonSettings = {
+          disable-ccid = true;
+        };
       };
       ssh = {
         enable = true;
@@ -72,6 +76,7 @@ in
     services.gpg-agent = {
       enable = true;
       enableExtraSocket = true;
+      enableScDaemon = true;
       enableSshSupport = true;
       pinentryFlavor = "gnome3";
     };

@@ -10,6 +10,7 @@
     fwupd.enable = true;
     gvfs.enable = true;
     lvm.dmeventd.enable = true;
+    pcscd.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -19,6 +20,7 @@
     power-profiles-daemon.enable = true;
     resolved.enable = true;
     thermald.enable = true;
+    udev.packages = [ pkgs.yubikey-personalization ];
     udisks2.enable = true;
   };
 }

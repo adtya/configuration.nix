@@ -13,6 +13,7 @@
     ];
   };
 
+  hardware.gpgSmartcards.enable = true;
   programs = {
     git.enable = true;
     gnupg.agent = {
