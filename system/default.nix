@@ -65,6 +65,10 @@
     };
     audit.enable = true;
     auditd.enable = true;
+    pam.services = {
+      login.u2fAuth = true;
+      sudo.u2fAuth = true;
+    };
     polkit.enable = true;
     rtkit.enable = true;
     tpm2 = {

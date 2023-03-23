@@ -4,7 +4,6 @@ let
   user = import ./user.nix;
 in
 {
-  services.getty.autologinUser = user.primary.userName;
   users.mutableUsers = false;
   users.users = {
     root.hashedPassword = user.root.hashedPassword;
