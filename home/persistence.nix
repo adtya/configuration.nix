@@ -10,6 +10,7 @@
       ".config/discord"
       ".config/lazygit"
       ".config/spotify-tui"
+      ".config/Yubico"
       ".gnupg"
       ".local/share/atuin"
       ".local/share/keyrings"
