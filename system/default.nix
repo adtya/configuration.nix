@@ -65,9 +65,10 @@
     };
     audit.enable = true;
     auditd.enable = true;
-    pam.services = {
-      login.u2fAuth = true;
-      sudo.u2fAuth = true;
+    pam.u2f = {
+      enable = true;
+      authFile = "/etc/u2f_keys";
+      cue = true;
     };
     polkit.enable = true;
     rtkit.enable = true;
