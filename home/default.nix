@@ -45,7 +45,9 @@ in
       pantheon.elementary-files
       pavucontrol
       xdg-utils
+      yubioath-flutter
       yubikey-manager
+      yubikey-manager-qt
     ];
 
     dconf.settings = {

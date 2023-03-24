@@ -186,6 +186,18 @@
       };
     }
     {
+      command = "floating enable, focus";
+      criteria = {
+        app_id = "yubico.org.";
+      };
+    }
+    {
+      command = "floating enable, focus";
+      criteria = {
+        app_id = ".yubioath-flutter-wrapped";
+      };
+    }
+    {
       command = "move container to workspace 2, focus";
       criteria = {
         app_id = "firefox";
