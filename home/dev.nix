@@ -8,7 +8,6 @@ in
   ];
 
   home.packages = with pkgs; [
-    devenv
     git-crypt
     lazydocker
     nixpkgs-fmt

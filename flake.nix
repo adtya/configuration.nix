@@ -17,14 +17,9 @@
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    devenv = {
-      url = "github:cachix/devenv/latest";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, devenv, nixpkgs, home-manager, impermanence, lanzaboote }@inputs: {
+  outputs = { self, nixpkgs, home-manager, impermanence, lanzaboote }@inputs: {
     nixosConfigurations = {
       Skipper = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
@@ -35,7 +30,6 @@
           {
             nixpkgs.overlays = [
               (import ./packages) # Overlay adding all custom packages
-              (self: super: { devenv = devenv.packages.${system}.devenv; }) # Overlay for devenv.sh
             ];
           }
 
