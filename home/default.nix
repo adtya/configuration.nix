@@ -80,7 +80,7 @@ in
       enableExtraSocket = true;
       enableScDaemon = true;
       enableSshSupport = true;
-      pinentryFlavor = "gnome3";
+      pinentryFlavor = "tty";
     };
 
     xdg.enable = true;

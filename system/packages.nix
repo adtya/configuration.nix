@@ -20,7 +20,7 @@
       enable = true;
       enableExtraSocket = true;
       enableSSHSupport = true;
-      pinentryFlavor = "gnome3";
+      pinentryFlavor = "tty";
     };
     neovim = {
       enable = true;
