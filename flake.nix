@@ -28,9 +28,7 @@
     nixosConfigurations = {
       Skipper = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
-        specialArgs = {
-          inherit devenv impermanence system;
-        };
+        specialArgs = inputs;
         modules = [
           ./system/nix.nix
 
