@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   programs.waybar.enable = true;
   programs.waybar.systemd.enable = true;
   programs.waybar.style = ./style.css;
@@ -10,9 +12,9 @@
       layer = "top";
       position = "top";
       height = 28;
-      modules-left = [ "sway/workspaces" "sway/window" "sway/mode" ];
-      modules-center = [ ];
-      modules-right = [ "tray" "custom/power_profile" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock" ];
+      modules-left = ["sway/workspaces" "sway/window" "sway/mode"];
+      modules-center = [];
+      modules-right = ["tray" "custom/power_profile" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock"];
       "sway/mode" = {
         "format" = "{}";
       };
@@ -35,7 +37,7 @@
       };
       "backlight" = {
         "format" = "{icon}";
-        "format-icons" = [ "" "" "" "" ];
+        "format-icons" = ["" "" "" ""];
       };
       "battery" = {
         "states" = {
@@ -47,7 +49,7 @@
         "format-alt" = "{icon} {capacity}% ({time})";
         "format-charging" = " {capacity}%";
         "format-plugged" = "‭ﮣ {capacity}%";
-        "format-icons" = [ "" "" "" "" "" "" "" "" "" "" "" ];
+        "format-icons" = ["" "" "" "" "" "" "" "" "" "" ""];
         "tooltip" = false;
       };
       "network" = {
@@ -73,7 +75,7 @@
           "phone" = "";
           "portable" = "";
           "car" = "";
-          "default" = [ "奄" "奔" "墳" ];
+          "default" = ["奄" "奔" "墳"];
         };
         "on-click" = "${pkgs.pavucontrol}/bin/pavucontrol";
       };
@@ -88,17 +90,15 @@
       "tray" = {
         "spacing" = 4;
       };
-      "custom/power_profile" =
-        let
-          script = "${config.xdg.configHome}/scripts/power_profile.sh";
-        in
-        {
-          exec = "${script} icon";
-          on-click = "${script} toggle";
-          format = "{}";
-          tooltip = false;
-          interval = "10";
-        };
+      "custom/power_profile" = let
+        script = "${config.xdg.configHome}/scripts/power_profile.sh";
+      in {
+        exec = "${script} icon";
+        on-click = "${script} toggle";
+        format = "{}";
+        tooltip = false;
+        interval = "10";
+      };
     };
   };
 }

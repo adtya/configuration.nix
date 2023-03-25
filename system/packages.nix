@@ -1,12 +1,11 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   fonts = {
     enableDefaultFonts = true;
     fontDir.enable = true;
     fonts = with pkgs; [
       cantarell-fonts
       liberation_ttf
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      (nerdfonts.override {fonts = ["FiraCode"];})
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
@@ -31,5 +30,5 @@
     xwayland.enable = true;
     zsh.enable = true;
   };
-  environment.pathsToLink = [ "/share/zsh" ];
+  environment.pathsToLink = ["/share/zsh"];
 }

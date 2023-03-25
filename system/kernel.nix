@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }: {
-
+{
+  lib,
+  pkgs,
+  ...
+}: {
   boot = {
     initrd = {
       availableKernelModules = [
@@ -11,9 +14,9 @@
         "sd_mod"
         "rtsx_pci_sdmmc"
       ];
-      kernelModules = [ "i915" ];
+      kernelModules = ["i915"];
     };
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = ["kvm-intel"];
     kernelPackages = pkgs.linuxKernel.packages.linux_zen;
   };
 

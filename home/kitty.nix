@@ -1,16 +1,14 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   dracula = pkgs.fetchFromGitHub {
     owner = "dracula";
     repo = "kitty";
     rev = "87717a3f00e3dff0fc10c93f5ff535ea4092de70";
     hash = "sha256-78PTH9wE6ktuxeIxrPp0ZgRI8ST+eZ3Ok2vW6BCIZkc=";
   };
-in
-{
+in {
   programs.kitty = {
     enable = true;
-    font.package = (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; });
+    font.package = pkgs.nerdfonts.override {fonts = ["FiraCode"];};
     font.name = "FiraCode Nerd Font";
     extraConfig = ''
       font_size	14

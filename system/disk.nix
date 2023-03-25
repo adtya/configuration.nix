@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   boot = {
     resumeDevice = "/dev/vg0/swap";
     initrd.luks.devices = {
@@ -11,5 +11,5 @@
     };
   };
 
-  swapDevices = [{ device = "/dev/vg0/swap"; }];
+  swapDevices = [{device = "/dev/vg0/swap";}];
 }

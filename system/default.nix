@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }: {
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./filesystem.nix
     ./gnome-keyring.nix
@@ -37,7 +41,7 @@
       LC_TIME = "en_US.UTF-8";
       LC_ALL = "en_US.UTF-8";
     };
-    supportedLocales = [ "en_US.UTF-8/UTF-8" ];
+    supportedLocales = ["en_US.UTF-8/UTF-8"];
   };
 
   networking = {
@@ -79,10 +83,10 @@
       tctiEnvironment.enable = true;
     };
     sudo = {
-      package = pkgs.sudo.override { withInsults = true; };
+      package = pkgs.sudo.override {withInsults = true;};
       extraConfig = ''
         Defaults lecture="never"
-        
+
         %wheel ALL=NOPASSWD: ${config.boot.kernelPackages.cpupower}/bin/cpupower
       '';
       wheelNeedsPassword = true;
@@ -97,7 +101,7 @@
     portal = {
       enable = true;
       wlr.enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      extraPortals = [pkgs.xdg-desktop-portal-gtk];
     };
   };
 

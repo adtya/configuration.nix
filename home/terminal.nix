@@ -1,11 +1,12 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./kitty.nix
     ./tmux.nix
   ];
-
 
   xdg.desktopEntries."btop".name = "btop++";
   xdg.desktopEntries."btop".exec = "btop";
@@ -34,7 +35,7 @@
     exa = {
       enable = true;
       enableAliases = true;
-      extraOptions = [ "--group-directories-first" "--group" ];
+      extraOptions = ["--group-directories-first" "--group"];
       git = true;
       icons = true;
     };

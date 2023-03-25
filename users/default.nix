@@ -1,9 +1,6 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   user = import ./user.nix;
-in
-{
+in {
   users.mutableUsers = false;
   users.users = {
     root.hashedPassword = user.root.hashedPassword;
@@ -12,7 +9,7 @@ in
       hashedPassword = user.primary.hashedPassword;
       description = user.primary.realName;
       isNormalUser = true;
-      extraGroups = [ "docker" "libvirtd" "networkmanager" "tss" "wheel" ];
+      extraGroups = ["docker" "libvirtd" "networkmanager" "tss" "wheel"];
       shell = pkgs.zsh;
     };
   };

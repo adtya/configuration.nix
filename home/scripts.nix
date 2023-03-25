@@ -1,9 +1,11 @@
-{ osConfig, pkgs, ... }:
-let
+{
+  osConfig,
+  pkgs,
+  ...
+}: let
   notify-send = "${pkgs.libnotify}/bin/notify-send";
   dmenu = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
-in
-{
+in {
   xdg.configFile = {
     "scripts/power_menu.sh" = {
       executable = true;
@@ -40,88 +42,82 @@ in
       '';
     };
 
-    "scripts/volume_up.sh" =
-      let
-        wpctl = "${pkgs.wireplumber}/bin/wpctl";
-      in
-      {
-        executable = true;
-        text = ''
-          #!/bin/sh
+    "scripts/volume_up.sh" = let
+      wpctl = "${pkgs.wireplumber}/bin/wpctl";
+    in {
+      executable = true;
+      text = ''
+        #!/bin/sh
 
-          set -eu
+        set -eu
 
-          ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ 0
-          [ $(${wpctl} get-volume @DEFAULT_AUDIO_SINK@ | awk -F': ' '{print $2}' | sed 's/\.//') -lt 100 ] && ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+
-        '';
-      };
+        ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ 0
+        [ $(${wpctl} get-volume @DEFAULT_AUDIO_SINK@ | awk -F': ' '{print $2}' | sed 's/\.//') -lt 100 ] && ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      '';
+    };
 
-    "scripts/tmux_sessions.sh" =
-      let
-        kitty = "${pkgs.kitty}/bin/kitty";
-        tmux = "${pkgs.tmux}/bin/tmux";
-      in
-      {
-        executable = true;
-        text = ''
-          #!/bin/sh
+    "scripts/tmux_sessions.sh" = let
+      kitty = "${pkgs.kitty}/bin/kitty";
+      tmux = "${pkgs.tmux}/bin/tmux";
+    in {
+      executable = true;
+      text = ''
+        #!/bin/sh
 
-          set -eu
+        set -eu
 
-          SESSION="$(${tmux} list-sessions -F "(#{session_attached}) #S [#{pane_current_command} in #{pane_current_path}] #{pane_title}" | sort | ${dmenu} -p "Running TMUX Sessions" | awk '{print $2}')"
-          case "$SESSION" in
-            "")
-              ;;
-            *)
-              ${kitty} ${tmux} -u attach-session -dEt "$SESSION"
-              ;;
-          esac'';
-      };
-    "scripts/power_profile.sh" =
-      let
-        sudo = "/run/wrappers/bin/sudo";
-        cpupower = "${osConfig.boot.kernelPackages.cpupower}/bin/cpupower";
-        powerprofilesctl = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl";
-      in
-      {
-        executable = true;
-        text = ''
-          #!/bin/sh
-
-          set -eu
-
-          POWER_PROFILE_FILE="$HOME/.cache/power_profile"
-          POWER_PROFILE="powersave"
-
-          if [ -f "$POWER_PROFILE_FILE" ]; then
-            POWER_PROFILE="$(<$POWER_PROFILE_FILE)"
-          fi
-
-          case "$1" in
-            "toggle")
-              if [ "$POWER_PROFILE" == "powersave" ]; then
-                ${sudo} ${cpupower} frequency-set --governor performance > /dev/null
-                ${powerprofilesctl} set performance
-                POWER_PROFILE="performance"
-              elif [ "$POWER_PROFILE" == "performance" ]; then
-                ${sudo} ${cpupower} frequency-set --governor powersave > /dev/null
-                ${powerprofilesctl} set power-saver
-                POWER_PROFILE="powersave"
-              fi
-              echo $POWER_PROFILE > $POWER_PROFILE_FILE
-              ${notify-send} -u normal "Power Profile" "Switched to $POWER_PROFILE mode."
+        SESSION="$(${tmux} list-sessions -F "(#{session_attached}) #S [#{pane_current_command} in #{pane_current_path}] #{pane_title}" | sort | ${dmenu} -p "Running TMUX Sessions" | awk '{print $2}')"
+        case "$SESSION" in
+          "")
             ;;
-            "icon")
-              if [ "$POWER_PROFILE" == "powersave" ]; then
-                echo "󰌪"
-              elif [ "$POWER_PROFILE" == "performance" ]; then
-                echo "󰓅"
-              fi
+          *)
+            ${kitty} ${tmux} -u attach-session -dEt "$SESSION"
             ;;
-            *)
-            ;;
-          esac
-        '';
-      };
+        esac'';
+    };
+    "scripts/power_profile.sh" = let
+      sudo = "/run/wrappers/bin/sudo";
+      cpupower = "${osConfig.boot.kernelPackages.cpupower}/bin/cpupower";
+      powerprofilesctl = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl";
+    in {
+      executable = true;
+      text = ''
+        #!/bin/sh
+
+        set -eu
+
+        POWER_PROFILE_FILE="$HOME/.cache/power_profile"
+        POWER_PROFILE="powersave"
+
+        if [ -f "$POWER_PROFILE_FILE" ]; then
+          POWER_PROFILE="$(<$POWER_PROFILE_FILE)"
+        fi
+
+        case "$1" in
+          "toggle")
+            if [ "$POWER_PROFILE" == "powersave" ]; then
+              ${sudo} ${cpupower} frequency-set --governor performance > /dev/null
+              ${powerprofilesctl} set performance
+              POWER_PROFILE="performance"
+            elif [ "$POWER_PROFILE" == "performance" ]; then
+              ${sudo} ${cpupower} frequency-set --governor powersave > /dev/null
+              ${powerprofilesctl} set power-saver
+              POWER_PROFILE="powersave"
+            fi
+            echo $POWER_PROFILE > $POWER_PROFILE_FILE
+            ${notify-send} -u normal "Power Profile" "Switched to $POWER_PROFILE mode."
+          ;;
+          "icon")
+            if [ "$POWER_PROFILE" == "powersave" ]; then
+              echo "󰌪"
+            elif [ "$POWER_PROFILE" == "performance" ]; then
+              echo "󰓅"
+            fi
+          ;;
+          *)
+          ;;
+        esac
+      '';
+    };
   };
 }

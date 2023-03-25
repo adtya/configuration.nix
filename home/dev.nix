@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   user = import ../users/user.nix;
-in
-{
+in {
   imports = [
     ./nvim.nix
   ];
@@ -10,14 +8,13 @@ in
   home.packages = with pkgs; [
     git-crypt
     lazydocker
-    nixpkgs-fmt
     ripgrep
   ];
   programs = {
     gh = {
       enable = true;
       settings.git_protocol = "ssh";
-      extensions = [ pkgs.gh-dash ];
+      extensions = [pkgs.gh-dash];
     };
     git = {
       enable = true;
@@ -34,7 +31,7 @@ in
         init.defaultBranch = "main";
         push.autoSetupRemote = true;
       };
-      ignores = [ "/.nix" "/.direnv" ];
+      ignores = ["/.nix" "/.direnv"];
     };
     lazygit = {
       enable = true;
