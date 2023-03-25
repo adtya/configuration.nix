@@ -1,4 +1,6 @@
 {
+  description = "NixOS Configuration";
+
   inputs = {
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -19,21 +21,27 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, impermanence, lanzaboote }@inputs: {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    impermanence,
+    lanzaboote,
+  } @ inputs: let
+    system = "x86_64-linux";
+    lib = nixpkgs.lib;
+  in {
+    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     nixosConfigurations = {
-      Skipper = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
+      Skipper = lib.nixosSystem {
         specialArgs = inputs;
         modules = [
           ./system/nix.nix
 
           {
-            nixpkgs.overlays = [
-              (import ./packages) # Overlay adding all custom packages
-            ];
+            nixpkgs.overlays = [(import ./packages)];
+            system.configurationRevision = lib.mkIf (self ? rev) self.rev;
           }
-
-          { system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev; }
 
           home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence
