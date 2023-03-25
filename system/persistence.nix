@@ -19,7 +19,6 @@
     files = [
       "/etc/machine-id"
       "/etc/u2f_keys"
-      "/var/lib/logrotate.status"
     ];
   };
 }
