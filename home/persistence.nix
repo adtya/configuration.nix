@@ -13,6 +13,7 @@
       ".gnupg"
       ".local/share/keyrings"
       ".local/share/nix"
+      ".local/share/zoxide"
       ".local/share/zsh"
       ".local/state"
       ".mozilla"

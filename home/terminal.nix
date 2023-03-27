@@ -38,6 +38,7 @@
       git = true;
       icons = true;
     };
+    fzf.enable = true;
     starship = {
       enable = true;
       settings = {
@@ -45,6 +46,7 @@
         git_metrics.disabled = false;
       };
     };
+    zoxide.enable = true;
     zsh = {
       enable = true;
       defaultKeymap = "viins";
@@ -66,6 +68,7 @@
       '';
       shellAliases = {
         cat = "bat";
+        cd = "z";
         cp = "cp -v";
         grep = "grep --color=auto";
         ln = "ln -v";
