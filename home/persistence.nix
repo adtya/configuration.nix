@@ -11,7 +11,6 @@
       ".config/lazygit"
       ".config/spotify-tui"
       ".gnupg"
-      ".local/share/atuin"
       ".local/share/keyrings"
       ".local/share/nix"
       ".local/share/zsh"
