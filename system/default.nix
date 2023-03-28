@@ -27,6 +27,10 @@
 
   console.useXkbConfig = true;
 
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+  };
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
