@@ -1,10 +1,10 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   services = {
     blueman.enable = true;
     dbus = {
       enable = true;
       apparmor = "enabled";
-      packages = [pkgs.gcr pkgs.gcr_4];
+      packages = [ pkgs.gcr pkgs.gcr_4 ];
     };
     fstrim.enable = true;
     fwupd.enable = true;
@@ -20,7 +20,7 @@
     power-profiles-daemon.enable = true;
     resolved.enable = true;
     thermald.enable = true;
-    udev.packages = [pkgs.yubikey-personalization];
+    udev.packages = [ pkgs.yubikey-personalization ];
     udisks2.enable = true;
   };
 }

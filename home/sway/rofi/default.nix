@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.desktopEntries."rofi".name = "Rofi";
   xdg.desktopEntries."rofi".exec = "rofi -show";
   xdg.desktopEntries."rofi".noDisplay = true;

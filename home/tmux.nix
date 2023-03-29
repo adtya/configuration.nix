@@ -1,7 +1,6 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.tmux = {
     enable = true;
-    shell = "${pkgs.zsh}/bin/zsh";
     escapeTime = 0;
     plugins = with pkgs; [
       {

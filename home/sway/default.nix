@@ -1,8 +1,7 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }: {
   imports = [
     ./gnome-keyring.nix
@@ -22,10 +21,10 @@
   wayland.windowManager.sway.enable = true;
   wayland.windowManager.sway.package = pkgs.sway;
   wayland.windowManager.sway.config.modifier = "Mod4";
-  wayland.windowManager.sway.config.bars = [];
+  wayland.windowManager.sway.config.bars = [ ];
   wayland.windowManager.sway.xwayland = true;
   wayland.windowManager.sway.config.fonts = {
-    names = ["FiraCode Nerd Font"];
+    names = [ "FiraCode Nerd Font" ];
     size = 11.0;
   };
   wayland.windowManager.sway.config.input = {
@@ -85,9 +84,10 @@
     };
   };
 
-  wayland.windowManager.sway.config.keybindings = let
-    modifier = config.wayland.windowManager.sway.config.modifier;
-  in
+  wayland.windowManager.sway.config.keybindings =
+    let
+      modifier = config.wayland.windowManager.sway.config.modifier;
+    in
     lib.mkOptionDefault {
       "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty ${pkgs.tmux}/bin/tmux new";
       "${modifier}+Shift+Return" = "exec ${pkgs.kitty}/bin/kitty";
@@ -114,7 +114,7 @@
     };
 
   wayland.windowManager.sway.config.startup = [
-    {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
+    { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
     {
       command = "~/.config/scripts/chpaper.sh";
       always = true;

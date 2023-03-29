@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   virtualisation = {
     docker = {
       enable = true;
@@ -9,7 +9,7 @@
       enable = true;
       qemu.ovmf = {
         enable = true;
-        packages = [pkgs.OVMFFull.fd];
+        packages = [ pkgs.OVMFFull.fd ];
       };
     };
   };

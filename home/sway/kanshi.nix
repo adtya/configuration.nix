@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   services.kanshi.enable = true;
   services.kanshi.profiles = {
     undocked = {

@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }: {
   imports = [
     ./kitty.nix
@@ -34,7 +33,7 @@
     exa = {
       enable = true;
       enableAliases = true;
-      extraOptions = ["--group-directories-first" "--group"];
+      extraOptions = [ "--group-directories-first" "--group" ];
       git = true;
       icons = true;
     };

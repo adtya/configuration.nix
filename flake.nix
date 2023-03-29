@@ -21,37 +21,40 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    impermanence,
-    lanzaboote,
-  } @ inputs: let
-    system = "x86_64-linux";
-    lib = nixpkgs.lib;
-  in {
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
-    nixosConfigurations = {
-      Skipper = lib.nixosSystem {
-        specialArgs = inputs;
-        modules = [
-          ./system/nix.nix
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , impermanence
+    , lanzaboote
+    ,
+    } @ inputs:
+    let
+      system = "x86_64-linux";
+      lib = nixpkgs.lib;
+    in
+    {
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixpkgs-fmt;
+      nixosConfigurations = {
+        Skipper = lib.nixosSystem {
+          specialArgs = inputs;
+          modules = [
+            ./system/nix.nix
 
-          {
-            nixpkgs.overlays = [(import ./packages)];
-            system.configurationRevision = lib.mkIf (self ? rev) self.rev;
-          }
+            {
+              nixpkgs.overlays = [ (import ./packages) ];
+              system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+            }
 
-          home-manager.nixosModules.home-manager
-          impermanence.nixosModules.impermanence
-          lanzaboote.nixosModules.lanzaboote
+            home-manager.nixosModules.home-manager
+            impermanence.nixosModules.impermanence
+            lanzaboote.nixosModules.lanzaboote
 
-          ./system
-          ./users
-          ./home
-        ];
+            ./system
+            ./users
+            ./home
+          ];
+        };
       };
     };
-  };
 }

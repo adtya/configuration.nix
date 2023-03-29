@@ -1,7 +1,6 @@
-{
-  pkgs,
-  osConfig,
-  ...
+{ pkgs
+, osConfig
+, ...
 }: {
   programs = {
     firefox = {

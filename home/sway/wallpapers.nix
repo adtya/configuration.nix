@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.dataFile."wallpapers/catppuccin".source = "${pkgs.catppuccin-wallpapers}/share/wallpapers";
   xdg.configFile."scripts/chpaper.sh" = {
     text = ''

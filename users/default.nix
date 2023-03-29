@@ -1,6 +1,8 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   user = import ./user.nix;
-in {
+in
+{
   services.getty.autologinUser = user.primary.userName;
   users.mutableUsers = false;
   users.users = {
@@ -10,7 +12,7 @@ in {
       hashedPassword = user.primary.hashedPassword;
       description = user.primary.realName;
       isNormalUser = true;
-      extraGroups = ["docker" "libvirtd" "networkmanager" "tss" "wheel"];
+      extraGroups = [ "docker" "libvirtd" "networkmanager" "tss" "wheel" ];
       shell = pkgs.zsh;
     };
   };

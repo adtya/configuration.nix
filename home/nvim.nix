@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.desktopEntries."nvim".name = "Neovim wrapper";
   xdg.desktopEntries."nvim".exec = "nvim %F";
   xdg.desktopEntries."nvim".noDisplay = true;
@@ -23,7 +23,7 @@
     ];
     plugins = with pkgs.vimPlugins; [
       dracula-nvim
-      (nvim-treesitter.withPlugins (plugins: with plugins; [bash dockerfile gitcommit gitignore git_rebase go markdown markdown_inline nix rust toml yaml]))
+      (nvim-treesitter.withPlugins (plugins: with plugins; [ bash dockerfile gitcommit gitignore git_rebase go markdown markdown_inline nix rust toml yaml ]))
       nvim-treesitter-context
       nvim-treesitter-refactor
       telescope-nvim
