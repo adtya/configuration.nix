@@ -10,8 +10,8 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "catppuccin";
     repo = "wallpapers";
-    rev = "0cea4a28451851a637762dec07ec4fb2bfebc421";
-    hash = "sha256-B2ncT2qPc0inHHcO1BAZW5of+K0sIdtPcdpqcPUbKBo=";
+    rev = "460356d349d3af42fcc7874df5ac95f2040710ad";
+    hash = "sha256-M5OmZXcH1pBFxjtRX9BcPaf7zwuZVAR+j/rG7uyRU3I=";
   };
 
   installPhase = ''
