@@ -46,6 +46,8 @@ in
       yubioath-flutter
       yubikey-manager
       yubikey-manager-qt
+      yubikey-personalization
+      yubikey-personalization-gui
     ];
 
     dconf.settings = {
