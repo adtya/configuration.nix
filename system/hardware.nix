@@ -18,7 +18,16 @@
     enableRedistributableFirmware = true;
   };
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    settings = {
+      General = {
+        Experimental = true;
+        KernelExperimental = true;
+      };
+    };
+    package = (pkgs.bluez.override { withExperimental = true; });
+    enable = true;
+  };
 
   hardware.sensor.hddtemp = {
     enable = true;
