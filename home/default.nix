@@ -1,7 +1,4 @@
-{ impermanence
-, pkgs
-, ...
-}:
+{ impermanence, nixvim, pkgs, ... }:
 let
   user = import ../users/user.nix;
 in
@@ -19,6 +16,7 @@ in
   home-manager.users.${user.primary.userName} = { pkgs, ... }: {
     imports = [
       impermanence.nixosModules.home-manager.impermanence
+      nixvim.homeManagerModules.nixvim
 
       ./dev.nix
       ./downloader.nix

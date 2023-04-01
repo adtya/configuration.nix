@@ -6,8 +6,8 @@
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
 
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/master";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -15,20 +15,18 @@
       url = "github:nix-community/impermanence/master";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      url = "github:pta2002/nixvim/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , impermanence
-    , lanzaboote
-    ,
-    } @ inputs:
+  outputs = { self, nixpkgs, home-manager, impermanence, lanzaboote, nixvim, }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;

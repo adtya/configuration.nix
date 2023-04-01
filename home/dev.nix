@@ -4,7 +4,7 @@ let
 in
 {
   imports = [
-    ./nvim.nix
+    ./nixvim.nix
   ];
 
   home.packages = with pkgs; [
