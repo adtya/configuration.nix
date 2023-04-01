@@ -4,10 +4,12 @@
     vimAlias = true;
     viAlias = true;
     extraConfigLuaPre = ''
-      vim.g.loaded_netrw = 1
-      vim.g.loaded_netrwPlugin = 1
       vim.g.gitblame_date_format = '%r'
       vim.g.gitblame_message_when_not_committed = '''
+      
+      vim.opt.list = true
+      vim.opt.listchars:append "space:⋅"
+      vim.opt.listchars:append "eol:↴"
     '';
     options = {
       autowrite = true;
@@ -31,10 +33,41 @@
     extraPlugins = with pkgs.vimPlugins; [ dracula-nvim git-blame-nvim ];
     colorscheme = "dracula";
     plugins = {
+      comment-nvim.enable = true;
+      fugitive.enable = true;
+      gitsigns.enable = true;
+      trouble.enable = true;
+      nvim-cmp.enable = true;
+      cmp-buffer.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp-treesitter.enable = true;
+      bufferline = {
+        enable = true;
+        diagnostics = "nvim_lsp";
+        offsets = [
+          {
+            filetype = "NvimTree";
+            separator = true;
+          }
+        ];
+        separatorStyle = "slant";
+        truncateNames = true;
+      };
       treesitter = {
         enable = true;
         grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
-          bash dockerfile gitcommit gitignore git_rebase go markdown markdown_inline nix rust toml yaml
+          bash
+          dockerfile
+          gitcommit
+          gitignore
+          git_rebase
+          go
+          markdown
+          markdown_inline
+          nix
+          rust
+          toml
+          yaml
         ];
         folding = true;
         indent = true;
@@ -50,16 +83,31 @@
       telescope = {
         enable = true;
         extensions = {
-          fzf-native = {
+          fzy-native = {
             enable = true;
-            fuzzy = true;
           };
         };
       };
-      fugitive.enable = true;
       lualine = {
         enable = true;
         globalstatus = true;
+      };
+      indent-blankline = {
+        enable = true;
+        showEndOfLine = true;
+      };
+      nvim-tree = {
+        enable = true;
+        disableNetrw = true;
+        filesystemWatchers.enable = true;
+      };
+      lsp = {
+        enable = true;
+        servers = {
+          gopls.enable = true;
+          rnix-lsp.enable = true;
+          rust-analyzer.enable = true;
+        };
       };
     };
   };
