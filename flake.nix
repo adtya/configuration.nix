@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     impermanence = {
       url = "github:nix-community/impermanence";
     };
@@ -26,7 +31,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, impermanence, lanzaboote, nixvim, }@inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, impermanence, lanzaboote, nixvim, }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -45,6 +50,7 @@
             }
 
             home-manager.nixosModules.home-manager
+            hyprland.nixosModules.default
             impermanence.nixosModules.impermanence
             lanzaboote.nixosModules.lanzaboote
 

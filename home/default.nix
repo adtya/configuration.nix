@@ -1,4 +1,4 @@
-{ impermanence, nixvim, pkgs, ... }:
+{ hyprland, impermanence, nixvim, pkgs, ... }:
 let
   user = import ../users/user.nix;
 in
@@ -17,6 +17,7 @@ in
     imports = [
       impermanence.nixosModules.home-manager.impermanence
       nixvim.homeManagerModules.nixvim
+      hyprland.homeManagerModules.default
 
       ./dev.nix
       ./downloader.nix
