@@ -69,7 +69,6 @@
           toml
           yaml
         ];
-        folding = true;
         indent = true;
         incrementalSelection.enable = true;
       };
