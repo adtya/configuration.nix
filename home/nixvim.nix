@@ -29,6 +29,42 @@
       termguicolors = true;
       updatetime = 100;
       wrap = true;
+      splitright = true;
+      splitbelow = true;
+    };
+    maps = {
+      normal = {
+        "<C-a>" = {
+          action = ":bp<Return>";
+        };
+        "<C-d>" = {
+          action = ":bn<Return>";
+        };
+        "<C-h>" = {
+          silent = true;
+          action = ":noh<Return>";
+        };
+        "<leader>1" = {
+          silent = true;
+          action = ":NvimTreeToggle<Return>";
+        };
+        "<leader>`" = {
+          silent = true;
+          action = ":split term://zsh<Return>";
+        };
+        "<leader>ff" = {
+          silent = true;
+          action = "<cmd>Telescope find_files<cr>";
+        };
+        "<leader>fg" = {
+          silent = true;
+          action = "<cmd>Telescope live_grep<cr>";
+        };
+        "<leader>fb" = {
+          silent = true;
+          action = "<cmd>Telescope buffers<cr>";
+        };
+      };
     };
     extraPlugins = with pkgs.vimPlugins; [ dracula-nvim git-blame-nvim ];
     colorscheme = "dracula";
