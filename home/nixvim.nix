@@ -71,22 +71,23 @@
       trouble.enable = true;
       nvim-cmp = {
         enable = true;
-        snippet.expand = "ultisnips";
+        snippet.expand = "luasnip";
         sources = [
           { name = "buffer"; }
           { name = "nvim_lsp"; }
           { name = "nvim_lsp_document_symbol"; }
           { name = "nvim_lsp_signature_help"; }
           { name = "treesitter"; }
-          { name = "ultisnips"; }
+          { name = "luasnip"; }
         ];
       };
       cmp-buffer.enable = true;
       cmp-nvim-lsp.enable = true;
       cmp-nvim-lsp-document-symbol.enable = true;
       cmp-nvim-lsp-signature-help.enable = true;
-      cmp-nvim-ultisnips.enable = true;
       cmp-treesitter.enable = true;
+      cmp_luasnip.enable = true;
+      luasnip.enable = true;
       bufferline = {
         enable = true;
         diagnostics = "nvim_lsp";
