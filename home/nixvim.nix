@@ -34,12 +34,8 @@
     };
     maps = {
       normal = {
-        "<C-a>" = {
-          action = ":bp<Return>";
-        };
-        "<C-d>" = {
-          action = ":bn<Return>";
-        };
+        "<C-a>" = ":bp<Return>";
+        "<C-d>" = ":bn<Return>";
         "<C-h>" = {
           silent = true;
           action = ":noh<Return>";
