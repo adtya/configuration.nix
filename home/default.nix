@@ -22,6 +22,8 @@ in
       ./dev.nix
       ./downloader.nix
       ./firefox.nix
+      ./gnome-keyring.nix
+      ./gtk.nix
       ./media.nix
       ./misc.nix
       ./persistence.nix

@@ -1,7 +1,4 @@
-{ lib
-, pkgs
-, ...
-}:
+{ lib, pkgs, ... }:
 let
   gtkTheme = {
     name = "Dracula";
