@@ -4,8 +4,6 @@
 , ...
 }: {
   imports = [
-    ./filesystem.nix
-    ./gnome-keyring.nix
     ./gtk.nix
     ./hardware.nix
     ./packages.nix
@@ -13,7 +11,6 @@
     ./plymouth.nix
     ./secureboot.nix
     ./services.nix
-    ./swaylock.nix
     ./virtualisation.nix
   ];
 

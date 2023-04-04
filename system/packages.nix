@@ -31,4 +31,5 @@
     zsh.enable = true;
   };
   environment.pathsToLink = [ "/share/zsh" ];
+  security.pam.services.swaylock = { };
 }

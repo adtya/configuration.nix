@@ -31,7 +31,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, impermanence, lanzaboote, nixvim, }@inputs:
+  outputs = { self, nixpkgs, home-manager, hyprland, impermanence, lanzaboote, nixvim }@inputs:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;

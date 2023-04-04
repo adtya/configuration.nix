@@ -3,9 +3,21 @@
 , config
 , ...
 }: {
-  imports = [ ./disk.nix ./kernel.nix ];
+  imports = [ ./kernel.nix ./filesystem.nix ];
 
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  boot = {
+    resumeDevice = "/dev/vg0/swap";
+    initrd.luks.devices = {
+      luks0 = {
+        allowDiscards = true;
+        bypassWorkqueues = true;
+        device = "/dev/disk/by-partlabel/CRYPT";
+        preLVM = true;
+      };
+    };
+  };
+
+  swapDevices = [{ device = "/dev/vg0/swap"; }];
 
   hardware.opengl = {
     enable = true;
