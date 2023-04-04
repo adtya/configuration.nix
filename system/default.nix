@@ -4,7 +4,6 @@
 , ...
 }: {
   imports = [
-    ./gtk.nix
     ./hardware.nix
     ./packages.nix
     ./persistence.nix

@@ -14,6 +14,7 @@
 
   hardware.gpgSmartcards.enable = true;
   programs = {
+  dconf.enable = true;
     git.enable = true;
     gnupg.agent = {
       enable = true;
@@ -27,9 +28,9 @@
       viAlias = true;
       vimAlias = true;
     };
+  seahorse.enable = true;
     xwayland.enable = true;
     zsh.enable = true;
   };
   environment.pathsToLink = [ "/share/zsh" ];
-  security.pam.services.swaylock = { };
 }
