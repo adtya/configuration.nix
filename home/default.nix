@@ -23,6 +23,7 @@ in
       ./downloader.nix
       ./firefox.nix
       ./media.nix
+      ./misc.nix
       ./persistence.nix
       ./scripts.nix
       ./sway
