@@ -28,9 +28,9 @@ in
       ./misc.nix
       ./persistence.nix
       ./scripts.nix
-      ./sway
       ./terminal.nix
       ./virt-manager.nix
+      ./wm
     ];
 
     home.packages = with pkgs; [

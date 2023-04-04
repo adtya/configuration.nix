@@ -1,18 +1,4 @@
-{ config
-, lib
-, pkgs
-, ...
-}: {
-  imports = [
-    ./gnome-keyring.nix
-    ./gtk.nix
-    ./kanshi.nix
-    ./dunst.nix
-    ./rofi
-    ./swayidle.nix
-    ./wallpapers.nix
-    ./waybar
-  ];
+{ config, lib, pkgs, ... }: {
 
   home.packages = with pkgs; [
     wl-clipboard
