@@ -4,6 +4,7 @@
     ./downloader.nix
     ./firefox.nix
     ./kitty.nix
+    ./media.nix
     ./nixvim.nix
     ./tmux.nix
     ./tui.nix

@@ -19,9 +19,7 @@ in
       nixvim.homeManagerModules.nixvim
       hyprland.homeManagerModules.default
 
-      ./downloader.nix
       ./gtk.nix
-      ./media.nix
       ./misc.nix
       ./persistence.nix
       ./scripts.nix
