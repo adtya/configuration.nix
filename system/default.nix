@@ -1,10 +1,6 @@
-{ config
-, lib
-, pkgs
-, ...
-}: {
+{ config, lib, pkgs, ... }: {
   imports = [
-    ./hardware.nix
+    ./hardware
     ./packages.nix
     ./persistence.nix
     ./plymouth.nix

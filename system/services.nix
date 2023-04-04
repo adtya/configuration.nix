@@ -24,7 +24,9 @@
     udev.packages = [ pkgs.yubikey-personalization ];
     udisks2.enable = true;
   };
-  security.pam.services.passwd.enableGnomeKeyring = true;
-  security.pam.services.login.enableGnomeKeyring = true;
-  security.pam.services.swaylock = { };
+  security.pam.services = {
+    passwd.enableGnomeKeyring = true;
+    login.enableGnomeKeyring = true;
+    swaylock = { };
+  };
 }

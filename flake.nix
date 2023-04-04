@@ -42,7 +42,7 @@
         Skipper = lib.nixosSystem {
           specialArgs = inputs;
           modules = [
-            ./system/nix.nix
+            ./nix.nix
 
             {
               nixpkgs.overlays = [ (import ./packages) ];
