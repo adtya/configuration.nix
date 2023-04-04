@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./dev.nix
+    ./downloader.nix
     ./firefox.nix
     ./kitty.nix
     ./nixvim.nix
