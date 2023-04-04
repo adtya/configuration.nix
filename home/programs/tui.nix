@@ -1,11 +1,4 @@
-{ config
-, pkgs
-, ...
-}: {
-  imports = [
-    ./kitty.nix
-    ./tmux.nix
-  ];
+{ config, pkgs, ... }: {
 
   xdg.desktopEntries."btop".name = "btop++";
   xdg.desktopEntries."btop".exec = "btop";

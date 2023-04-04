@@ -19,37 +19,15 @@ in
       nixvim.homeManagerModules.nixvim
       hyprland.homeManagerModules.default
 
-      ./dev.nix
       ./downloader.nix
-      ./firefox.nix
-      ./gnome-keyring.nix
       ./gtk.nix
       ./media.nix
       ./misc.nix
       ./persistence.nix
       ./scripts.nix
-      ./terminal.nix
-      ./virt-manager.nix
       ./wm
-    ];
-
-    home.packages = with pkgs; [
-      _1password-gui
-      brightnessctl
-      discord
-      evince
-      gnome.eog
-      gnome.gnome-system-monitor
-      gnome3.gnome-disk-utility
-      libsecret
-      pantheon.elementary-files
-      pavucontrol
-      xdg-utils
-      yubioath-flutter
-      yubikey-manager
-      yubikey-manager-qt
-      yubikey-personalization
-      yubikey-personalization-gui
+      ./programs
+      ./services
     ];
 
     dconf.settings = {
@@ -59,30 +37,6 @@ in
       "org/gtk/settings/file-chooser" = {
         "sort-directories-first" = true;
       };
-    };
-
-    programs = {
-      gpg = {
-        enable = true;
-        settings = {
-          keyserver = "hkps://keys.openpgp.org";
-        };
-        scdaemonSettings = {
-          disable-ccid = true;
-        };
-      };
-      ssh = {
-        enable = true;
-      };
-    };
-
-    services.blueman-applet.enable = true;
-    services.gpg-agent = {
-      enable = true;
-      enableExtraSocket = true;
-      enableScDaemon = true;
-      enableSshSupport = true;
-      pinentryFlavor = "gnome3";
     };
 
     xdg.enable = true;
