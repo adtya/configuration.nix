@@ -3,6 +3,8 @@ self: super: {
   catppuccin-wallpapers = super.callPackage ./catppuccin-wallpapers { };
   dracula-gtk = super.callPackage ./dracula-gtk { };
   newaita-icon-theme = super.callPackage ./newaita-icon-theme { };
+  scripts = super.callPackage ./scripts { };
+
   waybar = super.waybar.overrideAttrs (oldAttrs: {
     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
   });

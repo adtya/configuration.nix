@@ -27,40 +27,6 @@ in
       '';
       executable = true;
     };
-    "scripts/power_menu.sh" = {
-      executable = true;
-      text = ''
-        #!/bin/sh
-
-        set -eu
-
-        chpower() {
-          case "$1" in
-            "")
-            ;;
-            Shutdown)
-              exec systemctl poweroff
-            ;;
-            Reboot)
-              exec systemctl reboot
-            ;;
-            Hibernate)
-              exec systemctl hibernate
-            ;;
-            Logout)
-              swaymsg exit
-            ;;
-            *)
-              ${notify-send} -t 1500 -u low "Invalid Option"
-            ;;
-          esac
-        }
-
-        OPTIONS="Shutdown\nReboot\nHibernate\nLogout"
-
-        chpower "$(printf "%b" "$OPTIONS" | sort | ${dmenu} -p "Power Menu")"
-      '';
-    };
 
     "scripts/volume_up.sh" =
       let
