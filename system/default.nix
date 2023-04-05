@@ -81,8 +81,6 @@
       package = pkgs.sudo.override { withInsults = true; };
       extraConfig = ''
         Defaults lecture="never"
-
-        %wheel ALL=NOPASSWD: ${config.boot.kernelPackages.cpupower}/bin/cpupower
       '';
       wheelNeedsPassword = true;
     };

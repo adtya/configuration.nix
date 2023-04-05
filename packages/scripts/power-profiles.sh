@@ -12,11 +12,9 @@ fi
 case "$1" in
   "toggle")
     if [ "$POWER_PROFILE" == "powersave" ]; then
-      cpupower frequency-set --governor performance > /dev/null
       powerprofilesctl set performance
       POWER_PROFILE="performance"
     elif [ "$POWER_PROFILE" == "performance" ]; then
-      cpupower frequency-set --governor powersave > /dev/null
       powerprofilesctl set power-saver
       POWER_PROFILE="powersave"
     fi
