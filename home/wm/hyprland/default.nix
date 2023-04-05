@@ -44,6 +44,7 @@ in
       bind = SUPER,l,             exec, ${swaylock} -f -i /tmp/lockpaper.jpg
       bind = SUPER_SHIFT,W,       exec, ~/.config/scripts/chpaper.sh
       bind = SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu
+      bind = SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions
 
       bind = SUPER,1,             workspace, 1
       bind = SUPER,2,             workspace, 2
