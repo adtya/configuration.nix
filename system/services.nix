@@ -18,7 +18,6 @@
       jack.enable = true;
       pulse.enable = true;
     };
-    power-profiles-daemon.enable = true;
     resolved.enable = true;
     thermald.enable = true;
     tlp = {
