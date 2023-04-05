@@ -13,7 +13,7 @@
       height = 28;
       modules-left = [ "sway/workspaces" "wlr/workspaces" "sway/window" "hyprland/window" "sway/mode" "hyprland/submap" ];
       modules-center = [ ];
-      modules-right = [ "tray" "custom/power_profile" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock" ];
+      modules-right = [ "tray" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock" ];
       "sway/mode" = {
         "format" = "{}";
       };
@@ -89,17 +89,6 @@
       "tray" = {
         "spacing" = 4;
       };
-      "custom/power_profile" =
-        let
-          script = "${config.xdg.configHome}/scripts/power_profile.sh";
-        in
-        {
-          exec = "${script} icon";
-          on-click = "${script} toggle";
-          format = "{}";
-          tooltip = false;
-          interval = "10";
-        };
     };
   };
 }
