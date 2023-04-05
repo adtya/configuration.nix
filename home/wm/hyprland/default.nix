@@ -8,6 +8,7 @@ let
   swaylock = "${pkgs.swaylock}/bin/swaylock";
   tmux = "${pkgs.tmux}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
+  change-wallpaper = "${pkgs.scripts}/bin/chpaper ${pkgs.catppuccin-wallpapers}/share/wallpapers";
 in
 {
   wayland.windowManager.hyprland = {
@@ -28,6 +29,7 @@ in
       }
 
       exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
+      exec-once = ${change-wallpaper}
 
       bindm = SUPER,mouse:272,           movewindow
       bindm = SUPER_SHIFT,mouse:272,     resizewindow
@@ -42,7 +44,7 @@ in
       bind = SUPER_SHIFT,Return,  exec, ${kitty}
       bind = SUPER,d,             exec, ${rofi} -show drun
       bind = SUPER,l,             exec, ${swaylock} -f -i /tmp/lockpaper.jpg
-      bind = SUPER_SHIFT,W,       exec, ${pkgs.scripts}/bin/chpaper ${pkgs.catppuccin-wallpapers}/share/wallpapers
+      bind = SUPER_SHIFT,W,       exec, ${change-wallpaper}
       bind = SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu
       bind = SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions
 
