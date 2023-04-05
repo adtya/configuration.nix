@@ -1,8 +1,4 @@
 { osConfig, pkgs, ... }:
-let
-  notify-send = "${pkgs.libnotify}/bin/notify-send";
-  dmenu = "${pkgs.rofi-wayland}/bin/rofi -dmenu";
-in
 {
   xdg.configFile = {
     "scripts/chpaper.sh" = {
@@ -27,27 +23,5 @@ in
       '';
       executable = true;
     };
-
-    "scripts/tmux_sessions.sh" =
-      let
-        kitty = "${pkgs.kitty}/bin/kitty";
-        tmux = "${pkgs.tmux}/bin/tmux";
-      in
-      {
-        executable = true;
-        text = ''
-          #!/bin/sh
-
-          set -eu
-
-          SESSION="$(${tmux} list-sessions -F "(#{session_attached}) #S [#{pane_current_command} in #{pane_current_path}] #{pane_title}" | sort | ${dmenu} -p "Running TMUX Sessions" | awk '{print $2}')"
-          case "$SESSION" in
-            "")
-              ;;
-            *)
-              ${kitty} ${tmux} -u attach-session -dEt "$SESSION"
-              ;;
-          esac'';
-      };
   };
 }
