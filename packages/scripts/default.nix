@@ -1,4 +1,4 @@
-{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland, tmux, kitty, iagemagick, swaybg }:
+{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland, tmux, kitty, imagemagick, swaybg }:
 
 stdenvNoCC.mkDerivation {
   pname = "scripts";
