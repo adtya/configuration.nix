@@ -42,7 +42,7 @@ in
       bind = SUPER_SHIFT,Return,  exec, ${kitty}
       bind = SUPER,d,             exec, ${rofi} -show drun
       bind = SUPER,l,             exec, ${swaylock} -f -i /tmp/lockpaper.jpg
-      bind = SUPER_SHIFT,W,       exec, ~/.config/scripts/chpaper.sh
+      bind = SUPER_SHIFT,W,       exec, ${pkgs.scripts}/bin/chpaper ${pkgs.catppuccin-wallpapers}/share/wallpapers
       bind = SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu
       bind = SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions
 

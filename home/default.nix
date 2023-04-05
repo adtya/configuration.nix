@@ -20,7 +20,6 @@ in
       hyprland.homeManagerModules.default
 
       ./gtk.nix
-      ./misc.nix
       ./persistence.nix
       ./wm
       ./programs
