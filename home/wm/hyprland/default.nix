@@ -28,11 +28,18 @@ in {
 
       exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
 
+      bindm = SUPER,mouse:272,           movewindow
+      bindm = SUPER_SHIFT,mouse:272,     resizewindow
+
+      bind = SUPER_SHIFT,Q,       killactive,
+      bind = SUPER_SHIFT,space,   togglefloating,active
+      bind = SUPER_SHIFT,F,       fullscreen,0
+
+      bind = SUPER_SHIFT,C,       exec, ${hyprctl} reload
+      bind = SUPER_SHIFT,C,       exec, systemctl --user restart waybar.service
       bind = SUPER,Return,        exec, ${kitty} ${tmux} new
       bind = SUPER_SHIFT,Return,  exec, ${kitty}
       bind = SUPER,d,             exec, ${rofi} -show drun
-      bind = SUPER_SHIFT,C,       exec, ${hyprctl} reload
-      bind = SUPER_SHIFT,Q,       killactive,
       bind = SUPER,l,             exec, ${swaylock} -f -i /tmp/lockpaper.jpg
       bind = SUPER_SHIFT,W,       exec, ~/.config/scripts/chpaper.sh
 
