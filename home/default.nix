@@ -22,7 +22,6 @@ in
       ./gtk.nix
       ./misc.nix
       ./persistence.nix
-      ./scripts.nix
       ./wm
       ./programs
       ./services

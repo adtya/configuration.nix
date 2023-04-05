@@ -1,4 +1,4 @@
-{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland, tmux, kitty }:
+{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland, tmux, kitty, iagemagick, swaybg }:
 
 stdenvNoCC.mkDerivation {
   pname = "scripts";
@@ -17,5 +17,9 @@ stdenvNoCC.mkDerivation {
     cp tmux-sessions.sh $out/bin/tmux-sessions
     chmod +x $out/bin/tmux-sessions
     wrapProgram $out/bin/tmux-sessions --prefix PATH : ${lib.makeBinPath [ tmux kitty rofi-wayland ]}
+
+    cp chpaper.sh $out/bin/chpaper
+    chmod +x $out/bin/chpaper
+    wrapProgram $out/bin/chpaper --prefix PATH : ${lib.makeBinPath [ imagemagick swaybg ]}
   '';
 }
