@@ -1,4 +1,4 @@
-{ lib, stdenvNoCC, makeWrapper, libnotify }:
+{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland }:
 stdenvNoCC.mkDerivation {
   pname = "scripts";
   version = "1.0";
@@ -11,6 +11,6 @@ stdenvNoCC.mkDerivation {
     mkdir -p $out/bin
     cp power-menu.sh $out/bin/power-menu
     chmod +x $out/bin/power-menu
-    wrapProgram $out/bin/power-menu --prefix PATH : ${lib.makeBinPath [ libnotify ]}
+    wrapProgram $out/bin/power-menu --prefix PATH : ${lib.makeBinPath [ libnotify rofi-wayland ]}
   '';
 }

@@ -23,5 +23,5 @@ chpower() {
 
 OPTIONS="Shutdown\nReboot\nHibernate"
 
-chpower "$(printf "%b" "$OPTIONS" | sort | ${dmenu} -p "Power Menu")"
+chpower "$(printf "%b" "$OPTIONS" | sort | rofi -dmenu -p "Power Menu")"
 
