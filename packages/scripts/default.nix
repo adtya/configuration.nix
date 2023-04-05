@@ -1,4 +1,4 @@
-{ lib, stdenvNoCC, makeWrapperm, libnotify }:
+{ lib, stdenvNoCC, makeWrapper, libnotify }:
 stdenvNoCC.mkDerivation {
   pname = "scripts";
   version = "1.0";

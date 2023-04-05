@@ -8,7 +8,8 @@ let
   swaylock = "${pkgs.swaylock}/bin/swaylock";
   tmux = "${pkgs.tmux}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
-in {
+in
+{
   wayland.windowManager.hyprland = {
     enable = true;
     systemdIntegration = true;
@@ -42,6 +43,7 @@ in {
       bind = SUPER,d,             exec, ${rofi} -show drun
       bind = SUPER,l,             exec, ${swaylock} -f -i /tmp/lockpaper.jpg
       bind = SUPER_SHIFT,W,       exec, ~/.config/scripts/chpaper.sh
+      bind = SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu
 
       bind = SUPER,1,             workspace, 1
       bind = SUPER,2,             workspace, 2
