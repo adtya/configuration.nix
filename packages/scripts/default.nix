@@ -1,10 +1,11 @@
-{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland, power-profiles-daemon, cpupower }:
+{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland, power-profiles-daemon }:
+
 stdenvNoCC.mkDerivation {
   pname = "scripts";
   src = ./.;
 
   nativeBuildInputs = [ makeWrapper ];
-  buildInputs = [ libnotify rofi-wayland power-profiles-daemon cpupower ];
+  buildInputs = [ libnotify rofi-wayland power-profiles-daemon ];
 
   installPhase = ''
     mkdir -p $out/bin
@@ -14,6 +15,6 @@ stdenvNoCC.mkDerivation {
 
     cp power-profiles.sh $out/bin/power-profiles
     chmod +x $out/bin/power-profiles
-    wrapProgram $out/bin/power-profiles --prefix PATH : ${lib.makeBinPath [ libnotify power-profiles-daemon cpupower ]}
+    wrapProgram $out/bin/power-profiles --prefix PATH : ${lib.makeBinPath [ libnotify power-profiles-daemon ]}
   '';
 }
