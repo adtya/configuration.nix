@@ -124,7 +124,6 @@
       };
       treesitter-refactor = {
         enable = true;
-        highlightCurrentScope.enable = true;
       };
       telescope = {
         enable = true;
