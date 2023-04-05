@@ -65,51 +65,5 @@ in
               ;;
           esac'';
       };
-    "scripts/power_profile.sh" =
-      let
-        sudo = "/run/wrappers/bin/sudo";
-        cpupower = "${osConfig.boot.kernelPackages.cpupower}/bin/cpupower";
-        powerprofilesctl = "${pkgs.power-profiles-daemon}/bin/powerprofilesctl";
-      in
-      {
-        executable = true;
-        text = ''
-          #!/bin/sh
-
-          set -eu
-
-          POWER_PROFILE_FILE="$HOME/.cache/power_profile"
-          POWER_PROFILE="powersave"
-
-          if [ -f "$POWER_PROFILE_FILE" ]; then
-            POWER_PROFILE="$(<$POWER_PROFILE_FILE)"
-          fi
-
-          case "$1" in
-            "toggle")
-              if [ "$POWER_PROFILE" == "powersave" ]; then
-                ${sudo} ${cpupower} frequency-set --governor performance > /dev/null
-                ${powerprofilesctl} set performance
-                POWER_PROFILE="performance"
-              elif [ "$POWER_PROFILE" == "performance" ]; then
-                ${sudo} ${cpupower} frequency-set --governor powersave > /dev/null
-                ${powerprofilesctl} set power-saver
-                POWER_PROFILE="powersave"
-              fi
-              echo $POWER_PROFILE > $POWER_PROFILE_FILE
-              ${notify-send} -u normal "Power Profile" "Switched to $POWER_PROFILE mode."
-            ;;
-            "icon")
-              if [ "$POWER_PROFILE" == "powersave" ]; then
-                echo "󰌪"
-              elif [ "$POWER_PROFILE" == "performance" ]; then
-                echo "󰓅"
-              fi
-            ;;
-            *)
-            ;;
-          esac
-        '';
-      };
   };
 }
