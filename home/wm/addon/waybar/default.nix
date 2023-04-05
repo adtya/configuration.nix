@@ -11,7 +11,7 @@
       layer = "top";
       position = "top";
       height = 28;
-      modules-left = [ "sway/workspaces" "sway/window" "sway/mode" ];
+      modules-left = [ "sway/workspaces" "wlr/workspaces" "sway/window" "hyprland/window" "sway/mode" "hyprland/submap" ];
       modules-center = [ ];
       modules-right = [ "tray" "custom/power_profile" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock" ];
       "sway/mode" = {

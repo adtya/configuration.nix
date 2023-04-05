@@ -16,7 +16,7 @@
       }
     ];
     extraConfig = ''
-      set -g update-environment 'DISPLAY TERM SWAYSOCK WAYLAND_DISPLAY'
+      set -g update-environment 'DISPLAY TERM SWAYSOCK WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE'
       if "[[ ''${TERM} =~ 256color || ''${TERM} == xterm-kitty || ''${TERM} == fbterm ]]" 'set -g default-terminal tmux-256color'
       set -g allow-rename on
       set -g set-titles on
