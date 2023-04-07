@@ -47,6 +47,7 @@ in
 
       bind = SUPER_SHIFT,C,       exec, ${hyprctl} reload
       bind = SUPER_SHIFT,C,       exec, systemctl --user restart waybar.service
+      bind = SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service
       bind = SUPER,Return,        exec, ${kitty} ${tmux} new
       bind = SUPER_SHIFT,Return,  exec, ${kitty}
       bind = SUPER,d,             exec, ${rofi} -show drun
