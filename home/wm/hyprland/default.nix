@@ -28,6 +28,9 @@ in
         col.group_border = rgba(282a36dd)
         col.group_border_active = rgb(bd93f9)
 
+        border_size = 1
+        gaps_in = 2
+        gaps_out = 4
       }
 
       decoration {
