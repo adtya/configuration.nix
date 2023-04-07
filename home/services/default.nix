@@ -4,7 +4,6 @@
     ./spotifyd.nix
   ];
   services = {
-    blueman-applet.enable = true;
     gnome-keyring.enable = true;
   };
 }
