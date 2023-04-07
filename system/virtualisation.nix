@@ -12,5 +12,7 @@
         packages = [ pkgs.OVMFFull.fd ];
       };
     };
+    lxc.enable = true;
+    waydroid.enable = true;
   };
 }
