@@ -22,6 +22,23 @@ in
       monitor = eDP-1,  1920x1080,  0x0,   1
       monitor = ,       preferred,  auto,  1
 
+      general {
+        col.active_border = rgb(bd93f9)
+        col.inactive_border = rgba(44475aaa)
+        col.group_border = rgba(282a36dd)
+        col.group_border_active = rgb(bd93f9)
+
+      }
+
+      decoration {
+        col.shadow = rgba(1E202966)
+        drop_shadow = yes
+        shadow_range = 60
+        shadow_offset = 1 2
+        shadow_render_power = 3
+        shadow_scale = 0.97
+      }
+
       input {
         touchpad {
           disable_while_typing = true
@@ -31,6 +48,7 @@ in
         }
       }
 
+      windowrulev2 = bordercolor rgb(ff5555),xwayland:1 
       windowrulev2 = workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$
 
       windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
