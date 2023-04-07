@@ -45,7 +45,7 @@
             ./nix.nix
 
             {
-              nixpkgs.overlays = [ (import ./packages) ];
+              nixpkgs.overlays = [ (import ./packages) hyprland.overlays.default ];
               system.configurationRevision = lib.mkIf (self ? rev) self.rev;
             }
 
