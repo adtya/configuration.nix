@@ -3,7 +3,7 @@ let
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   grim = "${pkgs.grim}/bin/grim";
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
-  kitty = "${pkgs.kitty}/bin/kitty";
+  kitty = "${config.programs.kitty.package}/bin/kitty";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   rofi = "${config.programs.rofi.package}/bin/rofi";
   slurp = "${pkgs.slurp}/bin/slurp";
