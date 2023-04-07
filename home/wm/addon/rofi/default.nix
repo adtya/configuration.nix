@@ -1,12 +1,4 @@
 { pkgs, ... }: {
-  xdg.desktopEntries."rofi".name = "Rofi";
-  xdg.desktopEntries."rofi".exec = "rofi -show";
-  xdg.desktopEntries."rofi".noDisplay = true;
-
-  xdg.desktopEntries."rofi-theme-selector".name = "Rofi Theme Selector";
-  xdg.desktopEntries."rofi-theme-selector".exec = "rofi-theme-selector";
-  xdg.desktopEntries."rofi-theme-selector".noDisplay = true;
-
   programs.rofi = {
     enable = true;
     cycle = false;
@@ -17,4 +9,17 @@
     };
     theme = ./theme.rasi;
   };
+  xdg.desktopEntries = {
+    "rofi" = {
+      name = "Rofi";
+      exec = "rofi -show";
+      noDisplay = true;
+    };
+    "rofi-theme-selector" = {
+      name = "Rofi Theme Selector";
+      exec = "rofi-theme-selector";
+      noDisplay = true;
+    };
+  };
+
 }
