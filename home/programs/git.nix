@@ -1,0 +1,23 @@
+{ ... }:
+let
+  user = import ../../users/user.nix;
+in
+{
+  programs.git = {
+    enable = true;
+    diff-so-fancy = {
+      enable = true;
+    };
+    userEmail = user.primary.emailAddress;
+    userName = user.primary.realName;
+    signing = {
+      key = user.primary.signingKey;
+      signByDefault = true;
+    };
+    extraConfig = {
+      init.defaultBranch = "main";
+      push.autoSetupRemote = true;
+    };
+    ignores = [ "/.nix" "/.direnv" ];
+  };
+}
