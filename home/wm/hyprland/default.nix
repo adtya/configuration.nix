@@ -31,6 +31,8 @@ in
         border_size = 1
         gaps_in = 2
         gaps_out = 4
+
+        layout = master
       }
 
       decoration {
@@ -59,11 +61,17 @@ in
         disable_splash_rendering = true
       }
 
+      master {
+        new_is_master = true
+        new_on_top = true
+      }
+
       animation = windows,1,5,default,slide
       animation = workspaces,1,5,default,slide
       animation = fade,1,5,default
 
       windowrulev2 = bordercolor rgb(ff5555),xwayland:1 
+
       windowrulev2 = workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$
 
       windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
@@ -119,7 +127,7 @@ in
       bind = SUPER,Return,        exec, ${kitty} ${tmux} new
       bind = SUPER_SHIFT,Return,  exec, ${kitty}
       bind = SUPER,d,             exec, ${rofi} -show drun
-      bind = SUPER,l,             exec, ${swaylock} -f -i /tmp/lockpaper.jpg
+      bind = SUPER,escape,             exec, ${swaylock} -f -i /tmp/lockpaper.jpg
       bind = SUPER_SHIFT,W,       exec, ${change-wallpaper}
       bind = SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu
       bind = SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions
@@ -146,6 +154,11 @@ in
       bind = SUPER_SHIFT,7,       movetoworkspace, 7
       bind = SUPER_SHIFT,8,       movetoworkspace, 8
       bind = SUPER_SHIFT,9,       movetoworkspace, 9
+
+      bind = SUPER,l,             layoutmsg,cyclenext
+      bind = SUPER,h,             layoutmsg,cycleprev
+      bind = SUPER,m,             layoutmsg,focusmaster
+      bind = SUPER_SHIFT,m,       layoutmsg,swapwithmaster
 
       binde = ,XF86MonBrightnessUp,   exec, ${brightnessctl} set +2%
       binde = ,XF86MonBrightnessDown, exec, ${brightnessctl} set 2%-
