@@ -21,7 +21,7 @@
     };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote";
+      url = "github:adtya/lanzaboote/build_fix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
