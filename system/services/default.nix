@@ -19,9 +19,4 @@
     thermald.enable = true;
     udisks2.enable = true;
   };
-  security.pam.services = {
-    passwd.enableGnomeKeyring = true;
-    login.enableGnomeKeyring = true;
-    swaylock = { };
-  };
 }

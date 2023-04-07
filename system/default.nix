@@ -6,6 +6,7 @@
     ./persistence.nix
     ./plymouth.nix
     ./secureboot.nix
+    ./security.nix
     ./virtualisation.nix
   ];
 
@@ -66,34 +67,6 @@
     wireless.iwd.enable = true;
   };
 
-  security = {
-    apparmor = {
-      enable = true;
-      enableCache = true;
-    };
-    audit.enable = true;
-    auditd.enable = true;
-    pam.u2f = {
-      enable = true;
-      authFile = "/etc/u2f_keys";
-      cue = true;
-    };
-    polkit.enable = true;
-    rtkit.enable = true;
-    tpm2 = {
-      enable = true;
-      abrmd.enable = true;
-      pkcs11.enable = true;
-      tctiEnvironment.enable = true;
-    };
-    sudo = {
-      package = pkgs.sudo.override { withInsults = true; };
-      extraConfig = ''
-        Defaults lecture="never"
-      '';
-      wheelNeedsPassword = true;
-    };
-  };
 
   sound.enable = true;
   time.timeZone = "Asia/Kolkata";
