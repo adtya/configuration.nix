@@ -9,13 +9,6 @@
     ./virtualisation.nix
   ];
 
-  boot = {
-    initrd.systemd.enable = true;
-    kernel.sysctl = {
-      "vm.swappiness" = 0;
-    };
-  };
-
   console.useXkbConfig = true;
 
   environment.sessionVariables = {
