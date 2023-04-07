@@ -41,8 +41,8 @@ in
 
       input {
         touchpad {
+          clickfinger_behavior = true
           disable_while_typing = true
-          middle_button_emulation = true
           natural_scroll = true
           tap-to-click = true
         }
