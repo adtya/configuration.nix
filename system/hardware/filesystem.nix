@@ -1,5 +1,4 @@
 { ... }: {
-  boot.tmpOnTmpfs = true;
   fileSystems = {
     "/" = {
       device = "tmpfs";
@@ -17,6 +16,12 @@
       device = "/dev/vg0/system";
       fsType = "btrfs";
       options = [ "subvol=/@persist" "compress-force=zstd" ];
+      neededForBoot = true;
+    };
+    "/tmp" = {
+      device = "/dev/vg0/system";
+      fsType = "btrfs";
+      options = [ "subvol=/@tmp" "compress-force=zstd" "nosuid" "nodev" ];
       neededForBoot = true;
     };
     "/mnt/system" = {
