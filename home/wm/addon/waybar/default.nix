@@ -2,6 +2,9 @@
   xdg.configFile."waybar/colors.css".source = ./colors.css;
   programs.waybar = {
     enable = true;
+    package = pkgs.waybar.overrideAttrs (oldAttrs: {
+      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    });
     systemd.enable = true;
     style = ./style.css;
     settings = {
