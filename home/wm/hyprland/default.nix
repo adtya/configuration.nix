@@ -31,6 +31,9 @@ in
         }
       }
 
+      windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
+      windowrulev2 = float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
+
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
       exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
       exec-once = ${change-wallpaper}
