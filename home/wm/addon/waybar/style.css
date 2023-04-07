@@ -40,6 +40,10 @@ window#waybar.solo {
     color: @green;
 }
 
+#workspaces button.active {
+    color: @green;
+}
+
 #workspaces button.urgent {
     background: @background;
     color: @red;
@@ -57,9 +61,9 @@ window#waybar.solo {
 #pulseaudio,
 #tray,
 #mode,
+#submap,
 #idle_inhibitor,
-#bluetooth,
-#custom-power_profile {
+#bluetooth {
     padding: 0 10px;
     color: @foreground;
     background-color: @background;
