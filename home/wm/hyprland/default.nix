@@ -40,6 +40,9 @@ in
         shadow_offset = 1 2
         shadow_render_power = 3
         shadow_scale = 0.97
+
+        rounding = 5
+        dim_around = 0.6
       }
 
       input {
