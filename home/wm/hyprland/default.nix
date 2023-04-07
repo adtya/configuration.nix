@@ -48,6 +48,11 @@ in
         }
       }
 
+      misc {
+        disable_hyprland_logo = true
+        disable_splash_rendering = true
+      }
+
       windowrulev2 = bordercolor rgb(ff5555),xwayland:1 
       windowrulev2 = workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$
 
