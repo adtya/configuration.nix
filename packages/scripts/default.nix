@@ -1,4 +1,4 @@
-{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland, tmux, kitty, imagemagick, swaybg }:
+{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland, tmux, kitty, imagemagick, swaybg, sway, hyprland }:
 
 stdenvNoCC.mkDerivation {
   pname = "scripts";
@@ -12,7 +12,7 @@ stdenvNoCC.mkDerivation {
     mkdir -p $out/bin
     cp power-menu.sh $out/bin/power-menu
     chmod +x $out/bin/power-menu
-    wrapProgram $out/bin/power-menu --prefix PATH : ${lib.makeBinPath [ libnotify rofi-wayland ]}
+    wrapProgram $out/bin/power-menu --prefix PATH : ${lib.makeBinPath [ libnotify rofi-wayland sway hyprland ]}
 
     cp tmux-sessions.sh $out/bin/tmux-sessions
     chmod +x $out/bin/tmux-sessions
