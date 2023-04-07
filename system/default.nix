@@ -39,6 +39,8 @@
     supportedLocales = [ "en_US.UTF-8/UTF-8" ];
   };
 
+  location.provider = "geoclue2";
+
   networking = {
     hostName = "Skipper";
     networkmanager = {

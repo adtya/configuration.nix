@@ -8,6 +8,7 @@
     };
     fstrim.enable = true;
     fwupd.enable = true;
+    geoclue2.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     lvm.dmeventd.enable = true;
