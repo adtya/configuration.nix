@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }: {
   imports = [
     ./hardware
-    ./packages.nix
+    ./programs
     ./persistence.nix
     ./plymouth.nix
     ./secureboot.nix
