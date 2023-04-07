@@ -9,10 +9,24 @@
     ./virtualisation.nix
   ];
 
+  boot.cleanTmpDir = true;
   console.useXkbConfig = true;
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+  };
+
+  fonts = {
+    enableDefaultFonts = true;
+    fontDir.enable = true;
+    fonts = with pkgs; [
+      cantarell-fonts
+      liberation_ttf
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+    ];
   };
 
   i18n = {
@@ -82,14 +96,11 @@
   };
 
   sound.enable = true;
-
   time.timeZone = "Asia/Kolkata";
 
-  xdg = {
-    portal = {
+  xdg.portal = {
       enable = true;
       extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-hyprland ];
-    };
   };
 
   system.stateVersion = "23.05";

@@ -1,18 +1,5 @@
 { pkgs, ... }: {
-  fonts = {
-    enableDefaultFonts = true;
-    fontDir.enable = true;
-    fonts = with pkgs; [
-      cantarell-fonts
-      liberation_ttf
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-    ];
-  };
 
-  hardware.gpgSmartcards.enable = true;
   programs = {
     dconf.enable = true;
     git.enable = true;
