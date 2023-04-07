@@ -69,6 +69,8 @@ in
 
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
       exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
+      exec-once = systemctl --user start kanshi.service
+      exec-once = systemctl --user start swayidle.service
       exec-once = ${change-wallpaper}
 
       bindm = SUPER,mouse:272,           movewindow
