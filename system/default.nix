@@ -2,10 +2,10 @@
   imports = [
     ./hardware
     ./programs
+    ./services
     ./persistence.nix
     ./plymouth.nix
     ./secureboot.nix
-    ./services.nix
     ./virtualisation.nix
   ];
 
@@ -99,8 +99,8 @@
   time.timeZone = "Asia/Kolkata";
 
   xdg.portal = {
-      enable = true;
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-hyprland ];
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-hyprland ];
   };
 
   system.stateVersion = "23.05";
