@@ -5,7 +5,7 @@ let
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
   kitty = "${pkgs.kitty}/bin/kitty";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
-  rofi = "${pkgs.rofi-wayland}/bin/rofi";
+  rofi = "${config.programs.rofi.package}/bin/rofi";
   slurp = "${pkgs.slurp}/bin/slurp";
   swaylock = "${pkgs.swaylock}/bin/swaylock";
   tmux = "${pkgs.tmux}/bin/tmux";

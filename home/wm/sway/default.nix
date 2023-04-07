@@ -77,7 +77,7 @@
     lib.mkOptionDefault {
       "${modifier}+Return" = "exec ${pkgs.kitty}/bin/kitty ${pkgs.tmux}/bin/tmux new";
       "${modifier}+Shift+Return" = "exec ${pkgs.kitty}/bin/kitty";
-      "${modifier}+d" = "exec ${pkgs.rofi-wayland}/bin/rofi -show drun";
+      "${modifier}+d" = "exec ${config.programs.rofi.package}/bin/rofi -show drun";
       "${modifier}+Shift+c" = "reload";
       "${modifier}+l" = "exec ${pkgs.swaylock}/bin/swaylock -f -i /tmp/lockpaper.jpg";
       "${modifier}+Shift+w" = "exec ~/.config/scripts/chpaper.sh";
