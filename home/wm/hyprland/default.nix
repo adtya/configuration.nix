@@ -59,6 +59,10 @@ in
         disable_splash_rendering = true
       }
 
+      animation = windows,1,5,default,slide
+      animation = workspaces,1,5,default,slide
+      animation = fade,1,5,default
+
       windowrulev2 = bordercolor rgb(ff5555),xwayland:1 
       windowrulev2 = workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$
 
