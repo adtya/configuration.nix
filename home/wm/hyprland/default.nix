@@ -33,6 +33,20 @@ in
 
       windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
       windowrulev2 = float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
+      windowrulev2 = move 95% 50%,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
+
+      windowrulev2 = float,class:^(pavucontrol)$,title:^(Volume Control)$
+      windowrulev2 = size 50% 50%,class:^(pavucontrol)$,title:^(Volume Control)$
+      windowrulev2 = center,class:^(pavucontrol)$,title:^(Volume Control)$
+
+      windowrulev2 = float,class:^(.blueman-manager-wrapped)$
+      windowrulev2 = size 50% 50%,class:^(.blueman-manager-wrapped)$
+      windowrulev2 = center,class:^(.blueman-manager-wrapped)$
+
+      windowrulev2 = float,class:^(mpv)$
+      windowrulev2 = size 90% 90%,class:^(mpv)$
+      windowrulev2 = center,class:^(mpv)$
+      windowrulev2 = dimaround,class:^(mpv)$
 
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
       exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
