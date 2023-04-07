@@ -1,3 +1,9 @@
 { ... }: {
-  imports = [ ./rofi ./waybar ./dunst.nix ./kanshi.nix ./swayidle.nix ];
+  imports = [
+    ./rofi
+    ./waybar
+    ./dunst.nix
+    ./kanshi.nix
+    ./swayidle.nix
+  ];
 }
