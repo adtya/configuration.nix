@@ -31,6 +31,8 @@ in
         }
       }
 
+      windowrulev2 = workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$
+
       windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
       windowrulev2 = float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
       windowrulev2 = move 95% 50%,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
@@ -47,6 +49,23 @@ in
       windowrulev2 = size 90% 90%,class:^(mpv)$
       windowrulev2 = center,class:^(mpv)$
       windowrulev2 = dimaround,class:^(mpv)$
+
+      windowrulev2 = float,class:^(eog)$
+      windowrulev2 = size 90% 90%,class:^(mpv)$
+      windowrulev2 = center,class:^(eog)$
+      windowrulev2 = dimaround,class:^(eog)$
+
+      windowrulev2 = float,class:^(io.elementary.files)$
+      windowrulev2 = center,class:^(io.elementary.files)$
+      windowrulev2 = size 60% 50%,class:^(io.elementary.files)$
+
+      windowrulev2 = float,class:^(gnome-system-monitor)$
+      windowrulev2 = center,class:^(gnome-system-monitor)$
+      windowrulev2 = size 60% 50%,class:^(gnome-system-monitor)$
+
+      windowrulev2 = float,class:^(virt-manager)$
+      windowrulev2 = size 20% 50%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$
+      windowrulev2 = move 5%% 10%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$
 
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
       exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
