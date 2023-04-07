@@ -1,13 +1,16 @@
 { config, pkgs, ... }:
 let
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  grim = "${pkgs.grim}/bin/grim";
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
   kitty = "${pkgs.kitty}/bin/kitty";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   rofi = "${pkgs.rofi-wayland}/bin/rofi";
+  slurp = "${pkgs.slurp}/bin/slurp";
   swaylock = "${pkgs.swaylock}/bin/swaylock";
   tmux = "${pkgs.tmux}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
+  xdg-user-dir = "${pkgs.xdg-user-dirs}/bin/xdg-user-dir";
   change-wallpaper = "${pkgs.scripts}/bin/chpaper ${pkgs.catppuccin-wallpapers}/share/wallpapers";
 in
 {
@@ -47,6 +50,9 @@ in
       bind = SUPER_SHIFT,W,       exec, ${change-wallpaper}
       bind = SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu
       bind = SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions
+
+      bindr = ,print,              exec, ${grim} "''$(${xdg-user-dir} PICTURES)/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
+      bindr = SHIFT,print,         exec, ${grim} -g "''$(${slurp})" "''$(${xdg-user-dir} PICTURES)/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
 
       bind = SUPER,1,             workspace, 1
       bind = SUPER,2,             workspace, 2
