@@ -12,7 +12,7 @@ in
       hashedPassword = user.primary.hashedPassword;
       description = user.primary.realName;
       isNormalUser = true;
-      extraGroups = [ "docker" "libvirtd" "lxd" "networkmanager" "tss" "wheel" ];
+      extraGroups = [ "docker" "libvirtd" "networkmanager" "tss" "wheel" ];
       shell = pkgs.zsh;
     };
   };

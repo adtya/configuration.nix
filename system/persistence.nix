@@ -13,7 +13,6 @@
       "/var/lib/NetworkManager"
       "/var/lib/nixos"
       "/var/lib/systemd"
-      "/var/lib/waydroid"
       "/var/log"
     ];
     files = [
