@@ -2,10 +2,6 @@
   services.tlp = {
     enable = true;
     settings = {
-      SOUND_POWER_SAVE_ON_AC = 0;
-      SOUND_POWER_SAVE_ON_BAT = 1;
-      SOUND_POWER_SAVE_CONTROLLER = "Y";
-
       DISK_DEVICES = "nvme0n1";
 
       WIFI_PWR_ON_AC = "off";
@@ -24,12 +20,6 @@
 
       CPU_BOOST_ON_AC = 1;
       CPU_BOOST_ON_BAT = 0;
-
-      CPU_HWP_DYN_BOOST_ON_AC = 1;
-      CPU_HWP_DYN_BOOST_ON_BAT = 0;
-
-      SCHED_POWERSAVE_ON_AC = 0;
-      SCHED_POWERSAVE_ON_BAT = 1;
     };
   };
 }
