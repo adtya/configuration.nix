@@ -110,8 +110,6 @@ in
 
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
       exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
-      exec-once = systemctl --user start kanshi.service
-      exec-once = systemctl --user start swayidle.service
       exec-once = ${change-wallpaper}
 
       bindm = SUPER,mouse:272,           movewindow
@@ -122,8 +120,10 @@ in
       bind = SUPER_SHIFT,F,       fullscreen,0
 
       bind = SUPER_SHIFT,C,       exec, ${hyprctl} reload
-      bind = SUPER_SHIFT,C,       exec, systemctl --user restart waybar.service
+      bind = SUPER_SHIFT,C,       exec, systemctl --user restart swayidle.service
       bind = SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service
+      bind = SUPER_SHIFT,C,       exec, systemctl --user reload waybar.service
+
       bind = SUPER,Return,        exec, ${kitty} ${tmux} new
       bind = SUPER_SHIFT,Return,  exec, ${kitty}
       bind = SUPER,d,             exec, ${rofi} -show drun
