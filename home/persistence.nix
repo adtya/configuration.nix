@@ -26,6 +26,8 @@
       "Others"
       "Pictures"
       "Projects"
+      "Public"
+      "Templates"
       "Videos"
     ];
 

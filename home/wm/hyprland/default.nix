@@ -102,9 +102,9 @@ in
       windowrulev2 = center,class:^(eog)$
       windowrulev2 = dimaround,class:^(eog)$
 
-      windowrulev2 = float,class:^(io.elementary.files)$
-      windowrulev2 = center,class:^(io.elementary.files)$
-      windowrulev2 = size 60% 50%,class:^(io.elementary.files)$
+      windowrulev2 = float,class:^(org.gnome.Nautilus)$
+      windowrulev2 = center,class:^(org.gnome.Nautilus)$
+      windowrulev2 = size 60% 60%,class:^(org.gnome.Nautilus)$
 
       windowrulev2 = float,class:^(gnome-system-monitor)$
       windowrulev2 = center,class:^(gnome-system-monitor)$
