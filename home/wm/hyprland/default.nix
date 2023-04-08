@@ -91,8 +91,14 @@ in
       windowrulev2 = center,class:^(mpv)$
       windowrulev2 = dimaround,class:^(mpv)$
 
+      windowrulev2 = float,class:^(io.github.celluloid_player.Celluloid)$
+      windowrulev2 = size 90% 90%,class:^(io.github.celluloid_player.Celluloid)$
+      windowrulev2 = center,class:^(io.github.celluloid_player.Celluloid)$
+      windowrulev2 = dimaround,class:^(io.github.celluloid_player.Celluloid)$
+
       windowrulev2 = float,class:^(eog)$
-      windowrulev2 = size 90% 90%,class:^(mpv)$
+      windowrulev2 = float,class:^(eog)$
+      windowrulev2 = size 90% 90%,class:^(eog)$
       windowrulev2 = center,class:^(eog)$
       windowrulev2 = dimaround,class:^(eog)$
 
@@ -107,6 +113,12 @@ in
       windowrulev2 = float,class:^(virt-manager)$
       windowrulev2 = size 20% 50%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$
       windowrulev2 = move 5%% 10%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$
+
+      windowrulev2 = float,class:^(.yubioath-flutter-wrapped)$
+      windowrulev2 = center,class:^(.yubioath-flutter-wrapped)$
+
+      windowrulev2 = float,class:^(yubico.org.)$
+      windowrulev2 = center,class:^(yubico.org.)$
 
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
       exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
