@@ -1,5 +1,4 @@
 { config, pkgs, ... }: {
-  xdg.configFile."waybar/colors.css".source = ./colors.css;
   programs.waybar = {
     enable = true;
     package = pkgs.waybar.overrideAttrs (oldAttrs: {
