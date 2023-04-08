@@ -66,9 +66,11 @@ in
         new_on_top = true
       }
 
-      animation = windows,1,5,default,slide
-      animation = workspaces,1,5,default,slide
-      animation = fade,1,5,default
+      animation = windows,1,3,default,slide
+      animation = fade,1,3,default
+      animation = border,1,3,default
+      animation = borderangle,1,3,default
+      animation = workspaces,1,3,default,slide
 
       windowrulev2 = bordercolor rgb(ff5555),xwayland:1 
 
