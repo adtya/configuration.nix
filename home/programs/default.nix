@@ -33,6 +33,7 @@
     pavucontrol
     ripgrep
     spotify-tui
+    wl-clipboard
     xdg-utils
     yubioath-flutter
     yubikey-manager

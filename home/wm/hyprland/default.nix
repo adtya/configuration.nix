@@ -8,7 +8,7 @@ let
   rofi = "${config.programs.rofi.package}/bin/rofi";
   slurp = "${pkgs.slurp}/bin/slurp";
   swaylock = "${pkgs.swaylock}/bin/swaylock";
-  tmux = "${pkgs.tmux}/bin/tmux";
+  tmux = "${config.programs.tmux.package}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   xdg-user-dir = "${pkgs.xdg-user-dirs}/bin/xdg-user-dir";
   change-wallpaper = "${pkgs.scripts}/bin/chpaper ${pkgs.catppuccin-wallpapers}/share/wallpapers";
