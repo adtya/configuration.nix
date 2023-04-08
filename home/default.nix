@@ -26,15 +26,6 @@ in
       ./services
     ];
 
-    dconf.settings = {
-      "io/elementary/files/preferences" = {
-        "singleclick-select" = true;
-      };
-      "org/gtk/settings/file-chooser" = {
-        "sort-directories-first" = true;
-      };
-    };
-
     xdg.enable = true;
     xdg.mime.enable = true;
     xdg.mimeApps.enable = true;

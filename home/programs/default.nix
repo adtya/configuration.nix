@@ -5,6 +5,7 @@
     ./btop.nix
     ./direnv.nix
     ./exa.nix
+    ./files.nix
     ./firefox.nix
     ./git.nix
     ./github-cli.nix
@@ -29,7 +30,6 @@
     gnome.gnome-system-monitor
     gnome3.gnome-disk-utility
     lazydocker
-    pantheon.elementary-files
     pavucontrol
     ripgrep
     spotify-tui
