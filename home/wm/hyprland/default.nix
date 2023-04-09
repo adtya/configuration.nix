@@ -124,6 +124,7 @@ in
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
       exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
       exec-once = ${change-wallpaper}
+      exec-once = ${pkgs.udiskie}/bin/udiskie --no-automount --tray
 
       bindm = SUPER,mouse:272,           movewindow
       bindm = SUPER_SHIFT,mouse:272,     resizewindow
