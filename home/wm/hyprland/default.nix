@@ -96,12 +96,6 @@ in
       windowrulev2 = center,class:^(mpv)$
       windowrulev2 = dimaround,class:^(mpv)$
 
-      windowrulev2 = float,class:^(io.github.celluloid_player.Celluloid)$
-      windowrulev2 = size 90% 90%,class:^(io.github.celluloid_player.Celluloid)$
-      windowrulev2 = center,class:^(io.github.celluloid_player.Celluloid)$
-      windowrulev2 = dimaround,class:^(io.github.celluloid_player.Celluloid)$
-
-      windowrulev2 = float,class:^(eog)$
       windowrulev2 = float,class:^(eog)$
       windowrulev2 = size 90% 90%,class:^(eog)$
       windowrulev2 = center,class:^(eog)$
