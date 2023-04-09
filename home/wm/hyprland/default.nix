@@ -64,6 +64,7 @@ in
       master {
         new_is_master = true
         new_on_top = true
+        mfact = 0.65
       }
 
       animation = windows,1,3,default,slide
@@ -115,7 +116,7 @@ in
       windowrulev2 = size 60% 50%,class:^(gnome-system-monitor)$
 
       windowrulev2 = float,class:^(virt-manager)$
-      windowrulev2 = size 20% 50%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$
+      windowrulev2 = size 25% 50%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$
       windowrulev2 = move 5%% 10%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$
 
       windowrulev2 = float,class:^(.yubioath-flutter-wrapped)$
