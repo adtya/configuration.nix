@@ -124,6 +124,8 @@ in
       windowrulev2 = float,class:^(yubico.org.)$
       windowrulev2 = center,class:^(yubico.org.)$
 
+      windowrulev2 = dimaround,class:^(gcr-prompter)$
+
       exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
       exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
       exec-once = ${change-wallpaper}
