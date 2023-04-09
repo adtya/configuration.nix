@@ -76,6 +76,8 @@ in
 
       windowrulev2 = workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$
 
+      windowrulev2 = float,class:^(firefox)$,title:^(Library)$
+
       windowrulev2 = nofullscreenrequest,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
       windowrulev2 = float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
       windowrulev2 = move 95% 50%,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$
