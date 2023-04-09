@@ -50,7 +50,6 @@
             }
 
             home-manager.nixosModules.home-manager
-            hyprland.nixosModules.default
             impermanence.nixosModules.impermanence
             lanzaboote.nixosModules.lanzaboote
 
