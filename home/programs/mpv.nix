@@ -1,4 +1,10 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
+  home.packages = with pkgs; [ celluloid ];
+  dconf.settings = {
+    "io/github/celluloid-player/celluloid" = {
+      mpv-config-file = "file://${config.home.homeDirectory}/${config.xdg.configFile."mpv/mpv.conf".target}";
+    };
+  };
   programs.mpv = {
     enable = true;
     package = pkgs.mpv.override { youtubeSupport = true; };

@@ -22,7 +22,6 @@
 
   home.packages = with pkgs; [
     _1password-gui
-    celluloid
     discord
     evince
     git-crypt
