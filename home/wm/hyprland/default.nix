@@ -179,11 +179,11 @@ in
       bind = SUPER,m,             layoutmsg,focusmaster
       bind = SUPER_SHIFT,m,       layoutmsg,swapwithmaster
 
-      binde = ,XF86MonBrightnessUp,   exec, ${brightnessctl} set +2%
-      binde = ,XF86MonBrightnessDown, exec, ${brightnessctl} set 2%-
+      binde = ,XF86MonBrightnessUp,   exec, ${brightnessctl} set +5%
+      binde = ,XF86MonBrightnessDown, exec, ${brightnessctl} set 5%-
       bind  = ,XF86AudioMute,         exec, ${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle
-      binde = ,XF86AudioRaiseVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 2%+
-      binde = ,XF86AudioLowerVolume,  exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 2%-
+      binde = ,XF86AudioRaiseVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+      binde = ,XF86AudioLowerVolume,  exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-
       bind  = ,XF86AudioPlay,         exec, ${playerctl} play-pause
       bind  = ,XF86AudioNext,         exec, ${playerctl} next
       bind  = ,XF86AudioPrev,         exec, ${playerctl} previous
