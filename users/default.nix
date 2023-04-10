@@ -14,6 +14,9 @@ in
       isNormalUser = true;
       extraGroups = [ "docker" "libvirtd" "networkmanager" "tss" "wheel" ];
       shell = pkgs.zsh;
+      openssh.authorizedKeys.keys = [
+        user.primary.sshPublicKey
+      ];
     };
   };
 }
