@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 let
   swaylock = "${pkgs.swaylock}/bin/swaylock";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
