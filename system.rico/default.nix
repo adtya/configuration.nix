@@ -2,6 +2,8 @@
 
   imports = [
     ./hardware
+    ./programs
+    ./services
   ];
 
   networking.hostName = "Rico2";
@@ -22,9 +24,6 @@
     };
     supportedLocales = [ "en_US.UTF-8/UTF-8" ];
   };
-
-  programs.zsh.enable = true;
-  services.openssh.enable = true;
 
   time.timeZone = "Asia/Kolkata";
   system.stateVersion = "23.05";
