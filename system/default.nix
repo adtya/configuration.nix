@@ -10,6 +10,7 @@
     ./virtualisation.nix
   ];
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   boot.cleanTmpDir = true;
   console.useXkbConfig = true;
 
