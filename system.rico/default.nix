@@ -4,6 +4,7 @@
     ./hardware
     ./programs
     ./services
+    ./security.nix
   ];
 
   networking.hostName = "Rico2";
