@@ -25,39 +25,58 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+    };
+
     nixvim = {
       url = "github:pta2002/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, impermanence, lanzaboote, nixvim }@inputs:
-    let
-      system = "x86_64-linux";
-      lib = nixpkgs.lib;
-    in
-    {
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixpkgs-fmt;
-      nixosConfigurations = {
-        Skipper = lib.nixosSystem {
-          specialArgs = inputs;
-          modules = [
-            ./nix.nix
+  outputs = { self, nixpkgs, home-manager, hyprland, impermanence, lanzaboote, nixos-hardware, nixvim }@inputs: {
+    formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".nixpkgs-fmt;
+    formatter."aarch64-linux" = nixpkgs.legacyPackages."aarch64-linux".nixpkgs-fmt;
+    nixosConfigurations = {
+      Skipper = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = inputs;
+        modules = [
+          ./nix.nix
 
-            {
-              nixpkgs.overlays = [ (import ./packages) hyprland.overlays.default ];
-              system.configurationRevision = lib.mkIf (self ? rev) self.rev;
-            }
+          {
+            nixpkgs.overlays = [ (import ./packages) hyprland.overlays.default ];
+            nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "x86_64-linux";
+            system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+          }
 
-            home-manager.nixosModules.home-manager
-            impermanence.nixosModules.impermanence
-            lanzaboote.nixosModules.lanzaboote
+          home-manager.nixosModules.home-manager
+          impermanence.nixosModules.impermanence
+          lanzaboote.nixosModules.lanzaboote
 
-            ./system
-            ./users
-            ./home
-          ];
-        };
+          ./system
+          ./users
+          ./home
+        ];
+      };
+      Rico2 = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        specialArgs = inputs;
+        modules = [
+          ./nix.nix
+
+          {
+            nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "aarch64-linux";
+            system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+          }
+
+          nixos-hardware.nixosModules.raspberry-pi-4
+
+          ./users
+          ./system.rico
+        ];
       };
     };
+  };
 }
