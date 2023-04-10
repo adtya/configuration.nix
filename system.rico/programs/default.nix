@@ -1,4 +1,8 @@
 { ... }: {
+  imports = [
+    ./neovim.nix
+  ];
+
   programs = {
     zsh.enable = true;
   };
