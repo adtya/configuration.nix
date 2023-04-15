@@ -33,7 +33,6 @@
 
   outputs = { self, nixpkgs, home-manager, hyprland, impermanence, lanzaboote, nixos-hardware, nixvim }@inputs: {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".nixpkgs-fmt;
-    formatter."aarch64-linux" = nixpkgs.legacyPackages."aarch64-linux".nixpkgs-fmt;
     nixosConfigurations = {
       Skipper = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
