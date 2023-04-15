@@ -1,8 +1,12 @@
 { ... }: {
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/NIXOS_SD";
-    fsType = "ext4";
-    options = [ "noatime" ];
+    device = "/dev/disk/by-partlabel/NIXOS_ROOT";
+    fsType = "btrfs";
+    options = [ "noatime" "compress=zstd" ];
+  };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-partlabel/ESP";
+    fsType = "vfat";
   };
 }

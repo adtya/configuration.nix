@@ -25,10 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-hardware = {
-      url = "github:NixOS/nixos-hardware";
-    };
-
     nixvim = {
       url = "github:pta2002/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -70,8 +66,6 @@
             nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "aarch64-linux";
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
-
-          nixos-hardware.nixosModules.raspberry-pi-4
 
           ./users
           ./system.rico
