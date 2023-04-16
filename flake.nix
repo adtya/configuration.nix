@@ -20,9 +20,15 @@
       url = "github:nix-community/impermanence";
     };
 
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.rust-overlay.follows = "rust-overlay";
     };
 
     nixvim = {
@@ -31,7 +37,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, impermanence, lanzaboote, nixos-hardware, nixvim }@inputs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, impermanence, lanzaboote, nixos-hardware, nixvim, rust-overlay }@inputs: {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".nixpkgs-fmt;
     nixosConfigurations = {
       Skipper = nixpkgs.lib.nixosSystem {
