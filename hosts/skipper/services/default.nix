@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  user = import ../../users/user.nix;
+  user = import ../../../users/user.nix;
 in
 {
   imports = [

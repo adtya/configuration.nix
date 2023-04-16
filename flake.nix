@@ -56,7 +56,7 @@
           impermanence.nixosModules.impermanence
           lanzaboote.nixosModules.lanzaboote
 
-          ./system
+          ./hosts/skipper
           ./users
           ./home
         ];
@@ -72,8 +72,8 @@
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
 
+          ./hosts/rico
           ./users
-          ./system.rico
         ];
       };
     };
