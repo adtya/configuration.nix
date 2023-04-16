@@ -85,7 +85,7 @@
           swaylock = "${pkgs.swaylock}/bin/swaylock";
           wpctl = "${pkgs.wireplumber}/bin/wpctl";
           xdg-user-dir = "${pkgs.xdg-user-dirs}/bin/xdg-user-dir";
-          change-wallpaper = "${pkgs.scripts}/bin/chpaper ${pkgs.catppuccin-wallpapers}/share/wallpapers";
+          change-wallpaper = "${pkgs.scripts}/bin/chpaper \${HOME}/Pictures/Wallpapers";
         in
         lib.mkOptionDefault {
           "${modifier}+Return" = "exec ${kitty} ${tmux} new";
@@ -115,7 +115,7 @@
       startup = [
         { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
         {
-          command = "${pkgs.scripts}/bin/chpaper ${pkgs.catppuccin-wallpapers}/share/wallpapers";
+          command = "${pkgs.scripts}/bin/chpaper \${HOME}/Pictures/Wallpapers";
           always = true;
         }
         {

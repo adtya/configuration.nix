@@ -11,7 +11,7 @@ let
   tmux = "${config.programs.tmux.package}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   xdg-user-dir = "${pkgs.xdg-user-dirs}/bin/xdg-user-dir";
-  change-wallpaper = "${pkgs.scripts}/bin/chpaper ${pkgs.catppuccin-wallpapers}/share/wallpapers";
+  change-wallpaper = "${pkgs.scripts}/bin/chpaper \${HOME}/Pictures/Wallpapers";
 in
 {
   wayland.windowManager.hyprland = {
