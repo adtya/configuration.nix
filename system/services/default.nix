@@ -17,6 +17,9 @@ in
     getty.autologinUser = user.primary.userName;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
+    logind.extraConfig = ''
+      HandlePowerKey=ignore
+    '';
     lvm.dmeventd.enable = true;
     pcscd.enable = true;
     resolved.enable = true;
