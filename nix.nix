@@ -1,6 +1,6 @@
 { ... }: {
   nix.settings = {
-    substituters = [
+    trusted-substituters = [
       "https://nix-community.cachix.org/"
     ];
     trusted-public-keys = [
