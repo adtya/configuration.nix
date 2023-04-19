@@ -1,1 +1,1 @@
-users/user.nix filter=git-crypt diff=git-crypt
+common/users/user.nix filter=git-crypt diff=git-crypt

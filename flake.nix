@@ -44,8 +44,6 @@
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = [
-          ./nix.nix
-
           {
             nixpkgs.overlays = [ (import ./packages) hyprland.overlays.default ];
             nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "x86_64-linux";
@@ -56,8 +54,8 @@
           impermanence.nixosModules.impermanence
           lanzaboote.nixosModules.lanzaboote
 
+          ./common
           ./hosts/skipper
-          ./users
           ./home
         ];
       };
@@ -65,15 +63,13 @@
         system = "aarch64-linux";
         specialArgs = inputs;
         modules = [
-          ./nix.nix
-
           {
             nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "aarch64-linux";
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
 
+          ./common
           ./hosts/rico
-          ./users
         ];
       };
     };
