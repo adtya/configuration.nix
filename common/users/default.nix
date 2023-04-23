@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, secrets, ... }:
 let
-  user = import ./user.nix;
+  user = (import ../../secrets.nix).users;
 in
 {
   users.mutableUsers = false;

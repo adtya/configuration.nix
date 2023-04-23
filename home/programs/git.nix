@@ -1,6 +1,6 @@
 { ... }:
 let
-  user = import ../../users/user.nix;
+  user = (import ../../secrets.nix).users;
 in
 {
   programs.git = {

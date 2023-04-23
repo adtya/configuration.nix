@@ -1,6 +1,6 @@
 { hyprland, impermanence, nixvim, pkgs, ... }:
 let
-  user = import ../users/user.nix;
+  user = (import ../secrets.nix).users;
 in
 {
   programs.fuse.userAllowOther = true;
