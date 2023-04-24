@@ -19,16 +19,15 @@
       ".mozilla"
       ".nixos-config"
       ".ssh"
-
-      "Documents"
-      "Downloads"
-      "Music"
-      "Others"
-      "Pictures"
-      "Projects"
-      "Public"
-      "Templates"
-      "Videos"
+      { directory = "Documents"; method = "symlink"; }
+      { directory = "Downloads"; method = "symlink"; }
+      { directory = "Music"; method = "symlink"; }
+      { directory = "Others"; method = "symlink"; }
+      { directory = "Pictures"; method = "symlink"; }
+      { directory = "Projects"; method = "symlink"; }
+      { directory = "Public"; method = "symlink"; }
+      { directory = "Templates"; method = "symlink"; }
+      { directory = "Videos"; method = "symlink"; }
     ];
 
     files = [
