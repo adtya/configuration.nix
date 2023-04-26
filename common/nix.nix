@@ -8,6 +8,8 @@
     ];
     auto-optimise-store = true;
     experimental-features = [ "nix-command" "flakes" "auto-allocate-uids" "cgroups" "ca-derivations" ];
+    auto-allocate-uids = true;
+    use-cgroups = true;
   };
   nixpkgs.config.allowUnfree = true;
 }
