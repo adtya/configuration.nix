@@ -4,7 +4,7 @@
     themePackages = [
       (pkgs.adi1090x-plymouth.override {
         pack = "pack_3";
-        theme = "optimus";
+        theme = "owl";
       })
     ];
     theme = "adi1090x";
