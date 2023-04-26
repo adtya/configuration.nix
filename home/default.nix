@@ -5,12 +5,6 @@ in
 {
   programs.fuse.userAllowOther = true;
 
-  fileSystems."/home/${user.primary.userName}" = {
-    device = "tmpfs";
-    fsType = "tmpfs";
-    options = [ "mode=0755" "uid=1000" "gid=100" ];
-  };
-
   home-manager.useUserPackages = true;
   home-manager.useGlobalPkgs = true;
   home-manager.users.${user.primary.userName} = { pkgs, ... }: {
@@ -31,9 +25,11 @@ in
     xdg.mimeApps.enable = true;
     xdg.userDirs.enable = true;
 
-    xdg.desktopEntries."nixos-manual".name = "NixOS Manual";
-    xdg.desktopEntries."nixos-manual".exec = "nixos-help";
-    xdg.desktopEntries."nixos-manual".noDisplay = true;
+    xdg.desktopEntries."nixos-manual" = {
+      name = "NixOS Manual";
+      exec = "nixos-help";
+      noDisplay = true;
+    };
 
     home.stateVersion = "23.05";
   };

@@ -1,33 +1,38 @@
 { ... }: {
   fileSystems = {
     "/" = {
-      device = "tmpfs";
-      fsType = "tmpfs";
-      options = [ "defaults" "uid=0" "gid=0" "mode=0755" ];
+      device = "/dev/vg0/system";
+      fsType = "btrfs";
+      options = [ "subvol=@root" "compress-force=zstd" "noatime" ];
       neededForBoot = true;
+    };
+    "/home" = {
+      device = "/dev/vg0/system";
+      fsType = "btrfs";
+      options = [ "subvol=@home" "compress-force=zstd" "noatime" ];
     };
     "/nix" = {
       device = "/dev/vg0/system";
       fsType = "btrfs";
-      options = [ "subvol=/@nix" "compress-force=zstd" ];
+      options = [ "subvol=/@nix" "compress-force=zstd" "noatime" ];
       neededForBoot = true;
     };
     "/persist" = {
       device = "/dev/vg0/system";
       fsType = "btrfs";
-      options = [ "subvol=/@persist" "compress-force=zstd" ];
+      options = [ "subvol=/@persist" "compress-force=zstd" "noatime" ];
       neededForBoot = true;
     };
     "/tmp" = {
       device = "/dev/vg0/system";
       fsType = "btrfs";
-      options = [ "subvol=/@tmp" "compress-force=zstd" "nosuid" "nodev" ];
+      options = [ "subvol=/@tmp" "compress-force=zstd" "nosuid" "nodev" "noatime" ];
       neededForBoot = true;
     };
     "/mnt/system" = {
       device = "/dev/vg0/system";
       fsType = "btrfs";
-      options = [ "subvol=/" "compress-force=zstd" ];
+      options = [ "subvol=/" "compress-force=zstd" "noatime" ];
     };
     "/boot" = {
       device = "/dev/disk/by-partlabel/ESP";

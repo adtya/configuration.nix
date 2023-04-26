@@ -5,6 +5,7 @@
     ./services
     ./persistence.nix
     ./plymouth.nix
+    ./rollback.nix
     ./secureboot.nix
     ./security.nix
     ./virtualisation.nix

@@ -12,6 +12,7 @@
     };
     loader.efi.canTouchEfiVariables = true;
     resumeDevice = "/dev/vg0/swap";
+    supportedFilesystems = [ "btrfs" ];
   };
 
   swapDevices = [{ device = "/dev/vg0/swap"; }];
