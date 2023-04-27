@@ -1,4 +1,4 @@
-{ hyprland, impermanence, nixvim, pkgs, ... }:
+{ impermanence, nixvim, pkgs, ... }:
 let
   user = (import ../secrets.nix).users;
 in
@@ -11,7 +11,6 @@ in
     imports = [
       impermanence.nixosModules.home-manager.impermanence
       nixvim.homeManagerModules.nixvim
-      hyprland.homeManagerModules.default
 
       ./gtk.nix
       ./persistence.nix

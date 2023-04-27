@@ -15,7 +15,7 @@
     '';
     profileExtra = ''
       if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] ; then
-        exec ${config.wayland.windowManager.hyprland.package}/bin/Hyprland
+        exec ${pkgs.hyprland}/bin/Hyprland
       fi
     '';
     shellAliases = {

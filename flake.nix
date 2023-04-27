@@ -11,11 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     impermanence = {
       url = "github:nix-community/impermanence";
     };
@@ -31,7 +26,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, impermanence, lanzaboote, nixos-hardware, nixvim }@inputs: {
+  outputs = { self, nixpkgs, home-manager, impermanence, lanzaboote, nixos-hardware, nixvim }@inputs: {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".nixpkgs-fmt;
     nixosConfigurations = {
       Skipper = nixpkgs.lib.nixosSystem {
@@ -39,7 +34,7 @@
         specialArgs = inputs;
         modules = [
           {
-            nixpkgs.overlays = [ (import ./packages) hyprland.overlays.default ];
+            nixpkgs.overlays = [ (import ./packages) ];
             nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "x86_64-linux";
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
