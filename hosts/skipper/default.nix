@@ -12,7 +12,6 @@
   ];
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  boot.tmp.cleanOnBoot = true;
   console.useXkbConfig = true;
 
   environment.sessionVariables = {

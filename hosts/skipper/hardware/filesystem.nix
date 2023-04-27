@@ -23,12 +23,6 @@
       options = [ "subvol=/@persist" "compress-force=zstd" "noatime" ];
       neededForBoot = true;
     };
-    "/tmp" = {
-      device = "/dev/vg0/system";
-      fsType = "btrfs";
-      options = [ "subvol=/@tmp" "compress-force=zstd" "nosuid" "nodev" "noatime" ];
-      neededForBoot = true;
-    };
     "/mnt/system" = {
       device = "/dev/vg0/system";
       fsType = "btrfs";
