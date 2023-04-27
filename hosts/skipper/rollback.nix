@@ -1,4 +1,4 @@
-{  ... }: {
+{ ... }: {
   boot.initrd.systemd.services.rollback = {
     description = "Rollback root subvolume to blank state";
     wantedBy = [ "initrd.target" ];
