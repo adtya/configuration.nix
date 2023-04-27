@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 let
+  dbus-update-activation-environment = "${pkgs.dbus}/bin/dbus-update-activation-environment";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   grim = "${pkgs.grim}/bin/grim";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
@@ -17,7 +18,21 @@ in
   home.packages = with pkgs; [
     hyprland
   ];
+
+  systemd.user.targets = {
+    hyprland-session = {
+      Unit = {
+        After = [ "graphical-session-pre.target" ];
+        BindsTo = [ "graphical-session.target" ];
+        Description = "Hyprland session";
+        Documentation = [ "man:systemd.special(7)" ];
+        Wants = [ "graphical-session-pre.target" ];
+      };
+    };
+  };
+
   xdg.configFile."hypr/hyprland.conf".text = ''
+
     monitor = eDP-1,  1920x1080,  0x0,   1
     monitor = ,       preferred,  auto,  1
 
@@ -120,6 +135,8 @@ in
 
     windowrulev2 = dimaround,class:^(gcr-prompter)$
 
+    exec-once = ${dbus-update-activation-environment} --systemd DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL
+    exec-once = systemctl --user start hyprland-session.target
     exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     exec-once = ${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24
     exec-once = ${change-wallpaper}
