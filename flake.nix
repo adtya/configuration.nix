@@ -28,8 +28,9 @@
 
   outputs = { self, nixpkgs, home-manager, impermanence, lanzaboote, nixos-hardware, nixvim }@inputs: {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".nixpkgs-fmt;
-    nixosConfigurations = {
+    nixosConfigurations = let user = (import ./secrets.nix).users; in {
       Skipper = nixpkgs.lib.nixosSystem {
+
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = [
@@ -45,7 +46,21 @@
 
           ./common
           ./hosts/skipper
-          ./home
+
+          {
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = true;
+              users.${user.primary.userName} = { pkgs, ... }: {
+                imports = [
+                  impermanence.nixosModules.home-manager.impermanence
+                  nixvim.homeManagerModules.nixvim
+                  ./home/common
+                  ./home/desktop
+                ];
+              };
+            };
+          }
         ];
       };
       Rico2 = nixpkgs.lib.nixosSystem {
@@ -57,8 +72,23 @@
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
 
+          home-manager.nixosModules.home-manager
+
           ./common
           ./hosts/rico
+
+          {
+            home-manager = {
+              useUserPackages = true;
+              useGlobalPkgs = true;
+              users.${user.primary.userName} = { pkgs, ... }: {
+                imports = [
+                  ./home/common
+                  ./home/server
+                ];
+              };
+            };
+          }
         ];
       };
     };

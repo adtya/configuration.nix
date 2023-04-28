@@ -1,23 +1,16 @@
 { pkgs, ... }: {
   imports = [
     ./aria2.nix
-    ./bat.nix
-    ./btop.nix
-    ./direnv.nix
-    ./exa.nix
     ./files.nix
     ./firefox.nix
-    ./git.nix
     ./github-cli.nix
     ./gnupg.nix
     ./kitty.nix
     ./mpv.nix
     ./nixvim.nix
-    ./starship.nix
     ./tmux.nix
     ./virt-manager.nix
     ./yt-dlp.nix
-    ./zsh.nix
   ];
 
   home.packages = with pkgs; [
@@ -28,9 +21,7 @@
     gnome.eog
     gnome.gnome-system-monitor
     gnome3.gnome-disk-utility
-    lazydocker
     pavucontrol
-    ripgrep
     spotify-tui
     wl-clipboard
     xdg-utils
@@ -40,11 +31,4 @@
     yubikey-personalization
     yubikey-personalization-gui
   ];
-
-  programs = {
-    fzf.enable = true;
-    lazygit.enable = true;
-    ssh.enable = true;
-    zoxide.enable = true;
-  };
 }

@@ -2,6 +2,7 @@
   home.persistence."/persist/home" = {
     allowOther = true;
     directories = [
+      ".cache/aria2"
       ".cache/mesa_shader_cache"
       ".cache/mozilla"
       ".cache/nix"
