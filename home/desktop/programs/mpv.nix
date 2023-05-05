@@ -3,6 +3,8 @@
     enable = true;
     package = pkgs.mpv.override { youtubeSupport = true; };
     config = {
+      cache = "yes";
+      cache-secs = "20";
       hwdec = "auto-safe";
       gpu-context = "wayland";
     };
