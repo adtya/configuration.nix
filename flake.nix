@@ -26,7 +26,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, impermanence, lanzaboote, nixos-hardware, nixvim }@inputs: {
+  outputs = { self, nixpkgs, home-manager, impermanence, lanzaboote, nixvim }@inputs: {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".nixpkgs-fmt;
     nixosConfigurations = let user = (import ./secrets.nix).users; in {
       Skipper = nixpkgs.lib.nixosSystem {
