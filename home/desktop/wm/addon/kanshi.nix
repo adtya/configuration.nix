@@ -24,7 +24,6 @@
           {
             criteria = "DP-1";
             transform = "normal";
-            mode = "1920x1080";
             position = "1536,0";
           }
         ];
@@ -41,7 +40,6 @@
           {
             criteria = "DP-2";
             transform = "normal";
-            mode = "1920x1080";
             position = "1536,0";
           }
         ];
