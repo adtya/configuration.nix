@@ -23,8 +23,8 @@
         "idle_inhibitor" = {
           "format" = "{icon}";
           "format-icons" = {
-            "activated" = "";
-            "deactivated" = "";
+            "activated" = "󰈈";
+            "deactivated" = "󰈉";
           };
           "tooltip" = false;
         };
@@ -36,7 +36,7 @@
         };
         "backlight" = {
           "format" = "{icon}";
-          "format-icons" = [ "" "" "" "" ];
+          "format-icons" = [ "󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠" ];
         };
         "battery" = {
           "states" = {
@@ -46,44 +46,41 @@
           };
           "format" = "{icon}";
           "format-alt" = "{icon} {capacity}% ({time})";
-          "format-charging" = " {capacity}%";
-          "format-plugged" = "‭ﮣ {capacity}%";
-          "format-icons" = [ "" "" "" "" "" "" "" "" "" "" "" ];
+          "format-charging" = "󰂄 {capacity}%";
+          "format-plugged" = "‭󰚥 {capacity}%";
+          "format-icons" = [ "󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
           "tooltip" = false;
         };
         "network" = {
-          "format-wifi" = "直";
-          "format-ethernet" = "";
-          "format-linked" = "";
-          "format-disconnected" = "睊";
+          "format-wifi" = "󰖩";
+          "format-ethernet" = "󰈀";
+          "format-linked" = "󰌷";
+          "format-disconnected" = "󰖪";
           "format-alt" = "{ifname}: {ipaddr}/{cidr}";
           "tooltip" = false;
         };
         "pulseaudio" = {
           "tooltip" = false;
           "format" = "{icon} {format_source}";
-          "format-muted" = "‭ﱝ {format_source}";
-          "format-bluetooth" = " {icon} {format_source}";
-          "format-bluetooth-muted" = " ‭ﱝ {format_source}";
-          "format-source" = "";
-          "format-source-muted" = "";
+          "format-muted" = "‭󰝟 {format_source}";
+          "format-bluetooth" = "󰂰 {icon} {format_source}";
+          "format-bluetooth-muted" = "󰂰 ‭󰝟 {format_source}";
+          "format-source" = "󰍬";
+          "format-source-muted" = "󰍭";
           "format-icons" = {
-            "headphones" = "";
-            "handsfree" = "";
-            "headset" = "";
-            "phone" = "";
-            "portable" = "";
-            "car" = "";
-            "default" = [ "奄" "奔" "墳" ];
+            "headphones" = "󰋋";
+            "headset" = "󰋎";
+            "car" = "󰄋";
+            "default" = [ "󰕿" "󰖀" "󰕾" ];
           };
           "on-click" = "${pkgs.pavucontrol}/bin/pavucontrol";
         };
         "bluetooth" = {
-          "format" = "";
-          "format-connected" = "";
-          "format-disabled" = "";
-          "format-off" = "";
-          "format-connected-battery" = " {device_battery_percentage}%";
+          "format" = "󰂯";
+          "format-connected" = "󰂱";
+          "format-disabled" = "󰂲";
+          "format-off" = "󰂲";
+          "format-connected-battery" = "󰂱 {device_battery_percentage}%";
           "on-click" = "${pkgs.blueman}/bin/blueman-manager";
         };
         "tray" = {
