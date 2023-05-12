@@ -2,7 +2,11 @@
 
 set -eu
 
-DIR="$1"
+DIR="${1:-}"
+if [ -z "$DIR" ]; then
+  echo "Usage: $0 <path to directory containing wallpapers>"
+  exit 1
+fi
 if [ ! -d "$DIR" ]; then
   echo "$DIR: not a directory"
   exit 1
