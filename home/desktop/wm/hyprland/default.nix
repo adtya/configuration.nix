@@ -149,7 +149,7 @@ in
     bind = SUPER_SHIFT,space,   togglefloating,active
     bind = SUPER_SHIFT,space,   centerwindow
     bind = SUPER_SHIFT,F,       fullscreen,0
-    bind = SUPER_ALT,F,         fullscreen,1
+    bind = SUPER_ALT,F,         fakefullscreen
 
     bind = SUPER_SHIFT,C,       exec, ${hyprctl} reload
     bind = SUPER_SHIFT,C,       exec, systemctl --user restart swayidle.service
