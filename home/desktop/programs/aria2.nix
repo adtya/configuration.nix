@@ -2,6 +2,7 @@
   programs.aria2 = {
     enable = true;
     settings = {
+      bt-require-crypto = true;
       bt-tracker = "udp://tracker.opentrackr.org:1337/announce";
       continue = true;
       max-connection-per-server = 8;
