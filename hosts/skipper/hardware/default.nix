@@ -35,6 +35,7 @@
       enable = true;
       extraPackages = [ pkgs.intel-media-driver ];
       driSupport = true;
+      driSupport32Bit = true;
     };
     sensor.hddtemp = {
       enable = true;
