@@ -25,7 +25,7 @@
     spotify-tui
     wl-clipboard
     xdg-utils
-    yubioath-flutter
+#    yubioath-flutter
     yubikey-manager
     yubikey-manager-qt
     yubikey-personalization
