@@ -13,6 +13,7 @@ let
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   xdg-user-dir = "${pkgs.xdg-user-dirs}/bin/xdg-user-dir";
   change-wallpaper = "${pkgs.scripts}/bin/chpaper \${HOME}/Pictures/Wallpapers";
+  wallhaven-wallpaper = "${pkgs.scripts}/bin/wallhaven";
 in
 {
   home.packages = with pkgs; [
@@ -161,6 +162,7 @@ in
     bind = SUPER,d,             exec, ${rofi} -show drun
     bind = SUPER,escape,             exec, ${swaylock} -f -i /tmp/lockpaper.jpg
     bind = SUPER_SHIFT,W,       exec, ${change-wallpaper}
+    bind = SUPER_ALT,W,         exec, ${wallhaven-wallpaper}
     bind = SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu
     bind = SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions
 

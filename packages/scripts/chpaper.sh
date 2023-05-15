@@ -16,5 +16,5 @@ random_paper() {
   find -L "${DIR}"/ -type f -regextype egrep -regex ".*\.(jpe?g|png)$" | shuf -n1
 }
 
-convert "$(random_paper)" /tmp/wallpaper.jpg && swaybg -i "/tmp/wallpaper.jpg" -m fill &
+convert "$(random_paper)" /tmp/wallpaper.jpg && (pkill swaybg; swaybg -i "/tmp/wallpaper.jpg" -m fill &)
 convert "$(random_paper)" /tmp/lockpaper.jpg
