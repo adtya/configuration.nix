@@ -7,13 +7,13 @@ if [ -z "$DIR" ]; then
   echo "Usage: $0 <path to directory containing wallpapers>"
   exit 1
 fi
-if [ ! -d "$DIR" ]; then
-  echo "$DIR: not a directory"
-  exit 1
-fi
 
 random_paper() {
-  find -L "${DIR}"/ -type f -regextype egrep -regex ".*\.(jpe?g|png)$" | shuf -n1
+  if [ -d "$DIR" ] ; then
+    find -L "${DIR}"/ -type f -regextype egrep -regex ".*\.(jpe?g|png)$" | shuf -n1
+  elif [ -f "$DIR" ] ; then
+    echo "$DIR"
+  fi
 }
 
 swww query || swww init
