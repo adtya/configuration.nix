@@ -146,12 +146,35 @@
         disableNetrw = true;
         filesystemWatchers.enable = true;
       };
+      null-ls = {
+        enable = true;
+        sources = {
+          code_actions = {
+            shellcheck.enable = true;
+          };
+          diagnostics = {
+            shellcheck.enable = true;
+          };
+          formatting = {
+            alejandra.enable = true;
+          };
+        };
+      };
       lsp = {
         enable = true;
         servers = {
-          gopls.enable = true;
-          rnix-lsp.enable = true;
-          rust-analyzer.enable = true;
+          gopls = {
+            enable = true;
+            filetypes = [ "go" ];
+          };
+          nil_ls = {
+            enable = true;
+            filetypes = [ "nix" ];
+          };
+          rust-analyzer = {
+            enable = true;
+            filetypes = [ "rs" ];
+          };
         };
       };
     };
