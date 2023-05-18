@@ -15,7 +15,7 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "scripts";
-  version = "0.1";
+  version = "1.0";
   src = ./.;
 
   nativeBuildInputs = [makeWrapper];
@@ -37,6 +37,6 @@ stdenvNoCC.mkDerivation {
 
     cp wallhaven.sh $out/bin/wallhaven
     chmod +x $out/bin/wallhaven
-    wrapProgram $out/bin/wallhaven --prefix PATH : ${lib.makeBinPath [imagemagick libnotify swww jq curl]}
+    wrapProgram $out/bin/wallhaven --prefix PATH : ${lib.makeBinPath [imagemagick libnotify jq curl]}
   '';
 }
