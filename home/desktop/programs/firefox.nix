@@ -1,4 +1,8 @@
-{ pkgs, osConfig, ... }: {
+{
+  pkgs,
+  osConfig,
+  ...
+}: {
   programs = {
     firefox = {
       enable = true;

@@ -26,16 +26,24 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, impermanence, lanzaboote, nixvim }@inputs: {
-    formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".nixpkgs-fmt;
-    nixosConfigurations = let user = (import ./secrets.nix).users; in {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    impermanence,
+    lanzaboote,
+    nixvim,
+  } @ inputs: {
+    formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
+    nixosConfigurations = let
+      user = (import ./secrets.nix).users;
+    in {
       Skipper = nixpkgs.lib.nixosSystem {
-
         system = "x86_64-linux";
         specialArgs = inputs;
         modules = [
           {
-            nixpkgs.overlays = [ (import ./packages) ];
+            nixpkgs.overlays = [(import ./packages)];
             nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "x86_64-linux";
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
@@ -51,7 +59,7 @@
             home-manager = {
               useUserPackages = true;
               useGlobalPkgs = true;
-              users.${user.primary.userName} = { pkgs, ... }: {
+              users.${user.primary.userName} = {pkgs, ...}: {
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
                   nixvim.homeManagerModules.nixvim
@@ -81,7 +89,7 @@
             home-manager = {
               useUserPackages = true;
               useGlobalPkgs = true;
-              users.${user.primary.userName} = { pkgs, ... }: {
+              users.${user.primary.userName} = {pkgs, ...}: {
                 imports = [
                   ./home/common
                   ./home/server

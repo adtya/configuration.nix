@@ -1,9 +1,7 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   swaylock = "${pkgs.swaylock}/bin/swaylock";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
-in
-{
+in {
   services.swayidle = {
     enable = true;
     systemdTarget = "graphical-session.target";

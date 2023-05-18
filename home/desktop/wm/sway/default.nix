@@ -1,5 +1,9 @@
-{ config, lib, pkgs, ... }: {
-
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   wayland.windowManager.sway = {
     enable = true;
     systemdIntegration = true;
@@ -8,7 +12,7 @@
     config = {
       modifier = "Mod4";
       fonts = {
-        names = [ "FiraCode Nerd Font" ];
+        names = ["FiraCode Nerd Font"];
         size = 11.0;
       };
       input = {
@@ -19,7 +23,7 @@
           middle_emulation = "enabled";
         };
       };
-      bars = [ ];
+      bars = [];
       gaps = {
         outer = 2;
         inner = 2;
@@ -71,22 +75,21 @@
         };
       };
 
-      keybindings =
-        let
-          modifier = config.wayland.windowManager.sway.config.modifier;
+      keybindings = let
+        modifier = config.wayland.windowManager.sway.config.modifier;
 
-          brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-          grim = "${pkgs.grim}/bin/grim";
-          kitty = "${config.programs.kitty.package}/bin/kitty";
-          playerctl = "${pkgs.playerctl}/bin/playerctl";
-          rofi = "${config.programs.rofi.package}/bin/rofi";
-          tmux = "${config.programs.tmux.package}/bin/tmux";
-          slurp = "${pkgs.slurp}/bin/slurp";
-          swaylock = "${pkgs.swaylock}/bin/swaylock";
-          wpctl = "${pkgs.wireplumber}/bin/wpctl";
-          xdg-user-dir = "${pkgs.xdg-user-dirs}/bin/xdg-user-dir";
-          change-wallpaper = "${pkgs.scripts}/bin/chpaper \${HOME}/Pictures/Wallpapers";
-        in
+        brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+        grim = "${pkgs.grim}/bin/grim";
+        kitty = "${config.programs.kitty.package}/bin/kitty";
+        playerctl = "${pkgs.playerctl}/bin/playerctl";
+        rofi = "${config.programs.rofi.package}/bin/rofi";
+        tmux = "${config.programs.tmux.package}/bin/tmux";
+        slurp = "${pkgs.slurp}/bin/slurp";
+        swaylock = "${pkgs.swaylock}/bin/swaylock";
+        wpctl = "${pkgs.wireplumber}/bin/wpctl";
+        xdg-user-dir = "${pkgs.xdg-user-dirs}/bin/xdg-user-dir";
+        change-wallpaper = "${pkgs.scripts}/bin/chpaper \${HOME}/Pictures/Wallpapers";
+      in
         lib.mkOptionDefault {
           "${modifier}+Return" = "exec ${kitty} ${tmux} new";
           "${modifier}+Shift+Return" = "exec ${kitty}";
@@ -113,7 +116,7 @@
         };
 
       startup = [
-        { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
+        {command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";}
         {
           command = "${pkgs.scripts}/bin/chpaper \${HOME}/Pictures/Wallpapers";
           always = true;

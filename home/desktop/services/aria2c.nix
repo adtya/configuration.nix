@@ -1,12 +1,16 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   systemd.user.services.aria2c = {
     Unit = {
       Description = "Aria2c Download Manager";
-      Documentation = [ "man:aria2c(1)" ];
-      After = [ "network.target" ];
+      Documentation = ["man:aria2c(1)"];
+      After = ["network.target"];
     };
     Install = {
-      WantedBy = [ "default.target" ];
+      WantedBy = ["default.target"];
     };
     Service = {
       Type = "simple";

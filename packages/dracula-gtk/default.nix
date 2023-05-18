@@ -1,10 +1,10 @@
-{ lib
-, stdenvNoCC
-, fetchFromGitHub
-, gtk3
-, gnome-themes-extra
-, gtk-engine-murrine
-,
+{
+  lib,
+  stdenvNoCC,
+  fetchFromGitHub,
+  gtk3,
+  gnome-themes-extra,
+  gtk-engine-murrine,
 }:
 stdenvNoCC.mkDerivation {
   pname = "dracula-gtk";
@@ -17,13 +17,13 @@ stdenvNoCC.mkDerivation {
     hash = "sha256-p9zu40o7gP08juBiDV3OzwGV6Qjgg/I0GDzV9qOlEgk=";
   };
 
-  nativeBuildInputs = [ gtk3 ];
+  nativeBuildInputs = [gtk3];
 
   buildInputs = [
     gnome-themes-extra
   ];
 
-  propagatedUserEnvPkgs = [ gtk-engine-murrine ];
+  propagatedUserEnvPkgs = [gtk-engine-murrine];
 
   installPhase = ''
     runHook preInstall

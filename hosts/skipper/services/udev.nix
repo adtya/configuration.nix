@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   services.udev = {
     enable = true;
-    packages = [ pkgs.yubikey-personalization ];
+    packages = [pkgs.yubikey-personalization];
   };
 }

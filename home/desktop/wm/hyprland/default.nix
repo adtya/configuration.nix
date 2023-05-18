@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   dbus-update-activation-environment = "${pkgs.dbus}/bin/dbus-update-activation-environment";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   grim = "${pkgs.grim}/bin/grim";
@@ -14,8 +17,7 @@ let
   xdg-user-dir = "${pkgs.xdg-user-dirs}/bin/xdg-user-dir";
   change-wallpaper = "${pkgs.scripts}/bin/chpaper \${HOME}/Pictures/Wallpapers";
   wallhaven-wallpaper = "${pkgs.scripts}/bin/wallhaven";
-in
-{
+in {
   home.packages = with pkgs; [
     hyprland
   ];
@@ -23,11 +25,11 @@ in
   systemd.user.targets = {
     hyprland-session = {
       Unit = {
-        After = [ "graphical-session-pre.target" ];
-        BindsTo = [ "graphical-session.target" ];
+        After = ["graphical-session-pre.target"];
+        BindsTo = ["graphical-session.target"];
         Description = "Hyprland session";
-        Documentation = [ "man:systemd.special(7)" ];
-        Wants = [ "graphical-session-pre.target" ];
+        Documentation = ["man:systemd.special(7)"];
+        Wants = ["graphical-session-pre.target"];
       };
     };
   };
@@ -88,7 +90,7 @@ in
     animation = borderangle,1,3,default
     animation = workspaces,1,3,default,slide
 
-    windowrulev2 = bordercolor rgb(ff5555),xwayland:1 
+    windowrulev2 = bordercolor rgb(ff5555),xwayland:1
 
     windowrulev2 = workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$
 
@@ -160,14 +162,14 @@ in
     bind = SUPER,Return,        exec, ${kitty} ${tmux} new
     bind = SUPER_SHIFT,Return,  exec, ${kitty}
     bind = SUPER,d,             exec, ${rofi} -show drun
-    bind = SUPER,escape,             exec, ${swaylock} -f -i /tmp/lockpaper.jpg
+    bind = SUPER,escape,        exec, ${swaylock} -f -i /tmp/lockpaper.jpg
     bind = SUPER_SHIFT,W,       exec, ${change-wallpaper}
     bind = SUPER_ALT,W,         exec, ${wallhaven-wallpaper}
     bind = SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu
     bind = SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions
 
-    bindr = ,print,              exec, ${grim} "''$(${xdg-user-dir} PICTURES)/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
-    bindr = SHIFT,print,         exec, ${grim} -g "''$(${slurp})" "''$(${xdg-user-dir} PICTURES)/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
+    bindr = ,print,             exec, ${grim} "''$(${xdg-user-dir} PICTURES)/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
+    bindr = SHIFT,print,        exec, ${grim} -g "''$(${slurp})" "''$(${xdg-user-dir} PICTURES)/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
 
     bind = SUPER,1,             workspace, 1
     bind = SUPER,2,             workspace, 2

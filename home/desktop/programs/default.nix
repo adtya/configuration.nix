@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./aria2.nix
     ./files.nix
@@ -25,7 +25,7 @@
     spotify-tui
     wl-clipboard
     xdg-utils
-#    yubioath-flutter
+    #    yubioath-flutter
     yubikey-manager
     yubikey-manager-qt
     yubikey-personalization

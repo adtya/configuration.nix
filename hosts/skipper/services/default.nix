@@ -1,8 +1,10 @@
-{ pkgs, secrets, ... }:
-let
-  user = (import ../../../secrets.nix).users;
-in
 {
+  pkgs,
+  secrets,
+  ...
+}: let
+  user = (import ../../../secrets.nix).users;
+in {
   imports = [
     ./dbus.nix
     ./pipewire.nix

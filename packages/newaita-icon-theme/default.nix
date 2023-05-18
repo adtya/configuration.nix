@@ -1,13 +1,13 @@
-{ lib
-, stdenvNoCC
-, fetchFromGitHub
-, gtk3
-, gnome
-, gnome-icon-theme
-, hicolor-icon-theme
-, panel ? "dark"
-, folder ? "default"
-,
+{
+  lib,
+  stdenvNoCC,
+  fetchFromGitHub,
+  gtk3,
+  gnome,
+  gnome-icon-theme,
+  hicolor-icon-theme,
+  panel ? "dark",
+  folder ? "default",
 }:
 stdenvNoCC.mkDerivation {
   pname = "newaita-icon-theme";
@@ -20,7 +20,7 @@ stdenvNoCC.mkDerivation {
     hash = "sha256-tqtjUy8RjvOu0NaK+iE0R1g7/eqCpmhbdxuNGd/YfSI=";
   };
 
-  nativeBuildInputs = [ gtk3 ];
+  nativeBuildInputs = [gtk3];
 
   propagatedBuildInputs = [
     gnome.adwaita-icon-theme

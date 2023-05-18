@@ -1,8 +1,12 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.waybar = {
     enable = true;
     package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
     });
     systemd.enable = true;
     style = ./style.css;
@@ -11,9 +15,9 @@
         layer = "top";
         position = "top";
         height = 28;
-        modules-left = [ "sway/workspaces" "wlr/workspaces" "sway/window" "hyprland/window" "sway/mode" "hyprland/submap" ];
-        modules-center = [ ];
-        modules-right = [ "tray" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock" ];
+        modules-left = ["sway/workspaces" "wlr/workspaces" "sway/window" "hyprland/window" "sway/mode" "hyprland/submap"];
+        modules-center = [];
+        modules-right = ["tray" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock"];
         "sway/mode" = {
           "format" = "{}";
         };
@@ -36,7 +40,7 @@
         };
         "backlight" = {
           "format" = "{icon}";
-          "format-icons" = [ "󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠" ];
+          "format-icons" = ["󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠"];
         };
         "battery" = {
           "states" = {
@@ -48,7 +52,7 @@
           "format-alt" = "{icon} {capacity}% ({time})";
           "format-charging" = "󰂄 {capacity}%";
           "format-plugged" = "‭󰚥 {capacity}%";
-          "format-icons" = [ "󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          "format-icons" = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
           "tooltip" = false;
         };
         "network" = {
@@ -71,7 +75,7 @@
             "headphones" = "󰋋";
             "headset" = "󰋎";
             "car" = "󰄋";
-            "default" = [ "󰕿" "󰖀" "󰕾" ];
+            "default" = ["󰕿" "󰖀" "󰕾"];
           };
           "on-click" = "${pkgs.pavucontrol}/bin/pavucontrol";
         };

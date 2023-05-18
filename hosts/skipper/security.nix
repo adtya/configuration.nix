@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   security = {
     apparmor = {
       enable = true;
@@ -10,7 +10,7 @@
       services = {
         passwd.enableGnomeKeyring = true;
         login.enableGnomeKeyring = true;
-        swaylock = { };
+        swaylock = {};
       };
       u2f = {
         enable = true;
@@ -27,7 +27,7 @@
       tctiEnvironment.enable = true;
     };
     sudo = {
-      package = pkgs.sudo.override { withInsults = true; };
+      package = pkgs.sudo.override {withInsults = true;};
       extraConfig = ''
         Defaults lecture="never"
       '';

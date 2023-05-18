@@ -1,9 +1,9 @@
-{ lib
-, stdenvNoCC
-, fetchFromGitHub
-, pack ? "pack_1"
-, theme ? "cuts"
-,
+{
+  lib,
+  stdenvNoCC,
+  fetchFromGitHub,
+  pack ? "pack_1",
+  theme ? "cuts",
 }:
 stdenvNoCC.mkDerivation {
   pname = "adi1090x-plymouth";

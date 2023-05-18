@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   dmenu = "${config.programs.rofi.package}/bin/rofi -dmenu";
   firefox = "${config.programs.firefox.package}/bin/firefox";
-in
-{
+in {
   services.dunst = {
     enable = true;
     iconTheme.name = config.gtk.iconTheme.name;

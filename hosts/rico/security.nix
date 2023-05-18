@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   security = {
     apparmor = {
       enable = true;

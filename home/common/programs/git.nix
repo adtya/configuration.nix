@@ -1,8 +1,6 @@
-{ ... }:
-let
+{...}: let
   user = (import ../../../secrets.nix).users;
-in
-{
+in {
   programs.git = {
     enable = true;
     diff-so-fancy = {
@@ -18,6 +16,6 @@ in
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
     };
-    ignores = [ "/.nix" "/.direnv" ];
+    ignores = ["/.nix" "/.direnv"];
   };
 }

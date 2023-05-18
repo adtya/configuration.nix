@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs.nixvim = {
     enable = true;
     vimAlias = true;
@@ -6,7 +10,7 @@
     extraConfigLuaPre = ''
       vim.g.gitblame_date_format = '%r'
       vim.g.gitblame_message_when_not_committed = '''
-      
+
       vim.opt.list = true
       vim.opt.listchars:append "space:⋅"
       vim.opt.listchars:append "eol:↴"
@@ -62,7 +66,7 @@
         };
       };
     };
-    extraPlugins = with pkgs.vimPlugins; [ dracula-nvim git-blame-nvim ];
+    extraPlugins = with pkgs.vimPlugins; [dracula-nvim git-blame-nvim];
     colorscheme = "dracula";
     plugins = {
       comment-nvim.enable = true;
@@ -73,12 +77,12 @@
         enable = true;
         snippet.expand = "luasnip";
         sources = [
-          { name = "buffer"; }
-          { name = "nvim_lsp"; }
-          { name = "nvim_lsp_document_symbol"; }
-          { name = "nvim_lsp_signature_help"; }
-          { name = "treesitter"; }
-          { name = "luasnip"; }
+          {name = "buffer";}
+          {name = "nvim_lsp";}
+          {name = "nvim_lsp_document_symbol";}
+          {name = "nvim_lsp_signature_help";}
+          {name = "treesitter";}
+          {name = "luasnip";}
         ];
       };
       cmp-buffer.enable = true;
@@ -165,15 +169,15 @@
         servers = {
           gopls = {
             enable = true;
-            filetypes = [ "go" ];
+            filetypes = ["go"];
           };
           nil_ls = {
             enable = true;
-            filetypes = [ "nix" ];
+            filetypes = ["nix"];
           };
           rust-analyzer = {
             enable = true;
-            filetypes = [ "rs" ];
+            filetypes = ["rs"];
           };
         };
       };

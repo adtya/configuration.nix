@@ -1,5 +1,4 @@
-{ ... }: {
-
+{...}: {
   xdg.desktopEntries."btop" = {
     name = "btop++";
     exec = "btop";

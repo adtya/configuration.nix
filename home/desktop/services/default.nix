@@ -1,4 +1,4 @@
-{ ... }: {
+{...}: {
   imports = [
     ./aria2c.nix
     ./gpg-agent.nix

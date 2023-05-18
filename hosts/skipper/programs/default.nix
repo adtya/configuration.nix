@@ -1,5 +1,4 @@
-{ ... }: {
-
+{...}: {
   imports = [
     ./gnupg.nix
     ./neovim.nix
@@ -13,5 +12,5 @@
     xwayland.enable = true;
     zsh.enable = true;
   };
-  environment.pathsToLink = [ "/share/zsh" ];
+  environment.pathsToLink = ["/share/zsh"];
 }

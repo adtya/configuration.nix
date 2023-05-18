@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
-let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   gtkTheme = {
     name = "Dracula";
     package = pkgs.dracula-gtk;
@@ -17,8 +20,7 @@ let
     name = "Bibata-Modern-Classic";
     package = pkgs.bibata-cursors;
   };
-in
-{
+in {
   gtk.enable = true;
   gtk.theme = gtkTheme;
   home.sessionVariables.GTK_THEME = gtkTheme.name;

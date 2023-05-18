@@ -1,5 +1,5 @@
-{ ... }: {
-  imports = [ ./programs ./services ./wm ./gtk.nix ./persistence.nix ];
+{...}: {
+  imports = [./programs ./services ./wm ./gtk.nix ./persistence.nix];
 
   xdg.enable = true;
   xdg.mime.enable = true;
