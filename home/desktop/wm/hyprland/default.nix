@@ -15,8 +15,8 @@
   tmux = "${config.programs.tmux.package}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   xdg-user-dir = "${pkgs.xdg-user-dirs}/bin/xdg-user-dir";
-  change-wallpaper = "${pkgs.scripts}/bin/chpaper \${HOME}/Pictures/Wallpapers";
-  wallhaven-wallpaper = "${pkgs.scripts}/bin/wallhaven";
+  change-wallpaper = "${pkgs.scripts}/bin/chpaper ${config.xdg.userDirs.pictures}/Wallpapers";
+  wallhaven-wallpaper = "${pkgs.scripts}/bin/chpaper \$(${pkgs.scripts}/bin/wallhaven ${config.xdg.userDirs.pictures}/Wallpapers)";
 in {
   home.packages = with pkgs; [
     hyprland
