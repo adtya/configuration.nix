@@ -44,6 +44,10 @@
           silent = true;
           action = ":noh<Return>";
         };
+        "<leader>w" = {
+          silent = true;
+          action = ":bdelete<Return>:bnext<Return>";
+        };
         "<leader>1" = {
           silent = true;
           action = ":NvimTreeToggle<Return>";
