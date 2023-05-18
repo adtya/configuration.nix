@@ -16,5 +16,8 @@ random_paper() {
   find -L "${DIR}"/ -type f -regextype egrep -regex ".*\.(jpe?g|png)$" | shuf -n1
 }
 
-convert "$(random_paper)" /tmp/wallpaper.jpg && (pkill swaybg; swaybg -i "/tmp/wallpaper.jpg" -m fill &)
+swww query || swww init
+convert "$(random_paper)" /tmp/wallpaper.jpg && swww img "/tmp/wallpaper.jpg"
 convert "$(random_paper)" /tmp/lockpaper.jpg
+
+notify-send -r 9897 -i information -t 1000 "Wallpaper" "Wallpaper changed."

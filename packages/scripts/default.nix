@@ -1,4 +1,4 @@
-{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland, tmux, kitty, imagemagick, swaybg, sway, hyprland, jq, curl }:
+{ lib, stdenvNoCC, makeWrapper, libnotify, rofi-wayland, tmux, kitty, imagemagick, sway, hyprland, swww, jq, curl }:
 
 stdenvNoCC.mkDerivation {
   pname = "scripts";
@@ -20,10 +20,10 @@ stdenvNoCC.mkDerivation {
 
     cp chpaper.sh $out/bin/chpaper
     chmod +x $out/bin/chpaper
-    wrapProgram $out/bin/chpaper --prefix PATH : ${lib.makeBinPath [ imagemagick swaybg ]}
+    wrapProgram $out/bin/chpaper --prefix PATH : ${lib.makeBinPath [ imagemagick libnotify swww ]}
 
     cp wallhaven.sh $out/bin/wallhaven
     chmod +x $out/bin/wallhaven
-    wrapProgram $out/bin/wallhaven --prefix PATH : ${lib.makeBinPath [ imagemagick swaybg jq curl ]}
+    wrapProgram $out/bin/wallhaven --prefix PATH : ${lib.makeBinPath [ imagemagick libnotify swww jq curl ]}
   '';
 }
