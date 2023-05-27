@@ -20,9 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:pta2002/nixvim";
+    nixneovim = {
+      url = "github:adtya/nixneovim";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
   };
 
@@ -32,7 +33,7 @@
     home-manager,
     impermanence,
     lanzaboote,
-    nixvim,
+    nixneovim,
   } @ inputs: {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
     nixosConfigurations = let
@@ -43,7 +44,7 @@
         specialArgs = inputs;
         modules = [
           {
-            nixpkgs.overlays = [(import ./packages)];
+            nixpkgs.overlays = [(import ./packages) nixneovim.overlays.default];
             nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "x86_64-linux";
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
@@ -62,7 +63,7 @@
               users.${user.primary.userName} = {pkgs, ...}: {
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
-                  nixvim.homeManagerModules.nixvim
+                  nixneovim.nixosModules.default
                   ./home/common
                   ./home/desktop
                 ];

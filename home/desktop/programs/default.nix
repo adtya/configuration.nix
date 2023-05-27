@@ -7,7 +7,7 @@
     ./gnupg.nix
     ./kitty.nix
     ./mpv.nix
-    ./nixvim.nix
+    ./neovim.nix
     ./tmux.nix
     ./virt-manager.nix
     ./yt-dlp.nix
