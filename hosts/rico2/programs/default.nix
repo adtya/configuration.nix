@@ -2,10 +2,6 @@
   imports = [
     ./neovim.nix
     ./starship.nix
+    ./zsh.nix
   ];
-
-  programs = {
-    zsh.enable = true;
-  };
-  environment.pathsToLink = ["/share/zsh"];
 }
