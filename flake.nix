@@ -84,7 +84,7 @@
           home-manager.nixosModules.home-manager
 
           ./common
-          ./hosts/rico
+          ./hosts/rico2
 
           {
             home-manager = {
