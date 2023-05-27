@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.nixneovim = {
     enable = true;
     extraLuaPreConfig = ''
