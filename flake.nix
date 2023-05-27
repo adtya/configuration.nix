@@ -64,8 +64,7 @@
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
                   nixneovim.nixosModules.default
-                  ./home/common
-                  ./home/desktop
+                  ./home
                 ];
               };
             };
@@ -80,24 +79,8 @@
             nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "aarch64-linux";
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
-
-          home-manager.nixosModules.home-manager
-
           ./common
           ./hosts/rico2
-
-          {
-            home-manager = {
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              users.${user.primary.userName} = {pkgs, ...}: {
-                imports = [
-                  ./home/common
-                  ./home/server
-                ];
-              };
-            };
-          }
         ];
       };
     };
