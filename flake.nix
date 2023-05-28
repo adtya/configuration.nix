@@ -39,13 +39,16 @@
     nixosConfigurations = let
       user = (import ./secrets.nix).users;
     in {
-      Skipper = nixpkgs.lib.nixosSystem {
+      Skipper = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
+        pkgs = import nixpkgs {
+          inherit system;
+          config = {allowUnfree = true;};
+          overlays = [(import ./packages) nixneovim.overlays.default];
+        };
         specialArgs = inputs;
         modules = [
           {
-            nixpkgs.overlays = [(import ./packages) nixneovim.overlays.default];
-            nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "x86_64-linux";
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
 
@@ -71,12 +74,15 @@
           }
         ];
       };
-      Rico2 = nixpkgs.lib.nixosSystem {
+      Rico2 = nixpkgs.lib.nixosSystem rec {
         system = "aarch64-linux";
+        pkgs = import nixpkgs {
+          inherit system;
+          config = {allowUnfree = true;};
+        };
         specialArgs = inputs;
         modules = [
           {
-            nixpkgs.hostPlatform = nixpkgs.lib.mkDefault "aarch64-linux";
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
           ./common

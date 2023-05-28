@@ -16,5 +16,4 @@
       use-cgroups = true;
     };
   };
-  nixpkgs.config.allowUnfree = true;
 }
