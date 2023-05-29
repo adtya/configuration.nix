@@ -7,6 +7,7 @@
       ".cache/mozilla"
       ".cache/nix"
       ".config/1Password"
+      ".config/chromium"
       ".config/dconf"
       ".config/discord"
       ".config/lazygit"
