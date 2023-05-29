@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ./hyprland
-    ./sway
     ./addon
   ];
 }
