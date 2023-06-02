@@ -1,6 +1,8 @@
 {...}: {
   imports = [./programs ./services ./wm ./gtk.nix ./persistence.nix];
 
+  home.stateVersion = "23.11";
+
   xdg.enable = true;
   xdg.mime.enable = true;
   xdg.mimeApps.enable = true;

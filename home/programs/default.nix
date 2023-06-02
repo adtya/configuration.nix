@@ -20,8 +20,6 @@
     ./zsh.nix
   ];
 
-  home.stateVersion = "23.05";
-
   home.packages = with pkgs; [
     _1password-gui
     discord

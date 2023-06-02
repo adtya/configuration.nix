@@ -83,5 +83,5 @@
     extraPortals = with pkgs; [xdg-desktop-portal-gtk xdg-desktop-portal-hyprland];
   };
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }
