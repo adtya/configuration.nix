@@ -3,6 +3,7 @@
     ./hardware
     ./programs
     ./services
+    ./containers
     ./security.nix
   ];
 

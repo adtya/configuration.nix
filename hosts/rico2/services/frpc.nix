@@ -25,5 +25,25 @@ in {
     type = tcp
     local_port = 22
     remote_port = 6002
+
+    [http.adtya.xyz]
+    type = http
+    custom_domains = adtya.xyz
+    local_port = 80
+
+    [https.adtya.xyz]
+    type = https
+    custom_domains = adtya.xyz
+    local_port = 443
+
+    [http.www.adtya.xyz]
+    type = http
+    custom_domains = www.adtya.xyz
+    local_port = 80
+
+    [https.www.adtya.xyz]
+    type = https
+    custom_domains = www.adtya.xyz
+    local_port = 443
   '';
 }
