@@ -1,4 +1,3 @@
 {...}: {
-  imports = [./caddy.nix ./frpc.nix];
-  services.openssh.enable = true;
+  imports = [./caddy.nix ./frpc.nix ./ssh.nix];
 }
