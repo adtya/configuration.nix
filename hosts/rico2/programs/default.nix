@@ -4,4 +4,6 @@
     ./starship.nix
     ./zsh.nix
   ];
+
+  programs.git.enable = true;
 }
