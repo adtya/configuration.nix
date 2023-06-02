@@ -8,10 +8,10 @@ in {
     requires = ["network.target"];
     wantedBy = ["multi-user.target"];
     serviceConfig = {
-      Type="simple";
-      ExecStart="${pkgs.frp}/bin/frpc -c /etc/frp/frpc.ini";
-      Restart="always";
-      RestartSec="5s";
+      Type = "simple";
+      ExecStart = "${pkgs.frp}/bin/frpc -c /etc/frp/frpc.ini";
+      Restart = "always";
+      RestartSec = "5s";
     };
   };
   environment.etc."frp/frpc.ini".text = ''
