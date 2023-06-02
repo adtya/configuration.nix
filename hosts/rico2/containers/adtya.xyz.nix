@@ -5,7 +5,6 @@
   };
 
   services.caddy.virtualHosts."adtya.xyz" = {
-    hostName = "adtya.xyz";
     serverAliases = ["www.adtya.xyz"];
     extraConfig = ''
       reverse_proxy http://127.0.0.1:3000

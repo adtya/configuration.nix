@@ -45,5 +45,15 @@ in {
     type = https
     custom_domains = www.adtya.xyz
     local_port = 443
+
+    [http.proofs.adtya.xyz]
+    type = http
+    custom_domains = proofs.adtya.xyz
+    local_port = 80
+
+    [https.proofs.adtya.xyz]
+    type = https
+    custom_domains = proofs.adtya.xyz
+    local_port = 443
   '';
 }

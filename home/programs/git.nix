@@ -9,7 +9,7 @@ in {
     userEmail = user.primary.emailAddress;
     userName = user.primary.realName;
     signing = {
-      key = user.primary.signingKey;
+      key = user.primary.pgpFingerprint;
       signByDefault = true;
     };
     extraConfig = {

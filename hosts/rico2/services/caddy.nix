@@ -1,8 +1,14 @@
 {...}: let
-  caddy_config = (import ../../../secrets.nix).caddy_config;
+  secrets = import ../../../secrets.nix;
 in {
   services.caddy = {
     enable = true;
-    email = caddy_config.email;
+    email = secrets.caddy_config.email;
+
+    virtualHosts."proofs.adtya.xyz" = {
+      extraConfig = ''
+        redir https://keyoxide.org/hkp/${secrets.users.primary.pgpFingerprint}
+      '';
+    };
   };
 }
