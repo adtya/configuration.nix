@@ -5,7 +5,7 @@
       ".cache/aria2"
       ".cache/mesa_shader_cache"
       ".cache/mozilla"
-      ".cache/nix"
+      ".cache/nix-index"
       ".config/1Password"
       ".config/chromium"
       ".config/dconf"

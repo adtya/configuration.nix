@@ -44,6 +44,7 @@
   programs = {
     fzf.enable = true;
     lazygit.enable = true;
+    nix-index.enable = true;
     ssh.enable = true;
     zoxide.enable = true;
   };
