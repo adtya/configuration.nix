@@ -21,7 +21,7 @@
     };
 
     nixneovim = {
-      url = "github:adtya/nixneovim";
+      url = "github:nixneovim/nixneovim";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
