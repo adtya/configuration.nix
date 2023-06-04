@@ -20,10 +20,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixneovim = {
-      url = "github:nixneovim/nixneovim";
+    nixneovimplugins = {
+      url = "github:nixneovim/nixneovimplugins";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
   };
 
@@ -33,7 +32,7 @@
     home-manager,
     impermanence,
     lanzaboote,
-    nixneovim,
+    nixneovimplugins,
   } @ inputs: {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
     nixosConfigurations = let
@@ -44,7 +43,7 @@
         pkgs = import nixpkgs {
           inherit system;
           config = {allowUnfree = true;};
-          overlays = [(import ./packages) nixneovim.overlays.default];
+          overlays = [(import ./packages) nixneovimplugins.overlays.default];
         };
         specialArgs = inputs;
         modules = [
@@ -66,7 +65,6 @@
               users.${user.primary.userName} = {pkgs, ...}: {
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
-                  nixneovim.nixosModules.default
                   ./home
                 ];
               };
