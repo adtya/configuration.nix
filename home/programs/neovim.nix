@@ -13,6 +13,11 @@
       ripgrep
       tree-sitter
       nil
+      nodePackages.yaml-language-server
+      statix
+      alejandra
+      commitlint
+      shellcheck
     ];
     plugins = with pkgs.vimExtraPlugins; [
       {
@@ -25,18 +30,6 @@
         '';
       }
       {
-        plugin = dracula-nvim;
-        type = "lua";
-        config = ''
-          require("dracula").setup({
-            show_end_of_buffer = true,
-            transparent_bg = true,
-            italic_comment = true
-          })
-          vim.cmd[[colorscheme dracula]]
-        '';
-      }
-      {
         plugin = nvim-tree-lua;
         type = "lua";
         config = ''
@@ -45,6 +38,46 @@
           require('nvim-tree').setup {
             diagnostics = {
               enable = true
+            }
+          }
+        '';
+      }
+      {
+        plugin = bufferline-nvim;
+        type = "lua";
+        config = ''
+          require("bufferline").setup{
+            options = {
+              offsets = {
+                {
+                  filetype = "NvimTree",
+                  text = "File Explorer",
+                  separator = true
+                }
+              },
+              diagnostics = "nvim_lsp",
+              separator_style = "slant",
+              truncate_names = true
+            }
+          }
+        '';
+      }
+      {
+        plugin = dracula-vim;
+        type = "lua";
+        config = ''
+          vim.cmd[[colorscheme dracula]]
+        '';
+      }
+      {
+        plugin = lualine-nvim;
+        type = "lua";
+        config = ''
+          require('lualine').setup {
+            options = {
+              icons_enabled = true,
+              theme = 'dracula',
+              globalstatus = true
             }
           }
         '';
@@ -77,19 +110,6 @@
         '';
       }
       {
-        plugin = lualine-nvim;
-        type = "lua";
-        config = ''
-          require('lualine').setup {
-            options = {
-              icons_enabled = true,
-              theme = 'dracula-nvim',
-              globalstatus = true
-            }
-          }
-        '';
-      }
-      {
         plugin = nvim-lastplace;
         type = "lua";
         config = ''
@@ -103,6 +123,8 @@
           require('toggleterm').setup{}
         '';
       }
+      {plugin = plenary-nvim;}
+      {plugin = telescope-nvim;}
       {
         plugin = nvim-treesitter-context;
         type = "lua";
@@ -154,12 +176,49 @@
         config = ''
           require('lspconfig').bashls.setup{}
           require('lspconfig').dockerls.setup{}
-          require('lspconfig').docker_compose_language_service.setup{}
           require('lspconfig').gopls.setup{}
           require('lspconfig').jsonls.setup{}
           require('lspconfig').marksman.setup{}
           require('lspconfig').nil_ls.setup{}
           require('lspconfig').rust_analyzer.setup{}
+          require('lspconfig').yamlls.setup {
+            settings = {
+              yaml = {
+                schemas = {
+                  ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                  ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "/docker-compose.yml",
+                  ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "/docker-compose.yaml"
+                }
+              }
+            }
+          }
+        '';
+      }
+      {
+        plugin = null-ls-nvim;
+        type = "lua";
+        config = ''
+          null_ls = require("null-ls")
+          local sources = {
+            null_ls.builtins.code_actions.statix,
+
+            null_ls.builtins.completion.luasnip,
+
+            null_ls.builtins.diagnostics.actionlint,
+            null_ls.builtins.diagnostics.commitlint,
+            null_ls.builtins.diagnostics.shellcheck,
+            null_ls.builtins.diagnostics.statix,
+
+            null_ls.builtins.formatting.alejandra,
+            null_ls.builtins.formatting.fixjson,
+            null_ls.builtins.formatting.gofmt,
+            null_ls.builtins.formatting.mdformat,
+            null_ls.builtins.formatting.rustfmt,
+            null_ls.builtins.formatting.yamlfmt
+          }
+          null_ls.setup({
+            sources = sources
+          })
         '';
       }
     ];
@@ -186,7 +245,7 @@
       nmap <C-a> <cmd>bp<Return>
       nmap <C-d> <cmd>bn<Return>
       nnoremap <C-h> <cmd>noh<Return>
-      nnoremap <leader>w <cmd>bdelete<cmd>bnext<Return>
+      nnoremap <leader>w <cmd>bdelete<CR><cmd>bnext<Return>
       nnoremap <leader>` <cmd>ToggleTerm<Return>
       nnoremap <leader>1 <cmd>NvimTreeToggle<Return>
       nnoremap <leader>ff <cmd>Telescope find_files<cr>
