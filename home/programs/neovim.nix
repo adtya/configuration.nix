@@ -14,10 +14,6 @@
       tree-sitter
       nil
       nodePackages.yaml-language-server
-      statix
-      alejandra
-      commitlint
-      shellcheck
     ];
     plugins = with pkgs.vimExtraPlugins; [
       {
@@ -170,18 +166,70 @@
           }
         '';
       }
+      {plugin = LuaSnip;}
+      {plugin = cmp-luasnip;}
+      {plugin = cmp-nvim-lsp;}
+      {plugin = cmp-buffer;}
+      {
+        plugin = nvim-cmp;
+        type = "lua";
+        config = ''
+          local cmp = require('cmp')
+          cmp.setup ({
+            snippet = {
+              expand = function(args)
+                require('luasnip').lsp_expand(args.body)
+              end
+            },
+            window = {
+              completion = cmp.config.window.bordered(),
+              documentation = cmp.config.window.bordered(),
+            },
+            mapping = cmp.mapping.preset.insert({
+              ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+              ['<C-f>'] = cmp.mapping.scroll_docs(4),
+              ['<C-Space>'] = cmp.mapping.complete(),
+              ['<C-e>'] = cmp.mapping.abort(),
+              ['<CR>'] = cmp.mapping.confirm({ select = true }),
+            }),
+            sources = cmp.config.sources({
+              { name = 'nvim_lsp' },
+              { name = 'luasnip' },
+            }, {
+              { name = 'buffer' },
+            })
+          })
+        '';
+      }
       {
         plugin = nvim-lspconfig;
         type = "lua";
         config = ''
-          require('lspconfig').bashls.setup{}
-          require('lspconfig').dockerls.setup{}
-          require('lspconfig').gopls.setup{}
-          require('lspconfig').jsonls.setup{}
-          require('lspconfig').marksman.setup{}
-          require('lspconfig').nil_ls.setup{}
-          require('lspconfig').rust_analyzer.setup{}
+          local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+          require('lspconfig').bashls.setup{
+            capabilities = capabilities
+          }
+          require('lspconfig').dockerls.setup{
+            capabilities = capabilities
+          }
+          require('lspconfig').gopls.setup{
+            capabilities = capabilities
+          }
+          require('lspconfig').jsonls.setup{
+            capabilities = capabilities
+          }
+          require('lspconfig').marksman.setup{
+            capabilities = capabilities
+          }
+          require('lspconfig').nil_ls.setup{
+            capabilities = capabilities
+          }
+          require('lspconfig').rust_analyzer.setup{
+            capabilities = capabilities
+          }
           require('lspconfig').yamlls.setup {
+            capabilities = capabilities,
             settings = {
               yaml = {
                 schemas = {
@@ -192,33 +240,6 @@
               }
             }
           }
-        '';
-      }
-      {
-        plugin = null-ls-nvim;
-        type = "lua";
-        config = ''
-          null_ls = require("null-ls")
-          local sources = {
-            null_ls.builtins.code_actions.statix,
-
-            null_ls.builtins.completion.luasnip,
-
-            null_ls.builtins.diagnostics.actionlint,
-            null_ls.builtins.diagnostics.commitlint,
-            null_ls.builtins.diagnostics.shellcheck,
-            null_ls.builtins.diagnostics.statix,
-
-            null_ls.builtins.formatting.alejandra,
-            null_ls.builtins.formatting.fixjson,
-            null_ls.builtins.formatting.gofmt,
-            null_ls.builtins.formatting.mdformat,
-            null_ls.builtins.formatting.rustfmt,
-            null_ls.builtins.formatting.yamlfmt
-          }
-          null_ls.setup({
-            sources = sources
-          })
         '';
       }
     ];
