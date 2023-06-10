@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }: {
@@ -35,7 +34,7 @@
         "clock" = {
           "tooltip" = false;
           "interval" = 1;
-          "format" = "{:%I:%M}";
+          "format" = "{:%H:%M}";
           "format-alt" = "{:%d %B %Y, %A}";
         };
         "backlight" = {
