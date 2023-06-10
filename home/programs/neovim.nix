@@ -1,7 +1,7 @@
 {pkgs, ...}: {
-  xdg.desktopEntries."nvim".name = "Neovim wrapper";
-  xdg.desktopEntries."nvim".exec = "nvim %F";
-  xdg.desktopEntries."nvim".noDisplay = true;
+  #xdg.desktopEntries."nvim".name = "Neovim wrapper";
+  #xdg.desktopEntries."nvim".exec = "nvim %F";
+  #xdg.desktopEntries."nvim".noDisplay = true;
 
   programs.neovim = {
     enable = true;

@@ -6,6 +6,9 @@
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
 
+    darwin.url = "github:lnl7/nix-darwin/master";
+    darwin.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,20 +32,24 @@
   outputs = {
     self,
     nixpkgs,
+    darwin,
     home-manager,
     impermanence,
     lanzaboote,
     nixneovimplugins,
-  } @ inputs: {
+  } @ inputs: let
+    user = (import ./secrets.nix).users;
+  in {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
-    nixosConfigurations = let
-      user = (import ./secrets.nix).users;
-    in {
+    formatter."x86_64-darwin" = nixpkgs.legacyPackages."x86_64-darwin".alejandra;
+    nixosConfigurations = {
       Skipper = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         pkgs = import nixpkgs {
           inherit system;
-          config = {allowUnfree = true;};
+          config = {
+            allowUnfree = true;
+          };
           overlays = [(import ./packages) nixneovimplugins.overlays.default];
         };
         specialArgs = inputs;
@@ -76,7 +83,9 @@
         system = "aarch64-linux";
         pkgs = import nixpkgs {
           inherit system;
-          config = {allowUnfree = true;};
+          config = {
+            allowUnfree = true;
+          };
         };
         specialArgs = inputs;
         modules = [
@@ -87,6 +96,21 @@
           ./hosts/rico2
         ];
       };
+    };
+    homeConfigurations."${user.primary.userName}@Alex" = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        system = "x86_64-darwin";
+        config = {
+          allowUnfree = true;
+        };
+        overlays = [nixneovimplugins.overlays.default];
+      };
+
+      # Specify your home configuration modules here, for example,
+      # the path to your home.nix.
+      modules = [
+        (import ./home/darwin.nix {inherit user;})
+      ];
     };
   };
 }
