@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   user = (import ../../secrets.nix).users;
 in {
   programs.git = {
@@ -6,7 +6,10 @@ in {
     diff-so-fancy = {
       enable = true;
     };
-    userEmail = user.primary.emailAddress;
+    userEmail =
+      if pkgs.stdenv.isLinux
+      then user.primary.emailAddress
+      else user.primary.workEmail;
     userName = user.primary.realName;
     signing = {
       key = user.primary.pgpFingerprint;
