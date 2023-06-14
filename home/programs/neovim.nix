@@ -1,12 +1,9 @@
 {pkgs, ...}: {
-  xdg.desktopEntries =
-    if pkgs.stdenv.isLinux
-    then {
-      "nvim".name = "Neovim wrapper";
-      "nvim".exec = "nvim %F";
-      "nvim".noDisplay = true;
-    }
-    else {};
+  xdg.desktopEntries = {
+    "nvim".name = "Neovim wrapper";
+    "nvim".exec = "nvim %F";
+    "nvim".noDisplay = true;
+  };
   programs.neovim = {
     enable = true;
     viAlias = true;

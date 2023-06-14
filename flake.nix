@@ -37,7 +37,6 @@
     user = (import ./secrets.nix).users;
   in {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
-    formatter."x86_64-darwin" = nixpkgs.legacyPackages."x86_64-darwin".alejandra;
     nixosConfigurations = {
       Skipper = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
@@ -92,21 +91,6 @@
           ./hosts/rico2
         ];
       };
-    };
-    homeConfigurations."${user.primary.userName}@Alex" = home-manager.lib.homeManagerConfiguration {
-      pkgs = import nixpkgs {
-        system = "x86_64-darwin";
-        config = {
-          allowUnfree = true;
-        };
-        overlays = [nixneovimplugins.overlays.default];
-      };
-
-      # Specify your home configuration modules here, for example,
-      # the path to your home.nix.
-      modules = [
-        (import ./home/darwin.nix {inherit user;})
-      ];
     };
   };
 }
