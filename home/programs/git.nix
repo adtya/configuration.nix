@@ -1,5 +1,9 @@
-{pkgs, ...}: let
-  user = (import ../../secrets.nix).users;
+{
+  pkgs,
+  secrets,
+  ...
+}: let
+  user = secrets.users;
 in {
   programs.git = {
     enable = true;

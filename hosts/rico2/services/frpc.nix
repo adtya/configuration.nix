@@ -1,5 +1,9 @@
-{pkgs, ...}: let
-  frp_config = (import ../../../secrets.nix).frp_config;
+{
+  pkgs,
+  secrets,
+  ...
+}: let
+  frp_config = secrets.frp_config;
 in {
   systemd.services.frpc = {
     enable = true;

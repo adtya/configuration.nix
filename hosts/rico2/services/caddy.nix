@@ -1,6 +1,4 @@
-{...}: let
-  secrets = import ../../../secrets.nix;
-in {
+{secrets, ...}: {
   services.caddy = {
     enable = true;
     email = secrets.caddy_config.email;

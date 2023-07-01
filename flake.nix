@@ -34,7 +34,7 @@
     lanzaboote,
     nixneovimplugins,
   } @ inputs: let
-    user = (import ./secrets.nix).users;
+    secrets = import ./secrets.nix;
   in {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
     nixosConfigurations = {
@@ -47,7 +47,7 @@
           };
           overlays = [(import ./packages) nixneovimplugins.overlays.default];
         };
-        specialArgs = inputs;
+        specialArgs = inputs // {inherit secrets;};
         modules = [
           {
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
@@ -64,7 +64,8 @@
             home-manager = {
               useUserPackages = true;
               useGlobalPkgs = true;
-              users.${user.primary.userName} = {pkgs, ...}: {
+              extraSpecialArgs = {inherit secrets;};
+              users.${secrets.users.primary.userName} = {pkgs, ...}: {
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
                   ./home
@@ -82,7 +83,7 @@
             allowUnfree = true;
           };
         };
-        specialArgs = inputs;
+        specialArgs = inputs // {inherit secrets;};
         modules = [
           {
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;

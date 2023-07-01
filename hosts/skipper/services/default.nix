@@ -1,5 +1,5 @@
-{ ... }: let
-  user = (import ../../../secrets.nix).users;
+{secrets, ...}: let
+  user = secrets.users;
 in {
   imports = [
     ./dbus.nix

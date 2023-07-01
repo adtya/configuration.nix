@@ -3,7 +3,7 @@
   secrets,
   ...
 }: let
-  user = (import ../../secrets.nix).users;
+  user = secrets.users;
 in {
   users.mutableUsers = false;
   users.users = {
