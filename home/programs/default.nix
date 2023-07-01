@@ -30,6 +30,7 @@
     gnome3.gnome-disk-utility
     lazydocker
     (lutris.override {extraPkgs = pkgs: [wineWowPackages.waylandFull electron];})
+    minecraft
     pavucontrol
     ripgrep
     spotify-tui
