@@ -1,18 +1,14 @@
-{
-  pkgs,
-  secrets,
-  ...
-}: let
+{ ... }: let
   user = (import ../../../secrets.nix).users;
 in {
   imports = [
     ./dbus.nix
     ./pipewire.nix
-    ./tlp.nix
     ./udev.nix
   ];
   services = {
     blueman.enable = true;
+    cpupower-gui.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
     geoclue2.enable = true;
@@ -24,6 +20,7 @@ in {
     '';
     lvm.dmeventd.enable = true;
     pcscd.enable = true;
+    power-profiles-daemon.enable = true;
     resolved.enable = true;
     thermald.enable = true;
     udisks2.enable = true;
