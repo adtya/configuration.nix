@@ -11,10 +11,15 @@
       ".config/dconf"
       ".config/discord"
       ".config/lazygit"
+      ".config/lutris"
       ".config/spotify-tui"
       ".gnupg"
+      ".steam"
       ".local/share/keyrings"
+      ".local/share/lutris"
       ".local/share/nix"
+      ".local/share/Steam"
+      ".local/share/vulkan"
       ".local/share/zoxide"
       ".local/share/zsh"
       ".local/state"
@@ -27,6 +32,10 @@
       }
       {
         directory = "Downloads";
+        method = "symlink";
+      }
+      {
+        directory = "Games";
         method = "symlink";
       }
       {
