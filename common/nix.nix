@@ -14,6 +14,7 @@
       experimental-features = ["nix-command" "flakes" "auto-allocate-uids" "cgroups" "ca-derivations"];
       auto-allocate-uids = true;
       use-cgroups = true;
+      use-xdg-base-directories = true;
     };
   };
 }
