@@ -1,8 +1,4 @@
-{
-  pkgs,
-  secrets,
-  ...
-}: let
+{secrets, ...}: let
   user = secrets.users;
 in {
   programs.git = {
@@ -10,10 +6,7 @@ in {
     diff-so-fancy = {
       enable = true;
     };
-    userEmail =
-      if pkgs.stdenv.isLinux
-      then user.primary.emailAddress
-      else user.primary.workEmail;
+    userEmail = user.primary.emailAddress;
     userName = user.primary.realName;
     signing = {
       key = user.primary.pgpFingerprint;
@@ -22,6 +15,7 @@ in {
     extraConfig = {
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
+      pull.rabase = true;
     };
     ignores = ["/.nix" "/.direnv"];
   };
