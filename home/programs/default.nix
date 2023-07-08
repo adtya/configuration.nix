@@ -31,6 +31,7 @@
     lazydocker
     (lutris.override {extraPkgs = pkgs: [wineWowPackages.waylandFull electron];})
     minecraft
+    obsidian
     pavucontrol
     ripgrep
     spotify-tui

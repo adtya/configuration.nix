@@ -12,6 +12,7 @@
       ".config/discord"
       ".config/lazygit"
       ".config/lutris"
+      ".config/obsidian"
       ".config/spotify-tui"
       ".gnupg"
       ".steam"
