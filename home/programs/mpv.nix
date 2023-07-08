@@ -8,7 +8,7 @@
     package = pkgs.mpv.override {youtubeSupport = true;};
     config = {
       cache = "yes";
-      cache-secs = "20";
+      cache-secs = "60";
       hwdec = "auto-safe";
       gpu-context = "wayland";
     };
