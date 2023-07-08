@@ -138,6 +138,14 @@ in {
 
     windowrulev2 = dimaround,class:^(gcr-prompter)$
 
+    windowrulev2 = float,class:^(lutris)$
+    windowrulev2 = center,class:^(lutris)$
+    windowrulev2 = size 60% 60%,class:^(lutris)$
+
+    windowrulev2 = float,class:^(steam)$
+    windowrulev2 = center,class:^(steam)$
+    windowrulev2 = size 60% 60%,class:^(steam)$
+
     exec-once = ${dbus-update-activation-environment} --systemd DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL
     exec-once = systemctl --user start hyprland-session.target
     exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
