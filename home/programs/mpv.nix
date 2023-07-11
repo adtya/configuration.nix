@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }: {
@@ -8,7 +7,7 @@
     package = pkgs.mpv.override {youtubeSupport = true;};
     config = {
       cache = "yes";
-      cache-secs = "60";
+      cache-secs = "120";
       hwdec = "auto-safe";
       gpu-context = "wayland";
     };
