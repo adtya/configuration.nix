@@ -3,8 +3,8 @@
     enable = true;
     themePackages = [
       (pkgs.adi1090x-plymouth.override {
-        pack = "pack_4";
-        theme = "rog_2";
+        pack = "pack_3";
+        theme = "infinite_seal";
       })
     ];
     theme = "adi1090x";
