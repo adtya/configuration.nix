@@ -1,4 +1,4 @@
-{...}: {
+_: {
   fileSystems = {
     "/" = {
       device = "/dev/vg0/system";

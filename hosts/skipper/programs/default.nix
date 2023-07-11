@@ -1,4 +1,4 @@
-{...}: {
+_: {
   imports = [
     ./gnupg.nix
     ./neovim.nix

@@ -1,4 +1,4 @@
-{...}: {
+_: {
   imports = [./programs ./services ./wm ./gtk.nix ./persistence.nix];
 
   home.stateVersion = "23.11";

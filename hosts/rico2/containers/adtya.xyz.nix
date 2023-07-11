@@ -1,4 +1,4 @@
-{...}: {
+_: {
   virtualisation.oci-containers.containers."adtya.xyz" = {
     image = "ghcr.io/adtya/adtya.xyz:latest";
     ports = ["3000:80"];

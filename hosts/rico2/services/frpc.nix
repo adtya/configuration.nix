@@ -3,7 +3,7 @@
   secrets,
   ...
 }: let
-  frp_config = secrets.frp_config;
+  inherit (secrets) frp_config;
 in {
   systemd.services.frpc = {
     enable = true;

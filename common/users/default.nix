@@ -7,10 +7,12 @@
 in {
   users.mutableUsers = false;
   users.users = {
-    root.hashedPassword = user.root.hashedPassword;
+    root = {
+      inherit (user.root) hashedPassword;
+    };
     "${user.primary.userName}" = {
       uid = 1000;
-      hashedPassword = user.primary.hashedPassword;
+      inherit (user.primary) hashedPassword;
       description = user.primary.realName;
       isNormalUser = true;
       extraGroups = ["docker" "libvirtd" "networkmanager" "tss" "wheel"];

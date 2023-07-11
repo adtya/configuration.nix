@@ -1,7 +1,7 @@
 {secrets, ...}: {
   services.caddy = {
     enable = true;
-    email = secrets.caddy_config.email;
+    inherit (secrets.caddy_config) email;
 
     virtualHosts."proofs.adtya.xyz" = {
       extraConfig = ''
