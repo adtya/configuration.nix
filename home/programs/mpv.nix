@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.mpv = {
     enable = true;
     package = pkgs.mpv.override {youtubeSupport = true;};
