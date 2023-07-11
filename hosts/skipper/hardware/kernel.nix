@@ -3,6 +3,22 @@
   pkgs,
   ...
 }: {
+  specialisation = {
+    xanmod = {
+      inheritParentConfig = true;
+      configuration = {
+        boot.kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
+        system.nixos.tags = ["with-xanmod"];
+      };
+    };
+    vanilla = {
+      inheritParentConfig = true;
+      configuration = {
+        boot.kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+        system.nixos.tags = ["with-vanilla"];
+      };
+    };
+  };
   boot = {
     consoleLogLevel = 3;
     initrd = {
@@ -19,7 +35,7 @@
       systemd.enable = true;
     };
     kernelModules = ["kvm-intel"];
-    kernelPackages = pkgs.linuxPackages_xanmod_latest;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
     kernelParams = ["quiet"];
     kernel.sysctl = {
       "vm.swappiness" = 0;
