@@ -7,11 +7,11 @@
   tmux,
   kitty,
   imagemagick,
-  sway,
   hyprland,
   swww,
   jq,
   curl,
+  ytfzf,
 }:
 stdenvNoCC.mkDerivation {
   pname = "scripts";
@@ -25,7 +25,7 @@ stdenvNoCC.mkDerivation {
     mkdir -p $out/bin
     cp power-menu.sh $out/bin/power-menu
     chmod +x $out/bin/power-menu
-    wrapProgram $out/bin/power-menu --prefix PATH : ${lib.makeBinPath [libnotify rofi-wayland sway hyprland]}
+    wrapProgram $out/bin/power-menu --prefix PATH : ${lib.makeBinPath [libnotify rofi-wayland hyprland]}
 
     cp tmux-sessions.sh $out/bin/tmux-sessions
     chmod +x $out/bin/tmux-sessions
@@ -38,5 +38,9 @@ stdenvNoCC.mkDerivation {
     cp wallhaven.sh $out/bin/wallhaven
     chmod +x $out/bin/wallhaven
     wrapProgram $out/bin/wallhaven --prefix PATH : ${lib.makeBinPath [imagemagick libnotify jq curl]}
+
+    cp youtube.sh $out/bin/youtube
+    chmod +x $out/bin/youtube
+    wrapProgram $out/bin/youtube --prefix PATH : ${lib.makeBinPath [kitty ytfzf rofi-wayland]}
   '';
 }
