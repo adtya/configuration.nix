@@ -2,7 +2,6 @@
 
 set -eu
 
-SWAYSOCK=${SWAYSOCK:-}
 HYPRLAND_INSTANCE_SIGNATURE=${HYPRLAND_INSTANCE_SIGNATURE:-}
 
 chpower() {
@@ -19,7 +18,6 @@ chpower() {
       exec systemctl hibernate
     ;;
     Logout)
-      [ -n "$SWAYSOCK" ] && swaymsg exit
       [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && hyprctl dispatch exit
     ;;
     *)
