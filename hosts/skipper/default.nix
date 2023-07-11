@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -13,6 +12,7 @@
     ./rollback.nix
     ./secureboot.nix
     ./security.nix
+    ./specialisations.nix
     ./virtualisation.nix
   ];
 
