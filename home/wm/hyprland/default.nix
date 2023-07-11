@@ -108,6 +108,10 @@ in {
     windowrulev2 = size 50% 50%,class:^(.blueman-manager-wrapped)$
     windowrulev2 = center,class:^(.blueman-manager-wrapped)$
 
+    windowrulev2 = float,class:^(ytfzf)$
+    windowrulev2 = size 90% 90%,class:^(ytfzf)$
+    windowrulev2 = center,class:^(ytfzf)$
+
     windowrulev2 = float,class:^(mpv)$
     windowrulev2 = size 90% 90%,class:^(mpv)$
     windowrulev2 = center,class:^(mpv)$
@@ -175,6 +179,7 @@ in {
     bind = SUPER_ALT,W,         exec, ${wallhaven-wallpaper}
     bind = SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu
     bind = SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions
+    bind = SUPER_SHIFT,y,       exec, ${pkgs.scripts}/bin/youtube
 
     bindr = ,print,             exec, ${grim} "''$(${xdg-user-dir} PICTURES)/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
     bindr = SHIFT,print,        exec, ${grim} -g "''$(${slurp})" "''$(${xdg-user-dir} PICTURES)/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
