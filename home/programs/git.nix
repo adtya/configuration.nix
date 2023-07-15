@@ -15,7 +15,7 @@ in {
     extraConfig = {
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
-      pull.rabase = true;
+      pull.rebase = true;
     };
     ignores = ["/.nix" "/.direnv"];
   };
