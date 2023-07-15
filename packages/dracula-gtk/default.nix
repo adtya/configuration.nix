@@ -13,10 +13,9 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "dracula";
     repo = "gtk";
-    rev = "e93c5d8639c874a4245aea07860f344f0dbb18ba";
-    hash = "sha256-h0BQNS3KkpWtvEy//tlc1B0mWu/W2Prctu3cVO5StXg=";
+    rev = "2d9d506c741a0c49e0e83f476746f7658f04c0d8";
+    hash = "sha256-DCXfmr0/AiMh7UmIIJN9WxYgn9+RNPNnTX7EqX/RGrI=";
   };
-
   nativeBuildInputs = [gtk3];
 
   buildInputs = [
