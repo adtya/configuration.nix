@@ -3,6 +3,7 @@
     ./aria2.nix
     ./bat.nix
     ./btop.nix
+    ./chrome.nix
     ./direnv.nix
     ./exa.nix
     ./git.nix
