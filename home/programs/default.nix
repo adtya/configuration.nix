@@ -30,8 +30,6 @@
     gnome.gnome-system-monitor
     gnome3.gnome-disk-utility
     lazydocker
-    (lutris.override {extraPkgs = pkgs: [wineWowPackages.waylandFull electron];})
-    minecraft
     obsidian
     pavucontrol
     ripgrep
