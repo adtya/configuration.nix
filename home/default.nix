@@ -5,7 +5,12 @@ _: {
 
   xdg.enable = true;
   xdg.mime.enable = true;
-  xdg.mimeApps.enable = true;
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "image/jpeg" = ["org.gnome.eog.desktop"];
+    };
+  };
   xdg.userDirs.enable = true;
 
   xdg.desktopEntries."nixos-manual" = {
