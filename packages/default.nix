@@ -3,4 +3,5 @@ self: super: {
   dracula-gtk = super.callPackage ./dracula-gtk {};
   newaita-icon-theme = super.callPackage ./newaita-icon-theme {};
   scripts = super.callPackage ./scripts {};
+  rofi-bluetooth = super.callPackage ./rofi-bluetooth {};
 }
