@@ -172,6 +172,7 @@ in {
     bind = SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu
     bind = SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions
     bind = SUPER_SHIFT,y,       exec, ${pkgs.scripts}/bin/youtube
+    bind = SUPER_SHIFT,b,       exec, ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth
 
     bindr = ,print,             exec, ${grim} "''$(${xdg-user-dir} PICTURES)/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
     bindr = SHIFT,print,        exec, ${grim} -g "''$(${slurp})" "''$(${xdg-user-dir} PICTURES)/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
