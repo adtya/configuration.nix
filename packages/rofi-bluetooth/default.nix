@@ -4,7 +4,7 @@
   makeWrapper,
   stdenvNoCC,
   bluez,
-  rofi-wayland
+  rofi-wayland,
 }:
 stdenvNoCC.mkDerivation {
   pname = "rofi-bluetooth";
