@@ -20,12 +20,6 @@
     };
     polkit.enable = true;
     rtkit.enable = true;
-    tpm2 = {
-      enable = true;
-      abrmd.enable = true;
-      pkcs11.enable = true;
-      tctiEnvironment.enable = true;
-    };
     sudo = {
       package = pkgs.sudo.override {withInsults = true;};
       extraConfig = ''
