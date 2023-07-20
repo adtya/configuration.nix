@@ -19,11 +19,6 @@
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nixneovimplugins = {
-      url = "github:nixneovim/nixneovimplugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -32,7 +27,6 @@
     home-manager,
     impermanence,
     lanzaboote,
-    nixneovimplugins,
   } @ inputs: let
     secrets = import ./secrets.nix;
   in {
@@ -45,7 +39,7 @@
           config = {
             allowUnfree = true;
           };
-          overlays = [(import ./packages) nixneovimplugins.overlays.default];
+          overlays = [(import ./packages)];
         };
         specialArgs = inputs // {inherit secrets;};
         modules = [
