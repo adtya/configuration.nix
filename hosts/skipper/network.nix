@@ -1,6 +1,7 @@
-_: {
+{lib, ...}: {
   networking = {
     hostName = "Skipper";
+    useDHCP = lib.mkDefault false;
     wireless.iwd = {
       enable = true;
       settings = {
