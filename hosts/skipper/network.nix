@@ -18,17 +18,19 @@
 
   systemd.network = {
     enable = true;
-    networks."40-wireless" = {
-      enable = true;
-      matchConfig = {
-        Type = "wlan";
-      };
-      networkConfig = {
-        DHCP = "yes";
-        IgnoreCarrierLoss = "3s";
-      };
-      linkConfig = {
-        RequiredForOnline = "yes";
+    networks = {
+      "40-wireless" = {
+        enable = true;
+        matchConfig = {
+          Type = "wlan";
+        };
+        networkConfig = {
+          DHCP = "yes";
+          IgnoreCarrierLoss = "3s";
+        };
+        linkConfig = {
+          RequiredForOnline = "yes";
+        };
       };
     };
   };
