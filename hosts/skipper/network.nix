@@ -7,9 +7,10 @@
       settings = {
         General = {
           AddressRandomization = "network";
+          EnableNetworkConfiguration = false;
         };
         Settings = {
-          AutoConnect = true;
+          AutoConnect = "yes";
         };
       };
     };
@@ -17,13 +18,14 @@
 
   systemd.network = {
     enable = true;
-    networks.wifi = {
+    networks."40-wireless" = {
       enable = true;
       matchConfig = {
-        Name = "wlan0";
+        Type = "wlan";
       };
       networkConfig = {
         DHCP = "yes";
+        IgnoreCarrierLoss = "3s";
       };
       linkConfig = {
         RequiredForOnline = "yes";
