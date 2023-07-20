@@ -1,12 +1,9 @@
-{
-  lib,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware
     ./programs
     ./services
+    ./network.nix
     ./persistence.nix
     ./plymouth.nix
     ./rollback.nix
@@ -16,7 +13,6 @@
     ./virtualisation.nix
   ];
 
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
   console.useXkbConfig = true;
 
   environment.sessionVariables = {
@@ -56,24 +52,6 @@
   };
 
   location.provider = "geoclue2";
-
-  networking = {
-    hostName = "Skipper";
-    networkmanager = {
-      enable = true;
-      dns = "systemd-resolved";
-      wifi = {
-        backend = "iwd";
-        powersave = false;
-      };
-      extraConfig = ''
-        [device]
-        wifi.iwd.autoconnect=yes
-      '';
-    };
-    useDHCP = lib.mkDefault false;
-    wireless.iwd.enable = true;
-  };
 
   sound.enable = true;
   time.timeZone = "Asia/Kolkata";
