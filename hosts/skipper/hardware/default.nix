@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  config,
   ...
 }: {
   imports = [./kernel.nix ./filesystem.nix];
