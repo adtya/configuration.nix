@@ -8,7 +8,9 @@ _: {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
+      "image/gif" = ["org.gnome.eog.desktop"];
       "image/jpeg" = ["org.gnome.eog.desktop"];
+      "image/png" = ["org.gnome.eog.desktop"];
     };
   };
   xdg.userDirs.enable = true;
