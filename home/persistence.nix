@@ -6,7 +6,6 @@ _: {
       ".cache/mozilla"
       ".cache/nix-index"
       ".config/1Password"
-      ".config/chromium"
       ".config/dconf"
       ".config/discord"
       ".config/lazygit"
