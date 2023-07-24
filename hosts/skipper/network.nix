@@ -28,6 +28,12 @@
           DHCP = "yes";
           IgnoreCarrierLoss = "3s";
         };
+        dhcpV4Config = {
+          UseDomains = "route";
+        };
+        ipv6AcceptRAConfig = {
+          UseDomains = "route";
+        };
         linkConfig = {
           RequiredForOnline = "yes";
         };
