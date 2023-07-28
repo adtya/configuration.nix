@@ -19,9 +19,9 @@
   };
 
   fonts = {
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
     fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       cantarell-fonts
       liberation_ttf
       (nerdfonts.override {fonts = ["FiraCode"];})
