@@ -34,7 +34,7 @@
     lanzaboote,
     agenix,
   } @ inputs: let
-    secrets = import ./secrets.nix;
+    secrets = import ./secrets-legacy.nix;
   in {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
     nixosConfigurations = {
