@@ -3,6 +3,7 @@ _: {
     hideMounts = true;
     directories = [
       "/etc/secureboot"
+      "/etc/ssh/keys"
       "/etc/systemd/nspawn"
       "/root/.cache/nix"
       "/var/cache/apparmor"
