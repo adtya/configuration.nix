@@ -19,6 +19,11 @@
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -27,6 +32,7 @@
     home-manager,
     impermanence,
     lanzaboote,
+    agenix,
   } @ inputs: let
     secrets = import ./secrets.nix;
   in {
@@ -39,7 +45,7 @@
           config = {
             allowUnfree = true;
           };
-          overlays = [(import ./packages)];
+          overlays = [(import ./packages) agenix.overlays.default];
         };
         specialArgs = inputs // {inherit secrets;};
         modules = [
@@ -50,6 +56,7 @@
           home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence
           lanzaboote.nixosModules.lanzaboote
+          agenix.nixosModules.default
 
           ./common
           ./hosts/skipper
@@ -62,6 +69,7 @@
               users.${secrets.users.primary.userName} = {pkgs, ...}: {
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
+                  agenix.homeManagerModules.default
                   ./home
                 ];
               };
@@ -76,12 +84,16 @@
           config = {
             allowUnfree = true;
           };
+          overlays = [agenix.overlays.default];
         };
         specialArgs = inputs // {inherit secrets;};
         modules = [
           {
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
+
+          agenix.nixosModules.default
+
           ./common
           ./hosts/rico2
         ];
