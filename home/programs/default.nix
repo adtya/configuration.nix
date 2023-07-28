@@ -23,9 +23,9 @@
 
   home.packages = with pkgs; [
     _1password-gui
+    agenix
     discord
     evince
-    git-crypt
     gnome.eog
     gnome.gnome-system-monitor
     gnome3.gnome-disk-utility
