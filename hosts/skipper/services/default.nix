@@ -5,6 +5,7 @@ in {
     ./dbus.nix
     ./pipewire.nix
     ./udev.nix
+    ./ssh.nix
   ];
   services = {
     blueman.enable = true;
