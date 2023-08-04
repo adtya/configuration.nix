@@ -1,11 +1,11 @@
 {pkgs, ...}: {
-  xdg.desktopEntries = {
-    "nvim".name = "Neovim wrapper";
-    "nvim".exec = "nvim %F";
-    "nvim".noDisplay = true;
-  };
+  #xdg.desktopEntries = {
+  #  "nvim".name = "Neovim wrapper";
+  #  "nvim".exec = "nvim %F";
+  #  "nvim".noDisplay = true;
+  #};
   programs.neovim = {
-    enable = true;
+    enable = false;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;

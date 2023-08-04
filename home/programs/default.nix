@@ -13,7 +13,8 @@
     ./gnupg.nix
     ./kitty.nix
     ./mpv.nix
-    ./neovim.nix
+    #./neovim.nix
+    ./nixvim.nix
     ./starship.nix
     ./tmux.nix
     ./virt-manager.nix
