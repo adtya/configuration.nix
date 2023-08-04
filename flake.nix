@@ -20,6 +20,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +37,7 @@
     home-manager,
     impermanence,
     lanzaboote,
+    nixvim,
     agenix,
   } @ inputs: let
     secrets = import ./secrets-legacy.nix;
@@ -69,6 +75,7 @@
               users.${secrets.users.primary.userName} = {pkgs, ...}: {
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
+                  nixvim.homeManagerModules.nixvim
                   agenix.homeManagerModules.default
                   ./home
                 ];
@@ -92,6 +99,7 @@
             system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           }
 
+          nixvim.nixosModules.nixvim
           agenix.nixosModules.default
 
           ./common
