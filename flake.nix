@@ -34,7 +34,7 @@
     lanzaboote,
     nixvim,
   } @ inputs: let
-    secrets = import ./secrets-legacy.nix;
+    secrets = import ./secrets.nix;
   in {
     formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
     nixosConfigurations = {
