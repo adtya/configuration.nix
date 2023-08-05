@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  xdg.desktopEntries = {
+    "nvim".name = "Neovim wrapper";
+    "nvim".exec = "nvim %F";
+    "nvim".noDisplay = true;
+  };
   programs.nixvim = {
     enable = true;
     viAlias = true;
