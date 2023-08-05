@@ -1,4 +1,8 @@
-{pkgs, secrets, ...}: {
+{
+  pkgs,
+  secrets,
+  ...
+}: {
   services = {
     spotifyd = {
       enable = true;
@@ -15,6 +19,9 @@
           backend = "pulseaudio";
           no_audio_cache = true;
           dbus_type = "session";
+          volume_normalization = true;
+          autoplay = true;
+          bitrate = 320;
         };
       };
     };
