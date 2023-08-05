@@ -1,18 +1,15 @@
-{pkgs, ...}: {
+{pkgs, secrets, ...}: {
   services = {
     spotifyd = {
       enable = true;
       package = pkgs.spotifyd.override {
-        withKeyring = true;
         withMpris = true;
       };
       settings = {
         global = {
-          use_keyring = true;
+          inherit (secrets.spotify) username;
+          inherit (secrets.spotify) password;
           use_mpris = true;
-          username_cmd = ''
-            ${pkgs.libsecret}/bin/secret-tool search --all service spotifyd 2>&1 | grep 'username' | awk -F'= ' '{print $2}'
-          '';
           device_name = "Skipperd";
           device_type = "computer";
           backend = "pulseaudio";
