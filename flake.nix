@@ -113,7 +113,9 @@
           formatter = pkgs.alejandra;
           devShells.default = mkShell {
             buildInputs = [
+              git
               git-crypt
+              statix
             ];
           };
         }
