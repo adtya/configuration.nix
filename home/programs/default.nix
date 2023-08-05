@@ -24,7 +24,6 @@
 
   home.packages = with pkgs; [
     _1password-gui
-    agenix
     discord
     evince
     gnome.eog

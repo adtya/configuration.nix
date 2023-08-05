@@ -24,11 +24,6 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -38,7 +33,6 @@
     impermanence,
     lanzaboote,
     nixvim,
-    agenix,
   } @ inputs: let
     secrets = import ./secrets-legacy.nix;
   in {
@@ -51,7 +45,7 @@
           config = {
             allowUnfree = true;
           };
-          overlays = [(import ./packages) agenix.overlays.default];
+          overlays = [(import ./packages)];
         };
         specialArgs = inputs // {inherit secrets;};
         modules = [
@@ -62,7 +56,6 @@
           home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence
           lanzaboote.nixosModules.lanzaboote
-          agenix.nixosModules.default
 
           ./common
           ./hosts/skipper
@@ -76,7 +69,6 @@
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
                   nixvim.homeManagerModules.nixvim
-                  agenix.homeManagerModules.default
                   ./home
                 ];
               };
@@ -91,7 +83,6 @@
           config = {
             allowUnfree = true;
           };
-          overlays = [agenix.overlays.default];
         };
         specialArgs = inputs // {inherit secrets;};
         modules = [
@@ -100,7 +91,6 @@
           }
 
           nixvim.nixosModules.nixvim
-          agenix.nixosModules.default
 
           ./common
           ./hosts/rico2
