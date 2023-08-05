@@ -26,6 +26,7 @@
     _1password-gui
     discord
     evince
+    git-crypt
     gnome.eog
     gnome.gnome-system-monitor
     gnome3.gnome-disk-utility
