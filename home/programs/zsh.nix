@@ -26,15 +26,12 @@
       ''
       else "";
     shellAliases = {
-      cat = "bat";
+      cat = "${pkgs.bat}/bin/bat";
       cp = "cp -v";
       grep = "grep --color=auto";
       ln = "ln -v";
       mv = "mv -v";
-      rebuild_system =
-        if pkgs.stdenv.isLinux
-        then "sudo nixos-rebuild --flake /persist/home/.nixos-config#Skipper --cores 0"
-        else "home-manager --flake /Users/adtya/Projects/nixos-config#adtya@Alex --cores 0";
+      rebuild_system = "sudo nixos-rebuild --flake /persist/home/.nixos-config#Skipper --cores 0";
     };
   };
 }
