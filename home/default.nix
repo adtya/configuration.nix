@@ -8,6 +8,7 @@ _: {
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
+      "application/pdf" = ["org.gnome.Evince.desktop"];
       "image/gif" = ["org.gnome.eog.desktop"];
       "image/jpeg" = ["org.gnome.eog.desktop"];
       "image/png" = ["org.gnome.eog.desktop"];
