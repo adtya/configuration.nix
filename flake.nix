@@ -6,6 +6,10 @@
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
 
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,73 +33,89 @@
   outputs = {
     self,
     nixpkgs,
+    flake-utils,
     home-manager,
     impermanence,
     lanzaboote,
     nixvim,
   } @ inputs: let
     secrets = import ./secrets.nix;
-  in {
-    formatter."x86_64-linux" = nixpkgs.legacyPackages."x86_64-linux".alejandra;
-    nixosConfigurations = {
-      Skipper = nixpkgs.lib.nixosSystem rec {
-        system = "x86_64-linux";
-        pkgs = import nixpkgs {
-          inherit system;
-          config = {
-            allowUnfree = true;
-          };
-          overlays = [(import ./packages)];
-        };
-        specialArgs = inputs // {inherit secrets;};
-        modules = [
-          {
-            system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
-          }
-
-          home-manager.nixosModules.home-manager
-          impermanence.nixosModules.impermanence
-          lanzaboote.nixosModules.lanzaboote
-
-          ./common
-          ./hosts/skipper
-
-          {
-            home-manager = {
-              useUserPackages = true;
-              useGlobalPkgs = true;
-              extraSpecialArgs = {inherit secrets;};
-              users.${secrets.users.primary.userName} = {pkgs, ...}: {
-                imports = [
-                  impermanence.nixosModules.home-manager.impermanence
-                  nixvim.homeManagerModules.nixvim
-                  ./home
-                ];
-              };
+  in
+    {
+      nixosConfigurations = {
+        Skipper = nixpkgs.lib.nixosSystem rec {
+          system = "x86_64-linux";
+          pkgs = import nixpkgs {
+            inherit system;
+            config = {
+              allowUnfree = true;
             };
-          }
-        ];
+            overlays = [(import ./packages)];
+          };
+          specialArgs = inputs // {inherit secrets;};
+          modules = [
+            {
+              system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+            }
+
+            home-manager.nixosModules.home-manager
+            impermanence.nixosModules.impermanence
+            lanzaboote.nixosModules.lanzaboote
+
+            ./common
+            ./hosts/skipper
+
+            {
+              home-manager = {
+                useUserPackages = true;
+                useGlobalPkgs = true;
+                extraSpecialArgs = {inherit secrets;};
+                users.${secrets.users.primary.userName} = {pkgs, ...}: {
+                  imports = [
+                    impermanence.nixosModules.home-manager.impermanence
+                    nixvim.homeManagerModules.nixvim
+                    ./home
+                  ];
+                };
+              };
+            }
+          ];
+        };
+        Rico2 = nixpkgs.lib.nixosSystem rec {
+          system = "aarch64-linux";
+          pkgs = import nixpkgs {
+            inherit system;
+            config = {
+              allowUnfree = true;
+            };
+          };
+          specialArgs = inputs // {inherit secrets;};
+          modules = [
+            {
+              system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+            }
+
+            nixvim.nixosModules.nixvim
+
+            ./common
+            ./hosts/rico2
+          ];
+        };
       };
-      Rico2 = nixpkgs.lib.nixosSystem rec {
-        system = "aarch64-linux";
+    }
+    // flake-utils.lib.eachDefaultSystem (
+      system: let
         pkgs = import nixpkgs {
           inherit system;
-          config = {
-            allowUnfree = true;
-          };
         };
-        specialArgs = inputs // {inherit secrets;};
-        modules = [
-          {
-            system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
-          }
-
-          nixvim.nixosModules.nixvim
-
-          ./common
-          ./hosts/rico2
-        ];
-      };
-    };
-  };
+      in
+        with pkgs; {
+          formatter = pkgs.alejandra;
+          devShells.default = mkShell {
+            buildInputs = [
+              git-crypt
+            ];
+          };
+        }
+    );
 }
