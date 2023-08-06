@@ -120,6 +120,13 @@
       };
       nvim-cmp = {
         enable = true;
+        snippet.expand = "luasnip";
+        sources = [
+          {name = "nvim_lsp";}
+          {name = "luasnip";}
+          {name = "buffers";}
+          {name = "treesitter";}
+        ];
       };
       treesitter = {
         enable = true;
