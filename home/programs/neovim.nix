@@ -110,7 +110,12 @@
       lsp = {
         enable = true;
         servers = {
+          bashls.enable = true;
+          gopls.enable = true;
+          jsonls.enable = true;
           nixd.enable = true;
+          rust-analyzer.enable = true;
+          yamlls.enable = true;
         };
       };
       lualine = {
