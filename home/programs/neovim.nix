@@ -48,7 +48,26 @@
           action = "<cmd>noh<Return>";
         };
         "<leader>w" = {
-          action = "<cmd>bdelete<CR><cmd>bnext><Return>";
+          action = "<cmd>bdelete<CR><cmd>bnext<Return>";
+        };
+        "<leader>1" = {
+          action = "<cmd>:Neotree toggle<Return>";
+        };
+      };
+    };
+    plugins = {
+      neo-tree = {
+        enable = true;
+        addBlankLineAtTop = true;
+        enableDiagnostics = true;
+        enableGitStatus = true;
+        closeIfLastWindow = true;
+        buffers = {
+          followCurrentFile = true;
+        };
+        filesystem = {
+          followCurrentFile = true;
+          useLibuvFileWatcher = true;
         };
       };
     };
