@@ -70,6 +70,12 @@
         ];
         separatorStyle = "slant";
       };
+      cmp-buffer.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp-nvim-lsp-document-symbol.enable = true;
+      cmp-nvim-lsp-signature-help.enable = true;
+      cmp-treesitter.enable = true;
+      cmp_luasnip.enable = true;
       gitsigns = {
         enable = true;
         currentLineBlame = true;
@@ -111,6 +117,9 @@
         enable = true;
         globalstatus = true;
         theme = "dracula";
+      };
+      nvim-cmp = {
+        enable = true;
       };
       treesitter = {
         enable = true;
