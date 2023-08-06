@@ -68,6 +68,9 @@
         ];
         separatorStyle = "slant";
       };
+      gitsigns = {
+        enable = true;
+      };
       neo-tree = {
         enable = true;
         addBlankLineAtTop = true;
