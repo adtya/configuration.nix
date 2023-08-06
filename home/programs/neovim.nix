@@ -98,6 +98,12 @@
           useLibuvFileWatcher = true;
         };
       };
+      lsp = {
+        enable = true;
+        servers = {
+          nixd.enable = true;
+        };
+      };
       lualine = {
         enable = true;
         globalstatus = true;
