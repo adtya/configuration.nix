@@ -75,6 +75,12 @@
         currentLineBlame = true;
         currentLineBlameOpts.delay = 100;
       };
+      indent-blankline = {
+        enable = true;
+        showEndOfLine = true;
+        useTreesitter = true;
+        useTreesitterScope = true;
+      };
       neo-tree = {
         enable = true;
         addBlankLineAtTop = true;
