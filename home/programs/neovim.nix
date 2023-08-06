@@ -82,6 +82,11 @@
           useLibuvFileWatcher = true;
         };
       };
+      lualine = {
+        enable = true;
+        globalstatus = true;
+        theme = "dracula";
+      };
     };
   };
 }
