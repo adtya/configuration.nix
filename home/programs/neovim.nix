@@ -48,9 +48,11 @@
           action = "<cmd>noh<Return>";
         };
         "<leader>w" = {
-          action = "<cmd>bdelete<CR><cmd>bnext<Return>";
+          silent = true;
+          action = "<cmd>bdelete<Return><cmd>bnext<Return>";
         };
         "<leader>1" = {
+          silent = true;
           action = "<cmd>:Neotree toggle<Return>";
         };
       };
