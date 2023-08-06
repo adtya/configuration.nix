@@ -56,6 +56,18 @@
       };
     };
     plugins = {
+      bufferline = {
+        enable = true;
+        diagnostics = "nvim_lsp";
+        offsets = [
+          {
+            filetype = "neo-tree";
+            text = "File Explorer";
+            separator = true;
+          }
+        ];
+        separatorStyle = "slant";
+      };
       neo-tree = {
         enable = true;
         addBlankLineAtTop = true;
