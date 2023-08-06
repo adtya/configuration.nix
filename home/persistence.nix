@@ -28,10 +28,6 @@ _: {
         method = "symlink";
       }
       {
-        directory = "Games";
-        method = "symlink";
-      }
-      {
         directory = "Music";
         method = "symlink";
       }
