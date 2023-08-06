@@ -11,7 +11,7 @@
     clipboard.providers.wl-copy.enable = true;
     colorscheme = "dracula";
     extraPlugins = with pkgs.vimPlugins; [
-      dracula-nvim
+      dracula-vim
     ];
     options = {
       autowrite = true;
