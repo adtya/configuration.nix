@@ -17,8 +17,11 @@ _: {
       ".local/share/zsh"
       ".local/state"
       ".mozilla"
-      ".nixos-config"
       ".ssh"
+      {
+        directory = ".nixos-config";
+        method = "symlink";
+      }
       {
         directory = "Documents";
         method = "symlink";
