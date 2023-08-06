@@ -81,6 +81,9 @@
         useTreesitter = true;
         useTreesitterScope = true;
       };
+      lastplace = {
+        enable = true;
+      };
       neo-tree = {
         enable = true;
         addBlankLineAtTop = true;
