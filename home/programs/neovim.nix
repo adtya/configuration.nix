@@ -109,6 +109,11 @@
         globalstatus = true;
         theme = "dracula";
       };
+      treesitter = {
+        enable = true;
+      };
+      treesitter-context.enable = true;
+      treesitter-refactor.enable = true;
     };
   };
 }
