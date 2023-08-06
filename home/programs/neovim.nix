@@ -72,6 +72,8 @@
       };
       gitsigns = {
         enable = true;
+        currentLineBlame = true;
+        currentLineBlameOpts.delay = 100;
       };
       neo-tree = {
         enable = true;
