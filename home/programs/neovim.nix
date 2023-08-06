@@ -87,9 +87,6 @@
         useTreesitter = true;
         useTreesitterScope = true;
       };
-      intellitab = {
-        enable = true;
-      };
       lastplace = {
         enable = true;
       };
