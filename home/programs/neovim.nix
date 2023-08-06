@@ -13,6 +13,10 @@
     extraPlugins = with pkgs.vimPlugins; [
       dracula-vim
     ];
+    extraPackages = with pkgs; [
+      fd
+      ripgrep
+    ];
     options = {
       autowrite = true;
       background = "dark";
@@ -54,6 +58,14 @@
         "<leader>1" = {
           silent = true;
           action = "<cmd>:Neotree toggle<Return>";
+        };
+        "<leader>ff" = {
+          silent = true;
+          action = "<cmd>:Telescope find_files<Return>";
+        };
+        "<leader>fg" = {
+          silent = true;
+          action = "<cmd>:Telescope live_grep<Return>";
         };
       };
     };
@@ -127,6 +139,16 @@
           {name = "buffers";}
           {name = "treesitter";}
         ];
+      };
+      telescope = {
+        enable = true;
+        extensions = {
+          fzf-native = {
+            enable = true;
+            caseMode = "smart_case";
+            fuzzy = true;
+          };
+        };
       };
       treesitter = {
         enable = true;
