@@ -107,10 +107,16 @@
         enableGitStatus = true;
         closeIfLastWindow = true;
         buffers = {
-          followCurrentFile = true;
+          followCurrentFile = {
+            enabled = true;
+            leaveDirsOpen = false;
+          };
         };
         filesystem = {
-          followCurrentFile = true;
+          followCurrentFile = {
+            enabled = true;
+            leaveDirsOpen = false;
+          };
           useLibuvFileWatcher = true;
         };
       };
