@@ -31,10 +31,10 @@
           IgnoreCarrierLoss = "3s";
         };
         dhcpV4Config = {
-          UseDomains = "route";
+          UseDomains = true;
         };
         ipv6AcceptRAConfig = {
-          UseDomains = "route";
+          UseDomains = true;
         };
         linkConfig = {
           RequiredForOnline = "yes";
