@@ -104,6 +104,22 @@
         useTreesitterScope = true;
       };
       lastplace.enable = true;
+      lsp = {
+        enable = true;
+        servers = {
+          bashls.enable = true;
+          gopls.enable = true;
+          jsonls.enable = true;
+          nixd.enable = true;
+          rust-analyzer.enable = true;
+          yamlls.enable = true;
+        };
+      };
+      lualine = {
+        enable = true;
+        globalstatus = true;
+        theme = "dracula";
+      };
       neo-tree = {
         enable = true;
         addBlankLineAtTop = true;
@@ -123,22 +139,6 @@
           };
           useLibuvFileWatcher = true;
         };
-      };
-      lsp = {
-        enable = true;
-        servers = {
-          bashls.enable = true;
-          gopls.enable = true;
-          jsonls.enable = true;
-          nixd.enable = true;
-          rust-analyzer.enable = true;
-          yamlls.enable = true;
-        };
-      };
-      lualine = {
-        enable = true;
-        globalstatus = true;
-        theme = "dracula";
       };
       nvim-cmp = {
         enable = true;
