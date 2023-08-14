@@ -55,6 +55,10 @@
           silent = true;
           action = "<cmd>bdelete<Return><cmd>bnext<Return>";
         };
+        "<leader>`" = {
+          silent = true;
+          action = "<cmd>:ToggleTerm<Return>";
+        };
         "<leader>1" = {
           silent = true;
           action = "<cmd>:Neotree toggle<Return>";
@@ -155,6 +159,9 @@
             fuzzy = true;
           };
         };
+      };
+      toggleterm = {
+        enable = true;
       };
       treesitter = {
         enable = true;
