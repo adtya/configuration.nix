@@ -1,2 +1,2 @@
-# NixOS configuration for Skipper and Rico2
+# NixOS configuration for Skipper, Rico1 and Rico2
 

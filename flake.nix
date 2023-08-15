@@ -82,6 +82,24 @@
             }
           ];
         };
+        Rico1 = nixpkgs.lib.nixosSystem rec {
+          system = "aarch64-linux";
+          pkgs = import nixpkgs {
+            inherit system;
+            inherit config;
+          };
+          specialArgs = inputs // {inherit secrets;};
+          modules = [
+            {
+              system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+            }
+
+            nixvim.nixosModules.nixvim
+
+            ./common
+            ./hosts/rico1
+          ];
+        };
         Rico2 = nixpkgs.lib.nixosSystem rec {
           system = "aarch64-linux";
           pkgs = import nixpkgs {
