@@ -3,8 +3,12 @@
 in {
   programs.git = {
     enable = true;
-    diff-so-fancy = {
+    delta = {
       enable = true;
+      options = {
+        side-by-side = true;
+        syntax-theme = "Dracula";
+      };
     };
     userEmail = user.primary.emailAddress;
     userName = user.primary.realName;
@@ -14,6 +18,7 @@ in {
     };
     extraConfig = {
       init.defaultBranch = "main";
+      merge.conflictstyle = "diff3";
       push.autoSetupRemote = true;
       pull.rebase = true;
     };
