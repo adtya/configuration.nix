@@ -94,8 +94,6 @@
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
             }
 
-            nixvim.nixosModules.nixvim
-
             ./common
             ./hosts/rico1
           ];
@@ -111,8 +109,6 @@
             {
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
             }
-
-            nixvim.nixosModules.nixvim
 
             ./common
             ./hosts/rico2
