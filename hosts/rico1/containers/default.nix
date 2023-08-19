@@ -1,5 +1,5 @@
 _: {
-  imports = [ ];
+  imports = [];
 
   virtualisation.oci-containers = {
     backend = "docker";

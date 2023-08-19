@@ -11,7 +11,7 @@
         layer = "top";
         position = "top";
         height = 28;
-        modules-left = [ "wlr/workspaces" "hyprland/window" "hyprland/submap"];
+        modules-left = ["wlr/workspaces" "hyprland/window" "hyprland/submap"];
         modules-center = [];
         modules-right = ["tray" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock"];
         "sway/mode" = {
