@@ -1,3 +1,3 @@
 {...}: {
-  imports = [./caddy.nix ./frpc.nix ./ssh.nix];
+  imports = [./caddy.nix ./frpc.nix ./postgresql.nix ./ssh.nix];
 }
