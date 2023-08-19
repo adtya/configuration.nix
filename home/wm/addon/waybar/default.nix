@@ -1,9 +1,20 @@
 {pkgs, ...}: {
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-    });
+    package =
+      (pkgs.waybar.overrideAttrs (oldAttrs: rec {
+        version = "ed0f7453c986a80cdee59c436288084fcc444277";
+        src = pkgs.fetchFromGitHub {
+          owner = "Alexays";
+          repo = "Waybar";
+          rev = version;
+          hash = "sha256-aVWWfAzf38bDBkFDQoYzB7si9yd2pjVGDeSF4PX8KmM=";
+        };
+      }))
+      .override {
+        hyprlandSupport = true;
+        swaySupport = false;
+      };
     systemd.enable = true;
     style = ./style.css;
     settings = {
