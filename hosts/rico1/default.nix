@@ -4,12 +4,12 @@
     ./programs
     ./services
     ./containers
+    ./network.nix
     ./security.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  networking.hostName = "Rico1";
 
   i18n = {
     defaultLocale = "en_US.UTF-8";
