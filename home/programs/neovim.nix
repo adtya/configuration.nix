@@ -130,7 +130,7 @@
         addBlankLineAtTop = true;
         enableDiagnostics = true;
         enableGitStatus = true;
-        closeIfLastWindow = true;
+        closeIfLastWindow = false;
         buffers = {
           followCurrentFile = {
             enabled = true;
