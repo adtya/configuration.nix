@@ -18,6 +18,10 @@
       fd
       ripgrep
     ];
+    extraConfigLuaPre = ''
+      vim.opt.listchars:append "space:⋅"
+      vim.opt.listchars:append "eol:↴"
+    '';
     globals = {
       gitblame_date_format = "%r";
     };
@@ -27,6 +31,7 @@
       clipboard = "unnamedplus";
       expandtab = true;
       laststatus = 2;
+      list = true;
       number = true;
       relativenumber = true;
       shiftwidth = 2;
