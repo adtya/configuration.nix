@@ -27,19 +27,19 @@
       clipboard = "unnamedplus";
       expandtab = true;
       laststatus = 2;
-      showmode = false;
-      swapfile = false;
       number = true;
       relativenumber = true;
       shiftwidth = 2;
+      showmode = false;
       signcolumn = "yes";
       smartindent = true;
+      splitbelow = true;
+      splitright = true;
+      swapfile = false;
       tabstop = 2;
       termguicolors = true;
       updatetime = 100;
       wrap = true;
-      splitright = true;
-      splitbelow = true;
     };
     maps = {
       normal = {
