@@ -12,11 +12,15 @@
     colorscheme = "dracula";
     extraPlugins = with pkgs.vimPlugins; [
       dracula-vim
+      git-blame-nvim
     ];
     extraPackages = with pkgs; [
       fd
       ripgrep
     ];
+    globals = {
+      gitblame_date_format = "%r";
+    };
     options = {
       autowrite = true;
       background = "dark";
@@ -92,11 +96,7 @@
       cmp-nvim-lsp-signature-help.enable = true;
       cmp-treesitter.enable = true;
       cmp_luasnip.enable = true;
-      gitsigns = {
-        enable = true;
-        currentLineBlame = true;
-        currentLineBlameOpts.delay = 100;
-      };
+      gitsigns.enable = true;
       indent-blankline = {
         enable = true;
         showEndOfLine = true;
