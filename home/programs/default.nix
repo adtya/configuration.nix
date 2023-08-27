@@ -3,7 +3,6 @@
     ./aria2.nix
     ./bat.nix
     ./btop.nix
-    ./chrome.nix
     ./direnv.nix
     ./exa.nix
     ./git.nix
@@ -34,6 +33,7 @@
     ripgrep
     spotify-tui
     wl-clipboard
+    ungoogled-chromium
     xdg-utils
     yubioath-flutter
     yubikey-manager
