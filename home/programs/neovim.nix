@@ -131,12 +131,6 @@
         enableDiagnostics = true;
         enableGitStatus = true;
         closeIfLastWindow = false;
-        buffers = {
-          followCurrentFile = {
-            enabled = true;
-            leaveDirsOpen = false;
-          };
-        };
         filesystem = {
           followCurrentFile = {
             enabled = true;
