@@ -5,6 +5,7 @@ _: {
       ".cache/aria2"
       ".cache/mozilla"
       ".cache/nix-index"
+      ".cache/ytfzf"
       ".config/1Password"
       ".config/dconf"
       ".config/lazygit"
