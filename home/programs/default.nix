@@ -32,6 +32,7 @@
     pavucontrol
     ripgrep
     spotify-tui
+    steam-run
     wl-clipboard
     ungoogled-chromium
     xdg-utils
