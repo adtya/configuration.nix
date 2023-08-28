@@ -17,6 +17,11 @@ in {
       signByDefault = true;
     };
     extraConfig = {
+      core = {
+        fsmonitor = true;
+        untrackedCache = true;
+      };
+      feature.manyFiles = true;
       init.defaultBranch = "main";
       merge.conflictstyle = "diff3";
       push.autoSetupRemote = true;
