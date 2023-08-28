@@ -136,6 +136,7 @@
             enabled = true;
             leaveDirsOpen = false;
           };
+          filteredItems.visible = true;
           useLibuvFileWatcher = true;
         };
       };
