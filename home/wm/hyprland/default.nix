@@ -134,8 +134,8 @@ in {
     windowrulev2 = size 25% 50%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$
     windowrulev2 = move 5%% 10%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$
 
-    windowrulev2 = float,class:^(.yubioath-flutter-wrapped)$
-    windowrulev2 = center,class:^(.yubioath-flutter-wrapped)$
+    windowrulev2 = float,class:^(.yubioath-flutter-wrapped_)$
+    windowrulev2 = center,class:^(.yubioath-flutter-wrapped_)$
 
     windowrulev2 = float,class:^(yubico.org.)$
     windowrulev2 = center,class:^(yubico.org.)$
