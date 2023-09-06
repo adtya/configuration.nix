@@ -22,6 +22,7 @@
 
   home.packages = with pkgs; [
     _1password-gui
+    bitwarden
     evince
     git-crypt
     gnome.eog

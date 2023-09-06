@@ -51,6 +51,11 @@
               "installation_mode" = "force_installed";
               "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
             };
+            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+              "allowed_types" = "extension";
+              "installation_mode" = "force_installed";
+              "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+            };
             "queryamoid@kaply.com" = {
               "allowed_types" = "extension";
               "installation_mode" = "force_installed";

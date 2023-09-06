@@ -140,6 +140,9 @@ in {
     windowrulev2 = float,class:^(yubico.org.)$
     windowrulev2 = center,class:^(yubico.org.)$
 
+    windowrulev2 = float,class:^(Bitwarden)$
+    windowrulev2 = center,class:^(Bitwarden)$
+
     windowrulev2 = dimaround,class:^(gcr-prompter)$
 
     exec-once = ${dbus-update-activation-environment} --systemd DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL
