@@ -4,13 +4,13 @@
     ./bat.nix
     ./btop.nix
     ./direnv.nix
-    ./exa.nix
     ./git.nix
     ./files.nix
     ./firefox.nix
     ./github-cli.nix
     ./gnupg.nix
     ./kitty.nix
+    ./lsd.nix
     ./mpv.nix
     ./neovim.nix
     ./starship.nix
