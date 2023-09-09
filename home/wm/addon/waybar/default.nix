@@ -16,76 +16,75 @@
         modules-center = [];
         modules-right = ["tray" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock"];
         "sway/mode" = {
-          "format" = "{}";
+          format = "{}";
         };
         "sway/window" = {
           "tooltip" = false;
         };
-        "idle_inhibitor" = {
-          "format" = "{icon}";
-          "format-icons" = {
-            "activated" = "󰈈";
-            "deactivated" = "󰈉";
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            activated = "󰈈";
+            deactivated = "󰈉";
           };
-          "tooltip" = false;
+          tooltip = false;
         };
-        "clock" = {
-          "tooltip" = false;
-          "interval" = 1;
-          "format" = "{:%H:%M}";
-          "format-alt" = "{:%d %B %Y, %A}";
+        clock = {
+          tooltip = false;
+          interval = 1;
+          format = "{:%H:%M}";
+          format-alt = "{:%d %B %Y, %A}";
         };
-        "backlight" = {
-          "format" = "{icon}";
-          "format-icons" = ["󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠"];
+        backlight = {
+          format = "{icon}";
+          format-icons = ["󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠"];
         };
-        "battery" = {
-          "states" = {
-            "good" = 90;
-            "warning" = 20;
-            "critical" = 10;
+        battery = {
+          states = {
+            good = 90;
+            warning = 20;
+            critical = 10;
           };
-          "format" = "{icon}";
-          "format-alt" = "{icon} {capacity}% ({time})";
-          "format-charging" = "󰂄 {capacity}%";
-          "format-plugged" = "‭󰚥 {capacity}%";
-          "format-icons" = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
-          "tooltip" = false;
+          format = "{icon}";
+          format-alt = "{icon} {capacity}% ({time})";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "‭󰚥 {capacity}%";
+          format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          tooltip = false;
         };
-        "network" = {
-          "format-wifi" = "󰖩";
-          "format-ethernet" = "󰈀";
-          "format-linked" = "󰌷";
-          "format-disconnected" = "󰖪";
-          "format-alt" = "{ifname}: {ipaddr}/{cidr}";
-          "tooltip" = false;
+        network = {
+          format-wifi = "󰖩";
+          format-ethernet = "󰈀";
+          format-linked = "󰌷";
+          format-disconnected = "󰖪";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
+          tooltip = false;
         };
-        "pulseaudio" = {
-          "tooltip" = false;
-          "format" = "{icon} {format_source}";
-          "format-muted" = "‭󰝟 {format_source}";
-          "format-bluetooth" = "󰂰 {icon} {format_source}";
-          "format-bluetooth-muted" = "󰂰 ‭󰝟 {format_source}";
-          "format-source" = "󰍬";
-          "format-source-muted" = "󰍭";
-          "format-icons" = {
-            "headphones" = "󰋋";
-            "headset" = "󰋎";
-            "car" = "󰄋";
-            "default" = ["󰕿" "󰖀" "󰕾"];
+        pulseaudio = {
+          tooltip = false;
+          format = "{icon} {format_source}";
+          format-muted = "‭󰝟 {format_source}";
+          format-bluetooth = "󰂰 {icon} {format_source}";
+          format-bluetooth-muted = "󰂰 ‭󰝟 {format_source}";
+          format-source = "󰍬";
+          format-source-muted = "󰍭";
+          format-icons = {
+            headphones = "󰋋";
+            headset = "󰋎";
+            default = ["󰕿" "󰖀" "󰕾"];
           };
-          "on-click" = "${pkgs.pavucontrol}/bin/pavucontrol";
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
         };
-        "bluetooth" = {
-          "format" = "󰂯";
-          "format-connected" = "󰂱";
-          "format-disabled" = "󰂲";
-          "format-off" = "󰂲";
-          "format-connected-battery" = "󰂱 {device_battery_percentage}%";
-          "on-click" = "${pkgs.blueman}/bin/blueman-manager";
+        bluetooth = {
+          format = "󰂯";
+          format-connected = "󰂱";
+          format-disabled = "󰂲";
+          format-off = "󰂲";
+          format-connected-battery = "󰂱 {device_battery_percentage}%";
+          on-click = "${pkgs.blueman}/bin/blueman-manager";
         };
-        "tray" = {
-          "spacing" = 4;
+        tray = {
+          spacing = 4;
         };
       };
     };
