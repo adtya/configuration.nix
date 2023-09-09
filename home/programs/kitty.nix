@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  dracula = pkgs.fetchFromGitHub {
+  dracula-kitty = pkgs.fetchFromGitHub {
     owner = "dracula";
     repo = "kitty";
     rev = "87717a3f00e3dff0fc10c93f5ff535ea4092de70";
@@ -23,7 +23,7 @@ in {
       sync_to_monitor	yes
       shell_integration disabled
 
-      include ${dracula}/dracula.conf
+      include ${dracula-kitty}/dracula.conf
     '';
     settings = {
       enable_audio_bell = false;
