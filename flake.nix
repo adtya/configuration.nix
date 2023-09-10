@@ -25,7 +25,7 @@
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:adtya/nixvim/dracula-vim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
