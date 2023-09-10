@@ -9,7 +9,11 @@
     viAlias = true;
     vimAlias = true;
     clipboard.providers.wl-copy.enable = true;
-    colorschemes.dracula.enable = true;
+    colorschemes.dracula = {
+      enable = true;
+      fullSpecialAttrsSupport = true;
+      highContrastDiff = true;
+    };
     extraPlugins = with pkgs.vimPlugins; [
       git-blame-nvim
     ];
