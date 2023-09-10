@@ -344,16 +344,15 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1694329009,
-        "narHash": "sha256-32CLpCy8FkPNBxBWUDvDR6AHomh68LN9Un56SKwtEt8=",
-        "owner": "adtya",
+        "lastModified": 1694341786,
+        "narHash": "sha256-7xp0lZ0Ihx1f9WLYxOWP73PlM0HOa0Wrp3/iF7D++zc=",
+        "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "378fc8c2462996fdac77e88cbd9259d5ac6ce507",
+        "rev": "9e6892e8391a5bcc3727802b6a9fb2b9b52537df",
         "type": "github"
       },
       "original": {
-        "owner": "adtya",
-        "ref": "dracula-vim",
+        "owner": "nix-community",
         "repo": "nixvim",
         "type": "github"
       }
