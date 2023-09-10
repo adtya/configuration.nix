@@ -12,7 +12,6 @@
     colorschemes.dracula = {
       enable = true;
       fullSpecialAttrsSupport = true;
-      highContrastDiff = true;
     };
     extraPlugins = with pkgs.vimPlugins; [
       git-blame-nvim
