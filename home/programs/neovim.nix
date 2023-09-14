@@ -115,6 +115,7 @@
         enable = true;
         servers = {
           bashls.enable = true;
+          dartls.enable = true;
           gopls.enable = true;
           jsonls.enable = true;
           nixd.enable = true;
