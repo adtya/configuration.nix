@@ -36,7 +36,6 @@
     spotify-tui
     steam-run
     wl-clipboard
-    ungoogled-chromium
     xdg-utils
     yubioath-flutter
     yubikey-manager
