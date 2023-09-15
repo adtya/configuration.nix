@@ -24,6 +24,7 @@
     _1password-gui
     bitwarden
     evince
+    flyctl
     git-crypt
     gnome.eog
     gnome.gnome-system-monitor
