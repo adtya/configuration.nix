@@ -11,6 +11,7 @@ _: {
       ".config/lazygit"
       ".config/obsidian"
       ".config/spotify-tui"
+      ".fly"
       ".gnupg"
       ".local/share/keyrings"
       ".local/share/nix"
