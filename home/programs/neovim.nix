@@ -13,9 +13,6 @@
       enable = true;
       fullSpecialAttrsSupport = true;
     };
-    extraPlugins = with pkgs.vimPlugins; [
-      git-blame-nvim
-    ];
     extraPackages = with pkgs; [
       fd
       ripgrep
@@ -24,9 +21,6 @@
       vim.opt.listchars:append "space:⋅"
       vim.opt.listchars:append "eol:↴"
     '';
-    globals = {
-      gitblame_date_format = "%r";
-    };
     options = {
       autowrite = true;
       background = "dark";
@@ -103,6 +97,10 @@
       cmp-nvim-lsp-signature-help.enable = true;
       cmp-treesitter.enable = true;
       cmp_luasnip.enable = true;
+      gitblame = {
+        enable = true;
+        dateFormat = "%r";
+      };
       gitsigns.enable = true;
       indent-blankline = {
         enable = true;
