@@ -25,7 +25,7 @@
     };
 
     nixvim = {
-      url = "github:adtya/nixvim/git-blame-nvim";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
