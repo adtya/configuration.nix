@@ -40,7 +40,7 @@
     nixvim,
   } @ inputs: let
     secrets = import ./secrets.nix;
-    config = {
+    nixpkgs-config = {
       allowUnfree = true;
     };
   in
@@ -50,7 +50,7 @@
           system = "x86_64-linux";
           pkgs = import nixpkgs {
             inherit system;
-            inherit config;
+            config = nixpkgs-config;
             overlays = [(import ./packages)];
           };
           specialArgs = inputs // {inherit secrets;};
@@ -86,7 +86,7 @@
           system = "aarch64-linux";
           pkgs = import nixpkgs {
             inherit system;
-            inherit config;
+            config = nixpkgs-config;
           };
           specialArgs = inputs // {inherit secrets;};
           modules = [
@@ -102,7 +102,7 @@
           system = "aarch64-linux";
           pkgs = import nixpkgs {
             inherit system;
-            inherit config;
+            config = nixpkgs-config;
           };
           specialArgs = inputs // {inherit secrets;};
           modules = [
