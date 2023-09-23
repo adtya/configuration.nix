@@ -14,6 +14,7 @@ _: {
       "/var/lib/iwd"
       "/var/lib/libvirt"
       "/var/lib/machines"
+      "/var/lib/NetworkManager"
       "/var/lib/nixos"
       "/var/lib/portables"
       "/var/lib/systemd"
