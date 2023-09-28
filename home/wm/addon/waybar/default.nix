@@ -19,7 +19,7 @@
           format = "{}";
         };
         "sway/window" = {
-          "tooltip" = false;
+          tooltip = false;
         };
         idle_inhibitor = {
           format = "{icon}";
@@ -38,6 +38,7 @@
         backlight = {
           format = "{icon}";
           format-icons = ["󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠"];
+          tooltip = false;
         };
         battery = {
           states = {
