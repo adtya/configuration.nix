@@ -3,23 +3,25 @@ _: {
 
   home.stateVersion = "23.11";
 
-  xdg.enable = true;
-  xdg.mime.enable = true;
-  xdg.mimeApps = {
+  xdg = {
     enable = true;
-    defaultApplications = {
-      "application/pdf" = ["org.gnome.Evince.desktop"];
-      "image/gif" = ["org.gnome.eog.desktop"];
-      "image/jpeg" = ["org.gnome.eog.desktop"];
-      "image/png" = ["org.gnome.eog.desktop"];
-      "image/webp" = ["org.gnome.eog.desktop"];
+    mime.enable = true;
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = ["org.gnome.Evince.desktop"];
+        "image/gif" = ["org.gnome.eog.desktop"];
+        "image/jpeg" = ["org.gnome.eog.desktop"];
+        "image/png" = ["org.gnome.eog.desktop"];
+        "image/webp" = ["org.gnome.eog.desktop"];
+      };
     };
-  };
-  xdg.userDirs.enable = true;
+    userDirs.enable = true;
 
-  xdg.desktopEntries."nixos-manual" = {
-    name = "NixOS Manual";
-    exec = "nixos-help";
-    noDisplay = true;
+    desktopEntries."nixos-manual" = {
+      name = "NixOS Manual";
+      exec = "nixos-help";
+      noDisplay = true;
+    };
   };
 }

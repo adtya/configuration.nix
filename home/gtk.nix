@@ -21,25 +21,24 @@
     package = pkgs.bibata-cursors;
   };
 in {
-  gtk.enable = true;
-  gtk.theme = gtkTheme;
+  gtk = {
+    enable = true;
+    theme = gtkTheme;
+    inherit cursorTheme;
+    inherit iconTheme;
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+    };
+  };
+
   home.sessionVariables.GTK_THEME = gtkTheme.name;
   xdg.configFile = {
     "gtk-4.0/assets".source = "${gtkTheme.package}/share/themes/${gtkTheme.name}/gtk-4.0/assets";
     "gtk-4.0/gtk.css".source = "${gtkTheme.package}/share/themes/${gtkTheme.name}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${gtkTheme.package}/share/themes/${gtkTheme.name}/gtk-4.0/gtk-dark.css";
-  };
-
-  gtk.cursorTheme = cursorTheme;
-
-  gtk.iconTheme = iconTheme;
-
-  gtk.gtk3.extraConfig = {
-    gtk-application-prefer-dark-theme = true;
-  };
-
-  gtk.gtk4.extraConfig = {
-    gtk-application-prefer-dark-theme = true;
   };
 
   dconf.settings = {
