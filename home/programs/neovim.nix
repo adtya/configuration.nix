@@ -42,42 +42,56 @@
       updatetime = 100;
       wrap = true;
     };
-    maps = {
-      normal = {
-        "<C-a>" = {
-          silent = true;
-          action = "<cmd>bp<Return>";
-        };
-        "<C-d>" = {
-          silent = true;
-          action = "<cmd>bn<Return>";
-        };
-        "<C-h>" = {
-          silent = true;
-          action = "<cmd>noh<Return>";
-        };
-        "<leader>w" = {
-          silent = true;
-          action = "<cmd>bdelete<Return><cmd>bnext<Return>";
-        };
-        "<leader>`" = {
-          silent = true;
-          action = "<cmd>:ToggleTerm<Return>";
-        };
-        "<leader>1" = {
-          silent = true;
-          action = "<cmd>:Neotree toggle<Return>";
-        };
-        "<leader>ff" = {
-          silent = true;
-          action = "<cmd>:Telescope find_files<Return>";
-        };
-        "<leader>fg" = {
-          silent = true;
-          action = "<cmd>:Telescope live_grep<Return>";
-        };
-      };
-    };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<C-a>";
+        options.silent = true;
+        action = "<cmd>bp<Return>";
+      }
+      {
+        mode = "n";
+        key = "<C-d>";
+        options.silent = true;
+        action = "<cmd>bn<Return>";
+      }
+      {
+        mode = "n";
+        key = "<C-h>";
+        options.silent = true;
+        action = "<cmd>noh<Return>";
+      }
+      {
+        mode = "n";
+        key = "<leader>w";
+        options.silent = true;
+        action = "<cmd>bdelete<Return><cmd>bnext<Return>";
+      }
+      {
+        mode = "n";
+        key = "<leader>`";
+        options.silent = true;
+        action = "<cmd>:ToggleTerm<Return>";
+      }
+      {
+        mode = "n";
+        key = "<leader>1";
+        options.silent = true;
+        action = "<cmd>:Neotree toggle<Return>";
+      }
+      {
+        mode = "n";
+        key = "<leader>ff";
+        options.silent = true;
+        action = "<cmd>:Telescope find_files<Return>";
+      }
+      {
+        mode = "n";
+        key = "<leader>fg";
+        options.silent = true;
+        action = "<cmd>:Telescope live_grep<Return>";
+      }
+    ];
     plugins = {
       bufferline = {
         enable = true;
