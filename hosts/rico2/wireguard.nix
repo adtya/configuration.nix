@@ -1,0 +1,22 @@
+{
+  config,
+  secrets,
+  ...
+}: let
+  inherit (secrets.wireguard_config) peers Proxy Skipper;
+in {
+  networking.wireguard = {
+    enable = true;
+    interfaces = {
+      wg0 = {
+        inherit (peers."${config.networking.hostName}") ips;
+        privateKeyFile = "/etc/wireguard/private.key";
+        generatePrivateKeyFile = true;
+        peers = [
+          Proxy
+          Skipper
+        ];
+      };
+    };
+  };
+}
