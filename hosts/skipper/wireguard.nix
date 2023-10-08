@@ -1,16 +1,19 @@
-{secrets, ...}: {
-  networking.wireguard = let
-    inherit (secrets.wireguard_config) server;
-    inherit (secrets.wireguard_config) peers;
-  in {
+{
+  config,
+  secrets,
+  ...
+}: let
+  inherit (secrets.wireguard_config) peers Proxy;
+in {
+  networking.wireguard = {
     enable = true;
     interfaces = {
       wg0 = {
-        inherit (peers."1") ips;
+        inherit (peers."${config.networking.hostName}") ips;
         privateKeyFile = "/etc/wireguard/private.key";
         generatePrivateKeyFile = true;
         peers = [
-          server
+          Proxy
         ];
       };
     };
