@@ -2,6 +2,6 @@ _: {
   imports = [];
 
   virtualisation.oci-containers = {
-    backend = "docker";
+    backend = "podman";
   };
 }
