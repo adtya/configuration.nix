@@ -8,6 +8,7 @@ _: {
       ".cache/ytfzf"
       ".config/1Password"
       ".config/dconf"
+      ".config/doctl"
       ".config/lazygit"
       ".config/obsidian"
       ".config/spotify-tui"
