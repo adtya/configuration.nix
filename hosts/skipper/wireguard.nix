@@ -1,0 +1,15 @@
+_: {
+  networking.wireguard = {
+    enable = true;
+    interfaces = {
+      wg0 = {
+        ips = [
+          "10.8.1.2/24"
+          "fdd9:69ae:9703::2/64"
+        ];
+        privateKeyFile = "/etc/wireguard/private.key";
+        generatePrivateKeyFile = true;
+      };
+    };
+  };
+}
