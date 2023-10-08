@@ -1,14 +1,17 @@
-_: {
-  networking.wireguard = {
+{secrets, ...}: {
+  networking.wireguard = let
+    inherit (secrets.wireguard_config) server;
+    inherit (secrets.wireguard_config) peers;
+  in {
     enable = true;
     interfaces = {
       wg0 = {
-        ips = [
-          "10.8.1.2/24"
-          "fdd9:69ae:9703::2/64"
-        ];
+        inherit (peers."1") ips;
         privateKeyFile = "/etc/wireguard/private.key";
         generatePrivateKeyFile = true;
+        peers = [
+          server
+        ];
       };
     };
   };
