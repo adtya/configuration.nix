@@ -3,7 +3,7 @@
   secrets,
   ...
 }: let
-  inherit (secrets.wireguard_config) peers Proxy;
+  inherit (secrets.wireguard_config) peers Proxy Rico2;
 in {
   networking.wireguard = {
     enable = true;
@@ -14,6 +14,7 @@ in {
         generatePrivateKeyFile = true;
         peers = [
           Proxy
+          Rico2
         ];
       };
     };
