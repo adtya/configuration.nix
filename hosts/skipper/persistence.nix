@@ -5,7 +5,6 @@ _: {
       "/etc/secureboot"
       "/etc/ssh/keys"
       "/etc/systemd/nspawn"
-      "/etc/wireguard"
       "/root/.cache/nix"
       "/var/cache/apparmor"
       "/var/cache/fwupd"

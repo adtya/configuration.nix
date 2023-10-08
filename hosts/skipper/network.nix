@@ -1,5 +1,4 @@
 {lib, ...}: {
-  imports = [./wireguard.nix];
   networking = {
     hostName = "Skipper";
     networkmanager = {
