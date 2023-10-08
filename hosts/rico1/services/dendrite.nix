@@ -8,42 +8,48 @@ _: {
     dendrite = let
       database = {
         connection_string = "postgresql://dendrite@localhost/dendrite?sslmode=disable";
+        max_open_conns = 50;
+        max_idle_conns = 5;
+        conn_max_lifetime = -1;
       };
     in {
-      enable = true;
+      enable = false;
       settings = {
         global = {
           server_name = "adtya.xyz";
           private_key = "/etc/dendrite/matrix_key.pem";
+          jetstream = {
+            addresses = "localhost:4222";
+          };
           inherit database;
         };
         app_service_api = {
-          inherit database;
+          database = null;
         };
         federation_api = {
-          inherit database;
+          database = null;
         };
         key_server = {
-          inherit database;
+          database = null;
         };
         media_api = {
-          inherit database;
+          database = null;
         };
         mscs = {
-          inherit database;
+          database = null;
         };
         relay_api = {
-          inherit database;
+          database = null;
         };
         room_server = {
-          inherit database;
+          database = null;
         };
         sync_api = {
-          inherit database;
+          database = null;
         };
         user_api = {
-          account_database = database;
-          device_database = database;
+          account_database = null;
+          device_database = null;
         };
       };
     };
