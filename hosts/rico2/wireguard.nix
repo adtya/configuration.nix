@@ -5,6 +5,7 @@
 }: let
   inherit (secrets.wireguard_config) peers;
 in {
+  networking.firewall.trustedInterfaces = ["wg0"];
   networking.wireguard = {
     enable = true;
     interfaces = {
