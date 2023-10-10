@@ -9,10 +9,9 @@ in {
     enable = true;
     interfaces = {
       wg0 = {
-        inherit (peers."${config.networking.hostName}") ips;
+        inherit (peers."${config.networking.hostName}") ips listenPort;
         privateKeyFile = "/etc/wireguard/private.key";
         generatePrivateKeyFile = true;
-        listenPort = 51820;
         peers = with peers; [
           Proxy.peer
         ];
