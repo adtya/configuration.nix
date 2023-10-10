@@ -9,7 +9,7 @@ in {
     enable = true;
     interfaces = {
       wg0 = {
-        inherit (peers."${config.networking.hostName}") ips listenPort;
+        inherit (peers."${config.networking.hostName}") ips listenPort mtu;
         privateKeyFile = "/etc/wireguard/private.key";
         generatePrivateKeyFile = true;
         peers = with peers; [
