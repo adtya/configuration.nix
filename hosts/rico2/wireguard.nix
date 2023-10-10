@@ -14,8 +14,8 @@ in {
         generatePrivateKeyFile = true;
         listenPort = 51820;
         peers = with peers; [
-          Proxy
-          Skipper
+          Proxy.peer
+          Skipper.peer
         ];
       };
     };

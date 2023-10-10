@@ -14,8 +14,8 @@ in {
         generatePrivateKeyFile = true;
         listenPort = 51820;
         peers = with peers; [
-          Proxy
-          Rico2
+          Proxy.peer
+          Rico2.peer
         ];
       };
     };
