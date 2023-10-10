@@ -15,7 +15,6 @@ in {
         listenPort = 51820;
         peers = with peers; [
           Proxy.peer
-          Rico2.peer
         ];
       };
     };
