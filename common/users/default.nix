@@ -19,6 +19,7 @@ in {
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         user.primary.sshPublicKey
+        secrets.phone.sshPublicKey
       ];
     };
   };
