@@ -1,4 +1,5 @@
 {lib, ...}: {
+  imports = [./wireguard.nix];
   networking = {
     hostName = "Rico1";
     useDHCP = lib.mkDefault false;
