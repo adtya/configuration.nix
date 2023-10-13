@@ -65,6 +65,7 @@ _: {
 
     files = [
       ".config/gh/hosts.yml"
+      ".config/wallpaper_tags"
     ];
   };
 }
