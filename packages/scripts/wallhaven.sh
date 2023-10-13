@@ -26,12 +26,12 @@ if [ -n "$PURITY" ]; then
 fi
 
 WALLHAVEN_API_KEY="$(secret-tool lookup application wallhaven-api-key)"
-if [ -n "$WALLHAVEN_API_KEY"]; then
+if [ -n "$WALLHAVEN_API_KEY" ]; then
   WALLHAVEN_API_KEY="apikey=$WALLHAVEN_API_KEY&"
 fi
 
 notify-send -r 9897 -i information -t 1000 "Wallpapers" "Downloading..."
-URL="https://wallhaven.cc/api/v1/search?${WALLHAVEN_API_KEY}${TAGS}${CATEGORY}${PURITY}atleast=3840x2160&ratios=16x9&sorting=random"
+URL="https://wallhaven.cc/api/v1/search?${WALLHAVEN_API_KEY}${TAGS}${CATEGORIES}${PURITY}atleast=3840x2160&ratios=16x9&sorting=random"
 ID="$(curl --silent "$URL" | jq -r '.data[0].id')"
 IMAGE_META=$(curl --silent "https://wallhaven.cc/api/v1/w/$ID")
 IMAGE_URL="$(echo "$IMAGE_META" | jq -r '.data.path')"
