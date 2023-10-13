@@ -65,7 +65,7 @@ _: {
 
     files = [
       ".config/gh/hosts.yml"
-      ".config/wallpaper_config"
+      ".config/wallpaper_config.json"
     ];
   };
 }
