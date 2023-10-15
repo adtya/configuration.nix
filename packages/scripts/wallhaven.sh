@@ -29,7 +29,7 @@ fi
 
 TAGS="$(printf "${CONFIG}" | jq -r '.tags // empty')"
 if [ -n "${TAGS}" ]; then
-  TAGS="q=$(echo ${TAGS} | sed -e 's/ /%20/g' -e 's/+/%2B/g' -e 's/-/%2D/g')&"
+  TAGS="q=$(echo ${TAGS} | sed -e 's/ /%20/g' -e 's/+/%2B/g' -e 's/-/%2D/g' -e 's/:/%3A/g')&"
 fi
 
 CATEGORIES="$(printf "${CONFIG}" | jq -r '.categories // empty')"
