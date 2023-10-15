@@ -10,7 +10,7 @@ fi
 
 random_paper() {
   if [ -d "$DIR" ] ; then
-    find -L "${DIR}"/ -type f -regextype egrep -regex ".*\.(jpe?g|png)$" | shuf -n1
+    find -L "${DIR}"/ -type f -regextype egrep -regex ".*\.(jpe?g|png|image)$" | shuf -n1
   elif [ -f "$DIR" ] ; then
     echo "$DIR"
   fi

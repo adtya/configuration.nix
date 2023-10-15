@@ -68,6 +68,6 @@ IMAGE_META=$(eval ${CURL_CMD})
 IMAGE_URL="$(echo "${IMAGE_META}" | jq -r '.data.path')"
 IMAGE_ID="$(echo "${IMAGE_META}" | jq -r '.data.id')"
 FILENAME="wallhaven-${IMAGE_ID}"
-curl --silent -L --output "${DIR}/${FILENAME}" "${IMAGE_URL}"
-echo "${DIR}/${FILENAME}"
+curl --silent -L --output "${DIR}/${FILENAME}.image" "${IMAGE_URL}"
+echo "${DIR}/${FILENAME}.image"
 
