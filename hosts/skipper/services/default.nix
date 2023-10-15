@@ -3,6 +3,7 @@
 in {
   imports = [
     ./dbus.nix
+    ./keyd.nix
     ./pipewire.nix
     ./udev.nix
     ./ssh.nix
