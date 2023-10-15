@@ -67,18 +67,21 @@ if [ -n "${RANGE}" ]; then
   RANGE="topRange=${RANGE}&"
 fi
 
-notify-send -r 9897 -i information -t 1000 "Wallpapers" "Downloading..."
+notify-send -r 9897 -i information -t 2000 "Wallpapers" "Fetching a list of wallpapers..."
 URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RATIOS}${COLORS}${AI_FILTER}${SORTING}${RANGE}"
 CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
 RESULT="$(eval ${CURL_CMD})"
-NO_OF_IMAGES="$(printf "${RESULT} | jq -r '.data | length')"
-RANDOM="$(shuf -i 1-${NO_OF_IMAGES} -n 1 --random-source=/dev/urandom)"
-ID="$(printf "${RESULT}" | jq -r ".data[${RANDOM}].id")"
+NO_OF_IMAGES="$(printf "${RESULT}" | jq -r '.data | length')"
+RANDOM_ITEM="$(shuf -i 1-${NO_OF_IMAGES} -n 1 --random-source=/dev/urandom)"
+ID="$(printf "${RESULT}" | jq -r ".data[$((RANDOM_ITEM-1))].id")"
+notify-send -r 9897 -i information -t 2000 "Wallpapers" "Got ${NO_OF_IMAGES} images. Using image $((RANDOM_ITEM-1)) with id ${ID}..."
 CURL_CMD="${CURL_BASE_CMD} \"${WALLHAVEN_BASE_URL}/w/${ID}\""
 IMAGE_META=$(eval ${CURL_CMD})
 IMAGE_URL="$(printf "${IMAGE_META}" | jq -r '.data.path')"
 IMAGE_ID="$(printf "${IMAGE_META}" | jq -r '.data.id')"
 FILENAME="wallhaven-${IMAGE_ID}"
+notify-send -r 9897 -i information -t 2000 "Wallpapers" "Downloading image: ${IMAGE_URL}"
 curl --silent -L --output "${DIR}/${FILENAME}.image" "${IMAGE_URL}"
+notify-send -r 9897 -i information -t 2000 "Wallpapers" "Downloaded image: ${DIR}/${FILENAME}.image"
 echo "${DIR}/${FILENAME}.image"
 
