@@ -79,9 +79,9 @@ CURL_CMD="${CURL_BASE_CMD} \"${WALLHAVEN_BASE_URL}/w/${ID}\""
 IMAGE_META=$(eval ${CURL_CMD})
 IMAGE_URL="$(printf "${IMAGE_META}" | jq -r '.data.path')"
 IMAGE_ID="$(printf "${IMAGE_META}" | jq -r '.data.id')"
-FILENAME="wallhaven-${IMAGE_ID}"
+FILENAME="${IMAGE_URL##*/}"
 notify-send -u normal -a Wallpapers -i information -t 2000 "Wallpapers" "Downloading image: ${IMAGE_URL}"
-curl --silent -L --output "${DIR}/${FILENAME}.image" "${IMAGE_URL}"
-notify-send -u normal -a Wallpapers -i information -t 2000 "Wallpapers" "Downloaded image: ${DIR}/${FILENAME}.image"
-echo "${DIR}/${FILENAME}.image"
+curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
+notify-send -u normal -a Wallpapers -i information -t 2000 "Wallpapers" "Downloaded image: ${DIR}/${FILENAME}"
+echo "${DIR}/${FILENAME}"
 
