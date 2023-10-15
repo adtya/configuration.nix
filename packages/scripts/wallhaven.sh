@@ -72,6 +72,10 @@ URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RATIOS}$
 CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
 RESULT="$(eval ${CURL_CMD})"
 NO_OF_IMAGES="$(printf "${RESULT}" | jq -r '.meta.total')"
+if [ "${NO_OF_IMAGES}" -eq 0 ]; then
+  notify-send -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "No images available for current configuration."
+  exit 1
+fi
 RANDOM_ITEM="$(shuf -i 0-$((NO_OF_IMAGES-1)) -n 1 --random-source=/dev/urandom)"
 ITEM_PAGE=$((RANDOM_ITEM/24))
 ITEM_NUMBER=$((RANDOM_ITEM%24))
