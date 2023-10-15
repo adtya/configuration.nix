@@ -70,7 +70,10 @@ fi
 notify-send -r 9897 -i information -t 1000 "Wallpapers" "Downloading..."
 URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RATIOS}${COLORS}${AI_FILTER}${SORTING}${RANGE}"
 CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
-ID="$(eval ${CURL_CMD} | jq -r '.data[0].id')"
+RESULT="$(eval ${CURL_CMD})"
+NO_OF_IMAGES="$(printf "${RESULT} | jq -r '.data | length')"
+RANDOM="$(shuf -i 1-${NO_OF_IMAGES} -n 1 --random-source=/dev/urandom)"
+ID="$(printf "${RESULT}" | jq -r ".data[${RANDOM}].id")"
 CURL_CMD="${CURL_BASE_CMD} \"${WALLHAVEN_BASE_URL}/w/${ID}\""
 IMAGE_META=$(eval ${CURL_CMD})
 IMAGE_URL="$(printf "${IMAGE_META}" | jq -r '.data.path')"
