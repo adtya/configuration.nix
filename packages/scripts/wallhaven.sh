@@ -76,7 +76,11 @@ RANDOM_ITEM="$(shuf -i 0-$((NO_OF_IMAGES-1)) -n 1 --random-source=/dev/urandom)"
 ITEM_PAGE=$((RANDOM_ITEM/24))
 ITEM_NUMBER=$((RANDOM_ITEM%24))
 if [ "${ITEM_PAGE}" -gt 0 ]; then
-  CURL_CMD="${CURL_BASE_CMD} \"${URL}page=$((ITEM_PAGE+1))\""
+  SEED="$(printf "${RESULT}" | jq -r '.meta.seed // empty')"
+  if [ -n "${SEED}" ]; then
+    SEED="seed=${SEED}&"
+  fi
+  CURL_CMD="${CURL_BASE_CMD} \"${URL}${SEED}page=$((ITEM_PAGE+1))\""
   RESULT="$(eval ${CURL_CMD})"
 fi
 ID="$(printf "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].id")"
