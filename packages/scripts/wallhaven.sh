@@ -16,7 +16,7 @@ mkdir -p "${DIR}"
 
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 if [ ! -e ${CONFIG_DIR}/wallpaper_config.json ]; then
-  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1}' | jq > ${CONFIG_DIR}/wallpaper_config.json
+  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M"}' | jq > ${CONFIG_DIR}/wallpaper_config.json
 fi
 
 AI_FILTER="$(cat ${CONFIG_DIR}/wallpaper_config.json | jq -r '.ai_filter // empty')"
@@ -59,8 +59,13 @@ if [ -n "${SORTING}" ]; then
   SORTING="sorting=${SORTING}&"
 fi
 
+RANGE="$(cat ${CONFIG_DIR}/wallpaper_config.json | jq -r '.range // empty')"
+if [ -n "${RANGE}" ]; then
+  RANGE="topRange=${RANGE}&"
+fi
+
 notify-send -r 9897 -i information -t 1000 "Wallpapers" "Downloading..."
-URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RATIOS}${COLORS}${AI_FILTER}${SORTING}"
+URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RATIOS}${COLORS}${AI_FILTER}${SORTING}${RANGE}"
 CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
 ID="$(eval ${CURL_CMD} | jq -r '.data[0].id')"
 CURL_CMD="${CURL_BASE_CMD} \"${WALLHAVEN_BASE_URL}/w/${ID}\""
