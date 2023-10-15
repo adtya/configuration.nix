@@ -67,21 +67,24 @@ if [ -n "${RANGE}" ]; then
   RANGE="topRange=${RANGE}&"
 fi
 
-notify-send -u normal -a Wallpapers -i information -t 2000 "Wallpapers" "Fetching a list of wallpapers..."
+notify-send -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Fetching a list of wallpapers..."
 URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RATIOS}${COLORS}${AI_FILTER}${SORTING}${RANGE}"
 CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
 RESULT="$(eval ${CURL_CMD})"
-NO_OF_IMAGES="$(printf "${RESULT}" | jq -r '.data | length')"
-RANDOM_ITEM="$(shuf -i 1-${NO_OF_IMAGES} -n 1 --random-source=/dev/urandom)"
-ID="$(printf "${RESULT}" | jq -r ".data[$((RANDOM_ITEM-1))].id")"
-notify-send -u normal -a Wallpapers -i information -t 2000 "Wallpapers" "Got ${NO_OF_IMAGES} images. Using image ${RANDOM_ITEM} with id ${ID}..."
-CURL_CMD="${CURL_BASE_CMD} \"${WALLHAVEN_BASE_URL}/w/${ID}\""
-IMAGE_META=$(eval ${CURL_CMD})
-IMAGE_URL="$(printf "${IMAGE_META}" | jq -r '.data.path')"
-IMAGE_ID="$(printf "${IMAGE_META}" | jq -r '.data.id')"
+NO_OF_IMAGES="$(printf "${RESULT}" | jq -r '.meta.total')"
+RANDOM_ITEM="$(shuf -i 0-$((NO_OF_IMAGES-1)) -n 1 --random-source=/dev/urandom)"
+ITEM_PAGE=$((RANDOM_ITEM/24))
+ITEM_NUMBER=$((RANDOM_ITEM%24))
+if [ "${ITEM_PAGE}" -gt 0 ]; then
+  CURL_CMD="${CURL_BASE_CMD} \"${URL}page=$((ITEM_PAGE+1))\""
+  RESULT="$(eval ${CURL_CMD})"
+fi
+ID="$(printf "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].id")"
+notify-send -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Got ${NO_OF_IMAGES} images. Using image ${ID} from page $((ITEM_PAGE+1)) ..."
+IMAGE_URL="$(printf "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].path")"
 FILENAME="${IMAGE_URL##*/}"
-notify-send -u normal -a Wallpapers -i information -t 2000 "Wallpapers" "Downloading image: ${IMAGE_URL}"
+notify-send -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Downloading image: ${IMAGE_URL}"
 curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
-notify-send -u normal -a Wallpapers -i information -t 2000 "Wallpapers" "Downloaded image: ${DIR}/${FILENAME}"
+notify-send -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Downloaded image: ${DIR}/${FILENAME}"
 echo "${DIR}/${FILENAME}"
 
