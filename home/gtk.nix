@@ -9,10 +9,8 @@
   };
 
   iconTheme = {
-    name = "Newaita-reborn";
-    package = pkgs.newaita-reborn.override {
-      flavour = "dracula";
-    };
+    name = "Papirus-Dark";
+    package = pkgs.papirus-icon-theme.override {color = "black";};
   };
 
   cursorTheme = {

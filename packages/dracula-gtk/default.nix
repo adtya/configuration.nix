@@ -37,7 +37,7 @@ stdenvNoCC.mkDerivation {
     downloadPage = "https://github.com/dracula/gtk";
     homepage = "https://draculatheme.com/gtk";
     license = licenses.gpl3;
-    maintainers = with maintainers; [ adtya ];
+    maintainers = with maintainers; [adtya];
     platforms = platforms.linux;
   };
 }
