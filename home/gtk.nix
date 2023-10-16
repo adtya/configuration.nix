@@ -9,10 +9,9 @@
   };
 
   iconTheme = {
-    name = "Newaita-dark";
-    package = pkgs.newaita-icon-theme.override {
-      panel = "dark";
-      folder = "bluegray";
+    name = "Newaita-reborn";
+    package = pkgs.newaita-reborn.override {
+      flavour = "dracula";
     };
   };
 
