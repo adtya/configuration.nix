@@ -3,7 +3,7 @@ _: {
     enable = true;
     keyboards = {
       builtin = {
-        ids = [ "0001:0001" ];
+        ids = ["0001:0001"];
         settings = {
           main = {
             pageup = "noop";

@@ -12,7 +12,7 @@
   jq,
   curl,
   ytfzf,
-  libsecret
+  libsecret,
 }:
 stdenvNoCC.mkDerivation {
   pname = "scripts";
