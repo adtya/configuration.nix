@@ -8,13 +8,13 @@
 }:
 stdenvNoCC.mkDerivation {
   pname = "dracula-gtk";
-  version = "4.0";
+  version = "unstable-2023-10-14";
 
   src = fetchFromGitHub {
     owner = "dracula";
     repo = "gtk";
-    rev = "2d9d506c741a0c49e0e83f476746f7658f04c0d8";
-    hash = "sha256-DCXfmr0/AiMh7UmIIJN9WxYgn9+RNPNnTX7EqX/RGrI=";
+    rev = "a0b0ab451447d374600a74519abaa0588f2fa536";
+    hash = "sha256-0Ndk9Mh58KU2eoG1Z/CzZPiLNxy2bdloq9p4gzMDu2M=";
   };
   nativeBuildInputs = [gtk3];
 
@@ -34,8 +34,10 @@ stdenvNoCC.mkDerivation {
   '';
   meta = with lib; {
     description = "Dracula GTK theme";
+    downloadPage = "https://github.com/dracula/gtk";
     homepage = "https://draculatheme.com/gtk";
     license = licenses.gpl3;
+    maintainers = with maintainers; [ adtya ];
     platforms = platforms.linux;
   };
 }
