@@ -189,6 +189,7 @@ in {
     bind = SUPER,7,             workspace, 7
     bind = SUPER,8,             workspace, 8
     bind = SUPER,9,             workspace, 9
+    bind = SUPER,0,             workspace, 10
 
     bind = SUPER_SHIFT,1,       movetoworkspace, 1
     bind = SUPER_SHIFT,2,       movetoworkspace, 2
@@ -199,6 +200,7 @@ in {
     bind = SUPER_SHIFT,7,       movetoworkspace, 7
     bind = SUPER_SHIFT,8,       movetoworkspace, 8
     bind = SUPER_SHIFT,9,       movetoworkspace, 9
+    bind = SUPER_SHIFT,0,       movetoworkspace, 10
 
     bind = SUPER,l,             layoutmsg,cyclenext
     bind = SUPER,h,             layoutmsg,cycleprev
