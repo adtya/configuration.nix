@@ -16,6 +16,7 @@ _: {
       ".gnupg"
       ".local/share/keyrings"
       ".local/share/nix"
+      ".local/share/TelegramDesktop"
       ".local/share/zoxide"
       ".local/share/zsh"
       ".local/state"

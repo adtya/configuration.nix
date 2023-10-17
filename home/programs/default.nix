@@ -36,6 +36,7 @@
     ripgrep
     spotify-tui
     steam-run
+    telegram-desktop
     wl-clipboard
     xdg-utils
     yubioath-flutter
