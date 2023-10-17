@@ -93,6 +93,7 @@ in {
     windowrulev2 = bordercolor rgb(ff5555),xwayland:1
 
     windowrulev2 = workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$
+    windowrulev2 = workspace 10,class:^(org.telegram.desktop)$
 
     windowrulev2 = float,class:^(firefox)$,title:^(Library)$
 
