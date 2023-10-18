@@ -32,7 +32,7 @@
       Service = {
         Type = "simple";
         ExecStart = ''
-          ${pkgs.aria}/bin/aria2c --console-log-level=warn --log-level=notice --enable-rpc --rpc-secret="${secrets.aria2_config.rpc_secret}" --rpc-listen-port=6800 --rpc-allow-origin-all --dir="${config.xdg.userDirs.download}"
+          ${pkgs.aria}/bin/aria2c --console-log-level=warn --log-level=notice --enable-rpc --rpc-secret="${secrets.aria2_config.rpc_secret}" --rpc-listen-port=6800 --rpc-allow-origin-all --rpc-listen-all --dir="${config.xdg.userDirs.download}"
         '';
       };
     };
