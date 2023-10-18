@@ -17,52 +17,52 @@ mkdir -p "${DIR}"
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 CONFIG_FILE="${CONFIG_DIR}/wallpaper_config.json"
 if [ ! -e ${CONFIG_FILE} ]; then
-  printf '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M"}' | jq > ${CONFIG_FILE}
+  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M"}' | jq > ${CONFIG_FILE}
 fi
 
 CONFIG="$(cat "${CONFIG_FILE}")"
 
-AI_FILTER="$(printf "${CONFIG}" | jq -r '.ai_filter // empty')"
+AI_FILTER="$(echo "${CONFIG}" | jq -r '.ai_filter // empty')"
 if [ -n "${AI_FILTER}" ]; then
   AI_FILTER="ai_art_filter=${AI_FILTER}&"
 fi
 
-TAGS="$(printf "${CONFIG}" | jq -r '.tags // empty')"
+TAGS="$(echo "${CONFIG}" | jq -r '.tags // empty')"
 if [ -n "${TAGS}" ]; then
   TAGS="q=$(echo ${TAGS} | sed -e 's/ /%20/g' -e 's/+/%2B/g' -e 's/-/%2D/g' -e 's/:/%3A/g')&"
 fi
 
-CATEGORIES="$(printf "${CONFIG}" | jq -r '.categories // empty')"
+CATEGORIES="$(echo "${CONFIG}" | jq -r '.categories // empty')"
 if [ -n "${CATEGORIES}" ]; then
   CATEGORIES="categories=${CATEGORIES}&"
 fi
 
-PURITY="$(printf "${CONFIG}" | jq -r '.purity // empty')"
+PURITY="$(echo "${CONFIG}" | jq -r '.purity // empty')"
 if [ -n "${PURITY}" ]; then
   PURITY="purity=${PURITY}&"
 fi
 
-SIZE="$(printf "${CONFIG}" | jq -r '.size // empty')"
+SIZE="$(echo "${CONFIG}" | jq -r '.size // empty')"
 if [ -n "${SIZE}" ]; then
   SIZE="atleast=${SIZE}&"
 fi
 
-RATIOS="$(printf "${CONFIG}" | jq -r '.ratios // empty')"
+RATIOS="$(echo "${CONFIG}" | jq -r '.ratios // empty')"
 if [ -n "${RATIOS}" ]; then
   RATIOS="ratios=${RATIOS}&"
 fi
 
-COLORS="$(printf "${CONFIG}" | jq -r '.colors // empty')"
+COLORS="$(echo "${CONFIG}" | jq -r '.colors // empty')"
 if [ -n "${COLORS}" ]; then
   COLORS="colors=${COLORS}&"
 fi
 
-SORTING="$(printf "${CONFIG}" | jq -r '.sorting // empty')"
+SORTING="$(echo "${CONFIG}" | jq -r '.sorting // empty')"
 if [ -n "${SORTING}" ]; then
   SORTING="sorting=${SORTING}&"
 fi
 
-RANGE="$(printf "${CONFIG}" | jq -r '.range // empty')"
+RANGE="$(echo "${CONFIG}" | jq -r '.range // empty')"
 if [ -n "${RANGE}" ]; then
   RANGE="topRange=${RANGE}&"
 fi
@@ -71,7 +71,7 @@ notify-send -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Fetchin
 URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RATIOS}${COLORS}${AI_FILTER}${SORTING}${RANGE}"
 CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
 RESULT="$(eval ${CURL_CMD})"
-NO_OF_IMAGES="$(printf "${RESULT}" | jq -r '.meta.total')"
+NO_OF_IMAGES="$(echo "${RESULT}" | jq -r '.meta.total')"
 if [ "${NO_OF_IMAGES}" -eq 0 ]; then
   notify-send -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "No images available for current configuration."
   exit 1
@@ -80,16 +80,16 @@ RANDOM_ITEM="$(shuf -i 0-$((NO_OF_IMAGES-1)) -n 1 --random-source=/dev/urandom)"
 ITEM_PAGE=$((RANDOM_ITEM/24))
 ITEM_NUMBER=$((RANDOM_ITEM%24))
 if [ "${ITEM_PAGE}" -gt 0 ]; then
-  SEED="$(printf "${RESULT}" | jq -r '.meta.seed // empty')"
+  SEED="$(echo "${RESULT}" | jq -r '.meta.seed // empty')"
   if [ -n "${SEED}" ]; then
     SEED="seed=${SEED}&"
   fi
   CURL_CMD="${CURL_BASE_CMD} \"${URL}${SEED}page=$((ITEM_PAGE+1))\""
   RESULT="$(eval ${CURL_CMD})"
 fi
-ID="$(printf "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].id")"
+ID="$(echo "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].id")"
 notify-send -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Got ${NO_OF_IMAGES} images. Using image ${ID} from page $((ITEM_PAGE+1)) ..."
-IMAGE_URL="$(printf "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].path")"
+IMAGE_URL="$(echo "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].path")"
 FILENAME="${IMAGE_URL##*/}"
 notify-send -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Downloading image: ${IMAGE_URL}"
 curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
