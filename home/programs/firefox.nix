@@ -119,6 +119,7 @@
           "identity.fxaccounts.account.device.name" = osConfig.networking.hostName;
           "privacy.donottrackheader.enabled" = true;
           "privacy.firstparty.isolate" = true;
+          "security.sandbox.content.read_path_whitelist" = "/nix/store/";
           "startup.homepage_welcome_url" = "";
           "startup.homepage_welcome_url.additional" = "";
           "startup.homepage_override_url" = "";
