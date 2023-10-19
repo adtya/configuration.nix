@@ -15,12 +15,6 @@
         modules-left = ["hyprland/workspaces" "hyprland/window" "hyprland/submap"];
         modules-center = [];
         modules-right = ["tray" "idle_inhibitor" "network" "bluetooth" "wireplumber" "backlight" "battery" "clock"];
-        "sway/mode" = {
-          format = "{}";
-        };
-        "sway/window" = {
-          tooltip = false;
-        };
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
