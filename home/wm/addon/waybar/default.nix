@@ -66,6 +66,7 @@
           format-muted = "‭󰝟";
           on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
           format-icons =  ["󰕿" "󰖀" "󰕾"];
+          tooltip = false;
         };
         bluetooth = {
           format = "󰂯";
