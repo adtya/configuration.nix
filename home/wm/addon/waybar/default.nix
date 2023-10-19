@@ -14,7 +14,7 @@
         height = 28;
         modules-left = ["hyprland/workspaces" "hyprland/window" "hyprland/submap"];
         modules-center = [];
-        modules-right = ["tray" "idle_inhibitor" "network" "bluetooth" "pulseaudio" "backlight" "battery" "clock"];
+        modules-right = ["tray" "idle_inhibitor" "network" "bluetooth" "wireplumber" "backlight" "battery" "clock"];
         "sway/mode" = {
           format = "{}";
         };
@@ -61,20 +61,11 @@
           format-alt = "{ifname}: {ipaddr}/{cidr}";
           tooltip = false;
         };
-        pulseaudio = {
-          tooltip = false;
-          format = "{icon} {format_source}";
-          format-muted = "‭󰝟 {format_source}";
-          format-bluetooth = "󰂰 {icon} {format_source}";
-          format-bluetooth-muted = "󰂰 ‭󰝟 {format_source}";
-          format-source = "󰍬";
-          format-source-muted = "󰍭";
-          format-icons = {
-            headphones = "󰋋";
-            headset = "󰋎";
-            default = ["󰕿" "󰖀" "󰕾"];
-          };
+        wireplumber = {
+          format = "{icon}";
+          format-muted = "‭󰝟";
           on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+          format-icons =  ["󰕿" "󰖀" "󰕾"];
         };
         bluetooth = {
           format = "󰂯";

@@ -69,6 +69,7 @@ window#waybar.solo {
 #backlight,
 #network,
 #pulseaudio,
+#wireplumber,
 #tray,
 #mode,
 #submap,
@@ -114,10 +115,6 @@ window#waybar.solo {
 
 label:focus {
     background-color: @selection;
-}
-
-#temperature.critical {
-    color: @red;
 }
 
 #idle_inhibitor.activated {
