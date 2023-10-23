@@ -23,6 +23,7 @@
   home.packages = with pkgs; [
     _1password-gui
     bitwarden
+    discord
     doctl
     evince
     flyctl
