@@ -2,6 +2,7 @@ _: {
   environment.persistence."/persist/system" = {
     hideMounts = true;
     directories = [
+      "/etc/NetworkManager/system-connections"
       "/etc/secureboot"
       "/etc/ssh/keys"
       "/etc/systemd/nspawn"
