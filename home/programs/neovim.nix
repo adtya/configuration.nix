@@ -116,12 +116,7 @@
         dateFormat = "%r";
       };
       gitsigns.enable = true;
-      indent-blankline = {
-        enable = true;
-        showEndOfLine = true;
-        useTreesitter = true;
-        useTreesitterScope = true;
-      };
+      indent-blankline.enable = true;
       lastplace.enable = true;
       lsp = {
         enable = true;
