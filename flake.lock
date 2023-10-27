@@ -226,6 +226,24 @@
         "type": "github"
       }
     },
+    "flake-utils_7": {
+      "inputs": {
+        "systems": "systems_7"
+      },
+      "locked": {
+        "lastModified": 1694529238,
+        "narHash": "sha256-zsNZZGTGnMOf9YpHKJqMSsa0dXbfmxeoJ7xHlrt+xmY=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "ff7b65b44d01cf9ba6a71320833626af21126384",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "gitignore": {
       "inputs": {
         "nixpkgs": [
@@ -515,7 +533,8 @@
         "impermanence": "impermanence",
         "lanzaboote": "lanzaboote",
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "wiki": "wiki"
       }
     },
     "rust-overlay": {
@@ -633,6 +652,21 @@
         "type": "github"
       }
     },
+    "systems_7": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "utils": {
       "locked": {
         "lastModified": 1678901627,
@@ -645,6 +679,27 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "wiki": {
+      "inputs": {
+        "flake-utils": "flake-utils_7",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1698449502,
+        "narHash": "sha256-NAJX7N7rkIuPogXvuOWGtWH8c7IaeMr9Xrqi1S0Uhuo=",
+        "owner": "adtya",
+        "repo": "wiki",
+        "rev": "f256679cbe65953fc04b2ce959ba51fdff26b22f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adtya",
+        "repo": "wiki",
         "type": "github"
       }
     }

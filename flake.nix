@@ -34,6 +34,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+
+    wiki = {
+      url = "github:adtya/wiki";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     if3 = {
       url = "github:adtya/if3-docs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,6 +55,7 @@
     lanzaboote,
     nixvim,
     adtya-xyz,
+    wiki,
     if3,
   } @ inputs: let
     secrets = import ./secrets.nix;
