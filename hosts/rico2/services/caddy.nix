@@ -1,4 +1,5 @@
 {
+  config,
   secrets,
   if3,
   ...
@@ -16,7 +17,7 @@
 
       "if3.adtya.xyz" = {
         extraConfig = ''
-          root * ${if3.packages.web}/share/web
+          root * ${if3.packages.default}/share/web
           encode gzip
           try_files {path} /index.html
           file_server
