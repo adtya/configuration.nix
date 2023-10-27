@@ -1,5 +1,5 @@
 {...}: {
-  imports = [./adtya.xyz.nix];
+  imports = [];
 
   virtualisation.oci-containers = {
     backend = "podman";

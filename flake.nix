@@ -29,6 +29,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    adtya-xyz = {
+      url = "github:adtya/adtya.xyz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     if3 = {
       url = "github:adtya/if3-docs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,6 +48,7 @@
     impermanence,
     lanzaboote,
     nixvim,
+    adtya-xyz,
     if3,
   } @ inputs: let
     secrets = import ./secrets.nix;
