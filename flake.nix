@@ -28,6 +28,11 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    if3 = {
+      url = "github:adtya/if3-docs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -38,6 +43,7 @@
     impermanence,
     lanzaboote,
     nixvim,
+    if3,
   } @ inputs: let
     secrets = import ./secrets.nix;
     nixpkgs-config = {
