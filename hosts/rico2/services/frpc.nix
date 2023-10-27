@@ -21,18 +21,6 @@ in {
         local_port = 22;
         remote_port = 6002;
       };
-
-      "http.if3.adtya.xyz" = {
-        type = "http";
-        custom_domains = "if3.adtya.xyz";
-        local_port = 80;
-      };
-
-      "https.if3.adtya.xyz" = {
-        type = "https";
-        custom_domains = "if3.adtya.xyz";
-        local_port = 443;
-      };
     };
   };
 }
