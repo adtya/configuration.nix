@@ -1,6 +1,7 @@
 {
   config,
   adtya-xyz,
+  ...
 }: {
   services.caddy.virtualHosts."adtya.xyz" = {
     serverAliases = ["www.adtya.xyz"];

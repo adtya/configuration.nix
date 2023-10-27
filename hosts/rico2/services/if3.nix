@@ -1,6 +1,7 @@
 {
   config,
   if3,
+  ...
 }: {
   services.caddy.virtualHosts = {
     "if3.adtya.xyz" = {
