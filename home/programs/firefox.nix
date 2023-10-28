@@ -116,6 +116,7 @@
         isDefault = true;
         settings = {
           "app.shield.optoutstudies.enabled" = false;
+          "browser.urlbar.maxRichResults" = 0;
           "identity.fxaccounts.account.device.name" = osConfig.networking.hostName;
           "privacy.donottrackheader.enabled" = true;
           "privacy.firstparty.isolate" = true;
