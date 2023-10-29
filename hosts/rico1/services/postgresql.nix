@@ -2,7 +2,7 @@ _: {
   services.postgresql = {
     enable = true;
     authentication = ''
-      host  dendrite dendrite  127.0.0.1/32  trust
+      local dendrite dendrite  trust
     '';
     ensureDatabases = ["dendrite"];
     ensureUsers = [
