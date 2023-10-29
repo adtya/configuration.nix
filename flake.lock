@@ -316,11 +316,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698558925,
-        "narHash": "sha256-wQmWj52RuOtmZ+wvUyq3j8LLatu/BAWgqYYufy48INE=",
+        "lastModified": 1698559250,
+        "narHash": "sha256-g9DupncBIzPSp8HIorKpRQJI2tohJblfNh9AObfjaPY=",
         "owner": "adtya",
         "repo": "if3-docs",
-        "rev": "f1855bcc1dbdc7bd7064f7533752b755757e24fe",
+        "rev": "33062ea286c2c12696b21286bbcd81a9417cb9ad",
         "type": "github"
       },
       "original": {
