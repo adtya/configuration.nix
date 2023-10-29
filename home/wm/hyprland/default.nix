@@ -42,8 +42,8 @@ in {
     general {
       col.active_border = rgb(bd93f9)
       col.inactive_border = rgba(44475aaa)
-      col.group_border = rgba(282a36dd)
-      col.group_border_active = rgb(bd93f9)
+      col.nogroup_border = rgba(282a36dd)
+      col.nogroup_border_active = rgb(bd93f9)
 
       border_size = 1
       gaps_in = 2
