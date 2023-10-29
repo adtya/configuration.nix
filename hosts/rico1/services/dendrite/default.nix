@@ -3,6 +3,7 @@
     caddy.virtualHosts."matrix.adtya.xyz" = {
       extraConfig = ''
         reverse_proxy /_matrix/* 127.0.0.1:8008
+        reverse_proxy /_synapse/* 127.0.0.1:8008
       '';
     };
   };
