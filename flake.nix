@@ -34,7 +34,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
     wiki = {
       url = "github:adtya/wiki";
       inputs.nixpkgs.follows = "nixpkgs";

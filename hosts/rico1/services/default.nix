@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./caddy.nix
-    ./dendrite.nix
+    ./dendrite
     ./frpc.nix
     ./nats.nix
     ./postgresql.nix
