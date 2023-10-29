@@ -1,8 +1,9 @@
-_: {
+{pkgs, ...}: {
   services.postgresql = {
     enable = true;
-    authentication = ''
-      local dendrite dendrite  trust
+    authentication = pkgs.lib.mkOverride 10 ''
+      local  all       all       trust
+      host   dendrite  dendrite  trust
     '';
     ensureDatabases = ["dendrite"];
     ensureUsers = [
