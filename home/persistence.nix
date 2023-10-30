@@ -15,6 +15,7 @@ _: {
       ".config/spotify-tui"
       ".fly"
       ".gnupg"
+      ".local/share/chat.fluffy.fluffychat"
       ".local/share/keyrings"
       ".local/share/nix"
       ".local/share/TelegramDesktop"

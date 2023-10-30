@@ -95,6 +95,7 @@ in {
     windowrulev2 = workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$
     windowrulev2 = workspace 10,class:^(org.telegram.desktop)$
     windowrulev2 = workspace 10,class:^(discord)$
+    windowrulev2 = workspace 10,class:^(fluffychat)$
 
     windowrulev2 = float,class:^(firefox)$,title:^(Library)$
 
