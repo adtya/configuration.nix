@@ -13,6 +13,7 @@
     ./kitty.nix
     ./mpv.nix
     ./neovim.nix
+    ./ssh.nix
     ./starship.nix
     ./tmux.nix
     ./virt-manager.nix
@@ -51,7 +52,6 @@
     fzf.enable = true;
     lazygit.enable = true;
     nix-index.enable = true;
-    ssh.enable = true;
     zoxide.enable = true;
   };
 }
