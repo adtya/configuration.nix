@@ -37,7 +37,7 @@
         battery = {
           states = {
             good = 90;
-            warning = 20;
+            warning = 30;
             critical = 10;
           };
           format = "{icon}";
@@ -67,8 +67,8 @@
           format-connected = "󰂱";
           format-disabled = "󰂲";
           format-off = "󰂲";
-          format-connected-battery = "󰂱 {device_battery_percentage}%";
           on-click = "${pkgs.blueman}/bin/blueman-manager";
+          tooltip = false;
         };
         tray = {
           spacing = 4;
