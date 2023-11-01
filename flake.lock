@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698447246,
-        "narHash": "sha256-CfbEtQHk2l+zprXNSpyYu+gNl3cJX9h9qz23SWfxWBM=",
+        "lastModified": 1698840801,
+        "narHash": "sha256-3YU4urVENrNoH9335yvUtzrVt4HYVyMWpVLZwsKl99I=",
         "owner": "adtya",
         "repo": "adtya.xyz",
-        "rev": "db0a9ddacdc10a7441de375f8f11824f38923677",
+        "rev": "6903421d622ef7afbcbae3bbec0bbb28b6a25035",
         "type": "github"
       },
       "original": {
