@@ -1,6 +1,7 @@
 {
   pkgs,
   adtya-xyz,
+  secrets,
   ...
 }: let
   system = pkgs.system;
@@ -19,6 +20,11 @@ in {
           header Content-Type application/json
           header Access-Control-Allow-Origin *
           respond `{"m.homeserver": {"base_url": "https://matrix.adtya.xyz:443"}}`
+        }
+
+        handle /.well-known/discord {
+          header Access-Control-Allow-Origin *
+          respond `${secrets.discord_domain_well_known}`
         }
 
         handle {
