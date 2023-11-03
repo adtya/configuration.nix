@@ -1,13 +1,15 @@
 {
-  config,
+  pkgs,
   wiki,
   ...
-}: {
+}: let
+  system = pkgs.system;
+in {
   services = {
     caddy.virtualHosts = {
       "wiki.adtya.xyz" = {
         extraConfig = ''
-          root * ${wiki.packages.${config.nixpkgs.system}.default}/share/web
+          root * ${wiki.packages.${system}.default}/share/web
           encode gzip
           try_files {path} /index.html
           file_server

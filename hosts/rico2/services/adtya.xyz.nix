@@ -1,8 +1,10 @@
 {
-  config,
+  pkgs,
   adtya-xyz,
   ...
-}: {
+}: let
+  system = pkgs.system;
+in {
   services = {
     caddy.virtualHosts."adtya.xyz" = {
       serverAliases = ["www.adtya.xyz"];
@@ -20,7 +22,7 @@
         }
 
         handle {
-          root * ${adtya-xyz.packages.${config.nixpkgs.system}.default}/share/web
+          root * ${adtya-xyz.packages.${system}.default}/share/web
           encode gzip
           try_files {path} /index.html
           file_server
