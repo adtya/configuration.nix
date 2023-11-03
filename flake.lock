@@ -690,11 +690,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1698848736,
-        "narHash": "sha256-y8Fv+1krwFdC4Y19ut6CzZh5Hew8+ovwoWhtHqvgZNE=",
+        "lastModified": 1698899015,
+        "narHash": "sha256-tqPaeogbJC/IP4un+22taXwlD475YXP56kWUdxHKSP0=",
         "owner": "adtya",
         "repo": "wiki",
-        "rev": "d6d00cb57a648f032d7b022ddcd2b5d3840cf5f9",
+        "rev": "d3b9a3458cf4f116c9e6ca5b25f283494441ddfa",
         "type": "github"
       },
       "original": {
