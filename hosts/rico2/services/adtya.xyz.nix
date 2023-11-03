@@ -1,6 +1,6 @@
 {
   pkgs,
-  adtya-xyz,
+  www,
   secrets,
   ...
 }: let
@@ -28,7 +28,7 @@ in {
         }
 
         handle {
-          root * ${adtya-xyz.packages.${system}.default}/share/web
+          root * ${www.packages.${system}.default}/share/web
           encode gzip
           try_files {path} /index.html
           file_server
