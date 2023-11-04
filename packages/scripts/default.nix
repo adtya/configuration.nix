@@ -1,25 +1,25 @@
-{
-  lib,
-  stdenvNoCC,
-  makeWrapper,
-  libnotify,
-  rofi-wayland,
-  tmux,
-  kitty,
-  imagemagick,
-  hyprland,
-  swww,
-  jq,
-  curl,
-  ytfzf,
-  libsecret,
+{ lib
+, stdenvNoCC
+, makeWrapper
+, libnotify
+, rofi-wayland
+, tmux
+, kitty
+, imagemagick
+, hyprland
+, swww
+, jq
+, curl
+, ytfzf
+, libsecret
+,
 }:
 stdenvNoCC.mkDerivation {
   pname = "scripts";
   version = "1.0";
   src = ./.;
 
-  nativeBuildInputs = [makeWrapper];
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
     mkdir -p $out/bin

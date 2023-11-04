@@ -1,5 +1,5 @@
-{lib, ...}: {
-  imports = [./wireguard.nix];
+{ lib, ... }: {
+  imports = [ ./wireguard.nix ];
   networking = {
     hostName = "Skipper";
     networkmanager = {

@@ -1,8 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{ config
+, pkgs
+, ...
+}:
+let
   dbus-update-activation-environment = "${pkgs.dbus}/bin/dbus-update-activation-environment";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   grim = "${pkgs.grim}/bin/grim";
@@ -17,7 +17,8 @@
   xdg-user-dir = "${pkgs.xdg-user-dirs}/bin/xdg-user-dir";
   change-wallpaper = "${pkgs.scripts}/bin/chpaper ${config.xdg.userDirs.pictures}/Wallpapers";
   wallhaven-wallpaper = "${pkgs.scripts}/bin/chpaper \$(${pkgs.scripts}/bin/wallhaven ${config.xdg.userDirs.pictures}/Wallpapers)";
-in {
+in
+{
   home.packages = with pkgs; [
     hyprland
   ];
@@ -25,11 +26,11 @@ in {
   systemd.user.targets = {
     hyprland-session = {
       Unit = {
-        After = ["graphical-session-pre.target"];
-        BindsTo = ["graphical-session.target"];
+        After = [ "graphical-session-pre.target" ];
+        BindsTo = [ "graphical-session.target" ];
         Description = "Hyprland session";
-        Documentation = ["man:systemd.special(7)"];
-        Wants = ["graphical-session-pre.target"];
+        Documentation = [ "man:systemd.special(7)" ];
+        Wants = [ "graphical-session-pre.target" ];
       };
     };
   };

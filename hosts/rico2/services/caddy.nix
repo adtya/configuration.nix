@@ -1,7 +1,6 @@
-{
-  config,
-  secrets,
-  ...
+{ config
+, secrets
+, ...
 }: {
   services.caddy = {
     enable = true;

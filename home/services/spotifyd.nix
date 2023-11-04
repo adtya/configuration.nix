@@ -1,7 +1,6 @@
-{
-  pkgs,
-  secrets,
-  ...
+{ pkgs
+, secrets
+, ...
 }: {
   services = {
     spotifyd = {

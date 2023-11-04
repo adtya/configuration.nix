@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   xdg.desktopEntries = {
     "nvim".name = "Neovim wrapper";
     "nvim".exec = "nvim %F";
@@ -154,10 +154,10 @@
         enable = true;
         snippet.expand = "luasnip";
         sources = [
-          {name = "nvim_lsp";}
-          {name = "luasnip";}
-          {name = "buffers";}
-          {name = "treesitter";}
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
+          { name = "buffers"; }
+          { name = "treesitter"; }
         ];
       };
       telescope = {

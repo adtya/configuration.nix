@@ -1,9 +1,8 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }: {
-  imports = [./kernel.nix ./filesystem.nix];
+  imports = [ ./kernel.nix ./filesystem.nix ];
 
   boot = {
     initrd.luks.devices = {
@@ -16,10 +15,10 @@
     };
     loader.efi.canTouchEfiVariables = true;
     resumeDevice = "/dev/vg0/swap";
-    supportedFilesystems = ["btrfs"];
+    supportedFilesystems = [ "btrfs" ];
   };
 
-  swapDevices = [{device = "/dev/vg0/swap";}];
+  swapDevices = [{ device = "/dev/vg0/swap"; }];
 
   hardware = {
     bluetooth = {
@@ -30,20 +29,20 @@
           KernelExperimental = true;
         };
       };
-      package = pkgs.bluez.override {withExperimental = true;};
+      package = pkgs.bluez.override { withExperimental = true; };
     };
     cpu.intel.updateMicrocode = lib.mkDefault true;
     enableRedistributableFirmware = true;
     gpgSmartcards.enable = true;
     opengl = {
       enable = true;
-      extraPackages = [pkgs.intel-media-driver];
+      extraPackages = [ pkgs.intel-media-driver ];
       driSupport = true;
       driSupport32Bit = true;
     };
     sensor.hddtemp = {
       enable = true;
-      drives = ["/dev/disk/by-path/pci-0000:01:00.0-nvme-1"];
+      drives = [ "/dev/disk/by-path/pci-0000:01:00.0-nvme-1" ];
     };
     xone.enable = true;
   };

@@ -1,5 +1,5 @@
 _: {
-  imports = [./programs ./services ./wm ./gtk.nix ./persistence.nix];
+  imports = [ ./programs ./services ./wm ./gtk.nix ./persistence.nix ];
 
   home.stateVersion = "23.11";
 
@@ -9,12 +9,12 @@ _: {
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "application/pdf" = ["org.gnome.Evince.desktop"];
-        "image/gif" = ["org.gnome.eog.desktop"];
-        "image/jpeg" = ["org.gnome.eog.desktop"];
-        "image/png" = ["org.gnome.eog.desktop"];
-        "image/webp" = ["org.gnome.eog.desktop"];
-        "x-scheme-handler/tg" = ["org.telegram.desktop.desktop"];
+        "application/pdf" = [ "org.gnome.Evince.desktop" ];
+        "image/gif" = [ "org.gnome.eog.desktop" ];
+        "image/jpeg" = [ "org.gnome.eog.desktop" ];
+        "image/png" = [ "org.gnome.eog.desktop" ];
+        "image/webp" = [ "org.gnome.eog.desktop" ];
+        "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
       };
     };
     userDirs.enable = true;

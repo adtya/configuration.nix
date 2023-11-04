@@ -1,6 +1,8 @@
-{secrets, ...}: let
+{ secrets, ... }:
+let
   user = secrets.users;
-in {
+in
+{
   imports = [
     ./dbus.nix
     ./keyd.nix

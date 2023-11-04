@@ -1,9 +1,9 @@
 _: {
   boot.initrd.systemd.services.rollback = {
     description = "Rollback root subvolume to blank state";
-    wantedBy = ["initrd.target"];
-    after = ["dev-vg0-system.device"];
-    before = ["sysroot.mount"];
+    wantedBy = [ "initrd.target" ];
+    after = [ "dev-vg0-system.device" ];
+    before = [ "sysroot.mount" ];
     unitConfig.DefaultDependencies = "no";
     serviceConfig.Type = "oneshot";
     script = ''

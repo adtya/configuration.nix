@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ./caddy.nix
     ./dendrite

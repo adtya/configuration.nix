@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./hardware
     ./programs
@@ -24,7 +24,7 @@
     packages = with pkgs; [
       cantarell-fonts
       liberation_ttf
-      (nerdfonts.override {fonts = ["FiraCode"];})
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
@@ -47,7 +47,7 @@
       LC_TIME = "en_US.UTF-8";
       LC_ALL = "en_US.UTF-8";
     };
-    supportedLocales = ["en_US.UTF-8/UTF-8"];
+    supportedLocales = [ "en_US.UTF-8/UTF-8" ];
   };
 
   location.provider = "geoclue2";
@@ -57,7 +57,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [xdg-desktop-portal-gtk xdg-desktop-portal-hyprland];
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-hyprland ];
   };
 
   system.stateVersion = "23.11";

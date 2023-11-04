@@ -1,8 +1,8 @@
-{
-  lib,
-  pkgs,
-  ...
-}: let
+{ lib
+, pkgs
+, ...
+}:
+let
   gtkTheme = {
     name = "Dracula";
     package = pkgs.dracula-gtk;
@@ -10,14 +10,15 @@
 
   iconTheme = {
     name = "Papirus-Dark";
-    package = pkgs.papirus-icon-theme.override {color = "black";};
+    package = pkgs.papirus-icon-theme.override { color = "black"; };
   };
 
   cursorTheme = {
     name = "Bibata-Modern-Classic";
     package = pkgs.bibata-cursors;
   };
-in {
+in
+{
   gtk = {
     enable = true;
     theme = gtkTheme;

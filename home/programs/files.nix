@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.gnome.nautilus];
+{ pkgs, ... }: {
+  home.packages = [ pkgs.gnome.nautilus ];
   dconf.settings = {
     "io/elementary/files/preferences" = {
       singleclick-select = true;

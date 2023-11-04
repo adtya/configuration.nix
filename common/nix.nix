@@ -1,16 +1,15 @@
-{
-  nixpkgs,
-  pkgs,
-  ...
+{ nixpkgs
+, pkgs
+, ...
 }: {
   environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
   nix = {
     package = pkgs.nixFlakes;
-    nixPath = ["nixpkgs=/etc/nix/inputs/nixpkgs"];
+    nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
     registry.nixpkgs.flake = nixpkgs;
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes" "auto-allocate-uids" "cgroups" "ca-derivations"];
+      experimental-features = [ "nix-command" "flakes" "auto-allocate-uids" "cgroups" "ca-derivations" ];
       auto-allocate-uids = true;
       sandbox = true;
       trusted-substituters = [

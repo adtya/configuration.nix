@@ -1,7 +1,6 @@
-{
-  lib,
-  pkgs,
-  ...
+{ lib
+, pkgs
+, ...
 }: {
   boot = {
     consoleLogLevel = 3;
@@ -15,12 +14,12 @@
         "sd_mod"
         "rtsx_pci_sdmmc"
       ];
-      kernelModules = ["i915"];
+      kernelModules = [ "i915" ];
       systemd.enable = true;
     };
-    kernelModules = ["kvm-intel"];
+    kernelModules = [ "kvm-intel" ];
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-    kernelParams = ["quiet"];
+    kernelParams = [ "quiet" ];
     kernel.sysctl = {
       "vm.swappiness" = 0;
     };

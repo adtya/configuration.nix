@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   specialisation = {
     linux_lts = {
       configuration = {

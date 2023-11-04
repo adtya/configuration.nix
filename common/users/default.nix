@@ -1,10 +1,11 @@
-{
-  pkgs,
-  secrets,
-  ...
-}: let
+{ pkgs
+, secrets
+, ...
+}:
+let
   user = secrets.users;
-in {
+in
+{
   users.mutableUsers = false;
   users.users = {
     root = {
@@ -15,7 +16,7 @@ in {
       inherit (user.primary) hashedPassword;
       description = user.primary.realName;
       isNormalUser = true;
-      extraGroups = ["docker" "libvirtd" "networkmanager" "tss" "wheel"];
+      extraGroups = [ "docker" "libvirtd" "networkmanager" "tss" "wheel" ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         user.primary.sshPublicKey

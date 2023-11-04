@@ -1,10 +1,11 @@
-{
-  pkgs,
-  secrets,
-  ...
-}: let
+{ pkgs
+, secrets
+, ...
+}:
+let
   inherit (secrets) frp_config;
-in {
+in
+{
   services.frp = {
     enable = true;
     role = "client";

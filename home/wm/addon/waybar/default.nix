@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.waybar = {
     enable = true;
     package = pkgs.waybar.override {
@@ -12,9 +12,9 @@
         layer = "top";
         position = "top";
         height = 28;
-        modules-left = ["hyprland/workspaces" "hyprland/window" "hyprland/submap"];
-        modules-center = [];
-        modules-right = ["tray" "idle_inhibitor" "network" "bluetooth" "wireplumber" "backlight" "battery" "clock"];
+        modules-left = [ "hyprland/workspaces" "hyprland/window" "hyprland/submap" ];
+        modules-center = [ ];
+        modules-right = [ "tray" "idle_inhibitor" "network" "bluetooth" "wireplumber" "backlight" "battery" "clock" ];
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
@@ -31,7 +31,7 @@
         };
         backlight = {
           format = "{icon}";
-          format-icons = ["󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠"];
+          format-icons = [ "󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠" ];
           tooltip = false;
         };
         battery = {
@@ -44,7 +44,7 @@
           format-alt = "{icon} {capacity}% ({time})";
           format-charging = "󰂄 {capacity}%";
           format-plugged = "‭󰚥 {capacity}%";
-          format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+          format-icons = [ "󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
           tooltip = false;
         };
         network = {
@@ -59,7 +59,7 @@
           format = "{icon}";
           format-muted = "‭󰝟";
           on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
-          format-icons = ["󰕿" "󰖀" "󰕾"];
+          format-icons = [ "󰕿" "󰖀" "󰕾" ];
           tooltip = false;
         };
         bluetooth = {

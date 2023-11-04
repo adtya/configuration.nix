@@ -1,17 +1,16 @@
-{
-  config,
-  pkgs,
-  secrets,
-  ...
+{ config
+, pkgs
+, secrets
+, ...
 }: {
   systemd.user.services = {
     ariang = {
       Unit = {
         Description = "AriaNg: Web frontend for aria2c";
-        After = ["network.target" "aria2c.service"];
+        After = [ "network.target" "aria2c.service" ];
       };
       Install = {
-        WantedBy = ["default.target"];
+        WantedBy = [ "default.target" ];
       };
       Service = {
         Type = "simple";
@@ -23,11 +22,11 @@
     aria2c = {
       Unit = {
         Description = "Aria2c Download Manager";
-        Documentation = ["man:aria2c(1)"];
-        After = ["network.target"];
+        Documentation = [ "man:aria2c(1)" ];
+        After = [ "network.target" ];
       };
       Install = {
-        WantedBy = ["default.target" "ariang.service"];
+        WantedBy = [ "default.target" "ariang.service" ];
       };
       Service = {
         Type = "simple";

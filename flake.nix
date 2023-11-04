@@ -60,23 +60,25 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    flake-utils,
-    home-manager,
-    impermanence,
-    lanzaboote,
-    nixvim,
-    www,
-    wiki,
-    if3,
-  } @ inputs: let
-    secrets = import ./secrets.nix;
-    nixpkgs-config = {
-      allowUnfree = true;
-    };
-  in
+  outputs =
+    { self
+    , nixpkgs
+    , flake-utils
+    , home-manager
+    , impermanence
+    , lanzaboote
+    , nixvim
+    , www
+    , wiki
+    , if3
+    ,
+    } @ inputs:
+    let
+      secrets = import ./secrets.nix;
+      nixpkgs-config = {
+        allowUnfree = true;
+      };
+    in
     {
       nixosConfigurations = {
         Skipper = nixpkgs.lib.nixosSystem rec {
@@ -84,9 +86,9 @@
           pkgs = import nixpkgs {
             inherit system;
             config = nixpkgs-config;
-            overlays = [(import ./packages)];
+            overlays = [ (import ./packages) ];
           };
-          specialArgs = inputs // {inherit secrets;};
+          specialArgs = inputs // { inherit secrets; };
           modules = [
             {
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
@@ -103,8 +105,8 @@
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = true;
-                extraSpecialArgs = {inherit secrets;};
-                users.${secrets.users.primary.userName} = {pkgs, ...}: {
+                extraSpecialArgs = { inherit secrets; };
+                users.${secrets.users.primary.userName} = { pkgs, ... }: {
                   imports = [
                     impermanence.nixosModules.home-manager.impermanence
                     nixvim.homeManagerModules.nixvim
@@ -121,7 +123,7 @@
             inherit system;
             config = nixpkgs-config;
           };
-          specialArgs = inputs // {inherit secrets;};
+          specialArgs = inputs // { inherit secrets; };
           modules = [
             {
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
@@ -137,7 +139,7 @@
             inherit system;
             config = nixpkgs-config;
           };
-          specialArgs = inputs // {inherit secrets;};
+          specialArgs = inputs // { inherit secrets; };
           modules = [
             {
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
@@ -150,20 +152,21 @@
       };
     }
     // flake-utils.lib.eachDefaultSystem (
-      system: let
+      system:
+      let
         pkgs = import nixpkgs {
           inherit system;
         };
       in
-        with pkgs; {
-          formatter = pkgs.alejandra;
-          devShells.default = mkShell {
-            buildInputs = [
-              git
-              git-crypt
-              statix
-            ];
-          };
-        }
+      with pkgs; {
+        formatter = nixpkgs-fmt;
+        devShells.default = mkShell {
+          buildInputs = [
+            git
+            git-crypt
+            statix
+          ];
+        };
+      }
     );
 }

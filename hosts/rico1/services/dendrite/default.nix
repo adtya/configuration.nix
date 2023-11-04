@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   services = {
     caddy.virtualHosts."matrix.adtya.xyz" = {
       extraConfig = ''
@@ -9,8 +9,8 @@
   };
   systemd.services.dendrite = {
     description = "Dendrite Matrix homeserver";
-    after = ["network.target"];
-    wantedBy = ["multi-user.target"];
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "simple";
       DynamicUser = true;

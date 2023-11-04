@@ -6,5 +6,5 @@ _: {
       syntaxHighlighting.enable = true;
     };
   };
-  environment.pathsToLink = ["/share/zsh"];
+  environment.pathsToLink = [ "/share/zsh" ];
 }

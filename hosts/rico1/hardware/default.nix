@@ -1,3 +1,3 @@
-{...}: {
-  imports = [./filesystem.nix ./kernel.nix];
+{ ... }: {
+  imports = [ ./filesystem.nix ./kernel.nix ];
 }

@@ -1,6 +1,8 @@
-{secrets, ...}: let
+{ secrets, ... }:
+let
   user = secrets.users;
-in {
+in
+{
   programs.git = {
     enable = true;
     delta = {
@@ -27,6 +29,6 @@ in {
       push.autoSetupRemote = true;
       pull.rebase = true;
     };
-    ignores = ["/.nix" "/.direnv"];
+    ignores = [ "/.nix" "/.direnv" ];
   };
 }

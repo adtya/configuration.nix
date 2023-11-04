@@ -1,10 +1,11 @@
-{
-  pkgs,
-  if3,
-  ...
-}: let
+{ pkgs
+, if3
+, ...
+}:
+let
   system = pkgs.system;
-in {
+in
+{
   services = {
     caddy.virtualHosts = {
       "if3.adtya.xyz" = {

@@ -1,14 +1,15 @@
-{
-  pkgs,
-  www,
-  secrets,
-  ...
-}: let
+{ pkgs
+, www
+, secrets
+, ...
+}:
+let
   system = pkgs.system;
-in {
+in
+{
   services = {
     caddy.virtualHosts."adtya.xyz" = {
-      serverAliases = ["www.adtya.xyz"];
+      serverAliases = [ "www.adtya.xyz" ];
       extraConfig = ''
         handle /.well-known/matrix/server {
           header Content-Type application/json

@@ -1,10 +1,10 @@
-{
-  lib,
-  fetchFromGitHub,
-  makeWrapper,
-  stdenvNoCC,
-  bluez,
-  rofi-wayland,
+{ lib
+, fetchFromGitHub
+, makeWrapper
+, stdenvNoCC
+, bluez
+, rofi-wayland
+,
 }:
 stdenvNoCC.mkDerivation {
   pname = "rofi-bluetooth";
@@ -16,7 +16,7 @@ stdenvNoCC.mkDerivation {
     hash = "sha256-1Xe3QFThIvJDCUznDP5ZBzwZEMuqmxpDIV+BcVvQDG8=";
   };
 
-  nativeBuildInputs = [makeWrapper];
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
     mkdir -p $out/bin
