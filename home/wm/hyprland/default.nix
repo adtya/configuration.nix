@@ -38,6 +38,7 @@ in {
 
     monitor = eDP-1,  1920x1080,  0x0,   1
     monitor = ,       preferred,  auto,  1
+    #monitor = ,       preferred,  auto,  1,  mirror,  eDP-1
 
     general {
       col.active_border = rgb(bd93f9)
