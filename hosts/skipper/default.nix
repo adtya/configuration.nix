@@ -9,6 +9,7 @@
     ./rollback.nix
     ./secureboot.nix
     ./security.nix
+    ./specialisation.nix
     ./virtualisation.nix
   ];
 
