@@ -149,11 +149,11 @@
       };
       markdown-preview = {
         enable = true;
-        browser = "${pkgs.librewolf}/bin/librewolf";
         openToTheWorld = true;
         previewOptions = {
           disable_filename = true;
         };
+        browser = "${pkgs.epiphany}/bin/epiphany";
       };
       neo-tree = {
         enable = true;
