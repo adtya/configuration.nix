@@ -23,7 +23,6 @@ _: {
       ".local/share/zsh"
       ".local/state"
       ".mozilla"
-      ".ssh"
       {
         directory = ".nixos-config";
         method = "symlink";
@@ -69,6 +68,7 @@ _: {
     files = [
       ".config/gh/hosts.yml"
       ".config/wallpaper_config.json"
+      ".ssh/known_hosts"
     ];
   };
 }
