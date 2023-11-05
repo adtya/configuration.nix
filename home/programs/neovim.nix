@@ -150,9 +150,6 @@
       markdown-preview = {
         enable = true;
         openToTheWorld = true;
-        previewOptions = {
-          disable_filename = true;
-        };
         browser = "${pkgs.epiphany}/bin/epiphany";
       };
       neo-tree = {
