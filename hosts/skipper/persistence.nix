@@ -11,6 +11,7 @@ _: {
       "/var/cache/apparmor"
       "/var/cache/fwupd"
       "/var/lib/bluetooth"
+      "/var/lib/btrfs"
       "/var/lib/docker"
       "/var/lib/fwupd"
       "/var/lib/iwd"
