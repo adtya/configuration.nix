@@ -1,5 +1,28 @@
 {
   "nodes": {
+    "adtyaxyz": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1699214282,
+        "narHash": "sha256-f8DvDhMWuEY4B1TIUOVGW+hgAph1K/7nkkcrucUijNo=",
+        "owner": "adtya",
+        "repo": "adtya.xyz",
+        "rev": "b1ba02dacc50f82a5381cf282f0bfe047aa6e4fa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adtya",
+        "repo": "adtya.xyz",
+        "type": "github"
+      }
+    },
     "beautysh": {
       "inputs": {
         "nixpkgs": [
@@ -421,6 +444,7 @@
     },
     "root": {
       "inputs": {
+        "adtyaxyz": "adtyaxyz",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "if3": "if3",
@@ -428,8 +452,7 @@
         "lanzaboote": "lanzaboote",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "wiki": "wiki",
-        "www": "www"
+        "wiki": "wiki"
       }
     },
     "rust-overlay": {
@@ -522,29 +545,6 @@
       "original": {
         "owner": "adtya",
         "repo": "wiki",
-        "type": "github"
-      }
-    },
-    "www": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1699058245,
-        "narHash": "sha256-d3d9zT01jPjRWlZbNNRDnF7DIzPuCkbfUujgZwvWPS8=",
-        "owner": "adtya",
-        "repo": "adtya.xyz",
-        "rev": "99882687f8456eff41aa3d90e96ecd3a70936257",
-        "type": "github"
-      },
-      "original": {
-        "owner": "adtya",
-        "repo": "adtya.xyz",
         "type": "github"
       }
     }
