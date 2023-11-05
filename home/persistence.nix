@@ -68,7 +68,6 @@ _: {
     files = [
       ".config/gh/hosts.yml"
       ".config/wallpaper_config.json"
-      ".ssh/known_hosts"
     ];
   };
 }
