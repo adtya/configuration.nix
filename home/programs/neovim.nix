@@ -149,7 +149,6 @@
       };
       markdown-preview = {
         enable = true;
-        openToTheWorld = true;
         browser = "${pkgs.epiphany}/bin/epiphany";
       };
       neo-tree = {
