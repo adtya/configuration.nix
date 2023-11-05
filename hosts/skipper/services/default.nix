@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./btrfs.nix
     ./dbus.nix
     ./keyd.nix
     ./pipewire.nix
