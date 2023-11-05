@@ -150,6 +150,7 @@
       markdown-preview = {
         enable = true;
         browser = "${pkgs.epiphany}/bin/epiphany";
+        theme = "light";
       };
       neo-tree = {
         enable = true;
