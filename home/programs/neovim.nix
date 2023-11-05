@@ -149,9 +149,9 @@
       };
       markdown-preview = {
         enable = true;
+        browser = "${pkgs.librewolf}/bin/librewolf";
         openToTheWorld = true;
         previewOptions = {
-          content_editable = true;
           disable_filename = true;
         };
       };
