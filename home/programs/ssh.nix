@@ -3,6 +3,5 @@ _: {
     enable = true;
     compression = true;
     controlMaster = "yes";
-    hashKnownHosts = true;
   };
 }
