@@ -135,6 +135,15 @@
         globalstatus = true;
         theme = "dracula";
       };
+      markdown-preview = {
+        enable = true;
+        autoStart = true;
+        openToTheWorld = true;
+        previewOptions = {
+          content_editable = true;
+          disable_filename = true;
+        };
+      };
       neo-tree = {
         enable = true;
         addBlankLineAtTop = true;
