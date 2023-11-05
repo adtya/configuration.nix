@@ -35,7 +35,7 @@
       };
     };
 
-    www = {
+    adtyaxyz = {
       url = "github:adtya/adtya.xyz";
       inputs = {
         flake-utils.follows = "flake-utils";
@@ -68,7 +68,7 @@
     , impermanence
     , lanzaboote
     , nixvim
-    , www
+    , adtyaxyz
     , wiki
     , if3
     ,

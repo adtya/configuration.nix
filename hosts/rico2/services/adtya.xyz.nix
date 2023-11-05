@@ -1,5 +1,5 @@
 { pkgs
-, www
+, adtyaxyz
 , secrets
 , ...
 }:
@@ -29,7 +29,7 @@ in
         }
 
         handle {
-          root * ${www.packages.${system}.default}/share/web
+          root * ${adtyaxyz.packages.${system}.default}/share/web
           encode gzip
           try_files {path} /index.html
           file_server
