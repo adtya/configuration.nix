@@ -91,6 +91,18 @@
         options.silent = true;
         action = "<cmd>:Telescope live_grep<Return>";
       }
+      {
+        mode = "n";
+        key = "<leader>pp";
+        options.silent = true;
+        action = "<cmd>:MarkdownPreview<Return>";
+      }
+      {
+        mode = "n";
+        key = "<leader>po";
+        options.silent = true;
+        action = "<cmd>:MarkdownPreviewStop<Return>";
+      }
     ];
     plugins = {
       bufferline = {
@@ -137,7 +149,6 @@
       };
       markdown-preview = {
         enable = true;
-        autoStart = true;
         openToTheWorld = true;
         previewOptions = {
           content_editable = true;
