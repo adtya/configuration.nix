@@ -67,6 +67,9 @@ in
     }
 
     input {
+      kb_layout = us
+      kb_options = rupeesign:4
+      kb_variant = altgr-intl
       touchpad {
         clickfinger_behavior = true
         disable_while_typing = true

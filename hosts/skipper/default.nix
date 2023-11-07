@@ -50,6 +50,12 @@
     supportedLocales = [ "en_US.UTF-8/UTF-8" ];
   };
 
+  services.xserver.xkb = {
+    layout = "us";
+    options = "rupeesign:4";
+    variant = "altgr-intl";
+  };
+
   location.provider = "geoclue2";
 
   sound.enable = true;
