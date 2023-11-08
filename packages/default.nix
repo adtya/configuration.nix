@@ -1,6 +1,7 @@
-self: super: {
-  adi1090x-plymouth = super.callPackage ./adi1090x-plymouth { };
-  dracula-gtk = super.callPackage ./dracula-gtk { };
-  scripts = super.callPackage ./scripts { };
-  rofi-bluetooth = super.callPackage ./rofi-bluetooth { };
+final: prev: {
+  adi1090x-plymouth = prev.callPackage ./adi1090x-plymouth { };
+  dracula-gtk = prev.callPackage ./dracula-gtk { };
+  scripts = prev.callPackage ./scripts { };
+  rofi-bluetooth = prev.callPackage ./rofi-bluetooth { };
+  smc-manjari = prev.callPackage ./smc-manjari { };
 }
