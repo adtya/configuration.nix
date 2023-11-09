@@ -3,20 +3,20 @@
 , ...
 }:
 let
-  dbus-update-activation-environment = "${pkgs.dbus}/bin/dbus-update-activation-environment";
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  grim = "${pkgs.grim}/bin/grim";
+  #dbus-update-activation-environment = "${pkgs.dbus}/bin/dbus-update-activation-environment";
+  grimblast = "${pkgs.grimblast}/bin/grimblast";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
   kitty = "${config.programs.kitty.package}/bin/kitty";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   rofi = "${config.programs.rofi.package}/bin/rofi";
-  slurp = "${pkgs.slurp}/bin/slurp";
   swaylock = "${pkgs.swaylock}/bin/swaylock";
   tmux = "${config.programs.tmux.package}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
+
   pictures = "${config.xdg.userDirs.pictures}";
-  change-wallpaper = "${pkgs.scripts}/bin/chpaper ${config.xdg.userDirs.pictures}/Wallpapers";
-  wallhaven-wallpaper = "${pkgs.scripts}/bin/chpaper \$(${pkgs.scripts}/bin/wallhaven ${config.xdg.userDirs.pictures}/Wallpapers)";
+  change-wallpaper = "${pkgs.scripts}/bin/chpaper ${pictures}/Wallpapers";
+  wallhaven-wallpaper = "${pkgs.scripts}/bin/chpaper \$(${pkgs.scripts}/bin/wallhaven ${pictures}/Wallpapers)";
 in
 {
   home.packages = with pkgs; [
@@ -37,6 +37,7 @@ in
         gaps_out = 4;
         layout = "master";
       };
+
       decoration = {
         "col.shadow" = "rgba(1E202966)";
         dim_around = 0.6;
@@ -214,8 +215,8 @@ in
       ];
 
       bindr = [
-        ",print,             exec, ${grim} ${pictures}/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
-        "SHIFT,print,        exec, ${grim} -g ''$(${slurp}) ${pictures}/Screenshots/screenshot-''$(date +%Y-%m-%d-%H-%M-%S).png"
+        ",print,             exec, XDG_SCREENSHOTS_DIR=${pictures}/Screenshots ${grimblast} --notify save screen"
+        "SHIFT,print,        exec, XDG_SCREENSHOTS_DIR=${pictures}/Screenshots ${grimblast} --notify --freeze save area"
       ];
 
       binde = [
