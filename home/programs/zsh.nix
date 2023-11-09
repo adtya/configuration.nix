@@ -16,14 +16,11 @@
     initExtra = ''
       bindkey -v '^?' backward-delete-char
     '';
-    profileExtra =
-      if pkgs.stdenv.isLinux
-      then ''
-        if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] ; then
-          exec ${pkgs.hyprland}/bin/Hyprland
-        fi
-      ''
-      else "";
+    profileExtra = ''
+      if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] ; then
+        exec ${config.wayland.windowManager.hyprland.finalPackage}/bin/Hyprland
+      fi
+    '';
     shellAliases = {
       cat = "${pkgs.bat}/bin/bat";
       cp = "cp -v";
