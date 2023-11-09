@@ -22,6 +22,8 @@ stdenvNoCC.mkDerivation {
   nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
+    runHook preInstall
+
     mkdir -p $out/bin
 
     cp power-menu.sh $out/bin/power-menu
