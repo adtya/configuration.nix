@@ -4,6 +4,7 @@
 }:
 let
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
+  browser = "${config.programs.firefox.package}/bin/firefox";
   #dbus-update-activation-environment = "${pkgs.dbus}/bin/dbus-update-activation-environment";
   grimblast = "${pkgs.grimblast}/bin/grimblast";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
@@ -170,16 +171,20 @@ in
         "SUPER_SHIFT,C,       exec, systemctl --user restart swayidle.service"
         "SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service"
         "SUPER_SHIFT,C,       exec, systemctl --user reload waybar.service"
+
         "SUPER,Return,        exec, ${kitty} ${tmux} new"
         "SUPER_SHIFT,Return,  exec, ${kitty}"
         "SUPER,d,             exec, ${rofi} -show drun"
-        "SUPER,escape,        exec, ${swaylock} -f -i /tmp/lockpaper.jpg"
-        "SUPER_SHIFT,W,       exec, ${change-wallpaper}"
-        "SUPER_ALT,W,         exec, ${wallhaven-wallpaper}"
+        "SUPER,i,             exec, ${browser}"
+
         "SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu"
         "SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions"
         "SUPER_SHIFT,y,       exec, ${pkgs.scripts}/bin/youtube"
         "SUPER_SHIFT,b,       exec, ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
+
+        "SUPER,escape,        exec, ${swaylock} -f -i /tmp/lockpaper.jpg"
+        "SUPER_SHIFT,W,       exec, ${change-wallpaper}"
+        "SUPER_ALT,W,         exec, ${wallhaven-wallpaper}"
 
         "SUPER,1,             workspace, 1"
         "SUPER,2,             workspace, 2"
