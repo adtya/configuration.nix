@@ -4,8 +4,8 @@
 }:
 let
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  browser = "${config.programs.firefox.package}/bin/firefox";
   #dbus-update-activation-environment = "${pkgs.dbus}/bin/dbus-update-activation-environment";
+  firefox = "${config.programs.firefox.package}/bin/firefox";
   grimblast = "${pkgs.grimblast}/bin/grimblast";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
   kitty = "${config.programs.kitty.package}/bin/kitty";
@@ -175,7 +175,8 @@ in
         "SUPER,Return,        exec, ${kitty} ${tmux} new"
         "SUPER_SHIFT,Return,  exec, ${kitty}"
         "SUPER,d,             exec, ${rofi} -show drun"
-        "SUPER,i,             exec, ${browser}"
+        "SUPER,i,             exec, ${firefox}"
+        "SUPER_SHIFT,i,       exec, ${firefox} --private-window"
 
         "SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu"
         "SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions"
