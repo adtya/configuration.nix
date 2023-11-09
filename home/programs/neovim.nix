@@ -149,7 +149,7 @@
       };
       markdown-preview = {
         enable = true;
-        browser = "${pkgs.epiphany}/bin/epiphany";
+        browser = "${pkgs.ungoogled-chromium}/bin/chromium";
         theme = "light";
       };
       neo-tree = {
