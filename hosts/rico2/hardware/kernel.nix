@@ -10,7 +10,6 @@
       ];
       systemd.enable = true;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
   };
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 }
