@@ -2,6 +2,7 @@
   imports = [ ./wireguard.nix ];
   networking = {
     hostName = "Skipper";
+
     networkmanager = {
       enable = true;
       dns = "systemd-resolved";
@@ -10,7 +11,9 @@
         powersave = false;
       };
     };
+
     useDHCP = lib.mkDefault false;
+
     wireless.iwd = {
       enable = true;
       settings = {

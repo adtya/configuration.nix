@@ -2,33 +2,31 @@
   imports = [ ./wireguard.nix ];
   networking = {
     hostName = "Rico1";
+
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+      wifi = {
+        backend = "iwd";
+        powersave = false;
+      };
+    };
+
     useDHCP = lib.mkDefault false;
-  };
 
-  services.resolved.enable = true;
-
-  systemd.network = {
-    enable = true;
-    networks = {
-      "40-ether" = {
-        enable = true;
-        matchConfig = {
-          Type = "ether";
+    wireless.iwd = {
+      enable = true;
+      settings = {
+        General = {
+          AddressRandomization = "network";
+          EnableNetworkConfiguration = false;
         };
-        networkConfig = {
-          DHCP = "yes";
-          IgnoreCarrierLoss = "3s";
-        };
-        dhcpV4Config = {
-          UseDomains = true;
-        };
-        ipv6AcceptRAConfig = {
-          UseDomains = true;
-        };
-        linkConfig = {
-          RequiredForOnline = "yes";
+        Settings = {
+          AutoConnect = "yes";
         };
       };
     };
   };
+
+  services.resolved.enable = true;
 }
