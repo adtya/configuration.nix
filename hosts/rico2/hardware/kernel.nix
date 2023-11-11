@@ -4,10 +4,6 @@
 }: {
   boot = {
     initrd = {
-      availableKernelModules = [
-        "usbhid"
-        "usb_storage"
-      ];
       systemd.enable = true;
     };
   };
