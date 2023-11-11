@@ -27,6 +27,10 @@
       };
     };
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs = {
@@ -67,6 +71,7 @@
     , home-manager
     , impermanence
     , lanzaboote
+    , nixos-hardware
     , nixvim
     , adtyaxyz
     , wiki
@@ -129,6 +134,8 @@
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
             }
 
+            nixos-hardware.nixosModules.raspberry-pi-4
+
             ./common
             ./hosts/rico1
           ];
@@ -144,6 +151,8 @@
             {
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
             }
+
+            nixos-hardware.nixosModules.raspberry-pi-4
 
             ./common
             ./hosts/rico2
