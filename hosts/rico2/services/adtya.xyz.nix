@@ -1,6 +1,5 @@
 { pkgs
 , adtyaxyz
-, secrets
 , ...
 }:
 let
@@ -25,7 +24,7 @@ in
 
         handle /.well-known/discord {
           header Access-Control-Allow-Origin *
-          respond `${secrets.discord_domain_well_known}`
+          respond `dh=bd67bb4659b662a5ee2b1b043e7b3171b2cb44bd`
         }
 
         handle {
