@@ -36,7 +36,6 @@
     obsidian
     pavucontrol
     ripgrep
-    spotify-tui
     steam-run
     telegram-desktop
     wl-clipboard

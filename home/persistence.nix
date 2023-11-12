@@ -12,7 +12,6 @@ _: {
       ".config/doctl"
       ".config/lazygit"
       ".config/obsidian"
-      ".config/spotify-tui"
       ".fly"
       ".gnupg"
       ".local/share/chat.fluffy.fluffychat"
