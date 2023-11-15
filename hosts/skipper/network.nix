@@ -28,5 +28,17 @@
     };
   };
 
-  services.resolved.enable = true;
+  services = {
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      publish = {
+        enable = true;
+        addresses = true;
+        hinfo = true;
+        workstation = true;
+      };
+    };
+    resolved.enable = true;
+  };
 }
