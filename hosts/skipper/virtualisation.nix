@@ -7,9 +7,12 @@
     kvmgt.enable = true;
     libvirtd = {
       enable = true;
-      qemu.ovmf = {
-        enable = true;
-        packages = [ pkgs.OVMFFull.fd ];
+      qemu = {
+        package = pkgs.qemu_kvm;
+        ovmf = {
+          enable = true;
+          packages = [ pkgs.OVMFFull.fd ];
+        };
       };
     };
   };
