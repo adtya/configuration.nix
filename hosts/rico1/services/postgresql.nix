@@ -10,9 +10,7 @@
     ensureUsers = [
       {
         name = "dendrite";
-        ensurePermissions = {
-          "DaTABASE dendrite" = "ALL PRIVILEGES";
-        };
+        ensureDBOwnership = true;
       }
     ];
   };
