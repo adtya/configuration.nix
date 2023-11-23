@@ -33,11 +33,14 @@
     gnome.gnome-system-monitor
     gnome3.gnome-disk-utility
     lazydocker
+    lutris
     obsidian
     pavucontrol
     ripgrep
     steam-run
     telegram-desktop
+    winetricks
+    (wineWowPackages.waylandFull.override { wineRelease = "staging"; mingwSupport = true; })
     wl-clipboard
     xdg-utils
     yubioath-flutter
