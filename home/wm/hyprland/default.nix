@@ -144,6 +144,9 @@ in
         "float,class:^(Bitwarden)$"
         "center,class:^(Bitwarden)$"
 
+        "float,class:^(Lutris)$"
+        "center,class:^(Lutris)$"
+
         "dimaround,class:^(gcr-prompter)$"
       ];
 
