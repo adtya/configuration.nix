@@ -26,7 +26,10 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = true;
+    systemd = {
+      enable = true;
+      variables = [ "DISPLAY" "HYPRLAND_INSTANCE_SIGNATURE" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP" "XDG_DATA_DIRS" ];
+    };
     settings = {
       general = {
         border_size = 1;
