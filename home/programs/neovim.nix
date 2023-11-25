@@ -138,7 +138,11 @@
           gopls.enable = true;
           jsonls.enable = true;
           nixd.enable = true;
-          rust-analyzer.enable = true;
+          rust-analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+          };
           yamlls.enable = true;
         };
       };
