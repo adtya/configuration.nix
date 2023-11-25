@@ -73,7 +73,6 @@
         default = [ "hyprland" "gtk" ];
       };
     };
-    xdgOpenUsePortal = true;
   };
 
   system.stateVersion = "23.11";
