@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1700959326,
-        "narHash": "sha256-d5Vo/OJTnlssuFe9oz/pBWHK9sJFZdnlJ1kYUtX7174=",
+        "lastModified": 1701010763,
+        "narHash": "sha256-r5i17cAfg0ifGQpL7N0ZqBeTTAOlarg3TzCOizB4Es4=",
         "owner": "adtya",
         "repo": "adtya.xyz",
-        "rev": "63ec6b6dae9edd783ec44693c75d579227c1bec4",
+        "rev": "9060c2156f94a80e2a113472d9322cd36985c05e",
         "type": "github"
       },
       "original": {
@@ -551,11 +551,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1700787798,
-        "narHash": "sha256-XTBDw65tMCFdQDmgenQQHiqmth5FVZXPw3bIeM0IWbM=",
+        "lastModified": 1701008737,
+        "narHash": "sha256-iukAns1c0favW5SW0MsVu6mq55chPcJ+QtoaFAMbdy4=",
         "owner": "adtya",
         "repo": "wiki",
-        "rev": "a344918e8218201ceed70a727a91938e483ad2d5",
+        "rev": "c10043e37b18b620c0a9636d362a62ffbc64b1c0",
         "type": "github"
       },
       "original": {
