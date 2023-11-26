@@ -25,20 +25,25 @@
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
               updates_disabled = false;
             };
+            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+              installation_mode = "force_installed";
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+              updates_disabled = false;
+            };
             "{d634138d-c276-4fc8-924b-40a0ea21d284}" = {
               installation_mode = "force_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
               updates_disabled = false;
               default_area = "navbar";
             };
-            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-              installation_mode = "force_installed";
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-              updates_disabled = false;
-            };
             "queryamoid@kaply.com" = {
               installation_mode = "force_installed";
               install_url = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
+              updates_disabled = false;
+            };
+            "{019b606a-6f61-4d01-af2a-cea528f606da}" = {
+              installation_mode = "force_installed";
+              install_url = "https://github.com/xbrowsersync/app/releases/download/v1.5.2/xbrowsersync_1.5.2_firefox.xpi";
               updates_disabled = false;
             };
           };
