@@ -4,7 +4,6 @@
 }:
 let
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  #dbus-update-activation-environment = "${pkgs.dbus}/bin/dbus-update-activation-environment";
   firefox = "${config.programs.firefox.package}/bin/firefox";
   grimblast = "${pkgs.grimblast}/bin/grimblast";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
@@ -151,8 +150,6 @@ in
       ];
 
       exec-once = [
-        #"${dbus-update-activation-environment} --systemd DISPLAY WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP XDG_SESSION_TYPE NIXOS_OZONE_WL"
-        #"systemctl --user start hyprland-session.target"
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24"
         "${change-wallpaper}"
