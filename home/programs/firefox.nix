@@ -32,6 +32,13 @@
               installation_mode = "force_installed";
               install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
             };
+
+            "google@search.mozilla.org" = {
+              installation_mode = "blocked";
+            };
+            "bing@search.mozilla.org" = {
+              installation_mode = "blocked";
+            };
           };
           FirefoxHome = {
             Search = true;
