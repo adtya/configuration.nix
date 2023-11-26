@@ -86,6 +86,7 @@
             "browser.startup.homepage_override.mstone" = { Value = "ignore"; Status = "locked"; };
             "browser.startup.homepage_override.buildID" = { Value = ""; Status = "locked"; };
             "browser.tabs.firefox-view" = { Value = false; Status = "locked"; };
+            "browser.tabs.firefox-view-next" = { Value = false; Status = "locked"; };
             "browser.urlbar.suggest.history" = { Value = false; Status = "locked"; };
             "browser.urlbar.suggest.topsites" = { Value = false; Status = "locked"; };
             "dom.security.https_only_mode" = { Value = true; Status = "locked"; };
