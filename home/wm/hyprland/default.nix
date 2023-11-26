@@ -4,7 +4,7 @@
 }:
 let
   brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  firefox = "${config.programs.firefox.package}/bin/firefox";
+  firefox = "${config.programs.firefox.finalPackage}/bin/firefox";
   grimblast = "${pkgs.grimblast}/bin/grimblast";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
   kitty = "${config.programs.kitty.package}/bin/kitty";
