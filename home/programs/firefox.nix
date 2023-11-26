@@ -1,4 +1,4 @@
-{ pkgs, osConfig, ... }: {
+_: {
   programs = {
     firefox = {
       enable = true;
@@ -107,7 +107,7 @@
                   ];
                 }
               ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              iconUpdateURL = "https://nixos.org/favicon.ico";
               definedAliases = [ "@np" ];
             };
             "NixOS Options" = {
@@ -119,7 +119,7 @@
                   ];
                 }
               ];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              iconUpdateURL = "https://nixos.org/favicon.ico";
               definedAliases = [ "@no" ];
             };
             "GitHub" = {
@@ -132,6 +132,7 @@
                   ];
                 }
               ];
+              iconUpdateURL = "https://github.com/favicon.ico";
               definedAliases = [ "@gh" ];
             };
             "YouTube" = {
@@ -143,6 +144,7 @@
                   ];
                 }
               ];
+              iconUpdateURL = "https://www.youtube.com/favicon.ico";
               definedAliases = [ "@yt" ];
             };
           };
