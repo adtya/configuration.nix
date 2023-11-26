@@ -122,6 +122,29 @@
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = [ "@no" ];
             };
+            "GitHub" = {
+              urls = [
+                {
+                  template = "https://github.com/search";
+                  params = [
+                    { name = "q"; value = "{searchTerms}"; }
+                    { name = "type"; value = "repositories"; }
+                  ];
+                }
+              ];
+              definedAliases = [ "@gh" ];
+            };
+            "YouTube" = {
+              urls = [
+                {
+                  template = "https://www.youtube.com/results";
+                  params = [
+                    { name = "search_query"; value = "{searchTerms}"; }
+                  ];
+                }
+              ];
+              definedAliases = [ "@yt" ];
+            };
           };
           force = true;
         };
