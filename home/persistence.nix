@@ -3,7 +3,6 @@ _: {
     allowOther = true;
     directories = [
       ".cache/aria2"
-      ".cache/mozilla"
       ".cache/nix-index"
       ".cache/ytfzf"
       ".config/1Password"
