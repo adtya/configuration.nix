@@ -1,20 +1,46 @@
-{ pkgs
-, osConfig
-, ...
-}: {
+{ pkgs, osConfig, ... }: {
   programs = {
     firefox = {
       enable = true;
       package = pkgs.firefox.override {
         extraPolicies = {
-          DontCheckDefaultBrowser = true;
+          DisableAppUpdate = true;
+          DisableFirefoxAccounts = true;
+          DisableFirefoxStudies = true;
+          DisableFormHistory = true;
           DisablePocket = true;
           DisableTelemetry = true;
-          DisplayBookmarksToolbar = "always";
+          DisplayBookmarksToolbar = "newtab";
+          DontCheckDefaultBrowser = true;
           EnableTrackingProtection = {
             Value = true;
             Locked = true;
             Cryptomining = true;
+            EmailTracking = true;
+            Fingerprinting = true;
+          };
+          ExtensionSettings = {
+            "{b743f56d-1cc1-4048-8ba6-f9c2ab7aa54d}" = {
+              installation_mode = "force_installed";
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
+              updates_disabled = false;
+            };
+            "{d634138d-c276-4fc8-924b-40a0ea21d284}" = {
+              installation_mode = "force_installed";
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
+              updates_disabled = false;
+              default_area = "navbar";
+            };
+            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+              installation_mode = "force_installed";
+              install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+              updates_disabled = false;
+            };
+            "queryamoid@kaply.com" = {
+              installation_mode = "force_installed";
+              install_url = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
+              updates_disabled = false;
+            };
           };
           FirefoxHome = {
             Search = true;
@@ -26,6 +52,23 @@
             Snippets = false;
             Locked = true;
           };
+          FirefoxSuggest = {
+            WebSuggestions = false;
+            SponsoredSuggestions = false;
+            ImproveSuggest = false;
+            Locked = true;
+          };
+          HomePage = {
+            StartPage = "previous-session";
+            Locked = true;
+          };
+          NetworkPrediction = false;
+          NoDefaultBookmarks = true;
+          OfferToSaveLogins = false;
+          OverrideFirstRunPage = "";
+          OverridePostUpdatePage = "";
+          PasswordManagerEnabled = false;
+          SearchSuggestEnabled = false;
           UserMessaging = {
             WhatsNew = false;
             ExtensionRecommendations = false;
@@ -33,33 +76,7 @@
             UrlbarInterventions = false;
             SkipOnboarding = true;
             MoreFromMozilla = false;
-          };
-          NoDefaultBookmarks = true;
-          OfferToSaveLogins = false;
-          SearchSuggestEnabled = false;
-          OverrideFirstRunPage = "";
-          OverridePostUpdatePage = "";
-          ExtensionSettings = {
-            "{b743f56d-1cc1-4048-8ba6-f9c2ab7aa54d}" = {
-              "allowed_types" = "theme";
-              "installation_mode" = "force_installed";
-              "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
-            };
-            "{d634138d-c276-4fc8-924b-40a0ea21d284}" = {
-              "allowed_types" = "extension";
-              "installation_mode" = "force_installed";
-              "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
-            };
-            "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-              "allowed_types" = "extension";
-              "installation_mode" = "force_installed";
-              "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-            };
-            "queryamoid@kaply.com" = {
-              "allowed_types" = "extension";
-              "installation_mode" = "force_installed";
-              "install_url" = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
-            };
+            Locked = true;
           };
           Preferences = {
             "browser.crashReports.unsubmittedCheck.autoSubmit2" = {
