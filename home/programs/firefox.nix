@@ -66,6 +66,7 @@
           OverrideFirstRunPage = "";
           OverridePostUpdatePage = "";
           PasswordManagerEnabled = false;
+          PrimaryPassword = false;
           SearchSuggestEnabled = false;
           UserMessaging = {
             WhatsNew = false;
