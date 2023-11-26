@@ -77,6 +77,7 @@
             Locked = true;
           };
           Preferences = {
+            "accessibility.force_disabled" = { Value = 1; Status = "locked"; };
             "browser.crashReports.unsubmittedCheck.autoSubmit2" = { Value = false; Status = "locked"; };
             "browser.aboutConfig.showWarning" = { Value = false; Status = "locked"; };
             "browser.aboutHomeSnippets.updateUrl" = { Value = ""; Status = "locked"; };
