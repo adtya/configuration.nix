@@ -5,5 +5,6 @@
     ./dunst.nix
     ./kanshi.nix
     ./swayidle.nix
+    ./swaylock.nix
   ];
 }

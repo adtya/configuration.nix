@@ -10,7 +10,7 @@ let
   kitty = "${config.programs.kitty.package}/bin/kitty";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   rofi = "${config.programs.rofi.package}/bin/rofi";
-  swaylock = "${pkgs.swaylock}/bin/swaylock";
+  swaylock = "${config.programs.swaylock.package}/bin/swaylock";
   tmux = "${config.programs.tmux.package}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
 
