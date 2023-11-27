@@ -136,6 +136,10 @@
           bashls.enable = true;
           dartls.enable = true;
           gopls.enable = true;
+          hls = {
+            installLanguageServer = false;
+            enable = true;
+          };
           jsonls.enable = true;
           nixd.enable = true;
           rust-analyzer = {
