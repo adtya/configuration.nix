@@ -134,18 +134,36 @@
         enable = true;
         servers = {
           bashls.enable = true;
-          dartls.enable = true;
-          gopls.enable = true;
-          hls = {
-            installLanguageServer = false;
+          dartls = {
             enable = true;
+            installLanguageServer = false;
+          };
+          gopls = {
+            enable = true;
+            installLanguageServer = false;
+          };
+          hls = {
+            enable = true;
+            installLanguageServer = false;
+          };
+          html = {
+            enable = true;
+            installLanguageServer = false;
           };
           jsonls.enable = true;
           nixd.enable = true;
+          pyright = {
+            enable = true;
+            installLanguageServer = false;
+          };
           rust-analyzer = {
             enable = true;
             installCargo = false;
             installRustc = false;
+          };
+          tailwindcss = {
+            enable = true;
+            installLanguageServer = false;
           };
           yamlls.enable = true;
         };
