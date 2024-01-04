@@ -168,6 +168,7 @@
           yamlls.enable = true;
         };
       };
+      lsp-lines.enable = true;
       lualine = {
         enable = true;
         globalstatus = true;
