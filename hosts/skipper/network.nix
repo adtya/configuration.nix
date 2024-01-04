@@ -4,11 +4,11 @@
     hostName = "Skipper";
 
     extraHosts = ''
-      10.8.1.1 proxy
-      10.8.1.2 skipper
-      10.8.1.3 rico0
-      10.8.1.4 rico1
-      10.8.1.5 rico2
+      10.8.10.1 proxy
+      10.8.10.2 skipper
+      10.8.10.10 rico0
+      10.8.10.11 rico1
+      10.8.10.12 rico2
     '';
 
     networkmanager = {
