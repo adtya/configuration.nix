@@ -21,7 +21,7 @@
     kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [ "quiet" ];
     kernel.sysctl = {
-      "vm.swappiness" = 0;
+      "vm.swappiness" = 10;
     };
   };
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
