@@ -3,23 +3,14 @@
   networking = {
     hostName = "Rico0";
 
-    networkmanager = {
-      enable = true;
-      dns = "systemd-resolved";
-    };
+    networkmanager.enable = true;
+    nameservers = [
+      "2620:fe::fe"
+      "9.9.9.9"
+      "2620:fe::9"
+      "149.112.112.112"
+    ];
 
     useDHCP = lib.mkDefault false;
   };
-
-  services.resolved = {
-    enable = true;
-    extraConfig = ''
-      DNS=2620:fe::fe#dns.quad9.net 9.9.9.9#dns.quad9.net 2620:fe::9#dns.quad9.net 149.112.112.112#dns.quad9.net
-      FallbackDNS=
-      DNSOverTLS=opportunistic
-      Domains=~.
-      DNSStubListener=no
-    '';
-  };
-  environment.etc."resolv.conf".source = lib.mkForce "/run/systemd/resolve/resolv.conf";
 }
