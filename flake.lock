@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1702065131,
-        "narHash": "sha256-x4zngrdBatyfl8c82kikX7jyVyGK8yJWYMwJBgUAF1g=",
+        "lastModified": 1702168985,
+        "narHash": "sha256-ckvKIF/0MGjAlz7FRZfRvzzuG2qcCw/srTzTC7vrwzY=",
         "owner": "adtya",
         "repo": "adtya.xyz",
-        "rev": "d87b68cf3c47a407683a5a09b4f4fb3b618d8946",
+        "rev": "ef8b0b5c575d8a47efa7397281e4bf176651cfde",
         "type": "github"
       },
       "original": {
@@ -184,11 +184,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1701728041,
-        "narHash": "sha256-x0pyrI1vC8evVDxCxyO6olOyr4wlFg9+VS3C3p4xFYQ=",
+        "lastModified": 1702159252,
+        "narHash": "sha256-4mYOL1EhOmt92OtYsHXRViWrSHvR5obLfCllMmQsUzY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "ac7216918cd65f3824ba7817dea8f22e61221eaf",
+        "rev": "e6b7303bd149723c57ca23f5a9428482d6b07306",
         "type": "github"
       },
       "original": {
@@ -337,11 +337,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1702048362,
-        "narHash": "sha256-KtzdL7PGMBnYgHoqpgeSAYdb3eYpHn1sbSf+XYtXcoQ=",
+        "lastModified": 1702157149,
+        "narHash": "sha256-R/DJp9s4EPjNYsquuBkFmLm9NGlFQrZ+T+Gkyr9pYBE=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "d6d47afa42e6f4393e63ed60929155bba523aca7",
+        "rev": "430c8f672bcaf811aaae8b7856fcca481b7064e5",
         "type": "github"
       },
       "original": {
