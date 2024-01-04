@@ -34,6 +34,13 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+
+    flake_env = {
+      url = "git+https://git.sr.ht/~bryan_bennett/flake_env";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
 
   outputs =
@@ -44,6 +51,7 @@
     , impermanence
     , lanzaboote
     , nixvim
+    , flake_env
     ,
     } @ inputs:
     let
