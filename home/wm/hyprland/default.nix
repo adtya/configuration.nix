@@ -182,7 +182,7 @@ in
         "SUPER_SHIFT,b,       exec, ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
         "SUPER_SHIFT,s,       exec, ${kitty} ${spotify-player}"
 
-        "SUPER,escape,        exec, ${swaylock} -f -i /tmp/lockpaper.jpg"
+        "SUPER,escape,        exec, ${swaylock} -f -i /tmp/wallpaper.jpg"
         "SUPER_SHIFT,W,       exec, ${change-wallpaper}"
         "SUPER_ALT,W,         exec, ${wallhaven-wallpaper}"
 

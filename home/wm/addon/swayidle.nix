@@ -10,13 +10,13 @@ in
     events = [
       {
         event = "before-sleep";
-        command = "${swaylock} -f -i /tmp/lockpaper.jpg";
+        command = "${swaylock} -f -i /tmp/wallpaper.jpg";
       }
     ];
     timeouts = [
       {
         timeout = 600;
-        command = "${swaylock} -f -i /tmp/lockpaper.jpg";
+        command = "${swaylock} -f -i /tmp/wallpaper.jpg";
       }
       {
         timeout = 900;
