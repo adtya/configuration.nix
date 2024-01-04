@@ -38,6 +38,13 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+
+    flake_env = {
+      url = "git+https://git.sr.ht/~bryan_bennett/flake_env";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
 
   outputs =
@@ -49,6 +56,7 @@
     , lanzaboote
     , nixos-hardware
     , nixvim
+    , flake_env
     ,
     } @ inputs:
     let
@@ -83,7 +91,7 @@
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = true;
-                extraSpecialArgs = { inherit secrets; };
+                extraSpecialArgs = inputs // { inherit secrets; };
                 users.${secrets.users.primary.userName} = { pkgs, ... }: {
                   imports = [
                     impermanence.nixosModules.home-manager.impermanence
