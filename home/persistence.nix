@@ -4,6 +4,7 @@ _: {
     directories = [
       ".cache/aria2"
       ".cache/nix-index"
+      ".cache/spotify-player"
       ".cache/ytfzf"
       ".config/1Password"
       ".config/dconf"
