@@ -1,15 +1,6 @@
 { lib, ... }: {
-  imports = [ ./wireguard.nix ];
   networking = {
     hostName = "Skipper";
-
-    extraHosts = ''
-      10.8.10.1 proxy
-      10.8.10.2 skipper
-      10.8.10.10 rico0
-      10.8.10.11 rico1
-      10.8.10.12 rico2
-    '';
 
     networkmanager = {
       enable = true;

@@ -38,30 +38,6 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-
-    adtyaxyz = {
-      url = "github:adtya/adtya.xyz";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    wiki = {
-      url = "github:adtya/wiki";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-
-    if3 = {
-      url = "github:adtya/if3-docs";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
   };
 
   outputs =
@@ -73,9 +49,6 @@
     , lanzaboote
     , nixos-hardware
     , nixvim
-    , adtyaxyz
-    , wiki
-    , if3
     ,
     } @ inputs:
     let
@@ -138,42 +111,6 @@
 
             ./common
             ./hosts/rico0
-          ];
-        };
-        Rico1 = nixpkgs.lib.nixosSystem rec {
-          system = "aarch64-linux";
-          pkgs = import nixpkgs {
-            inherit system;
-            config = nixpkgs-config;
-          };
-          specialArgs = inputs // { inherit secrets; };
-          modules = [
-            {
-              system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
-            }
-
-            nixos-hardware.nixosModules.raspberry-pi-4
-
-            ./common
-            ./hosts/rico1
-          ];
-        };
-        Rico2 = nixpkgs.lib.nixosSystem rec {
-          system = "aarch64-linux";
-          pkgs = import nixpkgs {
-            inherit system;
-            config = nixpkgs-config;
-          };
-          specialArgs = inputs // { inherit secrets; };
-          modules = [
-            {
-              system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
-            }
-
-            nixos-hardware.nixosModules.raspberry-pi-4
-
-            ./common
-            ./hosts/rico2
           ];
         };
       };
