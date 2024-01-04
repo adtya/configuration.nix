@@ -23,7 +23,6 @@
   home.packages = with pkgs; [
     _1password-gui
     discord
-    distrobox
     doctl
     evince
     flyctl
@@ -33,14 +32,10 @@
     gnome.gnome-system-monitor
     gnome3.gnome-disk-utility
     keepassxc
-    lutris
     pavucontrol
     ripgrep
     spotify-player
-    steam-run
     telegram-desktop
-    winetricks
-    (wineWowPackages.waylandFull.override { wineRelease = "staging"; mingwSupport = true; })
     wl-clipboard
     xdg-utils
     yubioath-flutter
