@@ -9,6 +9,7 @@ _: {
     fuse.userAllowOther = true;
     git.enable = true;
     seahorse.enable = true;
+    ssh.startAgent = true;
     xwayland.enable = true;
     zsh.enable = true;
   };

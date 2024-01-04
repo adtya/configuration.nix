@@ -5,5 +5,6 @@ _: {
   ];
   services = {
     gnome-keyring.enable = true;
+    ssh-agent.enable = true;
   };
 }
