@@ -30,7 +30,7 @@ _: {
         method = "symlink";
       }
       {
-        directory = ".nixos-config";
+        directory = ".config/nixos";
         method = "symlink";
       }
       {
