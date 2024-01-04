@@ -11,6 +11,7 @@ _: {
       ".config/discord"
       ".config/doctl"
       ".config/lazygit"
+      ".config/gh"
       ".config/lutris"
       ".config/obsidian"
       ".fly"
@@ -69,7 +70,6 @@ _: {
     ];
 
     files = [
-      ".config/gh/hosts.yml"
       ".config/wallpaper_config.json"
     ];
   };

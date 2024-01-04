@@ -8,7 +8,6 @@
     ./files.nix
     ./firefox.nix
     ./git.nix
-    ./github-cli.nix
     ./gnupg.nix
     ./kitty.nix
     ./mpv.nix
@@ -28,6 +27,7 @@
     doctl
     evince
     flyctl
+    gh
     git-crypt
     gnome.eog
     gnome.gnome-system-monitor
