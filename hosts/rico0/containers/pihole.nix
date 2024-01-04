@@ -1,9 +1,9 @@
 _: {
   services.caddy.virtualHosts."http://pihole.local.adtya.xyz" = {
-      extraConfig = ''
-        reverse_proxy 127.0.0.1:3000
-      '';
-    };
+    extraConfig = ''
+      reverse_proxy 127.0.0.1:3000
+    '';
+  };
   virtualisation.oci-containers.containers = {
     pihole = {
       image = "pihole/pihole:latest";

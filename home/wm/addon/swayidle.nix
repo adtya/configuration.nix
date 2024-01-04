@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ config, ... }:
 let
-  swaylock = "${pkgs.swaylock}/bin/swaylock";
-  hyprctl = "${pkgs.hyprland}/bin/hyprctl";
+  swaylock = "${config.programs.swaylock.package}/bin/swaylock";
+  hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
 in
 {
   services.swayidle = {
