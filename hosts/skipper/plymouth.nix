@@ -1,12 +1,9 @@
 { pkgs, ... }: {
-  boot.plymouth = {
+  boot.plymouth = let theme = "owl"; in {
     enable = true;
     themePackages = [
-      (pkgs.adi1090x-plymouth.override {
-        pack = "pack_3";
-        theme = "owl";
-      })
+      (pkgs.adi1090x-plymouth-themes.override { selected_themes = [ theme ]; })
     ];
-    theme = "adi1090x";
+    inherit theme;
   };
 }
