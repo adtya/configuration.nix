@@ -18,7 +18,7 @@
       systemd.enable = true;
     };
     kernelModules = [ "kvm-intel" ];
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
     kernelParams = [ "quiet" ];
     kernel.sysctl = {
       "vm.swappiness" = 0;
