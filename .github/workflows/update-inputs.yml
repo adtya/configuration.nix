@@ -1,0 +1,28 @@
+name: Update inputs
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-inputs:
+    runs-on: ubuntu-latest
+    name: Update Inputs
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ github.token }}
+          ref: ${{ github.head_ref }}
+      - uses: cachix/install-nix-action@v20
+        with:
+          github_access_token: ${{ github.token }}
+      - name: Update inputs
+        run: |
+          nix flake update
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'Actions: Update Inputs'
+          default_author: github_actions
+          add: 'flake.lock'
