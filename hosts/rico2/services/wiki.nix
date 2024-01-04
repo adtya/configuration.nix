@@ -23,12 +23,14 @@ in
         type = "http";
         custom_domains = "wiki.adtya.xyz";
         local_port = 80;
+        proxy_protocol_version = "v2";
       };
 
       "https.wiki.adtya.xyz" = {
         type = "https";
         custom_domains = "wiki.adtya.xyz";
         local_port = 443;
+        proxy_protocol_version = "v2";
       };
     };
   };

@@ -16,12 +16,14 @@
         type = "http";
         custom_domains = "proofs.adtya.xyz";
         local_port = 80;
+        proxy_protocol_version = "v2";
       };
 
       "https.proofs.adtya.xyz" = {
         type = "https";
         custom_domains = "proofs.adtya.xyz";
         local_port = 443;
+        proxy_protocol_version = "v2";
       };
     };
   };

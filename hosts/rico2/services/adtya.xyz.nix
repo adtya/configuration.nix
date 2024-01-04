@@ -40,24 +40,28 @@ in
         type = "http";
         custom_domains = "adtya.xyz";
         local_port = 80;
+        proxy_protocol_version = "v2";
       };
 
       "https.adtya.xyz" = {
         type = "https";
         custom_domains = "adtya.xyz";
         local_port = 443;
+        proxy_protocol_version = "v2";
       };
 
       "http.www.adtya.xyz" = {
         type = "http";
         custom_domains = "www.adtya.xyz";
         local_port = 80;
+        proxy_protocol_version = "v2";
       };
 
       "https.www.adtya.xyz" = {
         type = "https";
         custom_domains = "www.adtya.xyz";
         local_port = 443;
+        proxy_protocol_version = "v2";
       };
     };
   };

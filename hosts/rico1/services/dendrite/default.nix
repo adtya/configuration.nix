@@ -12,12 +12,14 @@
         type = "http";
         custom_domains = "matrix.adtya.xyz";
         local_port = 80;
+        proxy_protocol_version = "v2";
       };
 
       "https.matrix.adtya.xyz" = {
         type = "https";
         custom_domains = "matrix.adtya.xyz";
         local_port = 443;
+        proxy_protocol_version = "v2";
       };
     };
   };
