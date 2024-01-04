@@ -4,7 +4,7 @@
 }:
 let
   dmenu = "${config.programs.rofi.package}/bin/rofi -dmenu";
-  firefox = "${config.programs.firefox.package}/bin/firefox";
+  firefox = "${config.programs.firefox.finalPackage}/bin/firefox";
 in
 {
   services.dunst = {
@@ -15,11 +15,12 @@ in
       global = {
         font = "FiraCode Nerd Font 11";
         monitor = 0;
+        follow = "none";
         width = 300;
         height = 300;
         origin = "top-right";
-        offset = "10x50";
-        scale = 0;
+        offset = "10x10";
+        gap_size = 10;
         notification_limit = 0;
         progress_bar = true;
         progress_bar_height = 10;

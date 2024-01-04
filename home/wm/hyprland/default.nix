@@ -10,6 +10,7 @@ let
   kitty = "${config.programs.kitty.package}/bin/kitty";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   rofi = "${config.programs.rofi.package}/bin/rofi";
+  spotify-player = "${pkgs.spotify-player}/bin/spotify_player";
   swaylock = "${config.programs.swaylock.package}/bin/swaylock";
   tmux = "${config.programs.tmux.package}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
@@ -183,6 +184,7 @@ in
         "SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions"
         "SUPER_SHIFT,y,       exec, ${pkgs.scripts}/bin/youtube"
         "SUPER_SHIFT,b,       exec, ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
+        "SUPER_SHIFT,s,       exec, ${kitty} ${spotify-player}"
 
         "SUPER,escape,        exec, ${swaylock} -f -i /tmp/lockpaper.jpg"
         "SUPER_SHIFT,W,       exec, ${change-wallpaper}"
