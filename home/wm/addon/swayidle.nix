@@ -1,7 +1,9 @@
-{ config, ... }:
+{ lib, pkgs, config, osConfig, ... }:
 let
-  swaylock = "${config.programs.swaylock.package}/bin/swaylock";
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
+  swaylock = "${config.programs.swaylock.package}/bin/swaylock";
+  waydroid = "${pkgs.waydroid}/bin/waydroid";
+  waydroidEnabled = osConfig.virtualisation.waydroid.enable;
 in
 {
   services.swayidle = {
@@ -10,7 +12,7 @@ in
     events = [
       {
         event = "before-sleep";
-        command = "${swaylock} -f -i /tmp/wallpaper.jpg";
+        command = "${lib.optionalString waydroidEnabled "${waydroid} session stop; "}${swaylock} -f -i /tmp/wallpaper.jpg";
       }
     ];
     timeouts = [
