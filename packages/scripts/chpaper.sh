@@ -20,4 +20,4 @@ swww query || swww init
 convert "$(random_paper)" /tmp/wallpaper.jpg && swww img --transition-step 2 --transition-type random --transition-duration 1 "/tmp/wallpaper.jpg"
 convert "$(random_paper)" /tmp/lockpaper.jpg
 
-notify-send -r 9897 -i information -t 1000 "Wallpaper" "Wallpaper changed."
+notify-send -r 1234 -i information -t 5000 "Wallpaper" "Wallpaper changed."
