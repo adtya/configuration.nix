@@ -25,6 +25,7 @@ _: {
       ".local/share/zsh"
       ".local/state"
       ".mozilla"
+      ".ssh"
       {
         directory = ".nixos-config";
         method = "symlink";
