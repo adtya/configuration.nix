@@ -38,7 +38,6 @@
     pavucontrol
     ripgrep
     spotify-player
-    telegram-desktop
     wl-clipboard
     xdg-utils
     yubioath-flutter
