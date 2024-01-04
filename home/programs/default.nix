@@ -33,6 +33,9 @@
     gnome.eog
     gnome.gnome-system-monitor
     gnome3.gnome-disk-utility
+    nixpkgs-review
+    nix-init
+    nurl
     pavucontrol
     ripgrep
     spotify-player
