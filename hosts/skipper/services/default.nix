@@ -27,5 +27,6 @@ in
     power-profiles-daemon.enable = true;
     thermald.enable = true;
     udisks2.enable = true;
+    upower.enable = true;
   };
 }
