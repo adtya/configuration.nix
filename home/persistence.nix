@@ -15,6 +15,7 @@ _: {
       ".fly"
       ".gnupg"
       ".local/share/chat.fluffy.fluffychat"
+      ".local/share/direnv"
       ".local/share/keyrings"
       ".local/share/lutris"
       ".local/share/nix"
