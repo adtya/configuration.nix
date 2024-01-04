@@ -20,10 +20,6 @@ let
   wallhaven-wallpaper = "${pkgs.scripts}/bin/chpaper \$(${pkgs.scripts}/bin/wallhaven ${pictures}/Wallpapers)";
 in
 {
-  home.packages = with pkgs; [
-    hyprland
-  ];
-
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
