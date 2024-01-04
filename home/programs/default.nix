@@ -32,6 +32,7 @@
     gnome.eog
     gnome.gnome-system-monitor
     gnome3.gnome-disk-utility
+    keepassxc
     lazydocker
     lutris
     obsidian
