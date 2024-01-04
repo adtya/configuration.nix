@@ -1,7 +1,4 @@
-{ pkgs
-, secrets
-, ...
-}:
+{ secrets, ... }:
 let
   inherit (secrets) frp_config;
 in
@@ -11,10 +8,10 @@ in
     role = "client";
     settings = {
       "common" = {
-        server_addr = "${frp_config.ip}";
+        server_addr = frp_config.ip;
         server_port = 7000;
         authentication_method = "token";
-        token = "${frp_config.token}";
+        token = frp_config.token;
       };
 
       "ssh.rico2" = {

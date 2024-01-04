@@ -6,6 +6,25 @@
         reverse_proxy /_synapse/* 127.0.0.1:8008
       '';
     };
+    frp.settings = {
+      "http.matrix.adtya.xyz" = {
+        type = "http";
+        custom_domains = "matrix.adtya.xyz";
+        local_port = 80;
+      };
+
+      "https.matrix.adtya.xyz" = {
+        type = "https";
+        custom_domains = "matrix.adtya.xyz";
+        local_port = 443;
+      };
+
+      "https.matrix.adtya.xyz.8448" = {
+        type = "tcp";
+        local_port = 8448;
+        remote_port = 8448;
+      };
+    };
   };
   systemd.services.dendrite = {
     description = "Dendrite Matrix homeserver";
