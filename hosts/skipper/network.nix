@@ -6,8 +6,9 @@
     extraHosts = ''
       10.8.1.1 proxy
       10.8.1.2 skipper
-      10.8.1.3 rico1
-      10.8.1.4 rico2
+      10.8.1.3 rico0
+      10.8.1.4 rico1
+      10.8.1.5 rico2
     '';
 
     networkmanager = {
