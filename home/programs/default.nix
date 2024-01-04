@@ -23,7 +23,6 @@
 
   home.packages = with pkgs; [
     _1password-gui
-    bitwarden
     discord
     distrobox
     doctl
@@ -34,9 +33,7 @@
     gnome.gnome-system-monitor
     gnome3.gnome-disk-utility
     keepassxc
-    lazydocker
     lutris
-    obsidian
     pavucontrol
     ripgrep
     spotify-player
