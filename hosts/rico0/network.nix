@@ -4,6 +4,7 @@
 
     networkmanager = {
       enable = true;
+      dhcp = "dhcpcd";
       appendNameservers = [
         "2620:fe::fe"
         "9.9.9.9"

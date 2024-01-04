@@ -4,6 +4,7 @@
 
     networkmanager = {
       enable = true;
+      dhcp = "dhcpcd";
       dns = "systemd-resolved";
       wifi = {
         backend = "iwd";
