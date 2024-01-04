@@ -15,5 +15,6 @@
         };
       };
     };
+    waydroid.enable = true;
   };
 }

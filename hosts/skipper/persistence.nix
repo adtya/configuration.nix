@@ -21,6 +21,7 @@ _: {
       "/var/lib/nixos"
       "/var/lib/portables"
       "/var/lib/systemd"
+      "/var/lib/waydroid"
       "/var/log"
     ];
     files = [

@@ -26,6 +26,10 @@ _: {
       ".mozilla"
       ".ssh"
       {
+        directory = ".local/share/waydroid";
+        method = "symlink";
+      }
+      {
         directory = ".nixos-config";
         method = "symlink";
       }
