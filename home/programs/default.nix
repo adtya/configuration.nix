@@ -37,6 +37,7 @@
     obsidian
     pavucontrol
     ripgrep
+    spotify-player
     steam-run
     telegram-desktop
     winetricks
