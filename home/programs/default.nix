@@ -25,6 +25,7 @@
     discord
     doctl
     evince
+    fluffychat
     flyctl
     gh
     git-crypt
