@@ -8,7 +8,6 @@ _: {
       "/etc/systemd/nspawn"
       "/etc/wireguard"
       "/root/.cache/nix"
-      "/var/cache/apparmor"
       "/var/cache/fwupd"
       "/var/lib/bluetooth"
       "/var/lib/btrfs"

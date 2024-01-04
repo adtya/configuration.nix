@@ -1,11 +1,5 @@
 { pkgs, ... }: {
   security = {
-    apparmor = {
-      enable = true;
-      enableCache = true;
-    };
-    audit.enable = true;
-    auditd.enable = true;
     pam = {
       services = {
         passwd.enableGnomeKeyring = true;
