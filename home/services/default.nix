@@ -4,7 +4,9 @@ _: {
     ./gpg-agent.nix
   ];
   services = {
-    gnome-keyring.enable = true;
-    ssh-agent.enable = true;
+    gnome-keyring = {
+      enable = true;
+      components = [ "pkcs11" "secrets" "ssh" ];
+    };
   };
 }

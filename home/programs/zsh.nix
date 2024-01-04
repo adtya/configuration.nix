@@ -1,7 +1,12 @@
 { config
 , pkgs
 , ...
-}: {
+}:
+let
+  gnome-keyring-daemon = "${pkgs.gnome.gnome-keyring}/bin/gnome-keyring-daemon";
+  hyprland = "${config.wayland.windowManager.hyprland.finalPackage}/bin/Hyprland";
+in
+{
   programs.zsh = {
     enable = true;
     defaultKeymap = "viins";
@@ -15,10 +20,13 @@
     };
     initExtra = ''
       bindkey -v '^?' backward-delete-char
+
+      eval $(${gnome-keyring-daemon} -s -d 2> /dev/null)
+      export SSH_AUTH_SOCK
     '';
     profileExtra = ''
       if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] ; then
-        exec ${config.wayland.windowManager.hyprland.finalPackage}/bin/Hyprland
+        exec ${hyprland}
       fi
     '';
     shellAliases = {
