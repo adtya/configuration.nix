@@ -3,23 +3,23 @@
 , ...
 }:
 let
-  user = secrets.users;
+  users = secrets.users;
 in
 {
   users.mutableUsers = false;
   users.users = {
     root = {
-      inherit (user.root) hashedPassword;
+      inherit (users.root) hashedPassword;
     };
-    "${user.primary.userName}" = {
+    "${users.primary.userName}" = {
       uid = 1000;
-      inherit (user.primary) hashedPassword;
-      description = user.primary.realName;
+      inherit (users.primary) hashedPassword;
+      description = users.primary.realName;
       isNormalUser = true;
       extraGroups = [ "docker" "libvirtd" "networkmanager" "tss" "wheel" ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
-        user.primary.sshPublicKey
+        users.primary.sshPublicKey
         secrets.phone.sshPublicKey
       ];
     };
