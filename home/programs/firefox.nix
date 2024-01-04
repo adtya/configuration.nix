@@ -103,6 +103,7 @@ _: {
                 {
                   template = "https://search.nixos.org/packages";
                   params = [
+                    { name = "channel"; value = "unstable"; }
                     { name = "query"; value = "{searchTerms}"; }
                   ];
                 }
@@ -115,6 +116,7 @@ _: {
                 {
                   template = "https://search.nixos.org/options";
                   params = [
+                    { name = "channel"; value = "unstable"; }
                     { name = "query"; value = "{searchTerms}"; }
                   ];
                 }
