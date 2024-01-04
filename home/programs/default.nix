@@ -25,6 +25,7 @@
     _1password-gui
     bitwarden
     discord
+    distrobox
     doctl
     evince
     flyctl
