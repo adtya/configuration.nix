@@ -1,17 +1,12 @@
-{ secrets, ... }:
-let
-  inherit (secrets) frp_config;
-in
-{
+{ secrets, ... }: {
   services.frp = {
     enable = true;
     role = "client";
     settings = {
       common = {
-        server_addr = frp_config.ip;
+        inherit (secrets.frp_config) server_addr token;
         server_port = 7000;
         authentication_method = "token";
-        token = frp_config.token;
       };
 
       "ssh.rico1" = {

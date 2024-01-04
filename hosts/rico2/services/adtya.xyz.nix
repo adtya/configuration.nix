@@ -3,7 +3,7 @@
 , ...
 }:
 let
-  system = pkgs.system;
+  inherit (pkgs) system;
 in
 {
   services = {
