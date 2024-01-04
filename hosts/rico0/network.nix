@@ -35,6 +35,8 @@
       FallbackDNS=
       DNSOverTLS=opportunistic
       Domains=~.
+      DNSStubListener=no
     '';
   };
+  environment.etc."resolv.conf".source = lib.mkForce "/run/systemd/resolve/resolv.conf";
 }
