@@ -57,8 +57,6 @@
     variant = "altgr-intl";
   };
 
-  location.provider = "geoclue2";
-
   sound.enable = true;
   time.timeZone = "Asia/Kolkata";
 

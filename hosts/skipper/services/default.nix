@@ -16,7 +16,6 @@ in
     cpupower-gui.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
-    geoclue2.enable = true;
     getty.autologinUser = user.primary.userName;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
