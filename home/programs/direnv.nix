@@ -1,4 +1,4 @@
-{pkgs, flake_env, ...}: {
+{ pkgs, flake_env, ... }: {
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
