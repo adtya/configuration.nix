@@ -13,7 +13,7 @@ in
         handle /.well-known/matrix/server {
           header Content-Type application/json
           header Access-Control-Allow-Origin *
-          respond `{"m.server": "https://matrix.adtya.xyz:443"}`
+          respond `{"m.server": "matrix.adtya.xyz:443"}`
         }
 
         handle /.well-known/matrix/client {

@@ -4,6 +4,7 @@
       extraConfig = ''
         reverse_proxy /_matrix/* 127.0.0.1:8008
         reverse_proxy /_synapse/* 127.0.0.1:8008
+        reverse_proxy 127.0.0.1:8008
       '';
     };
     frp.settings = {
@@ -17,12 +18,6 @@
         type = "https";
         custom_domains = "matrix.adtya.xyz";
         local_port = 443;
-      };
-
-      "https.matrix.adtya.xyz.8448" = {
-        type = "tcp";
-        local_port = 8448;
-        remote_port = 8448;
       };
     };
   };

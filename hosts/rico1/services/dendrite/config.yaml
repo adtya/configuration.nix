@@ -15,7 +15,7 @@ global:
     max_size_estimated: 1gb
     max_age: 1h
 
-  well_known_server_name: "https://matrix.adtya.xyz:443"
+  well_known_server_name: "matrix.adtya.xyz:443"
   well_known_client_name: "https://matrix.adtya.xyz:443"
 
   trusted_third_party_id_servers:
