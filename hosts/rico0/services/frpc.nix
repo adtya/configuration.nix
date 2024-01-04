@@ -1,0 +1,24 @@
+{ secrets, ... }:
+let
+  inherit (secrets) frp_config;
+in
+{
+  services.frp = {
+    enable = true;
+    role = "client";
+    settings = {
+      "common" = {
+        server_addr = frp_config.ip;
+        server_port = 7000;
+        authentication_method = "token";
+        token = frp_config.token;
+      };
+
+      "ssh.rico0" = {
+        type = "tcp";
+        local_port = 22;
+        remote_port = 6000;
+      };
+    };
+  };
+}
