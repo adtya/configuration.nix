@@ -138,6 +138,10 @@
             enable = true;
             installLanguageServer = false;
           };
+          eslint = {
+            enable = true;
+            installLanguageServer = false;
+          };
           gopls = {
             enable = true;
             installLanguageServer = false;
