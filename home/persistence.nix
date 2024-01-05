@@ -71,6 +71,7 @@ _: {
 
     files = [
       ".config/wallpaper_config.json"
+      ".docker/config.json"
     ];
   };
 }
