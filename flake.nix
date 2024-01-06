@@ -30,7 +30,7 @@
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs = {
-        flake-utils.follows = "flake-utils";
+        home-manager.follows = "home-manager";
         nixpkgs.follows = "nixpkgs";
       };
     };

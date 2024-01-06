@@ -281,6 +281,27 @@
         "type": "github"
       }
     },
+    "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixvim",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1704277720,
+        "narHash": "sha256-meAKNgmh3goankLGWqqpw73pm9IvXjEENJloF0coskE=",
+        "owner": "lnl7",
+        "repo": "nix-darwin",
+        "rev": "0dd382b70c351f528561f71a0a7df82c9d2be9a4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lnl7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "nix-filter": {
       "locked": {
         "lastModified": 1701697642,
@@ -331,17 +352,21 @@
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts_3",
+        "home-manager": [
+          "home-manager"
+        ],
+        "nix-darwin": "nix-darwin",
         "nixpkgs": [
           "nixpkgs"
         ],
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1704495913,
-        "narHash": "sha256-5IITsUF5mTv0NspboMupJGVj3CUtbCA8+NLDubtcs6g=",
+        "lastModified": 1704560624,
+        "narHash": "sha256-xsKdLDFzc97gSsv5YmNr7KiKQjKMV+Ty+1pn+2iP+nY=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "f16f767f465c0b247449063f773575ecdcfa8310",
+        "rev": "2167c1930c8e4220f5179d577a03770999fb2574",
         "type": "github"
       },
       "original": {
