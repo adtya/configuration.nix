@@ -165,10 +165,6 @@
             installCargo = false;
             installRustc = false;
           };
-          tailwindcss = {
-            enable = true;
-            installLanguageServer = false;
-          };
           yamlls.enable = true;
         };
       };
