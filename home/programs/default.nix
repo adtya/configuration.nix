@@ -41,10 +41,6 @@
     wl-clipboard
     xdg-utils
     yubioath-flutter
-    yubikey-manager
-    yubikey-manager-qt
-    yubikey-personalization
-    yubikey-personalization-gui
   ];
 
   programs = {
