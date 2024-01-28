@@ -29,7 +29,7 @@
           KernelExperimental = true;
         };
       };
-      package = pkgs.bluez.override { withExperimental = true; };
+      package = pkgs.bluez.override { enableExperimental = true; };
     };
     cpu.intel.updateMicrocode = lib.mkDefault true;
     enableRedistributableFirmware = true;
