@@ -3,7 +3,7 @@
 , ...
 }:
 let
-  users = secrets.users;
+  inherit (secrets) users;
 in
 {
   users.mutableUsers = false;
