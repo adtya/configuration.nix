@@ -20,7 +20,6 @@ in
           kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
           inherit plymouth;
         };
-        system.nixos.tags = [ "with-xanmod" ];
       };
     };
     zen = {
@@ -30,7 +29,6 @@ in
           kernelPackages = lib.mkForce pkgs.linuxPackages_zen;
           inherit plymouth;
         };
-        system.nixos.tags = [ "with-zen" ];
       };
     };
   };
