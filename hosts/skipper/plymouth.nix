@@ -1,9 +1,9 @@
-{ pkgs, ... }: {
-  boot.plymouth = let theme = "rog_2"; in {
+{ lib, pkgs, ... }: {
+  boot.plymouth = let theme = "angular"; in {
     enable = true;
-    themePackages = [
+    themePackages = lib.mkDefault [
       (pkgs.adi1090x-plymouth-themes.override { selected_themes = [ theme ]; })
     ];
-    inherit theme;
+    theme = lib.mkDefault theme;
   };
 }
