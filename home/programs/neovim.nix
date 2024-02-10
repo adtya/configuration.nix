@@ -14,5 +14,12 @@
     viAlias = true;
     vimAlias = true;
     defaultEditor = true;
+    extraPackages = with pkgs; [
+      fd
+      ripgrep
+      tree-sitter
+
+      clang
+    ];
   };
 }
