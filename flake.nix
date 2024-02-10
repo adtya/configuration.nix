@@ -26,14 +26,6 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs = {
-        home-manager.follows = "home-manager";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
   };
 
   outputs =
@@ -43,7 +35,6 @@
     , home-manager
     , impermanence
     , lanzaboote
-    , nixvim
     ,
     } @ inputs:
     let
@@ -82,7 +73,6 @@
                 users.${secrets.users.primary.userName} = { pkgs, ... }: {
                   imports = [
                     impermanence.nixosModules.home-manager.impermanence
-                    nixvim.homeManagerModules.nixvim
                     ./home
                   ];
                 };
