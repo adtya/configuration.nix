@@ -11,7 +11,7 @@
     ./gnupg.nix
     ./kitty.nix
     ./mpv.nix
-    ./neovim
+    ./neovim.nix
     ./ssh.nix
     ./starship.nix
     ./tmux.nix
