@@ -20,6 +20,9 @@
       tree-sitter
 
       clang
+
+      lua-language-server
+      nixd
     ];
   };
 }
