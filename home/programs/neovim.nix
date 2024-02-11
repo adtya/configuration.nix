@@ -23,6 +23,8 @@
 
       lua-language-server
       nixd
+
+      stylua
     ];
   };
 }
