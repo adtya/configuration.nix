@@ -22,7 +22,7 @@
       gcc
 
       lua-language-server
-      nixd
+      nil
 
       stylua
     ];
