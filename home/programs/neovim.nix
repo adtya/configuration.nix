@@ -23,6 +23,8 @@
 
       lua-language-server
       nil
+      vscode-langservers-extracted
+      nodePackages.bash-language-server
 
       stylua
     ];
