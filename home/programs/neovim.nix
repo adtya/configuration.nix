@@ -19,7 +19,7 @@
       ripgrep
       tree-sitter
 
-      clang
+      gcc
 
       lua-language-server
       nixd
