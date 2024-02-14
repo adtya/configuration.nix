@@ -12,25 +12,31 @@ _: {
       ".config/doctl"
       ".config/lazygit"
       ".config/gh"
-      ".config/nvim"
       ".config/obsidian"
       ".fly"
       ".gnupg"
       ".local/share/direnv"
       ".local/share/keyrings"
       ".local/share/nix"
-      ".local/share/nvim"
       ".local/share/zoxide"
       ".local/share/zsh"
       ".local/state"
       ".mozilla"
       ".ssh"
       {
+        directory = ".config/nvim";
+        method = "symlink";
+      }
+      {
         directory = ".local/share/waydroid";
         method = "symlink";
       }
       {
         directory = ".config/nixos";
+        method = "symlink";
+      }
+      {
+        directory = ".local/share/nvim";
         method = "symlink";
       }
       {
