@@ -11,6 +11,7 @@ _: {
       "/var/lib/bluetooth"
       "/var/lib/btrfs"
       "/var/lib/docker"
+      "/var/lib/flatpak"
       "/var/lib/fwupd"
       "/var/lib/iwd"
       "/var/lib/libvirt"

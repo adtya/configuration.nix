@@ -16,6 +16,7 @@ _: {
       ".fly"
       ".gnupg"
       ".local/share/direnv"
+      ".local/share/flatpak"
       ".local/share/keyrings"
       ".local/share/nix"
       ".local/share/zoxide"
