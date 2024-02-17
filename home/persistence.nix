@@ -22,6 +22,7 @@ _: {
       ".local/state"
       ".mozilla"
       ".ssh"
+      ".var"
       {
         directory = ".config/nvim";
         method = "symlink";
