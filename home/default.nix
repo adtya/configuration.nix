@@ -1,4 +1,4 @@
-_: {
+{ pkgs, ... }: {
   imports = [ ./programs ./services ./wm ./gtk.nix ./persistence.nix ];
 
   home.stateVersion = "23.11";
@@ -16,6 +16,16 @@ _: {
         "image/webp" = [ "org.gnome.eog.desktop" ];
         "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
       };
+    };
+    portal = {
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-hyprland ];
+      config = {
+        common = {
+          default = [ "gtk" ];
+        };
+      };
+      configPackages = with pkgs; [ hyprland ];
     };
     userDirs.enable = true;
 
