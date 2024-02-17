@@ -22,7 +22,6 @@
 
   home.packages = with pkgs; [
     _1password-gui
-    discord
     doctl
     evince
     flyctl
@@ -37,7 +36,6 @@
     nurl
     pavucontrol
     ripgrep
-    spotify-player
     wl-clipboard
     xdg-utils
     yubioath-flutter
