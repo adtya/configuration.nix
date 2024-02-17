@@ -63,7 +63,6 @@
   xdg.portal = {
     enable = true;
     config.common.default = [ "gtk" ];
-    xdgOpenUsePortal  =true;
   };
 
   system.stateVersion = "23.11";
