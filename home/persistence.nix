@@ -23,58 +23,17 @@ _: {
       ".mozilla"
       ".ssh"
       ".var"
-      {
-        directory = ".config/nvim";
-        method = "symlink";
-      }
-      {
-        directory = ".local/share/waydroid";
-        method = "symlink";
-      }
-      {
-        directory = ".config/nixos";
-        method = "symlink";
-      }
-      {
-        directory = ".local/share/nvim";
-        method = "symlink";
-      }
-      {
-        directory = "Documents";
-        method = "symlink";
-      }
-      {
-        directory = "Downloads";
-        method = "symlink";
-      }
-      {
-        directory = "Music";
-        method = "symlink";
-      }
-      {
-        directory = "Others";
-        method = "symlink";
-      }
-      {
-        directory = "Pictures";
-        method = "symlink";
-      }
-      {
-        directory = "Projects";
-        method = "symlink";
-      }
-      {
-        directory = "Public";
-        method = "symlink";
-      }
-      {
-        directory = "Templates";
-        method = "symlink";
-      }
-      {
-        directory = "Videos";
-        method = "symlink";
-      }
+      "Documents"
+      "Downloads"
+      "Music"
+      "Others"
+      "Pictures"
+      "Videos"
+      { directory = ".config/nvim"; method = "symlink"; }
+      { directory = ".local/share/waydroid"; method = "symlink"; }
+      { directory = ".config/nixos"; method = "symlink"; }
+      { directory = ".local/share/nvim"; method = "symlink"; }
+      { directory = "Projects"; method = "symlink"; }
     ];
 
     files = [
