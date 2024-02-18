@@ -1,12 +1,4 @@
-{ config, ... }: {
-  systemd.user.mounts = {
-    games = {
-      Unit = { Description = "User Games Directory"; };
-      Mount = { What = "/persist/home/Games"; Where = "${config.home.homeDirectory}/Games"; };
-    };
-  };
-
-
+_: {
   home.persistence."/persist/home" = {
     allowOther = true;
     directories = [
