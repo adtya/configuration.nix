@@ -19,15 +19,18 @@ in
       signByDefault = true;
     };
     extraConfig = {
+      commit.verbose = true;
       core = {
         fsmonitor = true;
         untrackedCache = true;
       };
+      diff.algorithm = "histogram";
       feature.manyFiles = true;
+      fetch.prune = true;
       init.defaultBranch = "main";
-      merge.conflictstyle = "diff3";
+      merge.conflictstyle = "zdiff3";
       push.autoSetupRemote = true;
-      pull.rebase = true;
+      pull.ff = "only";
     };
     ignores = [ "/.nix" "/.direnv" ];
   };
