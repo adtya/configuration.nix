@@ -28,9 +28,7 @@
     gh
     git-crypt
     gnome-secrets
-    gnome.eog
-    gnome.gnome-system-monitor
-    gnome3.gnome-disk-utility
+    loupe
     nixpkgs-review
     nix-init
     nurl
