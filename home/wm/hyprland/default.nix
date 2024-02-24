@@ -147,9 +147,6 @@ in
         "center,class:lutris"
         "size 60% 60%,class:lutris"
 
-        "float,class:^(Waydroid)$"
-        "float,class:^(waydroid.+)$"
-
         "dimaround,class:^(gcr-prompter)$"
       ];
 

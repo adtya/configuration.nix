@@ -30,7 +30,6 @@ _: {
       "Pictures"
       "Videos"
       { directory = ".config/nvim"; method = "symlink"; }
-      { directory = ".local/share/waydroid"; method = "symlink"; }
       { directory = ".config/nixos"; method = "symlink"; }
       { directory = ".local/share/nvim"; method = "symlink"; }
       { directory = "Projects"; method = "symlink"; }
