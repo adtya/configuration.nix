@@ -2,33 +2,33 @@ _: {
   home.persistence."/persist/home" = {
     allowOther = true;
     directories = [
-      ".cache/aria2"
-      ".cache/nix-index"
-      ".cache/ytfzf"
-      ".config/1Password"
-      ".config/dconf"
-      ".config/discord"
-      ".config/doctl"
-      ".config/lazygit"
-      ".config/gh"
-      ".fly"
-      ".gnupg"
-      ".local/share/direnv"
-      ".local/share/keyrings"
-      ".local/share/nix"
-      ".local/share/Steam"
-      ".local/share/zoxide"
-      ".local/share/zsh"
-      ".local/state"
       ".mozilla"
       ".ssh"
-      ".steam"
-      "Documents"
-      "Downloads"
-      "Music"
-      "Others"
-      "Pictures"
-      "Videos"
+      ".config/dconf"
+      ".gnupg"
+      ".local/state"
+      { directory = ".cache/aria2"; method = "symlink"; }
+      { directory = ".cache/nix-index"; method = "symlink"; }
+      { directory = ".cache/ytfzf"; method = "symlink"; }
+      { directory = ".config/1Password"; method = "symlink"; }
+      { directory = ".config/discord"; method = "symlink"; }
+      { directory = ".config/doctl"; method = "symlink"; }
+      { directory = ".config/lazygit"; method = "symlink"; }
+      { directory = ".config/gh"; method = "symlink"; }
+      { directory = ".fly"; method = "symlink"; }
+      { directory = ".local/share/direnv"; method = "symlink"; }
+      { directory = ".local/share/keyrings"; method = "symlink"; }
+      { directory = ".local/share/nix"; method = "symlink"; }
+      { directory = ".local/share/Steam"; method = "symlink"; }
+      { directory = ".local/share/zoxide"; method = "symlink"; }
+      { directory = ".local/share/zsh"; method = "symlink"; }
+      { directory = ".steam"; method = "symlink"; }
+      { directory = "Documents"; method = "symlink"; }
+      { directory = "Downloads"; method = "symlink"; }
+      { directory = "Music"; method = "symlink"; }
+      { directory = "Others"; method = "symlink"; }
+      { directory = "Pictures"; method = "symlink"; }
+      { directory = "Videos"; method = "symlink"; }
       { directory = ".config/nvim"; method = "symlink"; }
       { directory = ".config/nixos"; method = "symlink"; }
       { directory = ".local/share/nvim"; method = "symlink"; }
