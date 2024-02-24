@@ -12,7 +12,6 @@ _: {
       "/var/lib/docker"
       "/var/lib/fwupd"
       "/var/lib/iwd"
-      "/var/lib/libvirt"
       "/var/lib/machines"
       "/var/lib/NetworkManager"
       "/var/lib/nixos"

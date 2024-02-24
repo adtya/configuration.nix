@@ -130,10 +130,6 @@ in
         "center,class:^(gnome-system-monitor)$"
         "size 60% 50%,class:^(gnome-system-monitor)$"
 
-        "float,class:^(virt-manager)$"
-        "size 25% 50%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$"
-        "move 5%% 10%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$"
-
         "float,class:^(.yubioath-flutter-wrapped_)$"
         "center,class:^(.yubioath-flutter-wrapped_)$"
 
