@@ -117,10 +117,10 @@ in
         "center,class:^(mpv)$"
         "dimaround,class:^(mpv)$"
 
-        "float,class:^(eog)$"
-        "size 90% 90%,class:^(eog)$"
-        "center,class:^(eog)$"
-        "dimaround,class:^(eog)$"
+        "float,class:^(org.gnome.Loupe)$"
+        "size 90% 90%,class:^(org.gnome.Loupe)$"
+        "center,class:^(org.gnome.Loupe)$"
+        "dimaround,class:^(org.gnome.Loupe)$"
 
         "float,class:^(org.gnome.Nautilus)$"
         "center,class:^(org.gnome.Nautilus)$"
