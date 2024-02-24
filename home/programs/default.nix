@@ -33,6 +33,7 @@
     nurl
     pavucontrol
     ripgrep
+    spotify
     wl-clipboard
     xdg-utils
     yubioath-flutter
