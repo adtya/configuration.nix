@@ -2,6 +2,7 @@ _: {
   imports = [
     ./gnupg.nix
     ./neovim.nix
+    ./steam.nix
   ];
 
   programs = {
