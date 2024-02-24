@@ -10,7 +10,6 @@ _: {
       ".config/doctl"
       ".config/lazygit"
       ".config/gh"
-      ".config/obsidian"
       ".fly"
       ".gnupg"
       ".local/share/direnv"
