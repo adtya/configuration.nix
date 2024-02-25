@@ -14,7 +14,6 @@ in
   services = {
     blueman.enable = true;
     cpupower-gui.enable = true;
-    flatpak.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
     getty.autologinUser = user.primary.userName;
