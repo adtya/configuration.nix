@@ -26,6 +26,10 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -35,6 +39,7 @@
     , home-manager
     , impermanence
     , lanzaboote
+    , neovim-nightly
     ,
     } @ inputs:
     let
@@ -50,7 +55,7 @@
           pkgs = import nixpkgs {
             inherit system;
             config = nixpkgs-config;
-            overlays = [ (import ./packages) ];
+            overlays = [ (import ./packages) neovim-nightly.overlay ];
           };
           specialArgs = inputs // { inherit secrets; };
           modules = [
