@@ -2,34 +2,15 @@
   description = "NixOS Configuration";
 
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
-    };
-
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
-
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
-
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote";
-      inputs = {
-        flake-utils.follows = "flake-utils";
-        nixpkgs.follows = "nixpkgs";
-      };
-    };
-    neovim-nightly = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    flake-utils.url = "github:numtide/flake-utils";
+    impermanence.url = "github:nix-community/impermanence";
+    lanzaboote.url = "github:nix-community/lanzaboote";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs =
