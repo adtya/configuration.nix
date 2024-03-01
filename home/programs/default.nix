@@ -36,6 +36,8 @@
     pavucontrol
     ripgrep
     spotify
+    steam
+    steam.run
     wl-clipboard
     xdg-utils
     yubioath-flutter

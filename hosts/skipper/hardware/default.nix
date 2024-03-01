@@ -44,6 +44,7 @@
       enable = true;
       drives = [ "/dev/disk/by-path/pci-0000:01:00.0-nvme-1" ];
     };
+    steam-hardware.enable = true;
     xone.enable = true;
   };
 }
