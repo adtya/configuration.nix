@@ -13,8 +13,9 @@ _: {
       { directory = ".config/1Password"; method = "symlink"; }
       { directory = ".config/discord"; method = "symlink"; }
       { directory = ".config/doctl"; method = "symlink"; }
-      { directory = ".config/lazygit"; method = "symlink"; }
       { directory = ".config/gh"; method = "symlink"; }
+      { directory = ".config/lazygit"; method = "symlink"; }
+      { directory = ".config/spotify"; method = "symlink"; }
       { directory = ".fly"; method = "symlink"; }
       { directory = ".local/share/direnv"; method = "symlink"; }
       { directory = ".local/share/icons"; method = "symlink"; }
