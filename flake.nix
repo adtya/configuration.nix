@@ -11,6 +11,7 @@
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.url = "github:nix-community/lanzaboote";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =
@@ -21,6 +22,7 @@
     , impermanence
     , lanzaboote
     , neovim-nightly
+    , hyprland
     ,
     } @ inputs:
     let
@@ -36,7 +38,7 @@
           pkgs = import nixpkgs {
             inherit system;
             config = nixpkgs-config;
-            overlays = [ (import ./packages) neovim-nightly.overlay ];
+            overlays = [ (import ./packages) neovim-nightly.overlay hyprland.overlays.default ];
           };
           specialArgs = inputs // { inherit secrets; };
           modules = [
