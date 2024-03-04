@@ -96,7 +96,6 @@ in
 
         "float,class:^(firefox)$,title:^(Library)$"
 
-        "nofullscreenrequest,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$"
         "float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$"
         "move 95% 50%,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$"
 
