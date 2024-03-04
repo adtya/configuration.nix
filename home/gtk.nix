@@ -1,5 +1,4 @@
-{ lib
-, pkgs
+{ pkgs
 , ...
 }:
 let
@@ -19,6 +18,7 @@ let
   };
 in
 {
+  home.pointerCursor = cursorTheme // { size = 24; };
   gtk = {
     enable = true;
     theme = gtkTheme;

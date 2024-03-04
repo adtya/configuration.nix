@@ -18,7 +18,7 @@ _: {
       { directory = ".config/spotify"; method = "symlink"; }
       { directory = ".fly"; method = "symlink"; }
       { directory = ".local/share/direnv"; method = "symlink"; }
-      { directory = ".local/share/icons"; method = "symlink"; }
+      { directory = ".local/share/icons/hicolor"; method = "symlink"; }
       { directory = ".local/share/keyrings"; method = "symlink"; }
       { directory = ".local/share/lutris"; method = "symlink"; }
       { directory = ".local/share/nix"; method = "symlink"; }
