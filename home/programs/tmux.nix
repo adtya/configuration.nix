@@ -1,10 +1,11 @@
 { pkgs, ... }: {
   programs.tmux = {
     enable = true;
+    clock24 = true;
     escapeTime = 0;
-    plugins = with pkgs; [
+    plugins = with pkgs.tmuxPlugins; [
       {
-        plugin = tmuxPlugins.dracula;
+        plugin = dracula;
         extraConfig = ''
           set -g @dracula-show-powerline true
           set -g @dracula-plugins "time"
