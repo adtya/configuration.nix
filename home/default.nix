@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }:
+let
+  hyprland = config.wayland.windowManager.hyprland.finalPackage;
+in
+{
   imports = [ ./programs ./services ./wm ./gtk.nix ./persistence.nix ];
 
   home.stateVersion = "23.11";
@@ -20,13 +24,17 @@
     portal = {
       enable = true;
       xdgOpenUsePortal = true;
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk xdg-desktop-portal-gnome xdg-desktop-portal-hyprland ];
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+        (xdg-desktop-portal-hyprland.override { inherit hyprland; })
+      ];
       config = {
         common = {
           default = [ "gtk" ];
         };
       };
-      configPackages = with pkgs; [ hyprland ];
+      configPackages = [ hyprland ];
     };
     userDirs.enable = true;
 
