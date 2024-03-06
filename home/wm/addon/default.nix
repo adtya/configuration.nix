@@ -1,6 +1,5 @@
 { ... }: {
   imports = [
-    ./eww
     ./rofi
     ./waybar
     ./dunst.nix
