@@ -1,8 +1,4 @@
-{ config, pkgs, ... }:
-let
-  hyprland = config.wayland.windowManager.hyprland.finalPackage;
-in
-{
+_: {
   imports = [ ./programs ./services ./wm ./gtk.nix ./persistence.nix ];
 
   home.stateVersion = "23.11";
@@ -20,21 +16,6 @@ in
         "image/webp" = [ "org.gnome.eog.desktop" ];
         "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
       };
-    };
-    portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-gnome
-        (xdg-desktop-portal-hyprland.override { inherit hyprland; })
-      ];
-      config = {
-        common = {
-          default = [ "gtk" ];
-        };
-      };
-      configPackages = [ hyprland ];
     };
     userDirs.enable = true;
 
