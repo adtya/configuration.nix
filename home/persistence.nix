@@ -14,11 +14,14 @@ _: {
       { directory = ".config/doctl"; method = "symlink"; }
       { directory = ".config/gh"; method = "symlink"; }
       { directory = ".config/lazygit"; method = "symlink"; }
+      { directory = ".config/nixos"; method = "symlink"; }
+      { directory = ".config/nvim"; method = "symlink"; }
       { directory = ".config/spotify"; method = "symlink"; }
       { directory = ".fly"; method = "symlink"; }
       { directory = ".local/share/direnv"; method = "symlink"; }
       { directory = ".local/share/keyrings"; method = "symlink"; }
       { directory = ".local/share/nix"; method = "symlink"; }
+      { directory = ".local/share/nvim"; method = "symlink"; }
       { directory = ".local/share/zoxide"; method = "symlink"; }
       { directory = ".local/share/zsh"; method = "symlink"; }
       { directory = "Documents"; method = "symlink"; }
@@ -27,9 +30,6 @@ _: {
       { directory = "Others"; method = "symlink"; }
       { directory = "Pictures"; method = "symlink"; }
       { directory = "Videos"; method = "symlink"; }
-      { directory = ".config/nvim"; method = "symlink"; }
-      { directory = ".config/nixos"; method = "symlink"; }
-      { directory = ".local/share/nvim"; method = "symlink"; }
       { directory = "Projects"; method = "symlink"; }
     ];
 
