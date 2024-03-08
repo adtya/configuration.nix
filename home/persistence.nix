@@ -19,10 +19,8 @@ _: {
       { directory = ".local/share/direnv"; method = "symlink"; }
       { directory = ".local/share/keyrings"; method = "symlink"; }
       { directory = ".local/share/nix"; method = "symlink"; }
-      { directory = ".local/share/Steam"; method = "symlink"; }
       { directory = ".local/share/zoxide"; method = "symlink"; }
       { directory = ".local/share/zsh"; method = "symlink"; }
-      { directory = ".steam"; method = "symlink"; }
       { directory = "Documents"; method = "symlink"; }
       { directory = "Downloads"; method = "symlink"; }
       { directory = "Music"; method = "symlink"; }
