@@ -90,9 +90,6 @@ in
         "bordercolor rgb(ff5555),xwayland:1"
 
         "workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$"
-        "workspace 10,class:^(org.telegram.desktop)$"
-        "workspace 10,class:^(discord)$"
-        "workspace 10,class:^(fluffychat)$"
 
         "float,class:^(firefox)$,title:^(Library)$"
 

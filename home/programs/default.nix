@@ -21,7 +21,6 @@
 
   home.packages = with pkgs; [
     _1password-gui
-    discord
     doctl
     evince
     flyctl
