@@ -28,7 +28,6 @@
     git-crypt
     gnome-secrets
     loupe
-    lutris
     nixpkgs-review
     nix-init
     nurl

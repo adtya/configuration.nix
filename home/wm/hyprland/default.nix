@@ -125,10 +125,6 @@ in
         "float,class:^(.yubioath-flutter-wrapped_)$"
         "center,class:^(.yubioath-flutter-wrapped_)$"
 
-        "float,class:lutris"
-        "center,class:lutris"
-        "size 60% 60%,class:lutris"
-
         "dimaround,class:^(gcr-prompter)$"
       ];
 
