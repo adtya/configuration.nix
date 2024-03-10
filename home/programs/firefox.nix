@@ -141,6 +141,18 @@ _: {
               iconUpdateURL = "https://github.com/favicon.ico";
               definedAliases = [ "@gh" ];
             };
+            "Docker Hub" = {
+              urls = [
+                {
+                  template = "https://hub.docker.com/search";
+                  params = [
+                    { name = "q"; value = "{searchTerms}"; }
+                  ];
+                }
+              ];
+              iconUpdateURL = "https://hub.docker.com/favicon.ico";
+              definedAliases = [ "@docker" ];
+            };
             "YouTube" = {
               urls = [
                 {
