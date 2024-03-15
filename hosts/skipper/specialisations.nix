@@ -13,11 +13,11 @@ let
 in
 {
   specialisation = {
-    xanmod = {
+    stable = {
       inheritParentConfig = true;
       configuration = {
         boot = {
-          kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod_latest;
+          kernelPackages = lib.mkForce pkgs.linuxPackages;
           inherit plymouth;
         };
       };
