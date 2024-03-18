@@ -10,7 +10,7 @@ in
   programs.zsh = {
     enable = true;
     defaultKeymap = "viins";
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     history = {
