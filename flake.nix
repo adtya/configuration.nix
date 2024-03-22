@@ -10,8 +10,8 @@
     flake-utils.url = "github:numtide/flake-utils";
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.url = "github:nix-community/lanzaboote";
-    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
     hyprland.url = "github:hyprwm/Hyprland";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs =
@@ -21,8 +21,8 @@
     , home-manager
     , impermanence
     , lanzaboote
-    , neovim-nightly
     , hyprland
+    , neovim-nightly
     ,
     } @ inputs:
     let

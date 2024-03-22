@@ -3,7 +3,7 @@ _: {
     gpg-agent = {
       enable = true;
       enableScDaemon = true;
-#      pinentryFlavor = "gnome3";
+      #      pinentryFlavor = "gnome3";
     };
   };
 }
