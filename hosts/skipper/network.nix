@@ -1,6 +1,10 @@
 { lib, ... }: {
   networking = {
-    firewall.allowedTCPPorts = [ 51413 ];
+    firewall = {
+      allowedTCPPorts = [
+        51413 #Torrent
+      ];
+    };
 
     hostName = "Skipper";
 
