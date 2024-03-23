@@ -134,6 +134,10 @@ in
         "float,class:^(virt-manager)$"
         "size 25% 50%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$"
         "move 5%% 10%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$"
+
+        "float,class:^(transmission-gtk)$"
+        "size 25% 50%,class:^(transmission-gtk)$,title:^(Transmission)$"
+        "move 5%% 10%,class:^(transmission-gtk)$,title:^(Transmission)$"
       ];
 
       exec-once = [
