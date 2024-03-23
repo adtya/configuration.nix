@@ -136,7 +136,7 @@ in
         "move 5%% 10%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$"
 
         "float,class:^(transmission-gtk)$"
-        "size 25% 50%,class:^(transmission-gtk)$,title:^(Transmission)$"
+        "size 30% 60%,class:^(transmission-gtk)$,title:^(Transmission)$"
         "move 5%% 10%,class:^(transmission-gtk)$,title:^(Transmission)$"
       ];
 
