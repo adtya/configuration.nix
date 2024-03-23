@@ -15,6 +15,7 @@ _: {
         "image/png" = [ "org.gnome.eog.desktop" ];
         "image/webp" = [ "org.gnome.eog.desktop" ];
         "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+        "x-scheme-handler/magnet" = [ "transmission-gtk.desktop" ];
       };
     };
     userDirs.enable = true;
