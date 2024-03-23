@@ -26,6 +26,7 @@ _: {
       { directory = ".local/share/nix"; method = "symlink"; }
       { directory = ".local/share/nvim"; method = "symlink"; }
       { directory = ".local/share/Steam"; method = "symlink"; }
+      { directory = ".local/share/TelegramDesktop"; method = "symlink"; }
       { directory = ".local/share/zoxide"; method = "symlink"; }
       { directory = ".local/share/zsh"; method = "symlink"; }
       { directory = ".steam"; method = "symlink"; }
