@@ -1,5 +1,7 @@
 { lib, ... }: {
   networking = {
+    firewall.allowedTCPPorts = [ 51413 ];
+
     hostName = "Skipper";
 
     networkmanager = {
