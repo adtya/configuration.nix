@@ -17,6 +17,7 @@ _: {
       { directory = ".config/nixos"; method = "symlink"; }
       { directory = ".config/nvim"; method = "symlink"; }
       { directory = ".config/spotify"; method = "symlink"; }
+      { directory = ".config/transmission"; method = "symlink"; }
       { directory = ".fly"; method = "symlink"; }
       { directory = ".local/share/direnv"; method = "symlink"; }
       { directory = ".local/share/icons/hicolor"; method = "symlink"; }
