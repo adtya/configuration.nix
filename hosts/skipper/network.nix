@@ -3,6 +3,10 @@
     firewall = {
       allowedTCPPorts = [
         51413 #Torrent
+        53317 #LocalSend
+      ];
+      allowedUDPPorts = [
+        53317 #LocalSend
       ];
     };
 
