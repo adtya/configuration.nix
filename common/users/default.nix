@@ -16,7 +16,7 @@ in
       inherit (users.primary) hashedPassword;
       description = users.primary.realName;
       isNormalUser = true;
-      extraGroups = [ "docker" "networkmanager" "tss" "wheel" ];
+      extraGroups = [ "docker" "libvirtd" "networkmanager" "tss" "wheel" ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         users.primary.sshPublicKey

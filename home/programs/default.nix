@@ -15,6 +15,7 @@
     ./ssh.nix
     ./starship.nix
     ./tmux.nix
+    ./virt-manager.nix
     ./yt-dlp.nix
     ./zsh.nix
   ];
