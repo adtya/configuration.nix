@@ -38,6 +38,7 @@
     spotify
     steam
     steam.run
+    transmission_4-gtk
     wl-clipboard
     xdg-utils
     yubioath-flutter
