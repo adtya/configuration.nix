@@ -40,7 +40,7 @@
     steam
     steam.run
     telegram-desktop
-    transmission_4-gtk
+    transmission-remote-gtk
     wl-clipboard
     xdg-utils
     yubioath-flutter
