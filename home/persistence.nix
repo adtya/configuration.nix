@@ -18,6 +18,7 @@ _: {
       { directory = ".config/nvim"; method = "symlink"; }
       { directory = ".config/spotify"; method = "symlink"; }
       { directory = ".config/transmission-daemon"; method = "symlink"; }
+      { directory = ".config/transmission-remote-gtk"; method = "symlink"; }
       { directory = ".fly"; method = "symlink"; }
       { directory = ".local/share/direnv"; method = "symlink"; }
       { directory = ".local/share/icons/hicolor"; method = "symlink"; }
