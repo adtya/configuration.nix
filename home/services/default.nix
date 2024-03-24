@@ -2,6 +2,7 @@ _: {
   imports = [
     ./aria2c.nix
     ./gpg-agent.nix
+    ./transmission.nix
   ];
   services = {
     gnome-keyring = {
