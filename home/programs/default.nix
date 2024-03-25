@@ -28,7 +28,7 @@
     gh
     git-crypt
     gnome-secrets
-    localsend
+    #localsend
     loupe
     lutris
     nixpkgs-review
