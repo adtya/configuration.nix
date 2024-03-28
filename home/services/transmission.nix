@@ -17,7 +17,7 @@
         Service = {
           Type = "simple";
           ExecStart = ''
-            ${transmission-daemon} -f -c "${torrents-dir}/init" --incomplete-dir "${torrents-dir}/.incomplete" --download-dir "${torrents-dir}/downloads" --encryption-preferred --portmap --dht --peerport 51413 --utp
+            ${transmission-daemon} -f -c "${torrents-dir}/init" --incomplete-dir "${torrents-dir}/.incomplete" --download-dir "${torrents-dir}/downloads" --encryption-preferred --portmap --dht --lpd --utp --peerport 51414 --port 9092
           '';
         };
       };
