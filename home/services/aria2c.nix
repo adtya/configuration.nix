@@ -7,7 +7,7 @@
     ariang = {
       Unit = {
         Description = "AriaNg: Web frontend for aria2c";
-        After = [ "network.target" "aria2c.service" ];
+        After = [ "aria2c.service" ];
       };
       Install = {
         WantedBy = [ "default.target" ];
@@ -23,7 +23,6 @@
       Unit = {
         Description = "Aria2c Download Manager";
         Documentation = [ "man:aria2c(1)" ];
-        After = [ "network.target" ];
       };
       Install = {
         WantedBy = [ "default.target" "ariang.service" ];
