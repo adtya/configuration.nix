@@ -6,7 +6,6 @@
         53317 #LocalSend
       ];
       allowedUDPPorts = [
-        51414 #Torrent
         53317 #LocalSend
       ];
     };
