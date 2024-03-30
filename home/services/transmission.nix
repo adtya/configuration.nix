@@ -14,13 +14,15 @@
           WantedBy = [ "default.target" ];
         };
         Service = {
-          Type = "simple";
+          Type = "notify";
           ExecStart = ''
-            ${transmission-daemon} -f --encryption-preferred --portmap --dht --lpd --utp --peerport 41414 --port 9092 \
+            ${transmission-daemon} -f --log-level=info --encryption-preferred --portmap --dht --lpd --utp --peerport 41414 --port 9092 \
               -c "${torrents-dir}/init" \
               --incomplete-dir "${torrents-dir}/.incomplete" \
               --download-dir "${torrents-dir}/downloads" \
           '';
+          ExecStop="kill -s STOP $MAINPID";
+          ExecReload="kill -s HUP $MAINPID";
         };
       };
   };
