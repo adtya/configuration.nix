@@ -21,8 +21,8 @@
               --incomplete-dir "${torrents-dir}/.incomplete" \
               --download-dir "${torrents-dir}/downloads" \
           '';
-          ExecStop="kill -s STOP $MAINPID";
-          ExecReload="kill -s HUP $MAINPID";
+          ExecStop = "kill -s STOP $MAINPID";
+          ExecReload = "kill -s HUP $MAINPID";
         };
       };
   };
