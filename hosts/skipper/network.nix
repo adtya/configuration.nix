@@ -1,4 +1,8 @@
 { lib, ... }: {
+  imports = [
+    ./wireguard.nix
+  ];
+
   networking = {
     firewall = {
       allowedTCPPorts = [
