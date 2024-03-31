@@ -6,6 +6,7 @@ _: {
       "/etc/secureboot"
       "/etc/ssh/keys"
       "/etc/systemd/nspawn"
+      "/etc/wireguard"
       "/root/.local/share/nix"
       "/var/cache/fwupd"
       "/var/lib/bluetooth"
