@@ -30,7 +30,7 @@
     gnome-secrets
     #localsend
     loupe
-    lutris
+    (lutris.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; })
     nixpkgs-review
     nix-init
     nurl
