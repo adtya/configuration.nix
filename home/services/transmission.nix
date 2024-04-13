@@ -17,6 +17,7 @@
           Type = "notify";
           ExecStart = ''
             ${transmission-daemon} -f --log-level=error --encryption-preferred --portmap --dht --lpd --utp --peerport 41414 --port 9092 \
+              --allowed 127.0.0.1,10.10.10.* \
               -c "${torrents-dir}/init" \
               --incomplete-dir "${torrents-dir}/.incomplete" \
               --download-dir "${torrents-dir}/downloads" \
