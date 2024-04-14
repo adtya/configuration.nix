@@ -13,7 +13,6 @@
     ./kitty.nix
     ./mpv.nix
     ./neovim.nix
-    ./nnn.nix
     ./ssh.nix
     ./starship.nix
     ./tmux.nix

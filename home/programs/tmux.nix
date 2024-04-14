@@ -28,6 +28,7 @@
       set -g status-position top
       set -g status-interval 1
       set -g mouse on
+      set -g allow-passthrough on
 
       set -g monitor-activity on
       set -g monitor-bell on
