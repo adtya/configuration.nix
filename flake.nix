@@ -21,6 +21,7 @@
     lanzaboote.url = "github:nix-community/lanzaboote";
     hyprland.url = "github:hyprwm/Hyprland";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
+    helix.url = "github:helix-editor/helix";
   };
 
   outputs =
@@ -32,6 +33,7 @@
     , lanzaboote
     , hyprland
     , neovim-nightly
+    , helix
     ,
     } @ inputs:
     let
