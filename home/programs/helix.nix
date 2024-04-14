@@ -1,4 +1,4 @@
-_: {
+{ pkgs, ... }: {
   programs.helix = {
     enable = true;
     settings = {
@@ -12,6 +12,25 @@ _: {
           normal = "block";
         };
       };
+    };
+    languages = {
+      language-server = {
+        nixd = {
+          command = "${pkgs.nixd}/bin/nixd";
+        };
+      };
+      language = [
+        {
+          name = "nix";
+          file-types = [ "nix" ];
+          roots = [ "flake.nix" ];
+          language-servers = [ "nixd" ];
+          formatter = {
+            command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+          };
+          auto-format = true;
+        }
+      ];
     };
   };
 }
