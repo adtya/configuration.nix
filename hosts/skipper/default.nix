@@ -57,7 +57,6 @@
     variant = "altgr-intl";
   };
 
-  sound.enable = true;
   time.timeZone = "Asia/Kolkata";
 
   xdg.portal = {
