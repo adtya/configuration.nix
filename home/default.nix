@@ -1,5 +1,5 @@
 _: {
-  imports = [ ./programs ./services ./wm ./gtk.nix ./persistence.nix ];
+  imports = [ ./programs ./services ./wm ./gtk.nix ./qt.nix ./persistence.nix ];
 
   home.stateVersion = "23.11";
 
