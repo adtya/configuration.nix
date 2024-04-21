@@ -15,7 +15,6 @@ let
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
 
   pictures = "${config.xdg.userDirs.pictures}";
-  change-wallpaper = "${pkgs.scripts}/bin/chpaper ${pictures}/Wallpapers";
   wallhaven-wallpaper = "${pkgs.scripts}/bin/chpaper \$(${pkgs.scripts}/bin/wallhaven ${pictures}/Wallpapers)";
 in
 {
@@ -138,7 +137,6 @@ in
 
       exec-once = [
         "${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24"
-        "${change-wallpaper}"
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
       ];
 
@@ -171,7 +169,7 @@ in
         "SUPER_SHIFT,b,       exec, ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
 
         "SUPER,escape,        exec, ${swaylock} -f -i /tmp/wallpaper.jpg"
-        "SUPER_SHIFT,W,       exec, ${change-wallpaper}"
+        "SUPER_SHIFT,W,       exec, systemctl --user start wallpaper.service"
         "SUPER_ALT,W,         exec, ${wallhaven-wallpaper}"
 
         "SUPER,1,             workspace, 1"

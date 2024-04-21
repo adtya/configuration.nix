@@ -7,5 +7,6 @@
     ./swayidle.nix
     ./swaylock.nix
     ./swww.nix
+    ./wallpaper.nix
   ];
 }
