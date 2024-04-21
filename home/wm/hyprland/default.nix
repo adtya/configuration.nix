@@ -137,9 +137,9 @@ in
       ];
 
       exec-once = [
-        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24"
         "${change-wallpaper}"
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
       ];
 
       bindm = [
@@ -157,7 +157,7 @@ in
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
         "SUPER_SHIFT,C,       exec, systemctl --user restart swayidle.service"
         "SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service"
-        "SUPER_SHIFT,C,       exec, systemctl --user reload waybar.service"
+        "SUPER_SHIFT,C,       exec, systemctl --user restart waybar.service"
 
         "SUPER,Return,        exec, ${kitty} ${tmux} new"
         "SUPER_SHIFT,Return,  exec, ${kitty}"
