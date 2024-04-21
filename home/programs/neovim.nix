@@ -23,7 +23,7 @@
       gcc
 
       lua-language-server
-      nil
+      nixd
       vscode-langservers-extracted
       nodePackages.bash-language-server
 
