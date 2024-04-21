@@ -16,6 +16,5 @@ random_paper() {
   fi
 }
 
-swww query || swww init
 convert "$(random_paper)" /tmp/wallpaper.jpg && swww img --transition-step 2 --transition-type random --transition-duration 1 "/tmp/wallpaper.jpg"
 
