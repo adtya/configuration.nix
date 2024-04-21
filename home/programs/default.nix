@@ -21,7 +21,7 @@
     ./zsh.nix
   ];
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs; let steam-custom = (steam.override { extraPkgs = p: [ p.gamemode p.gamescope ]; }); in [
     _1password-gui
     doctl
     evince
@@ -38,8 +38,8 @@
     pavucontrol
     ripgrep
     spotify
-    steam
-    steam.run
+    steam-custom
+    steam-custom.run
     telegram-desktop
     transmission-remote-gtk
     wl-clipboard
