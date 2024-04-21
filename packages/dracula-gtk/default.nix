@@ -1,8 +1,6 @@
 { lib
 , stdenvNoCC
 , fetchFromGitHub
-, gtk3
-, gnome-themes-extra
 , gtk-engine-murrine
 ,
 }:
@@ -16,11 +14,6 @@ stdenvNoCC.mkDerivation {
     rev = "a0b0ab451447d374600a74519abaa0588f2fa536";
     hash = "sha256-0Ndk9Mh58KU2eoG1Z/CzZPiLNxy2bdloq9p4gzMDu2M=";
   };
-  nativeBuildInputs = [ gtk3 ];
-
-  buildInputs = [
-    gnome-themes-extra
-  ];
 
   propagatedUserEnvPkgs = [ gtk-engine-murrine ];
 
