@@ -6,6 +6,9 @@
       PartOf = [ "graphical-session.target" ];
       After = [ "graphical-session-pre.target" ];
     };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
     Service = {
       ExecStart = "${pkgs.swww}/bin/swww-daemon";
       Restart = "on-failure";

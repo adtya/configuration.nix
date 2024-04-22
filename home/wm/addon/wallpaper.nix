@@ -12,6 +12,9 @@ in
         After = [ "graphical-session-pre.target" ];
         Wants = "swww-daemon.service";
       };
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
       Service = {
         Type = "oneshot";
         ExecStart = "${change-wallpaper}";
@@ -20,6 +23,9 @@ in
     timers.wallpaper = {
       Unit = {
         Description = "Change Wallpaper";
+      };
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
       };
       Timer = {
         OnStartupSec = "10min";
