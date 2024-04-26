@@ -11,6 +11,7 @@ _: {
       { directory = ".cache/nix-index"; method = "symlink"; }
       { directory = ".cache/ytfzf"; method = "symlink"; }
       { directory = ".config/1Password"; method = "symlink"; }
+      { directory = ".config/discord"; method = "symlink"; }
       { directory = ".config/doctl"; method = "symlink"; }
       { directory = ".config/gh"; method = "symlink"; }
       { directory = ".config/lazygit"; method = "symlink"; }
