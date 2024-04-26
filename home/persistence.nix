@@ -17,6 +17,7 @@ _: {
       { directory = ".config/lazygit"; method = "symlink"; }
       { directory = ".config/nixos"; method = "symlink"; }
       { directory = ".config/nvim"; method = "symlink"; }
+      { directory = ".config/Signal Beta"; method = "symlink"; }
       { directory = ".config/spotify"; method = "symlink"; }
       { directory = ".config/transmission-daemon"; method = "symlink"; }
       { directory = ".config/transmission-remote-gtk"; method = "symlink"; }

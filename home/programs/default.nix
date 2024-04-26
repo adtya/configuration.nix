@@ -38,6 +38,7 @@
     nurl
     pavucontrol
     ripgrep
+    signal-desktop-beta
     spotify
     steam-custom
     steam-custom.run
