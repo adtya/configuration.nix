@@ -136,7 +136,6 @@ in
 
       exec-once = [
         "${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24"
-        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
       ];
 
       bindm = [
