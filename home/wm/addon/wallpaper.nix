@@ -25,7 +25,7 @@ in
         Description = "Change Wallpaper";
       };
       Install = {
-        WantedBy = [ "graphical-session.target" ];
+        WantedBy = [ "default.target" ];
       };
       Timer = {
         OnStartupSec = "10min";
