@@ -13,8 +13,8 @@
       auto-allocate-uids = true;
       sandbox = true;
       trusted-substituters = [
-        "https://cache.nixos.org/"
-        "https://nix-community.cachix.org/"
+        "https://cache.nixos.org"
+        "https://nix-community.cachix.org"
         "https://helix.cachix.org"
         "https://hyprland.cachix.org"
       ];
