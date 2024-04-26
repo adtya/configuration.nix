@@ -28,8 +28,8 @@ in
         WantedBy = [ "default.target" ];
       };
       Timer = {
-        OnStartupSec = "10min";
-        OnUnitActiveSec = "10min";
+        OnStartupSec = "15sec";
+        OnUnitActiveSec = "15sec";
       };
     };
   };
