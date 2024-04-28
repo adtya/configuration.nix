@@ -17,11 +17,7 @@ in
     fstrim.enable = true;
     fwupd.enable = true;
     getty.autologinUser = user.primary.userName;
-    gnome = {
-      gnome-keyring.enable = true;
-      tracker.enable = true;
-      tracker-miners.enable = true;
-    };
+    gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     logind.extraConfig = ''
       HandlePowerKey=ignore
