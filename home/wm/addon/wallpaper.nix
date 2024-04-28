@@ -11,9 +11,6 @@ in
         Unit = {
           Description = "Wallpaper Downloader";
         };
-        Install = {
-          WantedBy = [ "default.target" ];
-        };
         Service = {
           Type = "oneshot";
           ExecStart = "${wallpaper-downloader}";
