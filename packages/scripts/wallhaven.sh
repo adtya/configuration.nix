@@ -72,7 +72,7 @@ CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
 RESULT="$(eval "${CURL_CMD}")"
 NO_OF_IMAGES="$(echo "${RESULT}" | jq -r '.meta.total')"
 if [ "${NO_OF_IMAGES}" -eq 0 ]; then
-  notify-send -r 1234 -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "No images available for current configuration."
+  echo "No wallpapers available for current configuration" >&2
   exit 1
 fi
 RANDOM_ITEM="$(shuf -i 0-$((NO_OF_IMAGES-1)) -n 1 --random-source=/dev/urandom)"
@@ -86,8 +86,6 @@ if [ "${ITEM_PAGE}" -gt 0 ]; then
   CURL_CMD="${CURL_BASE_CMD} \"${URL}${SEED}page=$((ITEM_PAGE+1))\""
   RESULT="$(eval "${CURL_CMD}")"
 fi
-ID="$(echo "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].id")"
-notify-send -r 1234 -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Got ${NO_OF_IMAGES} images. Using image ${ID} from page $((ITEM_PAGE+1)) ..."
 IMAGE_URL="$(echo "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].path")"
 FILENAME="${IMAGE_URL##*/}"
 curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
