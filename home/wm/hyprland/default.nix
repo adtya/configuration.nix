@@ -15,7 +15,6 @@ let
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
 
   pictures = "${config.xdg.userDirs.pictures}";
-  wallhaven-wallpaper = "${pkgs.scripts}/bin/chpaper \$(${pkgs.scripts}/bin/wallhaven ${pictures}/Wallpapers)";
 in
 {
   wayland.windowManager.hyprland = {
@@ -168,7 +167,6 @@ in
 
         "SUPER,escape,        exec, ${swaylock} -f -i /tmp/wallpaper.jpg"
         "SUPER_SHIFT,W,       exec, systemctl --user start wallpaper.service"
-        "SUPER_ALT,W,         exec, ${wallhaven-wallpaper}"
 
         "SUPER,1,             workspace, 1"
         "SUPER,2,             workspace, 2"

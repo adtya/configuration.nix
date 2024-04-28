@@ -16,8 +16,8 @@ mkdir -p "${DIR}"
 
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 CONFIG_FILE="${CONFIG_DIR}/wallpaper_config.json"
-if [ ! -e ${CONFIG_FILE} ]; then
-  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M"}' | jq > ${CONFIG_FILE}
+if [ ! -e "${CONFIG_FILE}" ]; then
+  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M"}' | jq > "${CONFIG_FILE}"
 fi
 
 CONFIG="$(cat "${CONFIG_FILE}")"
@@ -29,7 +29,7 @@ fi
 
 TAGS="$(echo "${CONFIG}" | jq -r '.tags // empty')"
 if [ -n "${TAGS}" ]; then
-  TAGS="q=$(echo ${TAGS} | sed -e 's/ /%20/g' -e 's/+/%2B/g' -e 's/-/%2D/g' -e 's/:/%3A/g')&"
+  TAGS="q=$(echo "${TAGS}" | sed -e 's/ /%20/g' -e 's/+/%2B/g' -e 's/-/%2D/g' -e 's/:/%3A/g')&"
 fi
 
 CATEGORIES="$(echo "${CONFIG}" | jq -r '.categories // empty')"
@@ -67,10 +67,9 @@ if [ -n "${RANGE}" ]; then
   RANGE="topRange=${RANGE}&"
 fi
 
-notify-send -r 1234 -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Fetching a list of wallpapers..."
 URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RATIOS}${COLORS}${AI_FILTER}${SORTING}${RANGE}"
 CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
-RESULT="$(eval ${CURL_CMD})"
+RESULT="$(eval "${CURL_CMD}")"
 NO_OF_IMAGES="$(echo "${RESULT}" | jq -r '.meta.total')"
 if [ "${NO_OF_IMAGES}" -eq 0 ]; then
   notify-send -r 1234 -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "No images available for current configuration."
@@ -85,14 +84,12 @@ if [ "${ITEM_PAGE}" -gt 0 ]; then
     SEED="seed=${SEED}&"
   fi
   CURL_CMD="${CURL_BASE_CMD} \"${URL}${SEED}page=$((ITEM_PAGE+1))\""
-  RESULT="$(eval ${CURL_CMD})"
+  RESULT="$(eval "${CURL_CMD}")"
 fi
 ID="$(echo "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].id")"
 notify-send -r 1234 -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Got ${NO_OF_IMAGES} images. Using image ${ID} from page $((ITEM_PAGE+1)) ..."
 IMAGE_URL="$(echo "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].path")"
 FILENAME="${IMAGE_URL##*/}"
-notify-send -r 1234 -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Downloading image: ${IMAGE_URL}"
 curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
-notify-send -r 1234 -u normal -a Wallpapers -i information -t 5000 "Wallpapers" "Downloaded image: ${DIR}/${FILENAME}"
 echo "${DIR}/${FILENAME}"
 
