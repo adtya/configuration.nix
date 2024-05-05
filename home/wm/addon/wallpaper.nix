@@ -10,6 +10,8 @@ in
       wallhaven = {
         Unit = {
           Description = "Wallpaper Downloader";
+          PartOf = [ "graphical-session.target" ];
+          After = [ "graphical-session-pre.target" ];
         };
         Service = {
           Type = "oneshot";
@@ -43,7 +45,7 @@ in
         };
         Timer = {
           OnCalendar = "Fri";
-          Persistent=  true;
+          Persistent = true;
         };
       };
       wallpaper = {
