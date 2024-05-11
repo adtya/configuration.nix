@@ -8,4 +8,8 @@
       click-policy = "double";
     };
   };
+  programs.fd = {
+    enable = true;
+    ignores = [ ".git/" "node_modules/" ];
+  };
 }
