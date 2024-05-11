@@ -10,7 +10,7 @@ fi
 if [ ! -e "$HISTORY_FILE" ] ; then
   touch "$HISTORY_FILE"
 fi
-HISTORY="$(awk -F' ' '{$1="";$2="";$3="";print $0}' $HISTORY_FILE | sed 's/^\s*//g' | uniq)"
+HISTORY="$(awk -F' ' '{$1="";$2="";$3="";print $0}' "$HISTORY_FILE" | sed 's/^\s*//g' | uniq)"
 SEARCH_TERM="$(echo "$HISTORY" | rofi -dmenu -p "Search Youtube:")"
 kitty --class=ytfzf --title "YouTube Search: ${SEARCH_TERM}" -- ytfzf -f -tT kitty --async-thumbnails "${SEARCH_TERM}"
 

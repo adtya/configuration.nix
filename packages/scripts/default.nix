@@ -12,6 +12,7 @@
 , curl
 , ytfzf
 , libsecret
+, ueberzugpp
 ,
 }:
 stdenvNoCC.mkDerivation {
@@ -49,6 +50,6 @@ stdenvNoCC.mkDerivation {
     wrapProgram $out/bin/tmux-sessions --prefix PATH : ${lib.makeBinPath [tmux kitty rofi-wayland]}
     wrapProgram $out/bin/chpaper --prefix PATH : ${lib.makeBinPath [imagemagick swww]}
     wrapProgram $out/bin/wallhaven --prefix PATH : ${lib.makeBinPath [jq curl libsecret]}
-    wrapProgram $out/bin/youtube --prefix PATH : ${lib.makeBinPath [kitty ytfzf rofi-wayland]}
+    wrapProgram $out/bin/youtube --prefix PATH : ${lib.makeBinPath [kitty ytfzf rofi-wayland ueberzugpp]}
   '';
 }
