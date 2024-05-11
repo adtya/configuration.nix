@@ -8,8 +8,15 @@
       click-policy = "double";
     };
   };
-  programs.fd = {
-    enable = true;
-    ignores = [ ".git/" "node_modules/" ];
+  programs = {
+    fd = {
+      enable = true;
+      ignores = [ ".git/" "node_modules/" ];
+    };
+    yazi = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
+
 }
