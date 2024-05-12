@@ -20,7 +20,8 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = hyprland.packages.${pkgs.system}.hyprland;
+    #package = hyprland.packages.${pkgs.system}.default; # Upstream not compiling
+    package = pkgs.hyprland;
     systemd = {
       enable = true;
       variables = [ "--all" ];
