@@ -4,9 +4,9 @@
     ./waybar
     ./auth-agent.nix
     ./dunst.nix
+    ./hyprlock.nix
     ./kanshi.nix
     ./swayidle.nix
-    ./swaylock.nix
     ./swww.nix
     ./wallpaper.nix
   ];

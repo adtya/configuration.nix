@@ -4,7 +4,7 @@
       services = {
         passwd.enableGnomeKeyring = true;
         login.enableGnomeKeyring = true;
-        swaylock = { };
+        hyprlock = { };
       };
       u2f = {
         enable = true;

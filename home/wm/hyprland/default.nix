@@ -10,7 +10,7 @@ let
   kitty = "${config.programs.kitty.package}/bin/kitty";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   rofi = "${config.programs.rofi.package}/bin/rofi";
-  swaylock = "${config.programs.swaylock.package}/bin/swaylock";
+  hyprlock = "${config.programs.hyprlock.package}/bin/hyprlock";
   tmux = "${config.programs.tmux.package}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
 
@@ -165,7 +165,7 @@ in
         "SUPER_SHIFT,y,       exec, ${pkgs.scripts}/bin/youtube"
         "SUPER_SHIFT,b,       exec, ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
 
-        "SUPER,escape,        exec, ${swaylock} -f -i /tmp/wallpaper.jpg"
+        "SUPER,escape,        exec, ${hyprlock}"
         "SUPER_SHIFT,W,       exec, systemctl --user start wallpaper.service"
 
         "SUPER,1,             workspace, 1"
