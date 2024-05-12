@@ -1,6 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, hyprland, ... }:
 let
   hyprland-pkg = config.wayland.windowManager.hyprland.finalPackage;
+  xdph = hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
 in
 {
   imports = [
@@ -12,7 +13,7 @@ in
     xdgOpenUsePortal = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      (pkgs.xdg-desktop-portal-hyprland.override { hyprland = hyprland-pkg; })
+      (xdph.override { hyprland = hyprland-pkg; })
     ];
     config = {
       common = {

@@ -55,7 +55,7 @@
           pkgs = import nixpkgs {
             inherit system;
             config = nixpkgs-config;
-            overlays = [ (import ./packages) neovim-nightly.overlay hyprland.overlays.default ];
+            overlays = [ (import ./packages) ];
           };
           specialArgs = inputs // { inherit secrets; };
           modules = [

@@ -1,5 +1,6 @@
 { config
 , pkgs
+, hyprland
 , ...
 }:
 let
@@ -19,6 +20,7 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    package = hyprland.packages.${pkgs.system}.hyprland;
     systemd = {
       enable = true;
       variables = [ "--all" ];

@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, neovim-nightly, ... }: {
   xdg = {
     desktopEntries = {
       "nvim".name = "Neovim wrapper";
@@ -8,7 +8,7 @@
   };
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-nightly;
+    package = neovim-nightly.packages.${pkgs.system}.default;
     withNodeJs = true;
     withPython3 = true;
     withRuby = true;
