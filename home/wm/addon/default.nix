@@ -5,8 +5,8 @@
     ./auth-agent.nix
     ./dunst.nix
     ./hyprlock.nix
+    ./hypridle.nix
     ./kanshi.nix
-    ./swayidle.nix
     ./swww.nix
     ./wallpaper.nix
   ];
