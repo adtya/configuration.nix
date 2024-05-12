@@ -13,6 +13,7 @@ let
   loginctl = "${pkgs.systemd}/bin/loginctl";
   tmux = "${config.programs.tmux.package}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
+  yazi = "${pkgs.yazi}/bin/yazi";
 
   pictures = "${config.xdg.userDirs.pictures}";
 in
@@ -115,9 +116,9 @@ in
         "center,class:^(org.gnome.Loupe)$"
         "dimaround,class:^(org.gnome.Loupe)$"
 
-        "float,class:^(org.gnome.Nautilus)$"
-        "center,class:^(org.gnome.Nautilus)$"
-        "size 60% 60%,class:^(org.gnome.Nautilus)$"
+        "float,class:^(yazi)$"
+        "center,class:^(yazi)$"
+        "size 90% 90%,class:^(yazi)$"
 
         "float,class:^(.yubioath-flutter-wrapped_)$"
         "center,class:^(.yubioath-flutter-wrapped_)$"
@@ -157,6 +158,7 @@ in
         "SUPER,Return,        exec, ${kitty} ${tmux} new"
         "SUPER_SHIFT,Return,  exec, ${kitty}"
         "SUPER,d,             exec, ${rofi} -show drun"
+        "SUPER,e,             exec, ${kitty} --class=yazi ${yazi}"
         "SUPER,i,             exec, ${firefox}"
         "SUPER_SHIFT,i,       exec, ${firefox} --private-window"
 
