@@ -1,12 +1,12 @@
 { secrets, ... }:
 let
-  wireguard_server = (secrets.wireguard_server // {
+  wireguard_server = secrets.wireguard_server // {
     persistentKeepalive = 20;
     allowedIPs = [
       "10.10.10.0/24"
       "fd7c:585c:c4ae::0/64"
     ];
-  });
+  };
 in
 {
   networking.firewall.trustedInterfaces = [ "wg0" ];

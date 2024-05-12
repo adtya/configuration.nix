@@ -21,7 +21,7 @@
     ./zsh.nix
   ];
 
-  home.packages = with pkgs; let steam-custom = (steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; }); in [
+  home.packages = with pkgs; let steam-custom = steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; }; in [
     _1password-gui
     discord
     doctl
