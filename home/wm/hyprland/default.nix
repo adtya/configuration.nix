@@ -94,9 +94,13 @@ in
         "float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$"
         "move 95% 50%,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$"
 
-        "float,class:^(pavucontrol)$,title:^(Volume Control)$"
-        "size 50% 50%,class:^(pavucontrol)$,title:^(Volume Control)$"
-        "center,class:^(pavucontrol)$,title:^(Volume Control)$"
+        "float,class:^(pavucontrol)$"
+        "size 50% 50%,class:^(pavucontrol)$"
+        "center,class:^(pavucontrol)$"
+
+        "float,class:^(nm-connection-editor)$"
+        "size 50% 50%,class:^(nm-connection-editor)$"
+        "center,class:^(nm-connection-editor)$"
 
         "float,class:^(blueberry.py)$"
         "size 50% 50%,class:^(blueberry.py)$"
