@@ -10,10 +10,9 @@ in
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
-      (xdg-desktop-portal-hyprland.override { hyprland = hyprland-pkg; })
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      (pkgs.xdg-desktop-portal-hyprland.override { hyprland = hyprland-pkg; })
     ];
     config = {
       common = {
