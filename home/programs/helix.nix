@@ -1,7 +1,6 @@
-{ pkgs, helix, ... }: {
+{ pkgs, ... }: {
   programs.helix = {
     enable = true;
-    package = helix.packages.${pkgs.system}.helix;
     settings = {
       theme = "dracula";
       editor = {
