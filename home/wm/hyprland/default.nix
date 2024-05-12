@@ -97,9 +97,9 @@ in
         "size 50% 50%,class:^(pavucontrol)$,title:^(Volume Control)$"
         "center,class:^(pavucontrol)$,title:^(Volume Control)$"
 
-        "float,class:^(.blueman-manager-wrapped)$"
-        "size 50% 50%,class:^(.blueman-manager-wrapped)$"
-        "center,class:^(.blueman-manager-wrapped)$"
+        "float,class:^(blueberry.py)$"
+        "size 50% 50%,class:^(blueberry.py)$"
+        "center,class:^(blueberry.py)$"
 
         "float,class:^(ytfzf)$"
         "size 90% 90%,class:^(ytfzf)$"

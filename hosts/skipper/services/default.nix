@@ -12,7 +12,6 @@ in
     ./ssh.nix
   ];
   services = {
-    blueman.enable = true;
     cpupower-gui.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;

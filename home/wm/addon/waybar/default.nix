@@ -67,7 +67,7 @@
           format-connected = "󰂱";
           format-disabled = "󰂲";
           format-off = "󰂲";
-          on-click = "${pkgs.blueman}/bin/blueman-manager";
+          on-click = "${pkgs.blueberry}/bin/blueberry";
           tooltip = false;
         };
         tray = {
