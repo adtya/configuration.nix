@@ -114,7 +114,10 @@ in
         "float,class:^(org.gnome.Loupe)$"
         "size 90% 90%,class:^(org.gnome.Loupe)$"
         "center,class:^(org.gnome.Loupe)$"
-        "dimaround,class:^(org.gnome.Loupe)$"
+
+        "float,class:^(evince)$"
+        "size 90% 90%,class:^(evince)$"
+        "center,class:^(evince)$"
 
         "float,class:^(yazi)$"
         "center,class:^(yazi)$"
