@@ -10,10 +10,10 @@ _: {
       enable = true;
       defaultApplications = {
         "application/pdf" = [ "org.gnome.Evince.desktop" ];
-        "image/gif" = [ "org.gnome.Loupe.desktop" ];
-        "image/jpeg" = [ "org.gnome.Loupe.desktop" ];
-        "image/png" = [ "org.gnome.Loupe.desktop" ];
-        "image/webp" = [ "org.gnome.Loupe.desktop" ];
+        "image/gif" = [ "imv.desktop" ];
+        "image/jpeg" = [ "imv.desktop" ];
+        "image/png" = [ "imv.desktop" ];
+        "image/webp" = [ "imv.desktop" ];
         "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
         "x-scheme-handler/magnet" = [ "io.github.TransmissionRemoteGtk.desktop" ];
       };

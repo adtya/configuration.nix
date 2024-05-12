@@ -32,7 +32,6 @@
     git-crypt
     gnome-secrets
     #localsend
-    loupe
     (lutris.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; })
     nixpkgs-review
     nix-init
@@ -52,6 +51,7 @@
 
   programs = {
     fzf.enable = true;
+    imv.enable = true;
     lazygit.enable = true;
     nix-index.enable = true;
     zoxide.enable = true;

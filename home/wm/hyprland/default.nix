@@ -115,9 +115,9 @@ in
         "center,class:^(mpv)$"
         "dimaround,class:^(mpv)$"
 
-        "float,class:^(org.gnome.Loupe)$"
-        "size 90% 90%,class:^(org.gnome.Loupe)$"
-        "center,class:^(org.gnome.Loupe)$"
+        "float,class:^(imv)$"
+        "size 90% 90%,class:^(imv)$"
+        "center,class:^(imv)$"
 
         "float,class:^(evince)$"
         "size 90% 90%,class:^(evince)$"
