@@ -75,6 +75,9 @@ if [ "${NO_OF_IMAGES}" -eq 0 ]; then
   echo "No wallpapers available for current configuration" >&2
   exit 1
 fi
+if [ "${NO_OF_IMAGES}" -gt 120 ]; then
+  NO_OF_IMAGES=120
+fi
 RANDOM_ITEM="$(shuf -i 0-$((NO_OF_IMAGES-1)) -n 1 --random-source=/dev/urandom)"
 ITEM_PAGE=$((RANDOM_ITEM/24))
 ITEM_NUMBER=$((RANDOM_ITEM%24))
