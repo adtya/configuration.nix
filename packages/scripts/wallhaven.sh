@@ -44,7 +44,7 @@ fi
 
 SIZE="$(echo "${CONFIG}" | jq -r '.size // empty')"
 if [ -n "${SIZE}" ]; then
-  SIZE="atleast=${SIZE}&"
+  SIZE="resolutions=${SIZE}&"
 fi
 
 RATIOS="$(echo "${CONFIG}" | jq -r '.ratios // empty')"
