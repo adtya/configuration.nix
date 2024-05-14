@@ -26,6 +26,16 @@ _: {
         placeholder_text = ''<span font_family="Fira Code">password</span>'';
         fail_text = "🖕";
       };
+      image = {
+        path = "${./ghost.png}";
+        size = 196;
+        border_size = 0;
+        shadow_passes = 2;
+        shadow_color = "rgb(282a36)";
+        position = "0, 120";
+        halign = "center";
+        valign = "bottom";
+      };
     };
   };
 }
