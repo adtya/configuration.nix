@@ -10,6 +10,7 @@
     ./git.nix
     ./gnupg.nix
     ./helix.nix
+    ./imv.nix
     ./kitty.nix
     ./mpv.nix
     ./neovim.nix
@@ -51,7 +52,6 @@
 
   programs = {
     fzf.enable = true;
-    imv.enable = true;
     lazygit.enable = true;
     nix-index.enable = true;
     zoxide.enable = true;
