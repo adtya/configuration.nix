@@ -16,5 +16,9 @@ random_paper() {
   fi
 }
 
-convert "$(random_paper)" /tmp/wallpaper.jpg && swww img --transition-step 2 --transition-type random --transition-duration 1 "/tmp/wallpaper.jpg"
+swww img \
+  --transition-type any \
+  --transition-step 2 \
+  --transition-duration 2 \
+  "$(random_paper)"
 

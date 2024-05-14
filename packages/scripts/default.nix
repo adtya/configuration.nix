@@ -1,18 +1,17 @@
 { lib
 , stdenvNoCC
 , makeWrapper
-, libnotify
-, rofi-wayland
-, tmux
-, kitty
-, imagemagick
-, hyprland
-, swww
-, jq
 , curl
-, ytfzf
+, hyprland
+, jq
+, kitty
+, libnotify
 , libsecret
+, rofi-wayland
+, swww
+, tmux
 , ueberzugpp
+, ytfzf
 ,
 }:
 stdenvNoCC.mkDerivation {
@@ -48,7 +47,7 @@ stdenvNoCC.mkDerivation {
   postInstall = ''
     wrapProgram $out/bin/power-menu --prefix PATH : ${lib.makeBinPath [libnotify rofi-wayland hyprland]}
     wrapProgram $out/bin/tmux-sessions --prefix PATH : ${lib.makeBinPath [tmux kitty rofi-wayland]}
-    wrapProgram $out/bin/chpaper --prefix PATH : ${lib.makeBinPath [imagemagick swww]}
+    wrapProgram $out/bin/chpaper --prefix PATH : ${lib.makeBinPath [swww]}
     wrapProgram $out/bin/wallhaven --prefix PATH : ${lib.makeBinPath [jq curl libsecret]}
     wrapProgram $out/bin/youtube --prefix PATH : ${lib.makeBinPath [kitty ytfzf rofi-wayland ueberzugpp]}
   '';
