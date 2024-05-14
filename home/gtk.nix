@@ -49,5 +49,8 @@ in
     "org/gtk/settings/file-chooser" = {
       sort-directories-first = true;
     };
+    "org/gtk/gtk4/settings/file-chooser" = {
+      sort-directories-first = true;
+    };
   };
 }
