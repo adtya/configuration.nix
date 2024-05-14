@@ -44,7 +44,7 @@ in
           WantedBy = [ "default.target" ];
         };
         Timer = {
-          OnCalendar = "Fri";
+          OnCalendar = "00:00:00";
           Persistent = true;
         };
       };
