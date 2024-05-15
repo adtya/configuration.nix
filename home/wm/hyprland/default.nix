@@ -158,9 +158,6 @@ in
         "SUPER_ALT,F,         fakefullscreen"
 
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
-        "SUPER_SHIFT,C,       exec, systemctl --user restart swayidle.service"
-        "SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service"
-        "SUPER_SHIFT,C,       exec, systemctl --user restart waybar.service"
 
         "SUPER,Return,        exec, ${kitty} ${tmux} new"
         "SUPER_SHIFT,Return,  exec, ${kitty}"
