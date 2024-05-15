@@ -20,7 +20,7 @@
         };
         opener = {
           open-image = [
-            { run = "${config.programs.imv.package}/bin/imv $0"; orphan = true; }
+            { run = "${config.programs.imv.package}/bin/imv-dir $0"; orphan = true; }
           ];
           edit-text = [
             { run = "${config.programs.neovim.package}/bin/nvim $0"; block = true; }
