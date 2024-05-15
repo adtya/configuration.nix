@@ -6,5 +6,12 @@
         rm $out/share/applications/imv-dir.desktop
       '';
     });
+    settings = {
+      options = {
+        background = "282a36";
+        overlay_background_color = "44475a";
+        overlay_text_color = "f8f8f2";
+      };
+    };
   };
 }
