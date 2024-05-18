@@ -1,9 +1,9 @@
 { ... }: {
   imports = [
     ./rofi
+    ./swaync
     ./waybar
     ./auth-agent.nix
-    ./dunst.nix
     ./hyprlock.nix
     ./hypridle.nix
     ./kanshi.nix
