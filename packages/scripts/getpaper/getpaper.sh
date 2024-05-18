@@ -11,16 +11,22 @@ fi
 
 CURL_BASE_CMD="curl --silent ${API_KEY_HEADER}"
 
-DIR="${1:-/tmp}"
-mkdir -p "${DIR}"
-
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 CONFIG_FILE="${CONFIG_DIR}/wallpaper_config.json"
 if [ ! -e "${CONFIG_FILE}" ]; then
-  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M"}' | jq > "${CONFIG_FILE}"
+  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M", "dir":"~/Pictures/Wallpapers"}' | jq > "${CONFIG_FILE}"
 fi
 
 CONFIG="$(cat "${CONFIG_FILE}")"
+
+DIR="$(echo "${CONFIG}" | jq -r '.dir // empty')"
+if [ -z "${DIR}" ]; then
+  DIR="${XDG_PICTURES_DIR:-${HOME}/Pictures}/Wallpapers"
+  echo "Warning: wallpaper directory not set. using fallback directory ${DIR}" >&2
+fi
+
+DIR="$(echo "${DIR}" | envsubst)"
+mkdir -p "${DIR}"
 
 AI_FILTER="$(echo "${CONFIG}" | jq -r '.ai_filter // empty')"
 if [ -n "${AI_FILTER}" ]; then
@@ -38,7 +44,7 @@ if [ -n "${CATEGORIES}" ]; then
 fi
 
 PURITY="$(echo "${CONFIG}" | jq -r '.purity // empty')"
-if [ -n "${PURITY}" ]; then
+if [ -n "${PURITY}" ] && [ -n "${API_KEY_HEADER}" ]; then
   PURITY="purity=${PURITY}&"
 fi
 

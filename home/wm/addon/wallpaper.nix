@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
-  pictures = "${config.xdg.userDirs.pictures}";
-  change-wallpaper = "${pkgs.scripts}/bin/chpaper ${pictures}/Wallpapers";
-  wallpaper-downloader = "${pkgs.scripts}/bin/wallhaven ${pictures}/Wallpapers";
+  change-wallpaper = "${pkgs.setpaper}/bin/setpaper";
+  wallpaper-downloader = "${pkgs.getpaper}/bin/getpaper";
 in
 {
   systemd.user = {

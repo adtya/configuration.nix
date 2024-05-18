@@ -83,10 +83,10 @@
         inherit system;
       };
     in
-    with pkgs; {
-      formatter = nixpkgs-fmt;
-      devShells.default = mkShell {
-        buildInputs = [
+    {
+      formatter = pkgs.nixpkgs-fmt;
+      devShells.default = pkgs.mkShell {
+        buildInputs = with pkgs; [
           git
           git-crypt
           statix

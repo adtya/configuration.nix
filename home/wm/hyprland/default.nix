@@ -167,9 +167,9 @@ in
         "SUPER,i,             exec, ${firefox}"
         "SUPER_SHIFT,i,       exec, ${firefox} --private-window"
 
-        "SUPER_SHIFT,escape,  exec, ${pkgs.scripts}/bin/power-menu"
-        "SUPER,f11,           exec, ${pkgs.scripts}/bin/tmux-sessions"
-        "SUPER_SHIFT,y,       exec, ${pkgs.scripts}/bin/youtube"
+        "SUPER_SHIFT,escape,  exec, ${pkgs.misc-scripts}/bin/power-menu"
+        "SUPER,f11,           exec, ${pkgs.misc-scripts}/bin/tmux-sessions"
+        "SUPER_SHIFT,y,       exec, ${pkgs.youtube}/bin/youtube"
         "SUPER_SHIFT,b,       exec, ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
