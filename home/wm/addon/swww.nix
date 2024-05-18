@@ -10,7 +10,7 @@
       WantedBy = [ "graphical-session.target" ];
     };
     Service = {
-      ExecStart = "${pkgs.swww}/bin/swww-daemon";
+      ExecStart = "${pkgs.swww}/bin/swww-daemon --no-cache";
       Restart = "on-failure";
       KillMode = "mixed";
     };
