@@ -74,7 +74,8 @@ window#waybar.solo {
 #mode,
 #submap,
 #idle_inhibitor,
-#bluetooth {
+#bluetooth,
+#custom-notification {
     padding: 0 10px;
     color: @foreground;
     background-color: @background;

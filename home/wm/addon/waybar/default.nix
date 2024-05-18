@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.waybar = {
     enable = true;
     package = pkgs.waybar.override {
@@ -14,7 +15,10 @@
         height = 28;
         modules-left = [ "hyprland/workspaces" "hyprland/window" "hyprland/submap" ];
         modules-center = [ ];
-        modules-right = [ "tray" "idle_inhibitor" "network" "bluetooth" "wireplumber" "backlight" "battery" "clock" ];
+        modules-right = [ "tray" "idle_inhibitor" "network" "bluetooth" "wireplumber" "backlight" "battery" "clock" "custom/notification" ];
+        "hyprland/workspaces" = {
+          separate-outputs = true;
+        };
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
@@ -72,6 +76,25 @@
         };
         tray = {
           spacing = 4;
+        };
+        "custom/notification" = let swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client"; in {
+          tooltip = false;
+          format = "{icon}";
+          format-icons = {
+            notification = "󱅫";
+            none = "󰂚";
+            dnd-notification = "󰂠";
+            dnd-none = "󰂠";
+            inhibited-notification = "󰂛";
+            inhibited-none = "󰂛";
+            dnd-inhibited-notification = "󰂛";
+            dnd-inhibited-none = "󰂛";
+          };
+          return-type = "json";
+          exec = "${swaync-client} -swb";
+          on-click = "${swaync-client} -t -sw";
+          on-click-right = "${swaync-client} -d -sw";
+          escape = true;
         };
       };
     };
