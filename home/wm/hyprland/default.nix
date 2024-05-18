@@ -8,9 +8,10 @@ let
   grimblast = "${pkgs.grimblast}/bin/grimblast";
   hyprctl = "${pkgs.hyprland}/bin/hyprctl";
   kitty = "${config.programs.kitty.package}/bin/kitty";
+  librewolf = "${pkgs.librewolf}/bin/librewolf";
+  loginctl = "${pkgs.systemd}/bin/loginctl";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   rofi = "${config.programs.rofi.package}/bin/rofi";
-  loginctl = "${pkgs.systemd}/bin/loginctl";
   tmux = "${config.programs.tmux.package}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   yazi = "${pkgs.yazi}/bin/yazi";
@@ -165,7 +166,7 @@ in
         "SUPER,d,             exec, ${rofi} -show drun"
         "SUPER,e,             exec, ${kitty} --class=yazi ${yazi}"
         "SUPER,i,             exec, ${firefox}"
-        "SUPER_SHIFT,i,       exec, ${firefox} --private-window"
+        "SUPER_SHIFT,i,       exec, ${librewolf}"
 
         "SUPER_SHIFT,escape,  exec, ${pkgs.misc-scripts}/bin/power-menu"
         "SUPER,f11,           exec, ${pkgs.misc-scripts}/bin/tmux-sessions"
