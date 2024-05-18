@@ -17,13 +17,13 @@ in
       listener = [
         {
           timeout = 10;
-          on-timeout = "${brightnessctl} -sd dell::kbd_backlight set 0";
-          on-resume = "${brightnessctl} -rd dell::kbd_backlight";
+          on-timeout = "${brightnessctl} --quiet --device=dell::kbd_backlight --save set 0";
+          on-resume = "${brightnessctl} --quiet --device=dell::kbd_backlight --restore";
         }
         {
           timeout = 150;
-          on-timeout = "${brightnessctl} -s set 30";
-          on-resume = "${brightnessctl} -r";
+          on-timeout = "${brightnessctl} --quiet --device=intel_backlight --save set 30";
+          on-resume = "${brightnessctl} --quiet --device=intel_backlight --restore";
         }
         {
           timeout = 300;
