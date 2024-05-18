@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ extra-packages, ... }:
 let
-  change-wallpaper = "${pkgs.setpaper}/bin/setpaper";
-  wallpaper-downloader = "${pkgs.getpaper}/bin/getpaper";
+  change-wallpaper = "${extra-packages.setpaper}/bin/setpaper";
+  wallpaper-downloader = "${extra-packages.getpaper}/bin/getpaper";
 in
 {
   systemd.user = {

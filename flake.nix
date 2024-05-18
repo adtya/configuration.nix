@@ -34,20 +34,20 @@
     } @ inputs:
     let
       secrets = import ./secrets.nix;
-      nixpkgs-config = {
-        allowUnfree = true;
+      packages = system: import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
       };
+      extra-packages = system: import ./extra-packages (packages system);
     in
     {
       nixosConfigurations = {
         Skipper = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
-          pkgs = import nixpkgs {
-            inherit system;
-            config = nixpkgs-config;
-            overlays = [ (import ./packages) ];
-          };
-          specialArgs = inputs // { inherit secrets; };
+          pkgs = packages system;
+          specialArgs = inputs // { inherit secrets; extra-packages = (extra-packages system); };
           modules = [
             {
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
@@ -64,7 +64,7 @@
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = true;
-                extraSpecialArgs = inputs // { inherit secrets; };
+                extraSpecialArgs = inputs // { inherit secrets; extra-packages = (extra-packages system); };
                 users.${secrets.users.primary.userName} = _: {
                   imports = [
                     impermanence.nixosModules.home-manager.impermanence

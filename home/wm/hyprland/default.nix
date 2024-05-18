@@ -1,5 +1,6 @@
 { config
 , pkgs
+, extra-packages
 , ...
 }:
 let
@@ -168,10 +169,10 @@ in
         "SUPER,i,             exec, ${firefox}"
         "SUPER_SHIFT,i,       exec, ${librewolf}"
 
-        "SUPER_SHIFT,escape,  exec, ${pkgs.misc-scripts}/bin/power-menu"
-        "SUPER,f11,           exec, ${pkgs.misc-scripts}/bin/tmux-sessions"
-        "SUPER_SHIFT,y,       exec, ${pkgs.youtube}/bin/youtube"
-        "SUPER_SHIFT,b,       exec, ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
+        "SUPER_SHIFT,escape,  exec, ${extra-packages.misc-scripts}/bin/power-menu"
+        "SUPER,f11,           exec, ${extra-packages.misc-scripts}/bin/tmux-sessions"
+        "SUPER_SHIFT,y,       exec, ${extra-packages.youtube}/bin/youtube"
+        "SUPER_SHIFT,b,       exec, ${extra-packages.rofi-bluetooth}/bin/rofi-bluetooth"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
         "SUPER_SHIFT,W,       exec, systemctl --user start wallpaper.service"
