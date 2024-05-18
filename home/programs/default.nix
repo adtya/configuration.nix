@@ -19,6 +19,7 @@
     ./tmux.nix
     ./virt-manager.nix
     ./yt-dlp.nix
+    ./zathura.nix
     ./zsh.nix
   ];
 
@@ -27,7 +28,6 @@
     blueberry
     discord
     doctl
-    evince
     flyctl
     gh
     git-crypt

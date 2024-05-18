@@ -119,9 +119,9 @@ in
         "size 90% 90%,class:^(imv)$"
         "center,class:^(imv)$"
 
-        "float,class:^(evince)$"
-        "size 90% 90%,class:^(evince)$"
-        "center,class:^(evince)$"
+        "float,class:^(org.pwmt.zathura)$"
+        "size 90% 90%,class:^(org.pwmt.zathura)$"
+        "center,class:^(org.pwmt.zathura)$"
 
         "float,class:^(yazi)$"
         "center,class:^(yazi)$"
