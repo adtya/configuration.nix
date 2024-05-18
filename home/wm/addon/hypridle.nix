@@ -16,26 +16,26 @@ in
       };
       listener = [
         {
-          timeout = 240;
-          on-timeout = "${brightnessctl} -s set 30";
-          on-resume = "${brightnessctl} -r";
-        }
-        {
-          timeout = 240;
+          timeout = 10;
           on-timeout = "${brightnessctl} -sd dell::kbd_backlight set 0";
           on-resume = "${brightnessctl} -rd dell::kbd_backlight";
         }
         {
-          timeout = 600;
+          timeout = 150;
+          on-timeout = "${brightnessctl} -s set 30";
+          on-resume = "${brightnessctl} -r";
+        }
+        {
+          timeout = 300;
           on-timeout = lock-session;
         }
         {
-          timeout = 660;
+          timeout = 420;
           on-timeout = "${hyprctl} dispatch dpms off";
           on-resume = "${hyprctl} dispatch dpms on";
         }
         {
-          timeout = 900;
+          timeout = 600;
           on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
         }
       ];
