@@ -13,6 +13,7 @@ let
   loginctl = "${pkgs.systemd}/bin/loginctl";
   playerctl = "${pkgs.playerctl}/bin/playerctl";
   rofi = "${config.programs.rofi.package}/bin/rofi";
+  swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
   tmux = "${config.programs.tmux.package}/bin/tmux";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   yazi = "${pkgs.yazi}/bin/yazi";
@@ -166,6 +167,7 @@ in
         "SUPER_SHIFT,Return,  exec, ${kitty}"
         "SUPER,d,             exec, ${rofi} -show drun"
         "SUPER,e,             exec, ${kitty} --class=yazi ${yazi}"
+        "SUPER_SHIFT,u,       exec, ${swaync-client} -t -sw"
         "SUPER,i,             exec, ${firefox}"
         "SUPER_SHIFT,i,       exec, ${librewolf}"
 

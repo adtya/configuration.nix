@@ -92,9 +92,7 @@
           };
           return-type = "json";
           exec = "${swaync-client} -swb";
-          on-click = "${swaync-client} -t -sw";
-          on-click-right = "${swaync-client} -d -sw";
-          escape = true;
+          on-click = "${swaync-client} -d -sw";
         };
       };
     };

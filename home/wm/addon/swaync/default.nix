@@ -8,7 +8,7 @@
       control-center-margin-top = 0;
       control-center-margin-bottom = 0;
       control-center-margin-right = 0;
-      control-center-margin-left= 0;
+      control-center-margin-left = 0;
       control-center-layer = "overlay";
       timeout = 10;
       timeout-low = 5;
