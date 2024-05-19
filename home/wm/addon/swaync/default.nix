@@ -1,55 +1,50 @@
-_: {
+{ pkgs, ... }: {
   services.swaync = {
     enable = true;
     settings = {
-      "positionX" = "right";
-      "positionY" = "top";
-      "control-center-margin-top" = 20;
-      "control-center-margin-bottom" = 0;
-      "control-center-margin-right" = 20;
-      "control-center-margin-left" = 0;
-      "control-center-width" = 500;
-      "control-center-height" = 600;
-      "fit-to-screen" = false;
+      positionX = "right";
+      positionY = "top";
+      layer = "overlay";
+      control-center-margin-top = 0;
+      control-center-margin-bottom = 0;
+      control-center-margin-right = 0;
+      control-center-margin-left= 0;
+      control-center-layer = "overlay";
+      timeout = 10;
+      timeout-low = 5;
+      timeout-critical = 0;
+      notification-window-width = 500;
+      keyboard-shortcuts = true;
+      image-visibility = "when-available";
+      fit-to-screen = true;
+      control-center-width = 500;
+      transition-time = 50;
+      hide-on-clear = true;
+      hide-on-action = true;
+      script-fail-notify = true;
 
-      "layer" = "top";
-      "cssPriority" = "user";
-      "notification-icon-size" = 64;
-      "notification-body-image-height" = 100;
-      "notification-body-image-width" = 200;
-      "timeout" = 10;
-      "timeout-low" = 5;
-      "timeout-critical" = 0;
-      "notification-window-width" = 500;
-      "keyboard-shortcuts" = true;
-      "image-visibility" = "when-available";
-      "transition-time" = 200;
-      "hide-on-clear" = true;
-      "hide-on-action" = true;
-      "script-fail-notify" = true;
-
-      "widgets" = [
+      widgets = [
         "title"
         "dnd"
         "mpris"
         "notifications"
       ];
-      "widget-config" = {
-        "title" = {
-          "text" = "Notifications";
-          "clear-all-button" = true;
-          "button-text" = "Clear All";
+      widget-config = {
+        title = {
+          text = "Notifications";
+          clear-all-button = true;
+          button-text = "󰆴 Clear";
         };
-        "dnd" = {
-          "text" = "Do Not Disturb";
+        dnd = {
+          text = "Do Not Disturb";
         };
-        "label" = {
-          "max-lines" = 5;
-          "text" = "Label Text";
+        label = {
+          max-lines = 5;
+          text = "Notifications";
         };
-        "mpris" = {
-          "image-size" = 96;
-          "image-radius" = 12;
+        mpris = {
+          image-size = 96;
+          image-radius = 12;
         };
       };
     };
