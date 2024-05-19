@@ -29,8 +29,9 @@ random_paper() {
 }
 
 swww img \
-  --transition-type any \
+  --transition-type random \
   --transition-step 2 \
   --transition-duration 2 \
+  --transition-bezier "0.1,0.1,1.0,1.0" \
   "$(random_paper)"
 
