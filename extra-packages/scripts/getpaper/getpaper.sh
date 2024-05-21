@@ -97,6 +97,8 @@ if [ "${ITEM_PAGE}" -gt 0 ]; then
 fi
 IMAGE_URL="$(echo "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].path")"
 FILENAME="${IMAGE_URL##*/}"
-curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
+if [ ! -f "${DIR}/${FILENAME}" ]; then
+  curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
+fi
 echo "${DIR}/${FILENAME}"
 
