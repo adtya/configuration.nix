@@ -177,7 +177,7 @@ in
         "SUPER_SHIFT,b,       exec, ${extra-packages.rofi-bluetooth}/bin/rofi-bluetooth"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
-        "SUPER_SHIFT,W,       exec, systemctl --user start wallpaper.service"
+        "SUPER_SHIFT,W,       exec, systemctl --user start setpaper.service"
 
         "SUPER,1,             workspace, 1"
         "SUPER,2,             workspace, 2"

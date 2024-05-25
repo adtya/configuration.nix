@@ -6,11 +6,12 @@ in
 {
   systemd.user = {
     services = {
-      wallhaven = {
+      getpaper = {
         Unit = {
           Description = "Wallpaper Downloader";
-          PartOf = [ "graphical-session.target" ];
-          After = [ "graphical-session-pre.target" ];
+          After = [ "graphical-session.target" "gnome-keyring.service" ];
+          Wants = "gnome-keyring.service";
+
         };
         Service = {
           Type = "oneshot";
@@ -18,7 +19,7 @@ in
         };
 
       };
-      wallpaper = {
+      setpaper = {
         Unit = {
           Description = "Change Wallpaper";
           PartOf = [ "graphical-session.target" ];
@@ -35,7 +36,7 @@ in
       };
     };
     timers = {
-      wallhaven = {
+      getpaper = {
         Unit = {
           Description = "Wallpaper Downloader";
         };
@@ -47,7 +48,7 @@ in
           Persistent = true;
         };
       };
-      wallpaper = {
+      setpaper = {
         Unit = {
           Description = "Change Wallpaper";
         };
