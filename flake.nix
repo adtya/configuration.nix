@@ -21,6 +21,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     impermanence.url = "github:nix-community/impermanence";
     lanzaboote.url = "github:nix-community/lanzaboote";
+    varnam-nix.url = "github:adtya/varnam-nix";
   };
 
   outputs =
@@ -30,6 +31,7 @@
     , home-manager
     , impermanence
     , lanzaboote
+    , varnam-nix
     ,
     } @ inputs:
     let

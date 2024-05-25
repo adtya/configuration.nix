@@ -1,4 +1,4 @@
-{ pkgs, extra-packages, ... }: {
+{ pkgs, extra-packages, varnam-nix, ... }: {
   imports = [
     ./hardware
     ./programs
@@ -30,6 +30,13 @@
   gtk.iconCache.enable = true;
 
   i18n = {
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = [ varnam-nix.packages.${pkgs.system}.fcitx5-varnam pkgs.fcitx5-gtk ];
+      };
+    };
     defaultLocale = "en_IN.UTF-8";
     extraLocaleSettings = {
       LC_ADDRESS = "en_IN.UTF-8";
