@@ -15,10 +15,6 @@
 
   console.useXkbConfig = true;
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
-
   fonts = {
     fontDir.enable = true;
     packages = (with pkgs; [
