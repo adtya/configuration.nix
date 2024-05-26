@@ -6,7 +6,6 @@
     };
     yazi = {
       enable = true;
-      enableZshIntegration = true;
       settings = {
         manager = {
           sort_by = "natural";
