@@ -41,6 +41,7 @@
         config = {
           allowUnfree = true;
         };
+        overlays = [ varnam-nix.overlays.default ];
       };
       extra-packages = system: import ./extra-packages (packages system);
     in

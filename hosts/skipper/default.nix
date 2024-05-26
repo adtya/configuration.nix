@@ -1,4 +1,4 @@
-{ pkgs, extra-packages, varnam-nix, ... }: {
+{ pkgs, extra-packages, ... }: {
   imports = [
     ./hardware
     ./programs
@@ -34,7 +34,7 @@
       enabled = "fcitx5";
       fcitx5 = {
         waylandFrontend = true;
-        addons = [ varnam-nix.packages.${pkgs.system}.fcitx5-varnam pkgs.fcitx5-gtk ];
+        addons = [ pkgs.fcitx5-varnam pkgs.fcitx5-gtk ];
       };
     };
     defaultLocale = "en_IN.UTF-8";
