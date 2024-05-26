@@ -22,6 +22,7 @@
     kernelParams = [ "quiet" ];
     kernel.sysctl = {
       "vm.swappiness" = 10;
+      "vm.dirty_ratio" = 3;
     };
   };
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
