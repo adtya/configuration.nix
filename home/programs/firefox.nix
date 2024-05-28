@@ -112,7 +112,7 @@ _: {
                   ];
                 }
               ];
-              iconUpdateURL = "https://nixos.org/favicon.ico";
+              iconUpdateURL = "https://nixos.org/favicon.png";
               definedAliases = [ "@np" ];
             };
             "NixOS Options" = {
@@ -125,7 +125,7 @@ _: {
                   ];
                 }
               ];
-              iconUpdateURL = "https://nixos.org/favicon.ico";
+              iconUpdateURL = "https://nixos.org/favicon.png";
               definedAliases = [ "@no" ];
             };
             "GitHub" = {
