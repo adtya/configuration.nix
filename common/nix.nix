@@ -2,10 +2,9 @@
 , pkgs
 , ...
 }: {
-  environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
   nix = {
     package = pkgs.nixFlakes;
-    nixPath = [ "nixpkgs=/etc/nix/inputs/nixpkgs" ];
+    nixPath = [ "nixpkgs=${nixpkgs}" ];
     registry.nixpkgs.flake = nixpkgs;
     settings = {
       auto-optimise-store = true;
