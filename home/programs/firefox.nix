@@ -75,9 +75,9 @@ _: {
         };
         Preferences = {
           "accessibility.force_disabled" = { Value = 1; Status = "locked"; };
-          "browser.crashReports.unsubmittedCheck.autoSubmit2" = { Value = false; Status = "locked"; };
           "browser.aboutConfig.showWarning" = { Value = false; Status = "locked"; };
           "browser.aboutHomeSnippets.updateUrl" = { Value = ""; Status = "locked"; };
+          "browser.crashReports.unsubmittedCheck.autoSubmit2" = { Value = false; Status = "locked"; };
           "browser.selfsupport.url" = { Value = ""; Status = "locked"; };
           "browser.startup.homepage_override.mstone" = { Value = "ignore"; Status = "locked"; };
           "browser.startup.homepage_override.buildID" = { Value = ""; Status = "locked"; };
@@ -88,7 +88,18 @@ _: {
           "dom.security.https_only_mode" = { Value = true; Status = "locked"; };
           "extensions.htmlaboutaddons.recommendations.enabled" = { Value = false; Status = "locked"; };
           "extensions.recommendations.themeRecommendationUrl" = { Value = ""; Status = "locked"; };
+          "gfx.canvas.accelerated.cache-items" = { Value = 4096; Status = "locked"; };
+          "gfx.canvas.accelerated.cache-size" = { Value = 512; Status = "locked"; };
+          "gfx.content.skia-font-cache-size" = { Value = 20; Status = "locked"; };
+          "network.dns.disablePrefetch" = { Value = false; Status = "locked"; };
+          "network.dns.disablePrefetchFromHTTPS" = { Value = false; Status = "locked"; };
+          "network.http.max-connections" = { Value = 1800; Status = "locked"; };
+          "network.http.max-persistent-connections-per-server" = { Value = 10; Status = "locked"; };
+          "network.http.max-urgent-start-excessive-connections-per-host" = { Value = 5; Status = "locked"; };
+          "network.http.pacing.requests.enabled" = { Value = false; Status = "locked"; };
           "network.IDN_show_punycode" = { Value = true; Status = "locked"; };
+          "network.predictor.enabled" = { Value = false; Status = "locked"; };
+          "network.prefetch-next" = { Value = false; Status = "locked"; };
           "network.trr.mode" = { Value = 5; Status = "locked"; };
           "signon.management.page.breach-alerts.enabled" = { Value = false; Status = "locked"; };
         };
@@ -170,6 +181,7 @@ _: {
         };
         settings = {
           "app.shield.optoutstudies.enabled" = false;
+          "content.notify.interval" = 100000;
           "privacy.donottrackheader.enabled" = true;
           "privacy.firstparty.isolate" = true;
           "privacy.globalprivacycontrol.enabled" = true;
