@@ -13,15 +13,15 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
-    impermanence.url = "github:nix-community/impermanence";
-    lanzaboote.url = "github:nix-community/lanzaboote";
-    varnam-nix.url = "github:adtya/varnam-nix";
+    impermanence.url = "github:nix-community/impermanence?ref=master";
+    lanzaboote.url = "github:nix-community/lanzaboote?ref=master";
+    varnam-nix.url = "github:adtya/varnam-nix?ref=main";
   };
 
   outputs =

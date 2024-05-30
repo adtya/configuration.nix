@@ -132,6 +132,7 @@
       },
       "original": {
         "owner": "nix-community",
+        "ref": "master",
         "repo": "home-manager",
         "type": "github"
       }
@@ -147,6 +148,7 @@
       },
       "original": {
         "owner": "nix-community",
+        "ref": "master",
         "repo": "impermanence",
         "type": "github"
       }
@@ -171,6 +173,7 @@
       },
       "original": {
         "owner": "nix-community",
+        "ref": "master",
         "repo": "lanzaboote",
         "type": "github"
       }
@@ -349,6 +352,7 @@
       },
       "original": {
         "owner": "adtya",
+        "ref": "main",
         "repo": "varnam-nix",
         "type": "github"
       }
