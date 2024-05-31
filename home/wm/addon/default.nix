@@ -8,6 +8,5 @@
     ./hypridle.nix
     ./kanshi.nix
     ./wpaperd.nix
-    ./wallpaper.nix
   ];
 }

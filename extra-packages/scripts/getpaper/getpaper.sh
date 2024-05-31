@@ -19,7 +19,7 @@ fi
 
 CONFIG="$(cat "${CONFIG_FILE}")"
 
-DIR="$1"
+DIR="${1:-}"
 if [ -z "${DIR}" ]; then
   DIR="${XDG_PICTURES_DIR:-${HOME}/Pictures}/Wallpapers"
   echo "Warning: wallpaper directory not set. using fallback directory ${DIR}" >&2

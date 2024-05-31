@@ -95,6 +95,7 @@
           statix
         ];
       };
+      packages.getpaper = (import ./extra-packages pkgs).getpaper;
     }
     );
 }
