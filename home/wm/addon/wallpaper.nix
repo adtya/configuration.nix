@@ -1,6 +1,5 @@
-{ extra-packages, ... }:
+{ config, extra-packages, ... }:
 let
-  change-wallpaper = "${extra-packages.setpaper}/bin/setpaper";
   wallpaper-downloader = "${extra-packages.getpaper}/bin/getpaper";
 in
 {
@@ -15,23 +14,8 @@ in
         };
         Service = {
           Type = "oneshot";
-          ExecStart = "${wallpaper-downloader}";
-        };
-
-      };
-      setpaper = {
-        Unit = {
-          Description = "Change Wallpaper";
-          PartOf = [ "graphical-session.target" ];
-          After = [ "graphical-session-pre.target" ];
-          Wants = "swww-daemon.service";
-        };
-        Install = {
-          WantedBy = [ "graphical-session.target" ];
-        };
-        Service = {
-          Type = "oneshot";
-          ExecStart = "${change-wallpaper}";
+          Restart = "on-failure";
+          ExecStart = ''${wallpaper-downloader} "${config.xdg.userDirs.pictures}/Wallpapers"'';
         };
       };
     };
@@ -46,18 +30,6 @@ in
         Timer = {
           OnCalendar = "00:00:00";
           Persistent = true;
-        };
-      };
-      setpaper = {
-        Unit = {
-          Description = "Change Wallpaper";
-        };
-        Install = {
-          WantedBy = [ "default.target" ];
-        };
-        Timer = {
-          OnStartupSec = "10min";
-          OnUnitActiveSec = "10min";
         };
       };
     };

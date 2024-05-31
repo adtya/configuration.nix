@@ -7,7 +7,7 @@
     ./hyprlock.nix
     ./hypridle.nix
     ./kanshi.nix
-    ./swww.nix
+    ./wpaperd.nix
     ./wallpaper.nix
   ];
 }

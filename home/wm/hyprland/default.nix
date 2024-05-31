@@ -15,6 +15,7 @@ let
   rofi = "${config.programs.rofi.package}/bin/rofi";
   swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
   tmux = "${config.programs.tmux.package}/bin/tmux";
+  wpaperctl = "${config.programs.wpaperd.package}/bin/wpaperctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   yazi = "${pkgs.yazi}/bin/yazi";
 
@@ -177,7 +178,7 @@ in
         "SUPER_SHIFT,b,       exec, ${extra-packages.rofi-bluetooth}/bin/rofi-bluetooth"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
-        "SUPER_SHIFT,W,       exec, systemctl --user start setpaper.service"
+        "SUPER_SHIFT,W,       exec, ${wpaperctl} next"
 
         "SUPER,1,             workspace, 1"
         "SUPER,2,             workspace, 2"

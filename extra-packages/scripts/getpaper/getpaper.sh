@@ -14,12 +14,12 @@ CURL_BASE_CMD="curl --silent ${API_KEY_HEADER}"
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 CONFIG_FILE="${CONFIG_DIR}/wallpaper_config.json"
 if [ ! -e "${CONFIG_FILE}" ]; then
-  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M", "dir":"~/Pictures/Wallpapers"}' | jq > "${CONFIG_FILE}"
+  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M"}' | jq > "${CONFIG_FILE}"
 fi
 
 CONFIG="$(cat "${CONFIG_FILE}")"
 
-DIR="$(echo "${CONFIG}" | jq -r '.dir // empty')"
+DIR="$1"
 if [ -z "${DIR}" ]; then
   DIR="${XDG_PICTURES_DIR:-${HOME}/Pictures}/Wallpapers"
   echo "Warning: wallpaper directory not set. using fallback directory ${DIR}" >&2
