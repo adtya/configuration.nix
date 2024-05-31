@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./conky
     ./hyprlock
     ./rofi
     ./swaync
