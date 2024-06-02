@@ -22,6 +22,15 @@ in
         };
       };
     };
+    xanmod = {
+      inheritParentConfig = true;
+      configuration = {
+        boot = {
+          kernelPackages = lib.mkForce pkgs.linuxPackages_xanmod;
+          plymouth = plymouth "deus_ex";
+        };
+      };
+    };
     zen = {
       inheritParentConfig = true;
       configuration = {
