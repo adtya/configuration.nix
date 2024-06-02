@@ -3,7 +3,7 @@
 , ...
 }:
 let
-  plymouth = let theme = "angular_alt"; in {
+  plymouth = theme: {
     enable = true;
     themePackages = lib.mkForce [
       (pkgs.adi1090x-plymouth-themes.override { selected_themes = [ theme ]; })
@@ -18,7 +18,7 @@ in
       configuration = {
         boot = {
           kernelPackages = lib.mkForce pkgs.linuxPackages;
-          inherit plymouth;
+          plymouth = plymouth "spinner_alt";
         };
       };
     };
@@ -27,7 +27,7 @@ in
       configuration = {
         boot = {
           kernelPackages = lib.mkForce pkgs.linuxPackages_zen;
-          inherit plymouth;
+          plymouth = plymouth "flame";
         };
       };
     };
