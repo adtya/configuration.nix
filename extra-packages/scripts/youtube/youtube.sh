@@ -12,5 +12,5 @@ if [ ! -e "$HISTORY_FILE" ] ; then
 fi
 HISTORY="$(awk -F' ' '{$1="";$2="";$3="";print $0}' "$HISTORY_FILE" | sed 's/^\s*//g' | uniq)"
 SEARCH_TERM="$(echo "$HISTORY" | rofi -dmenu -p "Search Youtube:")"
-kitty --class=ytfzf --title "YouTube Search: ${SEARCH_TERM}" -- ytfzf -f -tT kitty --async-thumbnails "${SEARCH_TERM}"
+kitty --class=ytfzf --title "YouTube Search: ${SEARCH_TERM}" -- ytfzf --ii="https://invidious.projectsegfau.lt" -ftT kitty --async-thumbnails "${SEARCH_TERM}"
 
