@@ -1,15 +1,22 @@
 { pkgs, ... }: {
   programs.mpv = {
     enable = true;
-    package = pkgs.mpv.override { youtubeSupport = true; };
+    package = pkgs.mpv.override { youtubeSupport = true; scripts = with pkgs.mpvScripts; [ mpris modernx thumbfast ]; };
     config = {
+      border = "no";
+      osc = "no";
       cache = "yes";
       cache-secs = "120";
       hwdec = "auto-safe";
       gpu-context = "wayland";
     };
     defaultProfiles = [ "gpu-hq" ];
-    scripts = with pkgs.mpvScripts; [ mpv-webm mpris sponsorblock thumbfast thumbnail ];
+    scriptOpts = {
+      thumbfast = {
+        network = "yes";
+        hwdec = "yes";
+      };
+    };
   };
 
   xdg.desktopEntries = {

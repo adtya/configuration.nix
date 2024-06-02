@@ -17,6 +17,7 @@ stdenvNoCC.mkDerivation {
   };
 
   nativeBuildInputs = [ makeWrapper ];
+  buildInputs = [ bluez rofi-wayland ];
 
   installPhase = ''
     mkdir -p $out/bin
