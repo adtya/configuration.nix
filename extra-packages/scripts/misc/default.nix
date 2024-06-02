@@ -14,6 +14,7 @@ stdenvNoCC.mkDerivation {
   src = ./.;
 
   nativeBuildInputs = [ makeWrapper ];
+  buildInputs = [ hyprland kitty libnotify rofi-wayland tmux ];
 
   installPhase = ''
     runHook preInstall
@@ -30,7 +31,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   postInstall = ''
-    wrapProgram $out/bin/power-menu --prefix PATH : ${lib.makeBinPath [libnotify rofi-wayland hyprland]}
-    wrapProgram $out/bin/tmux-sessions --prefix PATH : ${lib.makeBinPath [tmux kitty rofi-wayland]}
+    wrapProgram $out/bin/power-menu --prefix PATH : ${lib.makeBinPath [hyprland libnotify rofi-wayland]}
+    wrapProgram $out/bin/tmux-sessions --prefix PATH : ${lib.makeBinPath [kitty rofi-wayland tmux]}
   '';
 }
