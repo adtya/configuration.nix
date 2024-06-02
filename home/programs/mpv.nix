@@ -9,7 +9,7 @@
       gpu-context = "wayland";
     };
     defaultProfiles = [ "gpu-hq" ];
-    scripts = with pkgs.mpvScripts; [ mpris ];
+    scripts = with pkgs.mpvScripts; [ mpv-webm mpris sponsorblock thumbfast thumbnail ];
   };
 
   xdg.desktopEntries = {
