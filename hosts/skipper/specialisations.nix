@@ -22,11 +22,11 @@ in
         };
       };
     };
-    latest = {
+    zen = {
       inheritParentConfig = true;
       configuration = {
         boot = {
-          kernelPackages = lib.mkForce pkgs.linuxPackages_latest;
+          kernelPackages = lib.mkForce pkgs.linuxPackages_zen;
           inherit plymouth;
         };
       };
