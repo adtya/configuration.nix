@@ -23,7 +23,7 @@
     ./zsh.nix
   ];
 
-  home.packages = with pkgs; let steam-custom = steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; }; in [
+  home.packages = with pkgs; [
     _1password-gui
     blueberry
     discord
@@ -31,7 +31,6 @@
     flyctl
     gh
     git-crypt
-    gnome-secrets
     #localsend
     (lutris.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; })
     nixpkgs-review
@@ -41,8 +40,8 @@
     ripgrep
     signal-desktop-beta
     spotify
-    steam-custom
-    steam-custom.run
+    (steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; })
+    (steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; }).run
     telegram-desktop
     transmission-remote-gtk
     wl-clipboard
