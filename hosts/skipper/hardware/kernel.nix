@@ -14,7 +14,7 @@
         "sd_mod"
         "rtsx_pci_sdmmc"
       ];
-      kernelModules = [ "i915" ];
+      kernelModules = [ "i915" "dm-snapshot" ];
       systemd.enable = true;
     };
     kernelModules = [ "kvm-intel" ];
