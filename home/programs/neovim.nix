@@ -19,10 +19,8 @@
       ripgrep
       tree-sitter
 
-      gcc
-
       lua-language-server
-      nixd
+      nil
       vscode-langservers-extracted
       nodePackages.bash-language-server
 
