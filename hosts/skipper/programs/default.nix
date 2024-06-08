@@ -8,7 +8,6 @@ _: {
     dconf.enable = true;
     fuse.userAllowOther = true;
     git.enable = true;
-    seahorse.enable = true;
     xwayland.enable = true;
     zsh.enable = true;
   };
