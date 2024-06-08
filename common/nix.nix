@@ -1,11 +1,8 @@
-{ nixpkgs
-, pkgs
-, ...
-}: {
+_: {
   nix = {
-    package = pkgs.nixFlakes;
-    nixPath = [ "nixpkgs=${nixpkgs}" ];
-    registry.nixpkgs.flake = nixpkgs;
+    channel.enable = false;
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" "auto-allocate-uids" "cgroups" "ca-derivations" ];
