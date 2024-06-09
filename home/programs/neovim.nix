@@ -16,10 +16,10 @@
     vimAlias = true;
     defaultEditor = true;
     extraPackages = with pkgs; [
+      gnumake
       clang
       go
       cargo
-      rustc
       tree-sitter
       stylua
 
