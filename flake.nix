@@ -21,6 +21,7 @@
     flake-utils.url = "github:numtide/flake-utils";
     impermanence.url = "github:nix-community/impermanence?ref=master";
     lanzaboote.url = "github:nix-community/lanzaboote?ref=master";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
     varnam-nix.url = "github:adtya/varnam-nix?ref=main";
   };
 
@@ -31,6 +32,7 @@
     , home-manager
     , impermanence
     , lanzaboote
+    , neovim-nightly
     , varnam-nix
     ,
     } @ inputs:
