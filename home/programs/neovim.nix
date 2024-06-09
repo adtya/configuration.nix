@@ -15,16 +15,17 @@
     vimAlias = true;
     defaultEditor = true;
     extraPackages = with pkgs; [
+      clang
+      go
+      cargo
+      rustc
+      tree-sitter
+      stylua
+
       fd
       ripgrep
-      tree-sitter
-
-      lua-language-server
-      nil
-      vscode-langservers-extracted
-      nodePackages.bash-language-server
-
-      stylua
+      unzip
+      wget
     ];
   };
 }
