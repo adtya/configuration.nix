@@ -29,7 +29,10 @@ in
       fetch.prune = true;
       init.defaultBranch = "main";
       merge.conflictstyle = "zdiff3";
-      push.autoSetupRemote = true;
+      push = {
+        default = "current";
+        autoSetupRemote = true;
+      };
       pull.ff = "only";
     };
     ignores = [ "/.nix" "/.direnv" ];
