@@ -25,6 +25,7 @@
 
       fd
       ripgrep
+      fzf
       unzip
       wget
     ];
