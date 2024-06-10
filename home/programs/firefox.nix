@@ -35,6 +35,10 @@ _: {
             installation_mode = "force_installed";
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
           };
+          "treestyletab@piro.sakura.ne.jp" = {
+            installation_mode = "force_installed";
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi";
+          };
         };
         FirefoxHome = {
           Search = true;
@@ -182,6 +186,7 @@ _: {
         settings = {
           "app.shield.optoutstudies.enabled" = false;
           "content.notify.interval" = 100000;
+          "dom.events.asyncClipboard.clipboardItem" = true;
           "privacy.donottrackheader.enabled" = true;
           "privacy.firstparty.isolate" = true;
           "privacy.globalprivacycontrol.enabled" = true;
