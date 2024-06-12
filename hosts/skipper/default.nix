@@ -19,6 +19,7 @@
     fontDir.enable = true;
     packages = with pkgs; [
       cantarell-fonts
+      dejavu_fonts
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
       noto-fonts-cjk
       noto-fonts-emoji
