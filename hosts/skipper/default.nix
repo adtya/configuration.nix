@@ -1,4 +1,4 @@
-{ pkgs, extra-packages, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./hardware
     ./programs
@@ -17,14 +17,13 @@
 
   fonts = {
     fontDir.enable = true;
-    packages = (with pkgs; [
+    packages = with pkgs; [
       cantarell-fonts
-      liberation_ttf
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
-      noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-    ]) ++ [ extra-packages.smc-manjari ];
+      smc-chilanka
+    ];
   };
 
   gtk.iconCache.enable = true;
