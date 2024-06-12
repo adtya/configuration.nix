@@ -1,12 +1,13 @@
 { pkgs, ... }: {
   imports = [
+    ./firefox
+
     ./aria2.nix
     ./bat.nix
     ./btop.nix
     ./direnv.nix
     ./eza.nix
     ./files.nix
-    ./firefox.nix
     ./git.nix
     ./gnupg.nix
     ./helix.nix
