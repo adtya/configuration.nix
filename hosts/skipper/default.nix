@@ -20,10 +20,11 @@
     packages = with pkgs; [
       cantarell-fonts
       dejavu_fonts
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      liberation_ttf
       noto-fonts-cjk
       noto-fonts-emoji
       smc-chilanka
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
   };
 
