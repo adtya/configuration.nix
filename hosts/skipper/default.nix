@@ -60,6 +60,8 @@
     variant = "altgr-intl";
   };
 
+  systemd.sysusers.enable = true;
+
   time.timeZone = "Asia/Kolkata";
 
   xdg.portal = {
