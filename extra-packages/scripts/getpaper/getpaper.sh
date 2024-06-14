@@ -14,7 +14,7 @@ CURL_BASE_CMD="curl --silent ${API_KEY_HEADER}"
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 CONFIG_FILE="${CONFIG_DIR}/wallpaper_config.json"
 if [ ! -e "${CONFIG_FILE}" ]; then
-  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M"}' | jq > "${CONFIG_FILE}"
+  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M", "look_at": 120}' | jq > "${CONFIG_FILE}"
 fi
 
 CONFIG="$(cat "${CONFIG_FILE}")"
@@ -73,6 +73,11 @@ if [ -n "${RANGE}" ]; then
   RANGE="topRange=${RANGE}&"
 fi
 
+LOOK_AT="$(echo "${CONFIG}" | jq -r '.look_at // empty')"
+if [ -z "${LOOK_AT}" ]; then
+  LOOK_AT=120
+fi
+
 URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RATIOS}${COLORS}${AI_FILTER}${SORTING}${RANGE}"
 CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
 RESULT="$(eval "${CURL_CMD}")"
@@ -81,8 +86,8 @@ if [ "${NO_OF_IMAGES}" -eq 0 ]; then
   echo "No wallpapers available for current configuration" >&2
   exit 1
 fi
-if [ "${NO_OF_IMAGES}" -gt 120 ]; then
-  NO_OF_IMAGES=120
+if [ "${NO_OF_IMAGES}" -gt "${LOOK_AT}" ]; then
+  NO_OF_IMAGES=$LOOK_AT
 fi
 RANDOM_ITEM="$(shuf -i 0-$((NO_OF_IMAGES-1)) -n 1 --random-source=/dev/urandom)"
 ITEM_PAGE=$((RANDOM_ITEM/24))
