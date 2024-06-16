@@ -18,9 +18,10 @@
       url = "github:nix-community/home-manager?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils.url = "github:numtide/flake-utils";
     impermanence.url = "github:nix-community/impermanence?ref=master";
     lanzaboote.url = "github:nix-community/lanzaboote?ref=master";
+    sops-nix.url = "github:Mic92/sops-nix?ref=master";
+    flake-utils.url = "github:numtide/flake-utils";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
     varnam-nix.url = "github:adtya/varnam-nix?ref=main";
   };
@@ -32,6 +33,7 @@
     , home-manager
     , impermanence
     , lanzaboote
+    , sops-nix
     , neovim-nightly
     , varnam-nix
     ,
@@ -57,10 +59,10 @@
             {
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
             }
-
             home-manager.nixosModules.home-manager
             impermanence.nixosModules.impermanence
             lanzaboote.nixosModules.lanzaboote
+            sops-nix.nixosModules.sops
 
             ./common
             ./hosts/skipper
@@ -95,6 +97,8 @@
           git
           git-crypt
           statix
+          sops
+          age
         ];
       };
       packages.getpaper = (import ./extra-packages pkgs).getpaper;
