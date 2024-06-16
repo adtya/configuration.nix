@@ -72,7 +72,7 @@
                 useUserPackages = true;
                 useGlobalPkgs = true;
                 extraSpecialArgs = inputs // { inherit secrets; extra-packages = (extra-packages system); };
-                users.${secrets.users.primary.userName} = _: {
+                users.adtya = _: {
                   imports = [
                     impermanence.nixosModules.home-manager.impermanence
                     ./home
