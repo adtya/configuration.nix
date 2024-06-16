@@ -1,8 +1,4 @@
-{ secrets, ... }:
-let
-  user = secrets.users;
-in
-{
+{ config, ... }: {
   imports = [
     ./btrfs.nix
     ./dbus.nix
@@ -15,7 +11,7 @@ in
     cpupower-gui.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
-    getty.autologinUser = user.primary.userName;
+    getty.autologinUser = config.users.users.adtya.name;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     irqbalance.enable = true;

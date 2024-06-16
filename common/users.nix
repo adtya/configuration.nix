@@ -7,7 +7,7 @@
     adtya = {
       uid = 1000;
       hashedPasswordFile = config.sops.secrets."passwd/adtya".path;
-      description = "Adithya";
+      description = "Adithya Nair";
       isNormalUser = true;
       extraGroups = [ "docker" "libvirtd" "networkmanager" "tss" "wheel" ];
       shell = pkgs.zsh;
