@@ -7,7 +7,7 @@
     loader.systemd-boot.enable = lib.mkForce false;
     lanzaboote = {
       enable = true;
-      pkiBundle = "/etc/secureboot";
+      pkiBundle = "/persist/system/etc/secureboot";
     };
   };
   environment.systemPackages = with pkgs; [

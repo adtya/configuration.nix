@@ -19,7 +19,7 @@ in
           "fd7c:585c:c4ae::2/64"
         ];
         listenPort = 51822;
-        privateKeyFile = "/etc/wireguard/private.key";
+        privateKeyFile = "/persist/system/etc/wireguard/private.key";
         generatePrivateKeyFile = true;
         peers = [
           wireguard_server
