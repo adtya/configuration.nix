@@ -68,5 +68,11 @@
     config.common.default = [ "gtk" ];
   };
 
-  system.stateVersion = "23.11";
+  system = {
+    switch = {
+      enable = false;
+      enableNg = true;
+    };
+    stateVersion = "23.11";
+  };
 }
