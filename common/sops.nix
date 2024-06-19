@@ -1,6 +1,6 @@
 { config, ... }: {
   sops = {
-    defaultSopsFile = ./secrets.yaml;
+    defaultSopsFile = ../secrets.yaml;
     age = {
       keyFile = "/persist/sops/age/keys.txt";
       sshKeyPaths = [ "/persist/system/etc/ssh/keys/ssh_host_ed25519_key" ];
