@@ -3,6 +3,7 @@
   virtualisation = {
     docker = {
       enable = true;
+      package = pkgs.docker_26;
       storageDriver = "btrfs";
     };
     kvmgt.enable = true;
