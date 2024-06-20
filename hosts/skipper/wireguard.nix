@@ -18,6 +18,7 @@
             publicKey = "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=";
             presharedKeyFile = config.sops.secrets."wireguard/psk".path;
             persistentKeepalive = 20;
+            dynamicEndpointRefreshSeconds = 20;
             allowedIPs = [
               "10.10.10.0/24"
               "fd7c:585c:c4ae::0/64"
