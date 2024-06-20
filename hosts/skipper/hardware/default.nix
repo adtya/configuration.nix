@@ -5,17 +5,20 @@
   imports = [ ./kernel.nix ./filesystem.nix ];
 
   boot = {
-    initrd.luks.devices = {
-      luks0 = {
-        allowDiscards = true;
-        bypassWorkqueues = true;
-        device = "/dev/disk/by-partlabel/CRYPT";
-        preLVM = true;
+    initrd = {
+      luks.devices = {
+        luks0 = {
+          allowDiscards = true;
+          bypassWorkqueues = true;
+          device = "/dev/disk/by-partlabel/CRYPT";
+          preLVM = true;
+        };
       };
+      supportedFilesystems = [ "vfat" "btrfs" ];
     };
     loader.efi.canTouchEfiVariables = true;
     resumeDevice = "/dev/vg0/swap";
-    supportedFilesystems = [ "btrfs" ];
+    supportedFilesystems = [ "vfat" "ntfs" "exfat" "ext4" "btrfs" ];
   };
 
   swapDevices = [{ device = "/dev/vg0/swap"; }];
