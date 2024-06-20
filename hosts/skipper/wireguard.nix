@@ -1,14 +1,4 @@
-{ secrets, ... }:
-let
-  wireguard_server = secrets.wireguard_server // {
-    persistentKeepalive = 20;
-    allowedIPs = [
-      "10.10.10.0/24"
-      "fd7c:585c:c4ae::0/64"
-    ];
-  };
-in
-{
+{ config, ... }: {
   networking.firewall.trustedInterfaces = [ "wg0" ];
   networking.wireguard = {
     enable = true;
@@ -19,10 +9,20 @@ in
           "fd7c:585c:c4ae::2/64"
         ];
         listenPort = 51822;
-        privateKeyFile = "/persist/system/etc/wireguard/private.key";
+        privateKeyFile = "/persist/secrets/wireguard/private.key";
         generatePrivateKeyFile = true;
         peers = [
-          wireguard_server
+          {
+            name = "Proxy";
+            endpoint = "proxy.adtya.xyz:51821";
+            publicKey = "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=";
+            presharedKeyFile = config.sops.secrets."wireguard/psk".path;
+            persistentKeepalive = 20;
+            allowedIPs = [
+              "10.10.10.0/24"
+              "fd7c:585c:c4ae::0/64"
+            ];
+          }
         ];
       };
     };

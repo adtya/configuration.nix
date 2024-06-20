@@ -39,7 +39,6 @@
     ,
     } @ inputs:
     let
-      secrets = import ./secrets.nix;
       packages = system: import nixpkgs {
         inherit system;
         config = {
@@ -54,7 +53,7 @@
         Skipper = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
           pkgs = packages system;
-          specialArgs = inputs // { inherit secrets; extra-packages = (extra-packages system); };
+          specialArgs = inputs // { extra-packages = (extra-packages system); };
           modules = [
             {
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
@@ -71,7 +70,7 @@
               home-manager = {
                 useUserPackages = true;
                 useGlobalPkgs = true;
-                extraSpecialArgs = inputs // { inherit secrets; extra-packages = (extra-packages system); };
+                extraSpecialArgs = inputs // { extra-packages = (extra-packages system); };
                 users.adtya = _: {
                   imports = [
                     impermanence.nixosModules.home-manager.impermanence
@@ -95,7 +94,6 @@
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           git
-          git-crypt
           statix
           sops
           age

@@ -3,10 +3,7 @@ _: {
     hideMounts = true;
     directories = [
       "/etc/NetworkManager/system-connections"
-      "/etc/secureboot"
-      "/etc/ssh/keys"
       "/etc/systemd/nspawn"
-      "/etc/wireguard"
       "/root/.local/share/nix"
       "/var/cache/fwupd"
       "/var/lib/bluetooth"
@@ -24,7 +21,6 @@ _: {
     ];
     files = [
       "/etc/machine-id"
-      "/etc/u2f_keys"
     ];
   };
 }

@@ -8,7 +8,7 @@
       };
       u2f = {
         enable = true;
-        authFile = "/etc/u2f_keys";
+        authFile = "/persist/secrets/u2f/u2f_keys";
         cue = true;
       };
     };
