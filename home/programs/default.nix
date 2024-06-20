@@ -37,7 +37,6 @@
     nixpkgs-review
     nix-init
     nurl
-    pavucontrol
     ripgrep
     signal-desktop-beta
     spotify
