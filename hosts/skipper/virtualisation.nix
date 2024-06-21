@@ -4,6 +4,10 @@
     docker = {
       enable = true;
       package = pkgs.docker_26;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
       storageDriver = "btrfs";
     };
     kvmgt.enable = true;
