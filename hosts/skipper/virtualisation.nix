@@ -2,7 +2,7 @@
   environment.systemPackages = [ pkgs.docker-credential-helpers ];
   virtualisation = {
     docker = {
-      enable = false;
+      enable = true;
       package = pkgs.docker_26;
       daemon.settings = {
         data-root = "/persist/docker";
