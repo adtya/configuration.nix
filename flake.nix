@@ -14,6 +14,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+    lix-module = {
+      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.90";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,11 +33,12 @@
   outputs =
     { self
     , nixpkgs
-    , flake-utils
+    , lix-module
     , home-manager
     , impermanence
     , lanzaboote
     , sops-nix
+    , flake-utils
     , neovim-nightly
     , varnam-nix
     ,
@@ -58,6 +63,7 @@
             {
               system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
             }
+            lix-module.nixosModules.default
             home-manager.nixosModules.home-manager
             impermanence.nixosModules.impermanence
             lanzaboote.nixosModules.lanzaboote
