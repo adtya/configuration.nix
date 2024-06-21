@@ -15,7 +15,6 @@
   console.useXkbConfig = true;
 
   fonts = {
-    fontDir.enable = true;
     packages = with pkgs; [
       cantarell-fonts
       dejavu_fonts
