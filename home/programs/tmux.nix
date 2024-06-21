@@ -30,10 +30,10 @@
       set -g mouse on
       set -g allow-passthrough on
 
-      set -g monitor-activity on
-      set -g monitor-bell on
-      set -g visual-activity on
-      set -g visual-bell on
+      set -g monitor-activity off
+      set -g monitor-bell off
+      set -g visual-activity off
+      set -g visual-bell off
 
       set -g renumber-windows on
       set -g base-index 1
