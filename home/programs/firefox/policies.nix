@@ -15,6 +15,15 @@
     Fingerprinting = true;
   };
   ExtensionSettings = {
+    "*" = {
+      installation_mode = "blocked";
+      blocked_install_message = "Add it to firefox/policies.nix to install it.";
+    };
+    "queryamoid@kaply.com" = {
+      installation_mode = "force_installed";
+      install_url = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
+      default_area = "menupanel";
+    };
     "{b743f56d-1cc1-4048-8ba6-f9c2ab7aa54d}" = {
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
@@ -22,18 +31,17 @@
     "{d634138d-c276-4fc8-924b-40a0ea21d284}" = {
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
+      default_area = "navbar";
     };
     "uBlock0@raymondhill.net" = {
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+      default_area = "menupanel";
     };
     "addon@darkreader.org" = {
       installation_mode = "force_installed";
       install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-    };
-    "treestyletab@piro.sakura.ne.jp" = {
-      installation_mode = "force_installed";
-      install_url = "https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi";
+      default_area = "navbar";
     };
   };
   FirefoxHome = {
