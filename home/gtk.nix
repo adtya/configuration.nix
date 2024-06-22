@@ -1,11 +1,10 @@
 { pkgs
-, extra-packages
 , ...
 }:
 let
   gtkTheme = {
     name = "Dracula";
-    package = extra-packages.dracula-gtk;
+    package = pkgs.dracula-gtk;
   };
 
   iconTheme = {

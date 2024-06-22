@@ -16,8 +16,6 @@
       ];
     };
 
-    hostName = "Skipper";
-
     nameservers = [
       "2620:fe::fe#dns.quad9.net"
       "9.9.9.9#dns.quad9.net"

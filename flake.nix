@@ -1,5 +1,5 @@
 {
-  description = "NixOS Configuration";
+  description = "NixOS Configuration for Skipper";
 
   nixConfig = {
     extra-substituters = [
@@ -44,49 +44,43 @@
     ,
     } @ inputs:
     let
+      lib = nixpkgs.lib;
       packages = system: import nixpkgs {
         inherit system;
         config = {
           allowUnfree = true;
         };
-        overlays = [ varnam-nix.overlays.default ];
+        overlays = [ varnam-nix.overlays.default (import ./extra-packages) ];
       };
-      extra-packages = system: import ./extra-packages (packages system);
     in
     {
       nixosConfigurations = {
-        Skipper = nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
-          pkgs = packages system;
-          specialArgs = inputs // { extra-packages = (extra-packages system); };
-          modules = [
-            {
-              system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
-            }
-            lix-module.nixosModules.default
-            home-manager.nixosModules.home-manager
-            impermanence.nixosModules.impermanence
-            lanzaboote.nixosModules.lanzaboote
-            sops-nix.nixosModules.sops
-
-            ./common
-            ./hosts/skipper
-
-            {
-              home-manager = {
-                useUserPackages = true;
-                useGlobalPkgs = true;
-                extraSpecialArgs = inputs // { extra-packages = (extra-packages system); };
-                users.adtya = _: {
-                  imports = [
-                    impermanence.nixosModules.home-manager.impermanence
-                    ./home
-                  ];
-                };
-              };
-            }
-          ];
-        };
+        Skipper =
+          let
+            hostname = "Skipper";
+            system = "x86_64-linux";
+            username = "adtya";
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            pkgs = packages system;
+            specialArgs = { inherit inputs username; };
+            modules = [
+              {
+                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                networking.hostName = lib.mkDefault hostname;
+                nixpkgs.hostPlatform = lib.mkDefault system;
+              }
+              lix-module.nixosModules.default
+              sops-nix.nixosModules.sops
+              lanzaboote.nixosModules.lanzaboote
+              impermanence.nixosModules.impermanence
+              home-manager.nixosModules.home-manager
+              ./common
+              ./hosts/skipper
+              ./home
+            ];
+          };
       };
     }
     // flake-utils.lib.eachDefaultSystem (system:
@@ -105,7 +99,7 @@
           age
         ];
       };
-      packages.getpaper = (import ./extra-packages pkgs).getpaper;
+      packages.getpaper = pkgs.callPackage ./extra-packages/scripts/getpaper;
     }
     );
 }

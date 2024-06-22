@@ -1,12 +1,12 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, username, ... }: {
   users.mutableUsers = false;
   users.users = {
     root = {
       hashedPasswordFile = config.sops.secrets."passwd/root".path;
     };
-    adtya = {
+    ${username} = {
       uid = 1000;
-      hashedPasswordFile = config.sops.secrets."passwd/adtya".path;
+      hashedPasswordFile = config.sops.secrets."passwd/${username}".path;
       description = "Adithya Nair";
       isNormalUser = true;
       extraGroups = [ "docker" "libvirtd" "networkmanager" "wheel" ];
