@@ -9,6 +9,7 @@
       cache-secs = "120";
       hwdec = "auto-safe";
       gpu-context = "wayland";
+      vo = "gpu-next";
     };
     defaultProfiles = [ "gpu-hq" ];
     scriptOpts = {
