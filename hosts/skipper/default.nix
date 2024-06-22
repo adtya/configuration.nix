@@ -14,6 +14,10 @@
 
   console.useXkbConfig = true;
 
+  environment.sessionVariables = {
+    VDPAU_DRIVER = "va_gl";
+  };
+
   fonts = {
     packages = with pkgs; [
       cantarell-fonts

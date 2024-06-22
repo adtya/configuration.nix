@@ -39,7 +39,7 @@
     gpgSmartcards.enable = true;
     opengl = {
       enable = true;
-      extraPackages = [ pkgs.intel-media-driver ];
+      extraPackages = with pkgs; [ intel-media-driver vpl-gpu-rt libvdpau-va-gl ];
       driSupport = true;
       driSupport32Bit = true;
     };

@@ -25,7 +25,6 @@
       };
       storageDriver = "btrfs";
     };
-    kvmgt.enable = true;
     libvirtd = {
       enable = true;
       qemu = {
