@@ -24,6 +24,7 @@
     };
     impermanence.url = "github:nix-community/impermanence?ref=master";
     lanzaboote.url = "github:nix-community/lanzaboote?ref=master";
+    nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     sops-nix.url = "github:Mic92/sops-nix?ref=master";
     flake-utils.url = "github:numtide/flake-utils";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
@@ -37,6 +38,7 @@
     , home-manager
     , impermanence
     , lanzaboote
+    , nixos-hardware
     , sops-nix
     , flake-utils
     , neovim-nightly
@@ -79,6 +81,33 @@
               ./common
               ./hosts/skipper
               ./home
+
+              {
+                boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+              }
+            ];
+          };
+        Rico1 =
+          let
+            hostname = "Rico1";
+            system = "aarch64-linux";
+            username = "adtya";
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            pkgs = packages system;
+            specialArgs = { inherit inputs username; };
+            modules = [
+              {
+                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                networking.hostName = lib.mkDefault hostname;
+                nixpkgs.hostPlatform = lib.mkDefault system;
+              }
+              lix-module.nixosModules.default
+              sops-nix.nixosModules.sops
+              nixos-hardware.nixosModules.raspberry-pi-4
+              ./common
+              ./hosts/rico1
             ];
           };
       };

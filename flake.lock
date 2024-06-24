@@ -434,6 +434,22 @@
         "type": "github"
       }
     },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1719145664,
+        "narHash": "sha256-+0bBlerLxsHUJcKPDWZM1wL3V9bzCFjz+VyRTG8fnUA=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "c3e48cbd88414f583ff08804eb57b0da4c194f9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1718541509,
@@ -581,6 +597,7 @@
         "lanzaboote": "lanzaboote",
         "lix-module": "lix-module",
         "neovim-nightly": "neovim-nightly",
+        "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "sops-nix": "sops-nix",
         "varnam-nix": "varnam-nix"

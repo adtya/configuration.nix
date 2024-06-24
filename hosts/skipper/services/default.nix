@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, username, ... }: {
   imports = [
     ./btrfs.nix
     ./dbus.nix
@@ -11,7 +11,7 @@
     cpupower-gui.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
-    getty.autologinUser = config.users.users.adtya.name;
+    getty.autologinUser = config.users.users.${username}.name;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     irqbalance.enable = true;
