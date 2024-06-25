@@ -10,6 +10,8 @@
   environment.systemPackages = with pkgs; [
     sops
     age
+    libraspberrypi
+    raspberrypi-eeprom
   ];
 
 }
