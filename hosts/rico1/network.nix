@@ -1,7 +1,5 @@
 { lib, ... }: {
   networking = {
-    hostName = "Rico1";
-
     nameservers = [
       "2620:fe::fe#dns.quad9.net"
       "9.9.9.9#dns.quad9.net"
