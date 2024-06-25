@@ -1,11 +1,9 @@
 keys:
-  - &age_key age1w5rvr4nl8xvjjxpct4e2a2eajvm79v4r9nyxrcn40fm8d7h9l9cqkk0jtt
   - &skipper_host_ed25519 age1mhks8qmhjrtc2u5ufvp3pv2hn7tkadvmscnp7wd0ywmnse0szctqsnpy0a
   - &rico1_host_ed25519 age1q6g2czy468c3fcdwvafru6rzhmr2edd8mzhjfs6mevhmt7z2zdsswnwe77
 creation_rules:
   - path_regex: secrets.yaml
     key_groups:
     - age:
-      - *age_key
       - *skipper_host_ed25519
       - *rico1_host_ed25519
