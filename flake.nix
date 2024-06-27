@@ -110,27 +110,6 @@
               ./hosts/rico1
             ];
           };
-        PiInstaller =
-          let
-            hostname = "PiInstaller";
-            system = "aarch64-linux";
-            username = "adtya";
-          in
-          lib.nixosSystem {
-            inherit system;
-            pkgs = packages system;
-            specialArgs = { inherit inputs username; };
-            modules = [
-              {
-                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
-                networking.hostName = lib.mkDefault hostname;
-                nixpkgs.hostPlatform = lib.mkDefault system;
-              }
-              nixos-hardware.nixosModules.raspberry-pi-4
-              ./common/nix.nix
-              ./sdimage/piinstaller
-            ];
-          };
       };
     }
     // flake-utils.lib.eachDefaultSystem (system:
