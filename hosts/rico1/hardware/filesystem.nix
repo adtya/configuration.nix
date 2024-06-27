@@ -29,12 +29,6 @@ _: {
 
     "/boot" = {
       device = "/dev/disk/by-label/RICO1_BOOT";
-      fsType = "ext2";
-      options = [ "noatime" ];
-    };
-
-    "/boot/firmware" = {
-      device = "/dev/disk/by-label/R1_FIRMWARE";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
