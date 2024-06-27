@@ -1,9 +1,11 @@
 keys:
-  - &skipper_host_ed25519 age1mhks8qmhjrtc2u5ufvp3pv2hn7tkadvmscnp7wd0ywmnse0szctqsnpy0a
-  - &rico1_host_ed25519 age1q6g2czy468c3fcdwvafru6rzhmr2edd8mzhjfs6mevhmt7z2zdsswnwe77
+  - &user_adtya age1w5rvr4nl8xvjjxpct4e2a2eajvm79v4r9nyxrcn40fm8d7h9l9cqkk0jtt
+  - &host_skipper age1mhks8qmhjrtc2u5ufvp3pv2hn7tkadvmscnp7wd0ywmnse0szctqsnpy0a
+  - &host_rico1 age1q6g2czy468c3fcdwvafru6rzhmr2edd8mzhjfs6mevhmt7z2zdsswnwe77
 creation_rules:
   - path_regex: secrets.yaml
     key_groups:
     - age:
-      - *skipper_host_ed25519
-      - *rico1_host_ed25519
+      - *user_adtya
+      - *host_skipper
+      - *host_rico1

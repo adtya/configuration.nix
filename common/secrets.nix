@@ -1,9 +1,6 @@
 { config, ... }: {
   sops = {
     defaultSopsFile = ../secrets.yaml;
-    age = {
-      sshKeyPaths = [ "/persist/secrets/ssh/keys/ssh_host_ed25519_key" ];
-    };
     secrets = {
       "passwd/root" = {
         mode = "400";
