@@ -37,11 +37,9 @@
     cpu.intel.updateMicrocode = lib.mkDefault true;
     enableRedistributableFirmware = true;
     gpgSmartcards.enable = true;
-    opengl = {
+    graphics = {
       enable = true;
       extraPackages = with pkgs; [ intel-media-driver vpl-gpu-rt libvdpau-va-gl ];
-      driSupport = true;
-      driSupport32Bit = true;
     };
     sensor.hddtemp = {
       enable = true;
