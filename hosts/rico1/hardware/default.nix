@@ -1,14 +1,13 @@
 _: {
   imports = [ ./filesystem.nix ./kernel.nix ];
 
-  hardware = {
-    deviceTree = {
-      enable = true;
+  hardware.enableRedistributableFirmware = true;
+
+  boot = {
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
     };
-    raspberry-pi."4" = {
-      apply-overlays-dtmerge.enable = true;
-      poe-plus-hat.enable = true;
-      xhci.enable = true;
-    };
+    supportedFilesystems = [ "vfat" "btrfs" "ext4" ];
   };
 }

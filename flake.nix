@@ -24,7 +24,6 @@
     };
     impermanence.url = "github:nix-community/impermanence?ref=master";
     lanzaboote.url = "github:nix-community/lanzaboote?ref=master";
-    nixos-hardware.url = "github:NixOS/nixos-hardware?ref=master";
     sops-nix.url = "github:Mic92/sops-nix?ref=master";
     flake-utils.url = "github:numtide/flake-utils";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
@@ -38,7 +37,6 @@
     , home-manager
     , impermanence
     , lanzaboote
-    , nixos-hardware
     , sops-nix
     , flake-utils
     , neovim-nightly
@@ -105,7 +103,6 @@
               }
               lix-module.nixosModules.default
               sops-nix.nixosModules.sops
-              nixos-hardware.nixosModules.raspberry-pi-4
               ./common
               ./hosts/rico1
             ];
