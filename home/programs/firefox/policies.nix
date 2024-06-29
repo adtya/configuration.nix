@@ -102,5 +102,6 @@ in
     "network.prefetch-next" = lock false;
     "network.trr.mode" = lock 5;
     "signon.management.page.breach-alerts.enabled" = lock false;
+    "widget.disable-swipe-tracker" = lock true;
   };
 }
