@@ -85,6 +85,28 @@
               }
             ];
           };
+        Rico0 =
+          let
+            hostname = "Rico0";
+            system = "aarch64-linux";
+            username = "adtya";
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            pkgs = packages system;
+            specialArgs = { inherit inputs username; };
+            modules = [
+              {
+                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                networking.hostName = lib.mkDefault hostname;
+                nixpkgs.hostPlatform = lib.mkDefault system;
+              }
+              lix-module.nixosModules.default
+              sops-nix.nixosModules.sops
+              ./common
+              ./hosts/rico0
+            ];
+          };
         Rico1 =
           let
             hostname = "Rico1";
@@ -105,6 +127,28 @@
               sops-nix.nixosModules.sops
               ./common
               ./hosts/rico1
+            ];
+          };
+        Rico2 =
+          let
+            hostname = "Rico2";
+            system = "aarch64-linux";
+            username = "adtya";
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            pkgs = packages system;
+            specialArgs = { inherit inputs username; };
+            modules = [
+              {
+                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                networking.hostName = lib.mkDefault hostname;
+                nixpkgs.hostPlatform = lib.mkDefault system;
+              }
+              lix-module.nixosModules.default
+              sops-nix.nixosModules.sops
+              ./common
+              ./hosts/rico2
             ];
           };
       };
