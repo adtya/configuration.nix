@@ -1,3 +1,13 @@
+let
+  lock = Value: {
+    inherit Value;
+    Status = "locked";
+  };
+  install = install_url: {
+    inherit install_url;
+    installation_mode = "force_installed";
+  };
+in
 {
   DisableAppUpdate = true;
   DisableFirefoxAccounts = true;
@@ -19,31 +29,12 @@
       installation_mode = "blocked";
       blocked_install_message = "Add it to firefox/policies.nix to install it.";
     };
-    "queryamoid@kaply.com" = {
-      installation_mode = "force_installed";
-      install_url = "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
-    };
-    "{b743f56d-1cc1-4048-8ba6-f9c2ab7aa54d}" = {
-      installation_mode = "force_installed";
-      install_url = "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
-    };
-    "{d634138d-c276-4fc8-924b-40a0ea21d284}" = {
-      installation_mode = "force_installed";
-      install_url = "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
-    };
-    "uBlock0@raymondhill.net" = {
-      installation_mode = "force_installed";
-      install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-    };
-    "addon@darkreader.org" = {
-      installation_mode = "force_installed";
-      install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-    };
-    "{3c078156-979c-498b-8990-85f7987dd929}" = {
-      installation_mode = "force_installed";
-      install_url = "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
-
-    };
+    "addon@darkreader.org" = install "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+    "queryamoid@kaply.com" = install "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
+    "uBlock0@raymondhill.net" = install "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+    "{3c078156-979c-498b-8990-85f7987dd929}" = install "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
+    "{b743f56d-1cc1-4048-8ba6-f9c2ab7aa54d}" = install "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
+    "{d634138d-c276-4fc8-924b-40a0ea21d284}" = install "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
   };
   FirefoxHome = {
     Search = true;
@@ -83,117 +74,33 @@
     Locked = true;
   };
   Preferences = {
-    "accessibility.force_disabled" = {
-      Value = 1;
-      Status = "locked";
-    };
-    "browser.aboutConfig.showWarning" = {
-      Value = false;
-      Status = "locked";
-    };
-    "browser.aboutHomeSnippets.updateUrl" = {
-      Value = "";
-      Status = "locked";
-    };
-    "browser.crashReports.unsubmittedCheck.autoSubmit2" = {
-      Value = false;
-      Status = "locked";
-    };
-    "browser.selfsupport.url" = {
-      Value = "";
-      Status = "locked";
-    };
-    "browser.startup.homepage_override.mstone" = {
-      Value = "ignore";
-      Status = "locked";
-    };
-    "browser.startup.homepage_override.buildID" = {
-      Value = "";
-      Status = "locked";
-    };
-    "browser.tabs.firefox-view" = {
-      Value = false;
-      Status = "locked";
-    };
-    "browser.tabs.firefox-view-next" = {
-      Value = false;
-      Status = "locked";
-    };
-    "browser.urlbar.suggest.history" = {
-      Value = false;
-      Status = "locked";
-    };
-    "browser.urlbar.suggest.topsites" = {
-      Value = false;
-      Status = "locked";
-    };
-    "dom.security.https_only_mode" = {
-      Value = true;
-      Status = "locked";
-    };
-    "extensions.htmlaboutaddons.recommendations.enabled" = {
-      Value = false;
-      Status = "locked";
-    };
-    "extensions.recommendations.themeRecommendationUrl" = {
-      Value = "";
-      Status = "locked";
-    };
-    "gfx.canvas.accelerated.cache-items" = {
-      Value = 4096;
-      Status = "locked";
-    };
-    "gfx.canvas.accelerated.cache-size" = {
-      Value = 512;
-      Status = "locked";
-    };
-    "gfx.content.skia-font-cache-size" = {
-      Value = 20;
-      Status = "locked";
-    };
-    "network.dns.disablePrefetch" = {
-      Value = false;
-      Status = "locked";
-    };
-    "network.dns.disablePrefetchFromHTTPS" = {
-      Value = false;
-      Status = "locked";
-    };
-    "network.http.max-connections" = {
-      Value = 1800;
-      Status = "locked";
-    };
-    "network.http.max-persistent-connections-per-server" = {
-      Value = 10;
-      Status = "locked";
-    };
-    "network.http.max-urgent-start-excessive-connections-per-host" = {
-      Value = 5;
-      Status = "locked";
-    };
-    "network.http.pacing.requests.enabled" = {
-      Value = false;
-      Status = "locked";
-    };
-    "network.IDN_show_punycode" = {
-      Value = true;
-      Status = "locked";
-    };
-    "network.predictor.enabled" = {
-      Value = false;
-      Status = "locked";
-    };
-    "network.prefetch-next" = {
-      Value = false;
-      Status = "locked";
-    };
-    "network.trr.mode" = {
-      Value = 5;
-      Status = "locked";
-    };
-    "signon.management.page.breach-alerts.enabled" = {
-      Value = false;
-      Status = "locked";
-    };
+    "accessibility.force_disabled" = lock 1;
+    "browser.aboutConfig.showWarning" = lock false;
+    "browser.aboutHomeSnippets.updateUrl" = lock "";
+    "browser.crashReports.unsubmittedCheck.autoSubmit2" = lock false;
+    "browser.selfsupport.url" = lock "";
+    "browser.startup.homepage_override.mstone" = lock "ignore";
+    "browser.startup.homepage_override.buildID" = lock "";
+    "browser.tabs.firefox-view" = lock false;
+    "browser.tabs.firefox-view-next" = lock false;
+    "browser.urlbar.suggest.history" = lock false;
+    "browser.urlbar.suggest.topsites" = lock false;
+    "dom.security.https_only_mode" = lock true;
+    "extensions.htmlaboutaddons.recommendations.enabled" = lock false;
+    "extensions.recommendations.themeRecommendationUrl" = lock "";
+    "gfx.canvas.accelerated.cache-items" = lock 4096;
+    "gfx.canvas.accelerated.cache-size" = lock 512;
+    "gfx.content.skia-font-cache-size" = lock 20;
+    "network.dns.disablePrefetch" = lock false;
+    "network.dns.disablePrefetchFromHTTPS" = lock false;
+    "network.http.max-connections" = lock 1800;
+    "network.http.max-persistent-connections-per-server" = lock 10;
+    "network.http.max-urgent-start-excessive-connections-per-host" = lock 5;
+    "network.http.pacing.requests.enabled" = lock false;
+    "network.IDN_show_punycode" = lock true;
+    "network.predictor.enabled" = lock false;
+    "network.prefetch-next" = lock false;
+    "network.trr.mode" = lock 5;
+    "signon.management.page.breach-alerts.enabled" = lock false;
   };
 }
