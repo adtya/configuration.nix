@@ -25,6 +25,7 @@
     impermanence.url = "github:nix-community/impermanence?ref=master";
     lanzaboote.url = "github:nix-community/lanzaboote?ref=master";
     sops-nix.url = "github:Mic92/sops-nix?ref=master";
+    deploy-rs.url = "github:serokell/deploy-rs";
     flake-utils.url = "github:numtide/flake-utils";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
     varnam-nix.url = "github:adtya/varnam-nix?ref=main";
@@ -38,6 +39,7 @@
     , impermanence
     , lanzaboote
     , sops-nix
+    , deploy-rs
     , flake-utils
     , neovim-nightly
     , varnam-nix
@@ -152,6 +154,19 @@
             ];
           };
       };
+
+      deploy.nodes = {
+        Rico0 = {
+          hostname = "Rico0";
+          sshUser = "adtya";
+          remoteBuild = true;
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.Rico0;
+          };
+        };
+      };
+      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     }
     // flake-utils.lib.eachDefaultSystem (system:
     let
@@ -167,9 +182,10 @@
           statix
           sops
           age
+          deploy-rs.packages.${pkgs.system}.default
         ];
       };
-      packages.getpaper = pkgs.callPackage ./extra-packages/scripts/getpaper;
+      packages.getpaper = pkgs.callPackage ./extra-packages/scripts/getpaper { };
     }
     );
 }
