@@ -5,10 +5,10 @@
     ./services
     ./network
     ./persistence
+    ./virtualisation
     ./plymouth.nix
     ./secureboot.nix
     ./security.nix
-    ./virtualisation.nix
   ];
 
   console.useXkbConfig = true;
