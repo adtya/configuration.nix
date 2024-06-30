@@ -81,10 +81,6 @@
               ./common
               ./hosts/skipper
               ./home
-
-              {
-                boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-              }
             ];
           };
         Rico0 =
