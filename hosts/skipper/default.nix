@@ -1,13 +1,12 @@
 { pkgs, ... }: {
   imports = [
+    ./boot
     ./hardware
     ./programs
     ./services
     ./network
     ./persistence
     ./virtualisation
-    ./plymouth.nix
-    ./secureboot.nix
     ./security.nix
   ];
 

@@ -1,10 +1,13 @@
-{ lib
-, pkgs
-, ...
-}: {
-  environment.etc."secureboot" = {
-    mode = "symlink";
-    source = "/persist/secrets/secureboot";
+{ lib, pkgs, ... }: {
+  imports = [ ./plymouth.nix ];
+  environment = {
+    etc."secureboot" = {
+      mode = "symlink";
+      source = "/persist/secrets/secureboot";
+    };
+    systemPackages = with pkgs; [
+      sbctl
+    ];
   };
   boot = {
     bootspec.enable = true;
@@ -17,7 +20,4 @@
       pkiBundle = "/persist/secrets/secureboot";
     };
   };
-  environment.systemPackages = with pkgs; [
-    sbctl
-  ];
 }
