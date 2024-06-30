@@ -12,26 +12,9 @@
       enable = true;
       dhcp = "dhcpcd";
       dns = "systemd-resolved";
-      wifi = {
-        backend = "iwd";
-        powersave = false;
-      };
     };
 
     useDHCP = lib.mkDefault false;
-
-    wireless.iwd = {
-      enable = true;
-      settings = {
-        General = {
-          AddressRandomization = "network";
-          EnableNetworkConfiguration = false;
-        };
-        Settings = {
-          AutoConnect = "yes";
-        };
-      };
-    };
   };
 
   services.resolved = {
