@@ -165,8 +165,25 @@
             path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.Rico0;
           };
         };
+        Rico1 = {
+          hostname = "Rico1";
+          sshUser = "adtya";
+          remoteBuild = true;
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.Rico1;
+          };
+        };
+        Rico2 = {
+          hostname = "Rico2";
+          sshUser = "adtya";
+          remoteBuild = true;
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.Rico2;
+          };
+        };
       };
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     }
     // flake-utils.lib.eachDefaultSystem (system:
     let
