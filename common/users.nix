@@ -1,4 +1,20 @@
 { config, pkgs, username, ... }: {
+  sops = {
+    secrets = {
+      "passwd/root" = {
+        mode = "400";
+        owner = config.users.users.root.name;
+        group = config.users.users.root.group;
+        neededForUsers = true;
+      };
+      "passwd/adtya" = {
+        mode = "400";
+        owner = config.users.users.root.name;
+        group = config.users.users.root.group;
+        neededForUsers = true;
+      };
+    };
+  };
   users.mutableUsers = false;
   users.users = {
     root = {
