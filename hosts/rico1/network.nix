@@ -1,4 +1,5 @@
 { lib, ... }: {
+  imports = [ ./wireguard.nix ];
   networking = {
     nameservers = [
       "2620:fe::fe#dns.quad9.net"
