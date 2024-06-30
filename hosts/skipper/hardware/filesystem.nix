@@ -1,4 +1,19 @@
 _: {
+  boot = {
+    initrd = {
+      supportedFilesystems = [ "vfat" "btrfs" ];
+      luks.devices = {
+        luks0 = {
+          allowDiscards = true;
+          bypassWorkqueues = true;
+          device = "/dev/disk/by-partlabel/CRYPT";
+          preLVM = true;
+        };
+      };
+    };
+    supportedFilesystems = [ "vfat" "ntfs" "exfat" "ext4" "btrfs" ];
+    resumeDevice = "/dev/vg0/swap";
+  };
   fileSystems = {
     "/" = {
       device = "/dev/vg0/system";
@@ -33,4 +48,6 @@ _: {
       fsType = "vfat";
     };
   };
+
+  swapDevices = [{ device = "/dev/vg0/swap"; }];
 }

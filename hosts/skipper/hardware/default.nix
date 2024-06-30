@@ -2,26 +2,28 @@
 , pkgs
 , ...
 }: {
-  imports = [ ./kernel.nix ./filesystem.nix ];
+  imports = [ ./filesystem.nix ];
 
   boot = {
-    initrd = {
-      luks.devices = {
-        luks0 = {
-          allowDiscards = true;
-          bypassWorkqueues = true;
-          device = "/dev/disk/by-partlabel/CRYPT";
-          preLVM = true;
-        };
-      };
-      supportedFilesystems = [ "vfat" "btrfs" ];
+    consoleLogLevel = 3;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
+    kernelParams = [ "quiet" ];
+    kernelModules = [ "kvm-intel" ];
+    kernel.sysctl = {
+      "vm.swappiness" = 10;
+      "vm.dirty_ratio" = 3;
     };
-    loader.efi.canTouchEfiVariables = true;
-    resumeDevice = "/dev/vg0/swap";
-    supportedFilesystems = [ "vfat" "ntfs" "exfat" "ext4" "btrfs" ];
+    initrd = {
+      availableKernelModules = [
+        "xhci_pci"
+        "thunderbolt"
+        "nvme"
+        "rtsx_pci_sdmmc"
+      ];
+      kernelModules = [ "i915" "dm-snapshot" ];
+      systemd.enable = true;
+    };
   };
-
-  swapDevices = [{ device = "/dev/vg0/swap"; }];
 
   hardware = {
     bluetooth = {
@@ -50,4 +52,5 @@
     steam-hardware.enable = true;
     xone.enable = true;
   };
+  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
