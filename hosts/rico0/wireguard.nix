@@ -1,4 +1,10 @@
 { config, ... }: {
+  sops.secrets."wireguard/psk/rico0" = {
+    mode = "400";
+    owner = config.users.users.root.name;
+    group = config.users.users.root.group;
+  };
+
   networking.firewall.trustedInterfaces = [ "wg0" ];
   networking.wireguard = {
     enable = true;
