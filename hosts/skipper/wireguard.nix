@@ -16,7 +16,7 @@
             name = "Proxy";
             endpoint = "165.232.180.97:51821";
             publicKey = "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=";
-            presharedKeyFile = config.sops.secrets."wireguard/psk".path;
+            presharedKeyFile = config.sops.secrets."wireguard/psk/skipper".path;
             persistentKeepalive = 20;
             allowedIPs = [
               "10.10.10.0/24"
