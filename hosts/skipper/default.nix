@@ -3,8 +3,8 @@
     ./hardware
     ./programs
     ./services
-    ./network.nix
     ./persistence.nix
+    ./network
     ./plymouth.nix
     ./rollback.nix
     ./secureboot.nix
