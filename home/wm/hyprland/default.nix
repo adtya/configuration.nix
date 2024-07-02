@@ -75,9 +75,10 @@ in
       };
 
       master = {
-        new_is_master = true;
-        new_on_top = true;
         mfact = 0.65;
+        new_status = "master";
+        new_on_top = true;
+        no_gaps_when_only = 1;
       };
 
       animation = [
