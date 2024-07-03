@@ -4,6 +4,7 @@ keys:
   - &host_rico0 age106k9u5ns9h7smh3gqc40k9fft5emknvq669qdv8a29ak3ah4j38s5ng2gt
   - &host_rico1 age1829x4l8vdhcn97af0zq898tupll0smrqywxka4pswkt6mtn8qp7qqnnnl4
   - &host_rico2 age19uy6xerll6st3s3ftfpy7075m9eetm2288l2w07k7ek6z2l3ef6qfw34cf
+  - &host_wynne age1jyaf9rn5d5pqjh60shs2q5hs98fwugak8z6cs6qs7yuc3wntugmsumxmv0
 creation_rules:
   - path_regex: secrets.yaml
     key_groups:
@@ -13,3 +14,4 @@ creation_rules:
       - *host_rico0
       - *host_rico1
       - *host_rico2
+      - *host_wynne
