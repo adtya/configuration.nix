@@ -173,6 +173,28 @@
               ./hosts/wynne
             ];
           };
+        Layne =
+          let
+            hostname = "Layne";
+            system = "x86_64-linux";
+            username = "adtya";
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            pkgs = packages system;
+            specialArgs = { inherit inputs username; };
+            modules = [
+              {
+                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                networking.hostName = lib.mkDefault hostname;
+                nixpkgs.hostPlatform = lib.mkDefault system;
+              }
+              lix-module.nixosModules.default
+              sops-nix.nixosModules.sops
+              ./common
+              ./hosts/layne
+            ];
+          };
       };
 
       deploy.nodes = {
