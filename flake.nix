@@ -225,6 +225,22 @@
             path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.Rico2;
           };
         };
+        Wynne = {
+          hostname = "Wynne";
+          sshUser = "adtya";
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.Wynne;
+          };
+        };
+        Layne = {
+          hostname = "Layne";
+          sshUser = "adtya";
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.Layne;
+          };
+        };
       };
     }
     // flake-utils.lib.eachDefaultSystem (system:
