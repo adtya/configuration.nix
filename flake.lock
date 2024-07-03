@@ -262,6 +262,25 @@
         "type": "github"
       }
     },
+    "flake-utils_5": {
+      "inputs": {
+        "systems": "systems_6"
+      },
+      "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "ref": "main",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "flakey-profile": {
       "locked": {
         "lastModified": 1712898590,
@@ -654,6 +673,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_8": {
+      "locked": {
+        "lastModified": 1719826879,
+        "narHash": "sha256-xs7PlULe8O1SAcs/9e/HOjeUjBrU5FNtkAF/bSEcFto=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b9014df496d5b68bf7c0145d0e9b0f529ce4f2a8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks-nix": {
       "inputs": {
         "flake-compat": [
@@ -693,7 +728,8 @@
         "neovim-nightly": "neovim-nightly",
         "nixpkgs": "nixpkgs_5",
         "sops-nix": "sops-nix",
-        "varnam-nix": "varnam-nix"
+        "varnam-nix": "varnam-nix",
+        "wiki": "wiki"
       }
     },
     "rust-overlay": {
@@ -816,6 +852,21 @@
         "type": "github"
       }
     },
+    "systems_6": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "utils": {
       "inputs": {
         "systems": "systems_2"
@@ -850,6 +901,26 @@
         "owner": "adtya",
         "ref": "main",
         "repo": "varnam-nix",
+        "type": "github"
+      }
+    },
+    "wiki": {
+      "inputs": {
+        "flake-utils": "flake-utils_5",
+        "nixpkgs": "nixpkgs_8"
+      },
+      "locked": {
+        "lastModified": 1719864041,
+        "narHash": "sha256-RXORLW2QlY9d7+hu9UuL3HJympNZto3fRMvGeS8X0EE=",
+        "owner": "adtya",
+        "repo": "wiki",
+        "rev": "c517187aa9940ca3584b0de2e4147e6d3ec185e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "adtya",
+        "ref": "main",
+        "repo": "wiki",
         "type": "github"
       }
     }

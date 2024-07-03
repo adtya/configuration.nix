@@ -30,6 +30,7 @@
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
     varnam-nix.url = "github:adtya/varnam-nix?ref=main";
     adtyaxyz.url = "github:adtya/adtya.xyz?ref=main";
+    wiki.url = "github:adtya/wiki?ref=main";
   };
 
   outputs =
@@ -45,6 +46,7 @@
     , neovim-nightly
     , varnam-nix
     , adtyaxyz
+    , wiki
     ,
     } @ inputs:
     let
