@@ -1,4 +1,8 @@
 _: {
+  boot = {
+    initrd.supportedFilesystems = [ "vfat" "btrfs" ];
+    supportedFilesystems = [ "vfat" "btrfs" "ext4" "exfat" ];
+  };
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-partlabel/WYNNE_ROOT";

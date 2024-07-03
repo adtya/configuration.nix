@@ -24,7 +24,6 @@
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
     };
-    supportedFilesystems = [ "vfat" "btrfs" "ext4" ];
   };
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 }

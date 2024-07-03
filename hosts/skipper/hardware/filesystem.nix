@@ -11,7 +11,7 @@ _: {
         };
       };
     };
-    supportedFilesystems = [ "vfat" "ntfs" "exfat" "ext4" "btrfs" ];
+    supportedFilesystems = [ "vfat" "btrfs" "ext4" "exfat" "ntfs" ];
     resumeDevice = "/dev/vg0/swap";
   };
   fileSystems = {

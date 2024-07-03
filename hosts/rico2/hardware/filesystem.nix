@@ -1,4 +1,8 @@
 _: {
+  boot = {
+    initrd.supportedFilesystems = [ "vfat" "btrfs" ];
+    supportedFilesystems = [ "vfat" "btrfs" "ext4" ];
+  };
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-partlabel/RICO2_ROOT";
