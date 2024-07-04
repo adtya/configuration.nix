@@ -105,6 +105,7 @@
               }
               lix-module.nixosModules.default
               sops-nix.nixosModules.sops
+              self.nixosModules.default
               ./common
               ./hosts/rico0
             ];

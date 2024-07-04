@@ -6,7 +6,6 @@
   ];
 
   programs = {
-    command-not-found.enable = lib.mkDefault false;
     git.enable = true;
   };
 
