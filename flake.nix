@@ -262,6 +262,7 @@
           deploy-rs.packages.${pkgs.system}.default
         ];
       };
+      nixosModules.default = ./modules;
       packages.getpaper = pkgs.callPackage ./extra-packages/scripts/getpaper { };
     }
     );
