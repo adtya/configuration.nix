@@ -60,6 +60,7 @@
       };
     in
     {
+      nixosModules.default = import ./modules;
       nixosConfigurations = {
         Skipper =
           let
@@ -263,7 +264,6 @@
           deploy-rs.packages.${pkgs.system}.default
         ];
       };
-      nixosModules.default = ./modules;
       packages.getpaper = pkgs.callPackage ./extra-packages/scripts/getpaper { };
     }
     );
