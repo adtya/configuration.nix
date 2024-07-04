@@ -3,7 +3,7 @@
 , ...
 }:
 let
-  gnome-keyring-daemon = "${pkgs.gnome.gnome-keyring}/bin/gnome-keyring-daemon";
+  gnome-keyring-daemon = "${pkgs.gnome-keyring}/bin/gnome-keyring-daemon";
   hyprland = "${config.wayland.windowManager.hyprland.finalPackage}/bin/Hyprland";
 in
 {
