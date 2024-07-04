@@ -21,5 +21,5 @@
       watch-dir-enabled = true;
     };
   };
-  systemd.services.transmission.after = [ "mnt-data.mount" ];
+  systemd.services.transmission.unitConfig.RequiresMountsFor = [ "/mnt/data" ];
 }
