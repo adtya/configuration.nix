@@ -4,6 +4,16 @@
   ];
 
   networking = {
+    extraHosts = ''
+      10.10.10.1 Proxy
+      10.10.10.2 Skipper
+      10.10.10.10 Rico0
+      10.10.10.11 Rico1
+      10.10.10.12 Rico2
+      10.10.10.13 Wynne
+      10.10.10.14 Layne
+    '';
+
     firewall = {
       allowedTCPPorts = [
         41414 #Torrent
