@@ -1,5 +1,27 @@
-_: {
-  imports = [ ./hardware ./programs ./services ./network.nix ./security.nix ];
+{ lib, ... }: {
+  imports = [
+    ./hardware
+    ./programs
+    ./services
+    ./network.nix
+    ./security.nix
+  ];
+
+  documentation = {
+    enable = lib.mkDefault false;
+    doc.enable = lib.mkDefault false;
+    info.enable = lib.mkDefault false;
+    man.enable = lib.mkDefault false;
+    nixos.enable = lib.mkDefault false;
+  };
+
+  xdg = {
+    autostart.enable = lib.mkDefault false;
+    icons.enable = lib.mkDefault false;
+    mime.enable = lib.mkDefault false;
+    sounds.enable = lib.mkDefault false;
+  };
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {
