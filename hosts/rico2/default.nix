@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
   imports = [
     ./hardware
     ./programs
@@ -7,6 +7,21 @@
     ./network.nix
     ./security.nix
   ];
+
+  documentation = {
+    enable = lib.mkDefault false;
+    doc.enable = lib.mkDefault false;
+    info.enable = lib.mkDefault false;
+    man.enable = lib.mkDefault false;
+    nixos.enable = lib.mkDefault false;
+  };
+
+  xdg = {
+    autostart.enable = lib.mkDefault false;
+    icons.enable = lib.mkDefault false;
+    mime.enable = lib.mkDefault false;
+    sounds.enable = lib.mkDefault false;
+  };
 
   # https://github.com/NixOS/nixpkgs/issues/126755#issuecomment-869149243
   nixpkgs.overlays = [
