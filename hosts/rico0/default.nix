@@ -8,6 +8,13 @@
     ./security.nix
   ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "Fri *-*-* 00:00:00";
+    options = "--delete-old";
+    randomizedDelaySec = "1h";
+  };
+
   documentation = {
     enable = lib.mkDefault false;
     doc.enable = lib.mkDefault false;
