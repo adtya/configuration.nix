@@ -11,7 +11,8 @@
       "--no-portmap"
       "--dht"
       "--lpd"
-      "--allowed" "127.0.0.1,10.10.10.*"
+      "--allowed"
+      "127.0.0.1,10.10.10.*"
     ];
     settings = {
       peer-port = 51515;
