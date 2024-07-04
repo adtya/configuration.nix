@@ -1,10 +1,12 @@
 { lib, config, ... }:
 let cfg = config.nodeconfig; in {
-  options.nix.auto-gc = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    example = true;
-    description = "Enable Automatic Garbage collection of the Nix store";
+  options.nodeconfig = {
+    nix.auto-gc = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      example = true;
+      description = "Enable Automatic Garbage collection of the Nix store";
+    };
   };
 
   config = lib.mkIf cfg.nix.auto-gc {

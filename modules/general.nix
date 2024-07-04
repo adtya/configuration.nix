@@ -1,10 +1,12 @@
 { lib, config, ... }:
 let cfg = config.nodeconfig; in {
-  options.minimize = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    example = true;
-    description = "Disable non-essential stuff";
+  options.nodeconfig = {
+    minimize = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+      example = true;
+      description = "Disable non-essential stuff";
+    };
   };
 
   config = lib.mkIf cfg.minimize {
