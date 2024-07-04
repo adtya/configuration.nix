@@ -131,6 +131,7 @@
               sops-nix.nixosModules.sops
               ./common
               ./hosts/rico1
+              self.nixosModules.default
             ];
           };
         Rico2 =
@@ -151,6 +152,7 @@
               }
               lix-module.nixosModules.default
               sops-nix.nixosModules.sops
+              self.nixosModules.default
               ./common
               ./hosts/rico2
             ];
@@ -173,6 +175,7 @@
               }
               lix-module.nixosModules.default
               sops-nix.nixosModules.sops
+              self.nixosModules.default
               ./common
               ./hosts/wynne
             ];
@@ -195,6 +198,7 @@
               }
               lix-module.nixosModules.default
               sops-nix.nixosModules.sops
+              self.nixosModules.default
               ./common
               ./hosts/layne
             ];

@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./neovim.nix
     ./starship.nix
@@ -6,7 +6,6 @@
   ];
 
   programs = {
-    command-not-found.enable = lib.mkDefault false;
     git.enable = true;
   };
 
