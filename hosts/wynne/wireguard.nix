@@ -1,4 +1,6 @@
 { config, ... }: {
+  imports = [ ../shared/wireguard.nix ];
+
   sops.secrets = {
     "wireguard/wynne/pk" = {
       mode = "400";
@@ -12,31 +14,14 @@
     };
   };
 
-  networking.firewall.trustedInterfaces = [ "wg0" ];
-  networking.wireguard = {
+  nodeconfig.wireguard = {
     enable = true;
-    interfaces = {
-      wg0 = {
-        ips = [
-          "10.10.10.13/24"
-          "fd7c:585c:c4ae::13/64"
-        ];
-        listenPort = 51833;
-        privateKeyFile = config.sops.secrets."wireguard/wynne/pk".path;
-        peers = [
-          {
-            name = "Proxy";
-            endpoint = "165.232.180.97:51821";
-            publicKey = "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=";
-            presharedKeyFile = config.sops.secrets."wireguard/wynne/psk".path;
-            persistentKeepalive = 20;
-            allowedIPs = [
-              "10.10.10.0/24"
-              "fd7c:585c:c4ae::0/64"
-            ];
-          }
-        ];
-      };
-    };
+    listen-port = 51833;
+    pk-file = config.sops.secrets."wireguard/wynne/pk".path;
+    psk-file = config.sops.secrets."wireguard/wynne/psk".path;
+    node-ips = [
+      "10.10.10.13/24"
+      "fd7c:585c:c4ae::13/64"
+    ];
   };
 }
