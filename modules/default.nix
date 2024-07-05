@@ -3,5 +3,6 @@ _: {
     ./general.nix
     ./nix.nix
     ./pi.nix
+    ./wireguard.nix
   ];
 }
