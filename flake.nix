@@ -83,6 +83,7 @@
               lanzaboote.nixosModules.lanzaboote
               impermanence.nixosModules.impermanence
               home-manager.nixosModules.home-manager
+              self.nixosModules.default
               ./common
               ./hosts/skipper
               ./home
@@ -129,9 +130,9 @@
               }
               lix-module.nixosModules.default
               sops-nix.nixosModules.sops
+              self.nixosModules.default
               ./common
               ./hosts/rico1
-              self.nixosModules.default
             ];
           };
         Rico2 =
