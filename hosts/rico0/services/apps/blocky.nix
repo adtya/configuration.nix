@@ -9,6 +9,8 @@ _: {
       ];
     };
   };
+  systemd.services.blocky.unitConfig.Requires = "wireguard-wg0.service";
+  systemd.services.blocky.unitConfig.After = [ "wireguard-wg0.service" ];
   services.blocky = {
     enable = true;
     settings = {
