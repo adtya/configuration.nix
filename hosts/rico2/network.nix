@@ -1,45 +1,31 @@
-{ lib, ... }: {
-  imports = [ ./wireguard.nix ];
-  networking = {
-    nameservers = [
-      "2620:fe::fe#dns.quad9.net"
-      "9.9.9.9#dns.quad9.net"
-      "2620:fe::9#dns.quad9.net"
-      "149.112.112.112#dns.quad9.net"
-    ];
-    useDHCP = lib.mkDefault false;
-    useNetworkd = true;
-  };
+{ config, ... }: {
+  imports = [
+    ../shared/network.nix
+    ../shared/networkd.nix
+    ../shared/wireguard.nix
+  ];
 
-  systemd.network = {
-    enable = true;
-    networks = {
-      "41-ether" = {
-        enable = true;
-        matchConfig = {
-          Type = "ether";
-        };
-        networkConfig = {
-          DHCP = "yes";
-        };
-        dhcpV4Config = {
-          UseDomains = true;
-        };
-        ipv6AcceptRAConfig = {
-          UseDomains = true;
-        };
-        linkConfig = {
-          RequiredForOnline = "yes";
-        };
-      };
+  sops.secrets = {
+    "wireguard/rico2/pk" = {
+      mode = "400";
+      owner = config.users.users.root.name;
+      group = config.users.users.root.group;
+    };
+    "wireguard/rico2/psk" = {
+      mode = "400";
+      owner = config.users.users.root.name;
+      group = config.users.users.root.group;
     };
   };
 
-  services.resolved = {
+  nodeconfig.wireguard = {
     enable = true;
-    dnssec = "true";
-    dnsovertls = "true";
-    domains = [ "~." ];
-    fallbackDns = [ ];
+    listen-port = 51832;
+    pk-file = config.sops.secrets."wireguard/rico2/pk".path;
+    psk-file = config.sops.secrets."wireguard/rico2/psk".path;
+    node-ips = [
+      "10.10.10.12/24"
+      "fd7c:585c:c4ae::12/64"
+    ];
   };
 }
