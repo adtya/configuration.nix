@@ -12,6 +12,7 @@
         cue = true;
       };
     };
+    pki.certificateFiles = [ ../shared/certs/local.adtya.xyz.CA.pem ];
     polkit.enable = true;
     rtkit.enable = true;
     sudo = {
