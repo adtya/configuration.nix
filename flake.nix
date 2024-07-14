@@ -14,10 +14,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
-    lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module?ref=release-2.90";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +32,6 @@
   outputs =
     { self
     , nixpkgs
-    , lix-module
     , home-manager
     , impermanence
     , lanzaboote
@@ -78,7 +73,6 @@
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              lix-module.nixosModules.default
               sops-nix.nixosModules.sops
               lanzaboote.nixosModules.lanzaboote
               impermanence.nixosModules.impermanence
@@ -105,7 +99,6 @@
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              lix-module.nixosModules.default
               sops-nix.nixosModules.sops
               self.nixosModules.default
               ./common
@@ -128,7 +121,6 @@
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              lix-module.nixosModules.default
               sops-nix.nixosModules.sops
               self.nixosModules.default
               ./common
@@ -151,7 +143,6 @@
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              lix-module.nixosModules.default
               sops-nix.nixosModules.sops
               self.nixosModules.default
               ./common
@@ -174,7 +165,6 @@
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              lix-module.nixosModules.default
               sops-nix.nixosModules.sops
               self.nixosModules.default
               ./common
@@ -197,7 +187,6 @@
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              lix-module.nixosModules.default
               sops-nix.nixosModules.sops
               self.nixosModules.default
               ./common
