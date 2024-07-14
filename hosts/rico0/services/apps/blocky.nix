@@ -72,6 +72,12 @@ _: {
         https = "192.168.1.10:8443,10.10.10.10:8443";
         http = "192.168.1.10:8080,10.10.10.10:8080";
       };
+      log = {
+        level = "warn";
+        format = "json";
+        timestamp = true;
+        privacy = true;
+      };
     };
   };
 }
