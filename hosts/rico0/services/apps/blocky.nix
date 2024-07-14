@@ -18,6 +18,9 @@ _: {
         init.strategy = "blocking";
         groups = {
           default = [
+            # Cloudflare
+            "tcp+udp:1.1.1.1"
+
             # Google
             "tcp+udp:8.8.8.8"
             "tcp+udp:8.8.4.4"
