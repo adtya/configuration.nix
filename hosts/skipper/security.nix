@@ -8,8 +8,10 @@
       };
       u2f = {
         enable = true;
-        authFile = "/persist/secrets/u2f/u2f_keys";
-        cue = true;
+        settings = {
+          authFile = "/persist/secrets/u2f/u2f_keys";
+          cue = true;
+        };
       };
     };
     pki.certificateFiles = [ ../shared/certs/local.adtya.xyz.CA.pem ];
