@@ -9,14 +9,13 @@ _: {
       ];
     };
   };
-  systemd.services.blocky.unitConfig.Requires = "wireguard-wg0.service";
-  systemd.services.blocky.unitConfig.After = [ "wireguard-wg0.service" ];
+  systemd.services.blocky.unitConfig.After = [ "network-online.target" "wireguard-wg0.service" ];
   services.blocky = {
     enable = true;
     settings = {
       bootstrapDns = [ "tcp+udp:1.1.1.1" ];
       upstreams = {
-        init.strategy = "failOnError";
+        init.strategy = "blocking";
         groups = {
           default = [
             # Google
