@@ -21,14 +21,10 @@ _: {
             # Google
             "tcp+udp:8.8.8.8"
             "tcp+udp:8.8.4.4"
-            "tcp+udp:2001:4860:4860::8888"
-            "tcp+udp:2001:4860:4860::8844"
 
             # Quad9
             "tcp+udp:9.9.9.9"
             "tcp+udp:149.112.112.112"
-            "tcp+udp:2620:fe::fe"
-            "tcp+udp:2620:fe::9"
             "tcp-tls:dns.quad9.net:853"
             "https://dns.quad9.net/dns-query"
           ];
@@ -37,7 +33,7 @@ _: {
         timeout = "2s";
         userAgent = "Praise the DNS overlords!";
       };
-      connectIPVersion = "dual";
+      connectIPVersion = "v4";
       customDNS = {
         customTTL = "1h";
         filterUnmappedTypes = true;
