@@ -1,3 +1,3 @@
 _: {
-  imports = [ ./blocky.nix ];
+  imports = [ ./blocky.nix ./prometheus.nix ];
 }

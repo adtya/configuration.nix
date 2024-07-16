@@ -65,6 +65,10 @@ _: {
         upstream = "192.168.1.1";
         singleNameOrder = [ 2 1 ];
       };
+      prometheus = {
+        enable = true;
+        path = "/metrics";
+      };
       ports = {
         dns = "192.168.1.10:53,10.10.10.10:53";
         tls = "192.168.1.10:853,10.10.10.10:853";
