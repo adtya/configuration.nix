@@ -1,3 +1,3 @@
 _: {
-  imports = [ ./blocky.nix ./transmission.nix ];
+  imports = [ ./blocky.nix ];
 }

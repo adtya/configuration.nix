@@ -16,7 +16,7 @@
     ];
     settings = {
       peer-port = 51515;
-      rpc-bind-address = "10.10.10.10";
+      rpc-bind-address = "10.10.10.14";
       rpc-port = 9091;
       watch-dir-enabled = true;
     };
