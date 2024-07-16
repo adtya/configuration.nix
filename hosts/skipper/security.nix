@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  imports = [ ../shared/certs ];
   security = {
     pam = {
       services = {
@@ -14,7 +15,6 @@
         };
       };
     };
-    pki.certificateFiles = [ ../shared/certs/local.adtya.xyz.CA.pem ];
     polkit.enable = true;
     rtkit.enable = true;
     sudo = {
