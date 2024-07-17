@@ -1,6 +1,7 @@
 _: {
   services.prometheus = {
     enable = true;
+    listenAddress = "10.10.10.10";
     scrapeConfigs = [
       {
         job_name = "frp";
