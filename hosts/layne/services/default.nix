@@ -1,3 +1,3 @@
 _: {
-  imports = [ ./apps ./btrfs.nix ./ssh.nix ];
+  imports = [ ./apps ./caddy.nix ./btrfs.nix ./ssh.nix ];
 }
