@@ -4,7 +4,7 @@ _: {
       virtualHosts."prometheus.labs.adtya.xyz" = {
         extraConfig = ''
           reverse_proxy 127.0.0.1:9090
-          tls /persist/secrets/caddy/certs/prometheus.crt /persist/secrets/caddy/certs/prometheus.key
+          tls /persist/secrets/caddy/certs/default.crt /persist/secrets/caddy/certs/default.key
         '';
       };
     };
