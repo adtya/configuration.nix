@@ -21,8 +21,9 @@ _: {
         }
         {
           job_name = "blocky";
+          scheme = "https";
           static_configs = [
-            { targets = [ "10.10.10.10:8080" ]; }
+            { targets = [ "blocky.labs.adtya.xyz" ]; }
           ];
         }
       ];
