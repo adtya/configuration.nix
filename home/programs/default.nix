@@ -26,6 +26,7 @@
 
   home.packages = with pkgs; [
     _1password-gui
+    android-file-transfer
     blueberry
     discord
     doctl
