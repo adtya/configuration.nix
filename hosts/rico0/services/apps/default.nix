@@ -3,6 +3,6 @@ _: {
     ./blocky.nix
     ./grafana.nix
     ./prometheus.nix
-    ../../../shared/node-exporter.nix
+    ../../../shared/prometheus-exporters.nix
   ];
 }

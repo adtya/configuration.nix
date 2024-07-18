@@ -1,6 +1,6 @@
 _: {
   imports = [
     ./transmission.nix
-    ../../../shared/node-exporter.nix
+    ../../../shared/prometheus-exporters.nix
   ];
 }

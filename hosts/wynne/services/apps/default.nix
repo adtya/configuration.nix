@@ -1,3 +1,3 @@
 _: {
-  imports = [ ../../../shared/node-exporter.nix ];
+  imports = [ ../../../shared/prometheus-exporters.nix ];
 }
