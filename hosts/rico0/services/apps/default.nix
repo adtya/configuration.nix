@@ -1,3 +1,8 @@
 _: {
-  imports = [ ./blocky.nix ./grafana.nix ./prometheus.nix ];
+  imports = [
+    ./blocky.nix
+    ./grafana.nix
+    ./prometheus.nix
+    ../../../shared/node-exporter.nix
+  ];
 }
