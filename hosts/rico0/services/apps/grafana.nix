@@ -16,6 +16,12 @@ _: {
           http_addr = "127.0.0.1";
           http_port = 9091;
         };
+        analytics = {
+          enable = false;
+        };
+        panels = {
+          disable_sanitize_html = true;
+        };
       };
     };
   };
