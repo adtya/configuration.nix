@@ -50,6 +50,13 @@ _: {
           customTTL = "1h";
           filterUnmappedTypes = true;
           mapping = {
+            "proxy.labs.adtya.xyz" = "10.10.10.1,fd7c:585c:c4ae::1";
+            "skipper.labs.adtya.xyz" = "10.10.10.2,fd7c:585c:c4ae::2";
+            "rico0.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
+            "rico1.labs.adtya.xyz" = "10.10.10.11,fd7c:585c:c4ae::11";
+            "rico2.labs.adtya.xyz" = "10.10.10.12,fd7c:585c:c4ae::12";
+            "wynne.labs.adtya.xyz" = "10.10.10.13,fd7c:585c:c4ae::13";
+            "layne.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
             "frp.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
             "blocky.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
             "grafana.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
