@@ -11,7 +11,6 @@
     ./git.nix
     ./gnupg.nix
     ./helix.nix
-    ./imv.nix
     ./kitty.nix
     ./mpv.nix
     ./neovim.nix
@@ -43,6 +42,7 @@
     spotify
     (steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; })
     (steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; }).run
+    swayimg
     telegram-desktop
     transmission-remote-gtk
     wl-clipboard

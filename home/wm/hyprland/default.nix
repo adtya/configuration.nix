@@ -120,9 +120,9 @@ in
         "center,class:^(mpv)$"
         "dimaround,class:^(mpv)$"
 
-        "float,class:^(imv)$"
-        "size 90% 90%,class:^(imv)$"
-        "center,class:^(imv)$"
+        "float,class:^(swayimg_.*)$"
+        "size 90% 90%,class:^(swayimg_.*)$"
+        "center,class:^(swayimg_.*)$"
 
         "float,class:^(org.pwmt.zathura)$"
         "size 90% 90%,class:^(org.pwmt.zathura)$"
