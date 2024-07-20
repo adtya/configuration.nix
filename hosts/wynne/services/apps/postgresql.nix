@@ -16,8 +16,13 @@
         host   all  all  10.10.10.0/24         trust
         host   all  all  fd7c:585c:c4ae::0/64  trust
       '';
-      ensureDatabases = [ ];
-      ensureUsers = [ ];
+      ensureDatabases = [ "dendrite" ];
+      ensureUsers = [
+      {
+        name = "dendrite";
+        ensureDBOwnership = true;
+      }
+      ];
     };
   };
   systemd.services.postgresql.unitConfig.RequiresMountsFor = [ "/mnt/data" ];
