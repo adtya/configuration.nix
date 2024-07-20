@@ -1,5 +1,11 @@
 { config, pkgs, ... }: {
   services = {
+    prometheus.exporters.postgres = {
+      enable = true;
+      listenAddress = "127.0.0.1";
+      port = 9187;
+      runAsLocalSuperUser = true;
+    };
     postgresql = {
       enable = true;
       dataDir = "/mnt/data/postgresql/${config.services.postgresql.package.psqlSchema}";

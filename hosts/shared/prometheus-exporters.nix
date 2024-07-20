@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ lib, config, ... }: {
   services = {
     caddy = {
       virtualHosts."${config.networking.hostName}.labs.adtya.xyz" = {
@@ -10,6 +10,12 @@
             uri replace /systemd-metrics /metrics
             reverse_proxy 127.0.0.1:9558
           }
+          ${lib.optionalString config.services.prometheus.exporters.postgres.enable ''
+          handle /postgres-metrics {
+            uri replace /postgres-metrics /metrics
+            reverse_proxy ${config.services.prometheus.exporters.postgres.listenAddress}:${toString config.services.prometheus.exporters.postgres.port}
+          }
+          ''}
           tls /persist/secrets/caddy/certs/default.crt /persist/secrets/caddy/certs/default.key
         '';
       };
