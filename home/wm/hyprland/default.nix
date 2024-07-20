@@ -40,6 +40,13 @@ in
         layout = "master";
       };
 
+      master = {
+        mfact = 0.65;
+        new_status = "master";
+        new_on_top = true;
+        no_gaps_when_only = 1;
+      };
+
       decoration = {
         "col.shadow" = "rgba(1E202966)";
         dim_around = 0.6;
@@ -72,13 +79,6 @@ in
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         vfr = true;
-      };
-
-      master = {
-        mfact = 0.65;
-        new_status = "master";
-        new_on_top = true;
-        no_gaps_when_only = 1;
       };
 
       animation = [
@@ -203,8 +203,8 @@ in
         "SUPER_SHIFT,9,       movetoworkspace, 9"
         "SUPER_SHIFT,0,       movetoworkspace, 10"
 
-        "SUPER,l,             layoutmsg,cyclenext"
-        "SUPER,h,             layoutmsg,cycleprev"
+        "SUPER,l,             layoutmsg,rollnext"
+        "SUPER,h,             layoutmsg,rollprev"
         "SUPER,m,             layoutmsg,focusmaster"
         "SUPER_SHIFT,m,       layoutmsg,swapwithmaster"
 
