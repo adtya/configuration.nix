@@ -1,0 +1,143 @@
+version: 2
+
+global:
+  server_name: acomputer.lol
+  private_key: /persist/secrets/dendrite/matrix_key.pem
+  key_validity_period: 168h0m0s
+  database:
+    connection_string: postgresql://dendrite@localhost/dendrite?sslmode=disable
+    max_open_conns: 90
+    max_idle_conns: 5
+    conn_max_lifetime: -1
+
+  cache:
+    max_size_estimated: 1gb
+    max_age: 1h
+
+  well_known_server_name: "matrix.acomputer.lol:443"
+  well_known_client_name: "https://matrix.acomputer.lol"
+
+  # The server name to delegate sliding sync communications to, with optional port.
+  # Requires `well_known_client_name` to also be configured.
+  # well_known_sliding_sync_proxy: ""
+
+  trusted_third_party_id_servers:
+    - matrix.org
+    - vector.im
+
+  disable_federation: false
+
+  # Configures the handling of presence events. Inbound controls whether we receive
+  # presence events from other servers, outbound controls whether we send presence
+  # events for our local users to other servers.
+  presence:
+    enable_inbound: false
+    enable_outbound: false
+
+  # Server notices allows server admins to send messages to all users on the server.
+  server_notices:
+    enabled: false
+    local_part: "_server"
+    display_name: "Server Alerts"
+    avatar_url: ""
+    room_name: "Server Alerts"
+
+  # Configuration for NATS JetStream
+  jetstream:
+    storage_path: /mnt/data/dendrite/nats
+    topic_prefix: Dendrite
+
+  # Configuration for Prometheus metric collection.
+  metrics:
+    enabled: false
+    basic_auth:
+      username: metrics
+      password: metrics
+
+client_api:
+  registration_disabled: true
+  guests_disabled: true
+  registration_shared_secret: ""
+  enable_registration_captcha: false
+  recaptcha_public_key: ""
+  recaptcha_private_key: ""
+  recaptcha_bypass_secret: ""
+
+  # TURN server information that this homeserver should send to clients.
+  turn:
+    turn_user_lifetime: "5m"
+    turn_uris:
+    #  - turn:turn.server.org?transport=udp
+    #  - turn:turn.server.org?transport=tcp
+    turn_shared_secret: ""
+    # If your TURN server requires static credentials, then you will need to enter
+    # them here instead of supplying a shared secret. Note that these credentials
+    # will be visible to clients!
+    # turn_username: ""
+    # turn_password: ""
+
+  # Settings for rate-limited endpoints. Rate limiting kicks in after the threshold
+  # number of "slots" have been taken by requests from a specific host. Each "slot"
+  # will be released after the cooloff time in milliseconds. Server administrators
+  # and appservice users are exempt from rate limiting by default.
+  rate_limiting:
+    enabled: true
+    threshold: 20
+    cooloff_ms: 500
+    exempt_user_ids:
+    #  - "@user:domain.com"
+
+federation_api:
+  send_max_retries: 16
+  disable_tls_validation: false
+  disable_http_keepalives: false
+
+  key_perspectives:
+    - server_name: matrix.org
+      keys:
+        - key_id: ed25519:auto
+          public_key: Noi6WqcDj0QmPxCNQqgezwTlBKrfqehY1u2FyWP9uYw
+        - key_id: ed25519:a_RXGa
+          public_key: l8Hft5qXKn1vfHrg3p4+W8gELQVo8N13JkluMfmn2sQ
+  prefer_direct_fetch: false
+
+# Configuration for the Media API.
+media_api:
+  base_path: /mnt/data/dendrite/media
+  max_file_size_bytes: 10485760
+  dynamic_thumbnails: false
+  max_thumbnail_generators: 10
+  thumbnail_sizes:
+    - width: 32
+      height: 32
+      method: crop
+    - width: 96
+      height: 96
+      method: crop
+    - width: 640
+      height: 480
+      method: scale
+
+# Configuration for enabling experimental MSCs on this homeserver.
+mscs:
+  mscs:
+  #  - msc2836  # (Threading, see https://github.com/matrix-org/matrix-doc/pull/2836)
+
+sync_api:
+  real_ip_header: X-Real-IP
+
+  search:
+    enabled: true
+    index_path: "/mnt/data/dendrite/searchindex"
+    language: "en"
+
+# Logging configuration. The "std" logging type controls the logs being sent to
+# stdout. The "file" logging type controls logs being written to a log folder on
+# the disk. Supported log levels are "debug", "info", "warn", "error".
+logging:
+  - type: std
+    level: warn
+  - type: file
+    level: warn
+    params:
+      path: /mnt/data/dendrite/logs

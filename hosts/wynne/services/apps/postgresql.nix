@@ -18,10 +18,10 @@
       '';
       ensureDatabases = [ "dendrite" ];
       ensureUsers = [
-      {
-        name = "dendrite";
-        ensureDBOwnership = true;
-      }
+        {
+          name = "dendrite";
+          ensureDBOwnership = true;
+        }
       ];
     };
   };
