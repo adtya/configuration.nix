@@ -1,3 +1,6 @@
 _: {
-  imports = [ ../../../shared/prometheus-exporters.nix ];
+  imports = [
+    ./postgresql.nix
+    ../../../shared/prometheus-exporters.nix
+  ];
 }
