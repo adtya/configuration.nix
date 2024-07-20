@@ -11,7 +11,16 @@ _: {
     prometheus = {
       enable = true;
       listenAddress = "127.0.0.1";
+      port = 9090;
       scrapeConfigs = [
+        {
+          job_name = "postgres";
+          scheme = "https";
+          metrics_path = "/postgres-metrics";
+          static_configs = [
+            { targets = [ "wynne.labs.adtya.xyz" ]; }
+          ];
+        }
         {
           job_name = "systemd";
           scheme = "https";
