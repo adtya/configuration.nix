@@ -94,11 +94,6 @@ in
 
         "workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$"
 
-        "float,class:^(firefox)$,title:^(Library)$"
-
-        "float,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$"
-        "move 95% 50%,class:^(firefox)$,title:^(Firefox — Sharing Indicator)$"
-
         "float,class:^(pavucontrol)$"
         "size 50% 50%,class:^(pavucontrol)$"
         "center,class:^(pavucontrol)$"
@@ -110,10 +105,6 @@ in
         "float,class:^(blueberry.py)$"
         "size 50% 50%,class:^(blueberry.py)$"
         "center,class:^(blueberry.py)$"
-
-        "float,class:^(ytfzf)$"
-        "size 90% 90%,class:^(ytfzf)$"
-        "center,class:^(ytfzf)$"
 
         "float,class:^(mpv)$"
         "size 90% 90%,class:^(mpv)$"
@@ -127,10 +118,6 @@ in
         "float,class:^(org.pwmt.zathura)$"
         "size 90% 90%,class:^(org.pwmt.zathura)$"
         "center,class:^(org.pwmt.zathura)$"
-
-        "float,class:^(yazi)$"
-        "center,class:^(yazi)$"
-        "size 90% 90%,class:^(yazi)$"
 
         "float,class:^(.yubioath-flutter-wrapped_)$"
         "center,class:^(.yubioath-flutter-wrapped_)$"
