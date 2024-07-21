@@ -39,7 +39,7 @@ _: {
               from = "2024-07-01";
               store = "tsdb";
               object_store = "filesystem";
-              scheme = "v13";
+              schema = "v13";
               index = { prefix = "index_"; period = "24h"; };
             }
           ];
