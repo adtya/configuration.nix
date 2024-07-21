@@ -57,8 +57,9 @@ _: {
             "rico2.labs.adtya.xyz" = "10.10.10.12,fd7c:585c:c4ae::12";
             "wynne.labs.adtya.xyz" = "10.10.10.13,fd7c:585c:c4ae::13";
             "layne.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
-            "frp.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
+            "alertmanager.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
             "blocky.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
+            "frp.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
             "grafana.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
             "prometheus.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
             "transmission.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
