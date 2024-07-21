@@ -5,5 +5,6 @@ _: {
     ./loki.nix
     ./prometheus.nix
     ../../../shared/prometheus-exporters.nix
+    ../../../shared/promtail.nix
   ];
 }
