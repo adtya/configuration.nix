@@ -32,7 +32,7 @@
               matches = "_TRANSPORT=kernel";
               labels = { job = "systemd-journal"; host = "${config.networking.hostName}"; };
             };
-            relabel_config = [
+            relabel_configs = [
               {
                 source_labels = [ "__journal__systemd_unit" ];
                 target_label = "unit";
