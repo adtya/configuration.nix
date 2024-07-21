@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./alertmanager.nix
     ./blocky.nix
     ./grafana.nix
     ./loki.nix
