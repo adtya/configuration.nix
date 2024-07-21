@@ -12,6 +12,14 @@ _: {
       enable = true;
       listenAddress = "127.0.0.1";
       port = 9090;
+      alertmanagers = [
+        {
+          scheme = "https";
+          static_configs = [
+            { targets = [ "alertmanager.labs.adtya.xyz" ]; }
+          ];
+        }
+      ];
       scrapeConfigs = [
         {
           job_name = "postgres";
