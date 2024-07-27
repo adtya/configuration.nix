@@ -14,11 +14,11 @@
         server = {
           http_listen_address = "127.0.0.1";
           http_listen_port = 9080;
+          grpc_listen_port = 0;
         };
         clients = [
           {
-            url = "https://loki.labs.adtya.xyz/api/v1/push";
-            tenant_id = 1;
+            url = "https://loki.labs.adtya.xyz/loki/api/v1/push";
           }
         ];
         positions = { filename = "/tmp/promtail-positions.yaml"; };
@@ -29,7 +29,6 @@
               json = false;
               max_age = "12h";
               path = "/var/log/journal";
-              matches = "_TRANSPORT=kernel";
               labels = { job = "systemd-journal"; host = "${config.networking.hostName}"; };
             };
             relabel_configs = [
