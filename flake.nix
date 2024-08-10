@@ -45,7 +45,7 @@
     ,
     } @ inputs:
     let
-      lib = nixpkgs.lib;
+      inherit (nixpkgs) lib;
       packages = system: import nixpkgs {
         inherit system;
         config = {
