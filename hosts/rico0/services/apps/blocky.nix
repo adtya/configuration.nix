@@ -50,6 +50,14 @@ _: {
           customTTL = "1h";
           filterUnmappedTypes = true;
           mapping = {
+            "gateway.local.adtya.xyz" = "192.168.0.1";
+            "ap1.local.adtya.xyz" = "192.168.1.1";
+            "ap2.local.adtya.xyz" = "192.168.1.2";
+            "switch.local.adtya.xyz" = "192.168.1.3";
+            "gateway.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
+            "ap1.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
+            "ap2.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
+            "switch.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
             "proxy.labs.adtya.xyz" = "10.10.10.1,fd7c:585c:c4ae::1";
             "skipper.labs.adtya.xyz" = "10.10.10.2,fd7c:585c:c4ae::2";
             "rico0.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
