@@ -63,11 +63,6 @@ _: {
             "grafana.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
             "loki.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
             "prometheus.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "promtail.rico0.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "promtail.rico1.labs.adtya.xyz" = "10.10.10.11,fd7c:585c:c4ae::11";
-            "promtail.rico2.labs.adtya.xyz" = "10.10.10.12,fd7c:585c:c4ae::12";
-            "promtail.wynne.labs.adtya.xyz" = "10.10.10.13,fd7c:585c:c4ae::13";
-            "promtail.layne.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
             "transmission.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
           };
         };

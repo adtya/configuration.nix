@@ -1,13 +1,5 @@
 { config, ... }: {
   services = {
-    caddy = {
-      virtualHosts."promtail.${config.networking.hostName}.labs.adtya.xyz" = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:9080
-          tls /persist/secrets/caddy/certs/default.crt /persist/secrets/caddy/certs/default.key
-        '';
-      };
-    };
     promtail = {
       enable = true;
       configuration = {
