@@ -147,7 +147,6 @@ in
         "SUPER_SHIFT,space,   togglefloating,active"
         "SUPER_SHIFT,space,   centerwindow"
         "SUPER_SHIFT,F,       fullscreen,0"
-        "SUPER_ALT,F,         fakefullscreen"
 
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
         "SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service"
