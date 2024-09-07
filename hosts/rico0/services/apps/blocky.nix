@@ -87,6 +87,7 @@ _: {
           denylists = {
             ads = [
               "https://raw.githubusercontent.com/blocklistproject/Lists/master/ads.txt"
+              "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
             ];
           };
           clientGroupsBlock = {
