@@ -24,6 +24,7 @@
     deploy-rs.url = "github:serokell/deploy-rs?ref=master";
     flake-utils.url = "github:numtide/flake-utils?ref=main";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
+    caddy.url = "github:adtya/caddy-with-modules?ref=main";
     adtyaxyz.url = "github:adtya/adtya.xyz?ref=main";
     wiki.url = "github:adtya/wiki?ref=main";
   };
@@ -38,6 +39,7 @@
     , deploy-rs
     , flake-utils
     , neovim-nightly
+    , caddy
     , adtyaxyz
     , wiki
     ,
