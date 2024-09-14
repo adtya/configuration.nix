@@ -4,7 +4,6 @@ _: {
       virtualHosts."alertmanager.labs.adtya.xyz" = {
         extraConfig = ''
           reverse_proxy 127.0.0.1:9093
-          tls /persist/secrets/caddy/certs/default.crt /persist/secrets/caddy/certs/default.key
         '';
       };
     };

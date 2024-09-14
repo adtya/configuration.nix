@@ -15,7 +15,6 @@ _: {
       virtualHosts."blocky.labs.adtya.xyz" = {
         extraConfig = ''
           reverse_proxy 127.0.0.1:8080
-          tls /persist/secrets/caddy/certs/default.crt /persist/secrets/caddy/certs/default.key
         '';
       };
     };

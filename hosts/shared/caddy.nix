@@ -15,6 +15,7 @@
     globalConfig = ''
       acme_dns digitalocean {env.DO_API_TOKEN}
     '';
+    logFormat = "level INFO";
   };
   systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.secrets."digitalocean/token_file".path;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
