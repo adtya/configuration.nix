@@ -24,7 +24,6 @@
     deploy-rs.url = "github:serokell/deploy-rs?ref=master";
     flake-utils.url = "github:numtide/flake-utils?ref=main";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
-    varnam-nix.url = "github:adtya/varnam-nix?ref=main";
     adtyaxyz.url = "github:adtya/adtya.xyz?ref=main";
     wiki.url = "github:adtya/wiki?ref=main";
   };
@@ -39,7 +38,6 @@
     , deploy-rs
     , flake-utils
     , neovim-nightly
-    , varnam-nix
     , adtyaxyz
     , wiki
     ,
@@ -51,7 +49,7 @@
         config = {
           allowUnfree = true;
         };
-        overlays = [ varnam-nix.overlays.default (import ./extra-packages) ];
+        overlays = [ (import ./extra-packages) ];
       };
     in
     {

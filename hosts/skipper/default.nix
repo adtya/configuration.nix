@@ -32,14 +32,6 @@
   gtk.iconCache.enable = true;
 
   i18n = {
-    inputMethod = {
-      enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        waylandFrontend = true;
-        addons = [ pkgs.fcitx5-varnam pkgs.fcitx5-gtk ];
-      };
-    };
     defaultLocale = "en_IN.UTF-8";
     extraLocaleSettings = {
       LC_ADDRESS = "en_IN.UTF-8";

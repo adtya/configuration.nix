@@ -569,22 +569,6 @@
     },
     "nixpkgs_7": {
       "locked": {
-        "lastModified": 1716220750,
-        "narHash": "sha256-Lhhrd1ZBNXCbUupWGq6gRPIy1qMKEdcAXcjnwgVqe/U=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "641daa314d5bc1bca4b345da8eb08a130b109c79",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_8": {
-      "locked": {
         "lastModified": 1726108120,
         "narHash": "sha256-Ji5wO1lLG99grI0qCRb6FyRPpH9tfdfD1QP/r7IlgfM=",
         "owner": "NixOS",
@@ -637,7 +621,6 @@
         "neovim-nightly": "neovim-nightly",
         "nixpkgs": "nixpkgs_5",
         "sops-nix": "sops-nix",
-        "varnam-nix": "varnam-nix",
         "wiki": "wiki"
       }
     },
@@ -760,29 +743,10 @@
         "type": "github"
       }
     },
-    "varnam-nix": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_7"
-      },
-      "locked": {
-        "lastModified": 1716722955,
-        "narHash": "sha256-aISfMjm7/9OQQNQ5f++TuD8wY87Bl1O0k+2snw1XLfY=",
-        "owner": "adtya",
-        "repo": "varnam-nix",
-        "rev": "6abc81db9438b979d67ce33459316453e6857312",
-        "type": "github"
-      },
-      "original": {
-        "owner": "adtya",
-        "ref": "main",
-        "repo": "varnam-nix",
-        "type": "github"
-      }
-    },
     "wiki": {
       "inputs": {
         "flake-utils": "flake-utils_3",
-        "nixpkgs": "nixpkgs_8"
+        "nixpkgs": "nixpkgs_7"
       },
       "locked": {
         "lastModified": 1726188295,
