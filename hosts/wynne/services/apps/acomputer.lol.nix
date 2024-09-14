@@ -11,7 +11,7 @@ _: {
         handle /.well-known/matrix/client {
           header Content-Type application/json
           header Access-Control-Allow-Origin *
-      respond `{"m.homeserver": {"base_url": "https://matrix.acomputer.lol:443"}, "org.matrix.msc3575.proxy": {"url": "https://matrix.acomputer.lol"}}`
+          respond `{"m.homeserver": {"base_url": "https://matrix.acomputer.lol:443"}, "org.matrix.msc3575.proxy": {"url": "https://matrix.acomputer.lol"}}`
         }
       '';
     };

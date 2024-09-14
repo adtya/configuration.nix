@@ -12,6 +12,10 @@ _: {
     nix.auto-gc = true;
   };
 
+  environment.sessionVariables = {
+    VDPAU_DRIVER = "va_gl";
+  };
+
   i18n = {
     defaultLocale = "en_US.UTF-8";
     extraLocaleSettings = {

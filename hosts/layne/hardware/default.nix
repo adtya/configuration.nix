@@ -4,6 +4,10 @@
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault true;
     enableRedistributableFirmware = true;
+    graphics = {
+      enable = true;
+      extraPackages = with pkgs; [ intel-media-driver vpl-gpu-rt libvdpau-va-gl ];
+    };
   };
 
   boot = {
@@ -15,7 +19,7 @@
     };
     kernelModules = [ "kvm-intel" ];
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-    kernelParams = [ ];
+    kernelParams = [ "i915.enable_fbc=1" "i915.enable_psr=2" ];
     kernel.sysctl = {
       "vm.swappiness" = 10;
       "vm.dirty_ratio" = 3;
