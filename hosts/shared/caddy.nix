@@ -1,4 +1,8 @@
-{ config, inputs, pkgs, ... }: {
+{ config, inputs, pkgs, ... }:
+let
+  inherit (import ./caddy-helpers.nix) logFormat;
+in
+{
   sops = {
     secrets = {
       "caddy/env_file" = {
@@ -15,7 +19,7 @@
     globalConfig = ''
       acme_dns digitalocean {env.DO_API_TOKEN}
     '';
-    logFormat = "level INFO";
+    logFormat = logFormat "caddy_main";
   };
   systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.secrets."caddy/env_file".path;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
