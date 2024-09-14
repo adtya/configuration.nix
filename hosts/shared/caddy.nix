@@ -1,10 +1,10 @@
 { config, inputs, pkgs, ... }: {
   sops = {
     secrets = {
-      "digitalocean/token_file" = {
-        mode = "444";
-        owner = config.users.users.root.name;
-        group = config.users.users.root.group;
+      "caddy/env_file" = {
+        mode = "400";
+        owner = config.users.users.caddy.name;
+        inherit (config.users.users.caddy) group;
       };
     };
   };
@@ -17,7 +17,7 @@
     '';
     logFormat = "level INFO";
   };
-  systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.secrets."digitalocean/token_file".path;
+  systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.secrets."caddy/env_file".path;
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 }
 
