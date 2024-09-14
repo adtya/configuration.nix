@@ -23,6 +23,7 @@ _: {
       { directory = ".config/transmission-remote-gtk"; method = "symlink"; }
       { directory = ".fly"; method = "symlink"; }
       { directory = ".local/share/direnv"; method = "symlink"; }
+      { directory = ".local/share/fractal"; method = "symlink"; }
       { directory = ".local/share/icons/hicolor"; method = "symlink"; }
       { directory = ".local/share/keyrings"; method = "symlink"; }
       { directory = ".local/share/lutris"; method = "symlink"; }
