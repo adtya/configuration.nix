@@ -16,6 +16,29 @@
         positions = { filename = "/tmp/promtail-positions.yaml"; };
         scrape_configs = [
           {
+            job_name = "caddy";
+            static_configs = [
+              {
+                targets = [ "localhost" ];
+                labels = {
+                  job = "caddy";
+                  "__path__" = "/var/log/caddy/*log";
+                  agent = "caddy-promtail";
+                };
+              }
+            ];
+            pipeline_stages = [
+              {
+                json = {
+                  expressions = { duration = "duration"; status = "status"; };
+                };
+              }
+              {
+                labels = { duration = ""; status = ""; };
+              }
+            ];
+          }
+          {
             job_name = "journal";
             journal = {
               json = false;
