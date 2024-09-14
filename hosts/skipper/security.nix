@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  imports = [ ../shared/certs ];
   security = {
     pam = {
       services = {
