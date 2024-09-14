@@ -17,6 +17,10 @@ in
       enable = true;
       listenAddress = "127.0.0.1";
       port = 9090;
+      globalConfig = {
+        evaluation_interval = "15s";
+        scrape_interval = "15s";
+      };
       alertmanagers = [
         {
           scheme = "https";
