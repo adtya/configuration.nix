@@ -27,6 +27,17 @@ in
       ];
       scrapeConfigs = [
         {
+          job_name = "caddy";
+          metrics_path = "/caddy-metrics";
+          static_configs = [
+            { targets = [ "rico0.labs.adtya.xyz" ]; }
+            { targets = [ "rico1.labs.adtya.xyz" ]; }
+            { targets = [ "rico2.labs.adtya.xyz" ]; }
+            { targets = [ "wynne.labs.adtya.xyz" ]; }
+            { targets = [ "layne.labs.adtya.xyz" ]; }
+          ];
+        }
+        {
           job_name = "postgres";
           scheme = "https";
           metrics_path = "/postgres-metrics";
