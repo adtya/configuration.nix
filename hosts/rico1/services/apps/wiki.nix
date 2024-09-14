@@ -1,6 +1,12 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+let
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
+  domainName = "wiki.adtya.xyz";
+in
+{
   services = {
-    caddy.virtualHosts."wiki.adtya.xyz" = {
+    caddy.virtualHosts."${domainName}" = {
+      logFormat = logFormat domainName;
       extraConfig = ''
         handle {
           root * ${inputs.wiki.packages.${pkgs.system}.default}/share/web
@@ -12,16 +18,16 @@
     };
     frp.settings.proxies = [
       {
-        name = "http.wiki.adtya.xyz";
+        name = "http.${domainName}";
         type = "http";
-        customDomains = [ "wiki.adtya.xyz" ];
+        customDomains = [ "${domainName}" ];
         localPort = 80;
         transport.useCompression = true;
       }
       {
-        name = "https.wiki.adtya.xyz";
+        name = "https.${domainName}";
         type = "https";
-        customDomains = [ "wiki.adtya.xyz" ];
+        customDomains = [ "${domainName}" ];
         localPort = 443;
         transport.useCompression = true;
       }

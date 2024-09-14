@@ -1,7 +1,13 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+let
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
+  domainName = "adtya.xyz";
+in
+{
   services = {
-    caddy.virtualHosts."adtya.xyz" = {
-      serverAliases = [ "www.adtya.xyz" ];
+    caddy.virtualHosts."${domainName}" = {
+      serverAliases = [ "www.${domainName}" ];
+      logFormat = logFormat domainName;
       extraConfig = ''
         handle {
           root * ${inputs.adtyaxyz.packages.${pkgs.system}.default}/share/web
@@ -13,16 +19,16 @@
     };
     frp.settings.proxies = [
       {
-        name = "http.adtya.xyz";
+        name = "http.${domainName}";
         type = "http";
-        customDomains = [ "adtya.xyz" "www.adtya.xyz" ];
+        customDomains = [ "${domainName}" "www.${domainName}" ];
         localPort = 80;
         transport.useCompression = true;
       }
       {
-        name = "https.adtya.xyz";
+        name = "https.${domainName}";
         type = "https";
-        customDomains = [ "adtya.xyz" "www.adtya.xyz" ];
+        customDomains = [ "${domainName}" "www.${domainName}" ];
         localPort = 443;
         transport.useCompression = true;
       }

@@ -1,32 +1,38 @@
-_: {
+_:
+let
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
+  domainName = "acomputer.lol";
+in
+{
   services = {
-    caddy.virtualHosts."acomputer.lol" = {
+    caddy.virtualHosts."${domainName}" = {
+      logFormat = logFormat domainName;
       extraConfig = ''
         handle /.well-known/matrix/server {
           header Content-Type application/json
           header Access-Control-Allow-Origin *
-          respond `{"m.server": "matrix.acomputer.lol:443"}`
+          respond `{"m.server": "matrix.${domainName}:443"}`
         }
 
         handle /.well-known/matrix/client {
           header Content-Type application/json
           header Access-Control-Allow-Origin *
-          respond `{"m.homeserver": {"base_url": "https://matrix.acomputer.lol:443"}, "org.matrix.msc3575.proxy": {"url": "https://matrix.acomputer.lol"}}`
+          respond `{"m.homeserver": {"base_url": "https://matrix.${domainName}:443"}, "org.matrix.msc3575.proxy": {"url": "https://matrix.${domainName}"}}`
         }
       '';
     };
     frp.settings.proxies = [
       {
-        name = "http.acomputer.lol";
+        name = "http.${domainName}";
         type = "http";
-        customDomains = [ "acomputer.lol" ];
+        customDomains = [ "${domainName}" ];
         localPort = 80;
         transport.useCompression = true;
       }
       {
-        name = "https.acomputer.lol";
+        name = "https.${domainName}";
         type = "https";
-        customDomains = [ "acomputer.lol" ];
+        customDomains = [ "${domainName}" ];
         localPort = 443;
         transport.useCompression = true;
       }

@@ -1,4 +1,9 @@
-_: {
+_:
+let
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
+  domainName = "block.labs.adtya.xyz";
+in
+{
   networking = {
     firewall = {
       allowedTCPPorts = [
@@ -12,7 +17,8 @@ _: {
   systemd.services.blocky.unitConfig.After = [ "network-online.target" "wireguard-wg0.service" ];
   services = {
     caddy = {
-      virtualHosts."blocky.labs.adtya.xyz" = {
+      virtualHosts."${domainName}" = {
+        logFormat = logFormat domainName;
         extraConfig = ''
           reverse_proxy 127.0.0.1:8080
         '';

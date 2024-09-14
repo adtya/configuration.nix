@@ -1,7 +1,13 @@
-_: {
+_:
+let
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
+  domainName = "alertmanager.labs.adtya.xyz";
+in
+{
   services = {
     caddy = {
-      virtualHosts."alertmanager.labs.adtya.xyz" = {
+      virtualHosts."${domainName}" = {
+        logFormat = logFormat "${domainName}";
         extraConfig = ''
           reverse_proxy 127.0.0.1:9093
         '';
@@ -11,7 +17,7 @@ _: {
       enable = true;
       listenAddress = "127.0.0.1";
       port = 9093;
-      webExternalUrl = "https://alertmanager.labs.adtya.xyz/";
+      webExternalUrl = "https://${domainName}/";
       configuration = {
         route = {
           group_by = [ "alertname" ];

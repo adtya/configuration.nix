@@ -1,7 +1,13 @@
-_: {
+_:
+let
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
+  domainName = "prometheus.labs.adtya.xyz";
+in
+{
   services = {
     caddy = {
-      virtualHosts."prometheus.labs.adtya.xyz" = {
+      virtualHosts."${domainName}" = {
+        logFormat = logFormat domainName;
         extraConfig = ''
           reverse_proxy 127.0.0.1:9090
         '';

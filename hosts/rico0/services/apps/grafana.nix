@@ -1,7 +1,13 @@
-_: {
+_:
+let
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
+  domainName = "grafana.labs.adtya.xyz";
+in
+{
   services = {
     caddy = {
-      virtualHosts."grafana.labs.adtya.xyz" = {
+      virtualHosts."${domainName}" = {
+        logFormat = logFormat domainName;
         extraConfig = ''
           reverse_proxy 127.0.0.1:9091
         '';
@@ -11,7 +17,7 @@ _: {
       enable = true;
       settings = {
         server = {
-          domain = "grafana.labs.adtya.xyz";
+          domain = domainName;
           http_addr = "127.0.0.1";
           http_port = 9091;
         };
