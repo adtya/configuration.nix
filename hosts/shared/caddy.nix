@@ -14,6 +14,9 @@
     email = "admin@acomputer.lol";
     globalConfig = ''
       acme_dns digitalocean {env.DO_API_TOKEN}
+      servers {
+        metrics
+      }
     '';
     logFormat = "level INFO";
   };

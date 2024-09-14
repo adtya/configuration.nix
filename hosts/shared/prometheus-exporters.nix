@@ -3,6 +3,7 @@
     caddy = {
       virtualHosts."${config.networking.hostName}.labs.adtya.xyz" = {
         extraConfig = ''
+          metrics /caddy-metrics
           handle /metrics {
             reverse_proxy 127.0.0.1:9100
           }
