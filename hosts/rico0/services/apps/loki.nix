@@ -1,7 +1,7 @@
 _:
 let
   inherit (import ../../../shared/caddy-helpers.nix) logFormat;
-  domainName = "loki.labs.adtyz.xyz";
+  domainName = "loki.labs.adtya.xyz";
 in
 {
   services = {
