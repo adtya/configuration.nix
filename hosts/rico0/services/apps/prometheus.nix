@@ -32,6 +32,7 @@ in
       scrapeConfigs = [
         {
           job_name = "caddy";
+          scheme = "https";
           metrics_path = "/caddy-metrics";
           static_configs = [
             { targets = [ "rico0.labs.adtya.xyz" ]; }
