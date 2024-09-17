@@ -33,7 +33,14 @@ in
       settings = {
         base-url = "https://${domainName}";
         listen-http = "127.0.0.1:8080";
+        auth-file = "/mnt/data/ntfy-sh/user.db";
+        attachment-cache-dir = "/mnt/data/ntfy-sh/attachments";
+        cache-file = "/mnt/data/ntfy-sh/cache-file.db";
+
+        auth-default-access = "deny-all";
       };
     };
   };
+  systemd.services.ntfy-sh.unitConfig.RequiresMountsFor = [ "/mnt/data" ];
+  systemd.services.ntfy-sh.serviceConfig.WorkingDirectory = [ "/mnt/data/ntfy-sh" ];
 }
