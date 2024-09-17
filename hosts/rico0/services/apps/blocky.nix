@@ -1,4 +1,4 @@
-_:
+{ pkgs, ... }:
 let
   inherit (import ../../../shared/caddy-helpers.nix) logFormat;
   domainName = "blocky.labs.adtya.xyz";
@@ -92,11 +92,21 @@ in
           denylists = {
             ads = [
               "https://raw.githubusercontent.com/blocklistproject/Lists/master/ads.txt"
+            ];
+            pihole = [
               "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
             ];
           };
+          allowlists = {
+            pihole = [
+              (pkgs.writeText "allowlist.txt" ''
+                s.youtube.com
+              '')
+            ];
+
+          };
           clientGroupsBlock = {
-            default = [ "ads" ];
+            default = [ "ads" "pihole" ];
           };
         };
         clientLookup = {
