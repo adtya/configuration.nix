@@ -54,15 +54,34 @@ in
         customDNS = {
           customTTL = "1h";
           filterUnmappedTypes = true;
+          rewrite = {
+            "jellyfin.local.adtya.xyz" = "layne.local.adtya.xyz";
+
+            "gateway.labs.adtya.xyz" = "rico0.labs.adtya.xyz";
+            "ap1.labs.adtya.xyz" = "rico0.labs.adtya.xyz";
+            "ap2.labs.adtya.xyz" = "rico0.labs.adtya.xyz";
+            "switch.labs.adtya.xyz" = "rico0.labs.adtya.xyz";
+
+            "alertmanager.labs.adtya.xyz" = "rico0.labs.adtya.xyz";
+            "blocky.labs.adtya.xyz" = "rico0.labs.adtya.xyz";
+            "frp.labs.adtya.xyz" = "rico0.labs.adtya.xyz";
+            "grafana.labs.adtya.xyz" = "rico0.labs.adtya.xyz";
+            "loki.labs.adtya.xyz" = "rico0.labs.adtya.xyz";
+            "prometheus.labs.adtya.xyz" = "rico0.labs.adtya.xyz";
+            "transmission.labs.adtya.xyz" = "layne.labs.adtya.xyz";
+            "jellyfin.labs.adtya.xyz" = "layne.labs.adtya.xyz";
+          };
           mapping = {
             "gateway.local.adtya.xyz" = "192.168.0.1";
             "ap1.local.adtya.xyz" = "192.168.1.1";
             "ap2.local.adtya.xyz" = "192.168.1.2";
             "switch.local.adtya.xyz" = "192.168.1.3";
-            "gateway.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "ap1.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "ap2.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "switch.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
+            "rico0.local.adtya.xyz" = "192.168.1.10";
+            "rico1.local.adtya.xyz" = "192.168.1.11";
+            "rico2.local.adtya.xyz" = "192.168.1.12";
+            "wynne.local.adtya.xyz" = "192.168.1.13";
+            "layne.local.adtya.xyz" = "192.168.1.14";
+
             "proxy.labs.adtya.xyz" = "10.10.10.1,fd7c:585c:c4ae::1";
             "skipper.labs.adtya.xyz" = "10.10.10.2,fd7c:585c:c4ae::2";
             "rico0.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
@@ -70,15 +89,7 @@ in
             "rico2.labs.adtya.xyz" = "10.10.10.12,fd7c:585c:c4ae::12";
             "wynne.labs.adtya.xyz" = "10.10.10.13,fd7c:585c:c4ae::13";
             "layne.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
-            "alertmanager.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "blocky.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "frp.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "grafana.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "loki.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "prometheus.labs.adtya.xyz" = "10.10.10.10,fd7c:585c:c4ae::10";
-            "transmission.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
-            "jellyfin.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
-            "jellyfin.local.adtya.xyz" = "192.168.1.14";
+
           };
         };
         conditional = {
