@@ -31,6 +31,14 @@ in
       ];
       scrapeConfigs = [
         {
+          job_name = "ntfy";
+          scheme = "https";
+          metrics_path = "/ntfy-metrics";
+          static_configs = [
+            { targets = [ "wynne.labs.adtya.xyz" ]; }
+          ];
+        }
+        {
           job_name = "caddy";
           scheme = "https";
           metrics_path = "/caddy-metrics";
