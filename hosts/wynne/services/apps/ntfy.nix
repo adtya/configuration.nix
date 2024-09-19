@@ -9,13 +9,16 @@ in
       "${domainName}" = {
         logFormat = logFormat domainName;
         extraConfig = ''
-          reverse_proxy 127.0.0.1:8080
+          reverse_proxy ${config.services.ntfy-sh.settings.listen-http}
         '';
       };
       "${config.networking.hostName}.labs.adtya.xyz" = {
         logFormat = logFormat domainName;
         extraConfig = ''
-          reverse_proxy /ntfy-metrics 127.0.0.1:8081
+          handle /ntfy-metrics {
+            uri replace /ntfy-metrics /metrics
+            reverse_proxy ${config.services.ntfy-sh.settings.metrics-listen-http}
+          }
         '';
       };
     };
