@@ -71,6 +71,19 @@ in
           ];
         }
         {
+          job_name = "smartctl";
+          scheme = "https";
+          metrics_path = "/smartctl-metrics";
+          static_configs = [
+            { targets = [ "rico0.labs.adtya.xyz" ]; }
+            { targets = [ "rico1.labs.adtya.xyz" ]; }
+            { targets = [ "rico2.labs.adtya.xyz" ]; }
+            { targets = [ "wynne.labs.adtya.xyz" ]; }
+            { targets = [ "wynne.labs.adtya.xyz" ]; }
+            { targets = [ "layne.labs.adtya.xyz" ]; }
+          ];
+        }
+        {
           job_name = "node";
           scheme = "https";
           static_configs = [
