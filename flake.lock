@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1726794045,
-        "narHash": "sha256-C55BHseFCw5Ev8UhCxRuep7ng7uvV+axnac56vCmmwg=",
+        "lastModified": 1726833637,
+        "narHash": "sha256-W2hgxwaezK5TpLVSaZjJYdtOvQC3vS1I9OgzxP6zi6c=",
         "owner": "adtya",
         "repo": "adtya.xyz",
-        "rev": "4845de5275836262ff56e1ba9f85e4a5d94416e0",
+        "rev": "78b8a09361afb46c5925983857475e92496b0bc4",
         "type": "github"
       },
       "original": {
