@@ -16,10 +16,14 @@
         host   all  all  10.10.10.0/24         trust
         host   all  all  fd7c:585c:c4ae::0/64  trust
       '';
-      ensureDatabases = [ "dendrite" ];
+      ensureDatabases = [ "dendrite" "forgejo" ];
       ensureUsers = [
         {
           name = "dendrite";
+          ensureDBOwnership = true;
+        }
+        {
+          name = "forgejo";
           ensureDBOwnership = true;
         }
       ];
