@@ -4,7 +4,6 @@
 }:
 let
   gnome-keyring-daemon = "${pkgs.gnome-keyring}/bin/gnome-keyring-daemon";
-  hyprland = "${config.wayland.windowManager.hyprland.finalPackage}/bin/Hyprland";
 in
 {
   programs.zsh = {
@@ -23,11 +22,6 @@ in
 
       eval $(${gnome-keyring-daemon} -s -d 2> /dev/null)
       export SSH_AUTH_SOCK
-    '';
-    profileExtra = ''
-      if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] ; then
-        exec ${hyprland}
-      fi
     '';
     shellAliases = {
       cat = "${pkgs.bat}/bin/bat";

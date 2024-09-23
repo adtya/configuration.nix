@@ -1,5 +1,6 @@
 { config
 , pkgs
+, lib
 , ...
 }:
 let
@@ -22,6 +23,15 @@ let
   pictures = "${config.xdg.userDirs.pictures}";
 in
 {
+  xdg.portal = {
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    configPackages = [ pkgs.hyprland ];
+  };
+  programs.zsh.profileExtra = ''
+    if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] ; then
+      exec ${lib.getExe config.wayland.win.hyprland.package}
+    fi
+  '';
   wayland.windowManager.hyprland = {
     enable = true;
     systemd = {
