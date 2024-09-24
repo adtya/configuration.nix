@@ -66,13 +66,15 @@ layout {
     }
 }
 
+hotkey-overlay {
+    skip-at-startup
+}
+
 prefer-no-csd
 
 screenshot-path "@screenshot_path@/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
-
     Mod+Shift+Q repeat=false { close-window; }
     Mod+Escape repeat=false { spawn "@loginctl_cmd@" "lock-session"; }
     Mod+Shift+Escape repeat=false { spawn "@power_menu_cmd@"; }
