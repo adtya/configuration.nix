@@ -1,4 +1,5 @@
 _: {
+  home.preferXdgDirectories = true;
   xdg = {
     enable = true;
     mime.enable = true;
