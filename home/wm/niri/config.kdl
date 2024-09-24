@@ -3,6 +3,11 @@
 
 spawn-at-startup "@dbus_update_activation_env_cmd@" "--systemd" "--all"
 spawn-at-startup "@systemctl_cmd@" "--user" "start" "niri-session.target"
+spawn-at-startup "@xwayland_satellite_cmd@"
+
+environment {
+  DISPLAY ":0"
+}
 
 input {
     keyboard {

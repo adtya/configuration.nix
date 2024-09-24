@@ -21,6 +21,7 @@
     src = ./config.kdl;
     dbus_update_activation_env_cmd = "${pkgs.dbus}/bin/dbus-update-activation-environment";
     systemctl_cmd = "${pkgs.systemd}/bin/systemctl";
+    xwayland_satellite_cmd = "${lib.getExe pkgs.xwayland-satellite}";
     loginctl_cmd = "${pkgs.systemd}/bin/loginctl";
     wpaperctl_cmd = "${pkgs.wpaperd}/bin/wpaperctl";
     kitty_cmd = "${lib.getExe pkgs.kitty}";

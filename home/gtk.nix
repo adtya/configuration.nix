@@ -18,7 +18,7 @@ let
   };
 in
 {
-  home.pointerCursor = cursorTheme // { gtk.enable = true; size = 24; };
+  home.pointerCursor = cursorTheme // { gtk.enable = true; size = 24; x11.enable = true; };
   gtk = {
     enable = true;
     theme = gtkTheme;
