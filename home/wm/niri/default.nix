@@ -31,6 +31,7 @@
     librewolf_cmd = "${lib.getExe pkgs.librewolf}";
     wpctl_cmd = "${pkgs.wireplumber}/bin/wpctl";
     brightnessctl_cmd = "${lib.getExe pkgs.brightnessctl}";
+    swaync_client_cmd = "${pkgs.swaynotificationcenter}/bin/swaync-client";
 
     power_menu_cmd = "${pkgs.misc-scripts}/bin/power-menu";
     tmux_sessions_cmd = "${pkgs.misc-scripts}/bin/tmux-sessions";

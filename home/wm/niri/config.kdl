@@ -80,6 +80,7 @@ binds {
     Mod+Shift+Escape repeat=false { spawn "@power_menu_cmd@"; }
 
     Mod+Shift+W repeat=false { spawn "@wpaperctl_cmd@" "next"; }
+    Mod+Shift+U repeat=false { spawn "@swaync_client_cmd@" "-t" "-sw"; }
 
     Mod+Return repeat=false { spawn "@kitty_cmd@" "@tmux_cmd@" "new"; }
     Mod+Shift+Return repeat=false { spawn "@kitty_cmd@"; }
