@@ -3,6 +3,12 @@
   xdg.portal = {
     extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
     configPackages = [ pkgs.niri ];
+    config = {
+      niri = {
+        default = [ "gnome" "gtk" ];
+        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+      };
+    };
   };
 
   programs.zsh.profileExtra = ''
@@ -24,6 +30,12 @@
     firefox_cmd = "${lib.getExe config.programs.firefox.finalPackage}";
     librewolf_cmd = "${lib.getExe pkgs.librewolf}";
     wpctl_cmd = "${pkgs.wireplumber}/bin/wpctl";
+    brightnessctl_cmd = "${lib.getExe pkgs.brightnessctl}";
+
+    power_menu_cmd = "${pkgs.misc-scripts}/bin/power-menu";
+    tmux_sessions_cmd = "${pkgs.misc-scripts}/bin/tmux-sessions";
+    youtube_cmd = "${pkgs.youtube}/bin/youtube";
+    bluetooth_cmd = "${pkgs.rofi-bluetooth}/bin/rofi-bluetooth";
 
     screenshot_path = "${config.xdg.userDirs.pictures}/Screenshots";
   };
