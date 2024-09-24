@@ -33,15 +33,12 @@
     gh
     git-crypt
     #localsend
-    (lutris.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; })
     nixpkgs-review
     nix-init
     nurl
     ripgrep
     signal-desktop-beta
     spotify
-    (steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; })
-    (steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud ]; }).run
     swayimg
     telegram-desktop
     transmission-remote-gtk
