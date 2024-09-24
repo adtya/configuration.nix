@@ -18,7 +18,6 @@
         modules-right = [ "tray" "idle_inhibitor" "network" "bluetooth" "wireplumber" "backlight" "battery" "clock" "custom/notification" ];
         "niri/workspaces" = {
           all-outputs = false;
-          current-only = true;
         };
         "niri/window" = {
           separate-outputs = true;
