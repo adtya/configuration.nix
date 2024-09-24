@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
-    ./hyprland
+    #./hyprland
+    ./niri
     ./addon
   ];
   xdg.portal = {

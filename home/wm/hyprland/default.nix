@@ -29,7 +29,7 @@ in
   };
   programs.zsh.profileExtra = ''
     if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] ; then
-      exec ${lib.getExe config.wayland.win.hyprland.package}
+      exec ${lib.getExe config.wayland.windowManager.hyprland.package}
     fi
   '';
   wayland.windowManager.hyprland = {
