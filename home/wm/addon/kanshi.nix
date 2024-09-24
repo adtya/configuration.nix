@@ -9,8 +9,10 @@ _: {
           outputs = [
             {
               criteria = "eDP-1";
+              transform = "normal";
               mode = "1920x1080";
               position = "0,0";
+              scale = 1.0;
             }
 
           ];
