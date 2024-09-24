@@ -19,6 +19,6 @@
       sync_to_monitor = true;
     };
     shellIntegration.mode = "disabled";
-    theme = "Dracula";
+    themeFile = "Dracula";
   };
 }
