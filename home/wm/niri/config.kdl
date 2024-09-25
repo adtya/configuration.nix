@@ -71,6 +71,17 @@ layout {
     }
 }
 
+window-rule {
+  match app-id="virt-manager" title="Virtual Machine Manager"
+  default-column-width { proportion 0.25; }
+}
+
+window-rule {
+  match app-id="virt-manager"
+  exclude title="Virtual Machine Manager"
+  default-column-width { proportion 0.75; }
+}
+
 hotkey-overlay {
     skip-at-startup
 }
