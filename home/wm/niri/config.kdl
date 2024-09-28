@@ -32,7 +32,6 @@ input {
         accel-profile "adaptive"
     }
 
-    warp-mouse-to-focus
     focus-follows-mouse
 }
 
