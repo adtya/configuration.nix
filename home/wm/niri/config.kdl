@@ -71,6 +71,11 @@ layout {
 }
 
 window-rule {
+  match app-id="firefox" title="Library"
+  default-column-width { proportion 0.40; }
+}
+
+window-rule {
   match app-id="virt-manager" title="Virtual Machine Manager"
   default-column-width { proportion 0.25; }
 }
