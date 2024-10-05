@@ -14,9 +14,13 @@
         };
       };
     };
-    polkit.enable = true;
+    polkit = {
+      enable = true;
+      adminIdentities = [ "unix-group:wheel" ];
+    };
     rtkit.enable = true;
     sudo = {
+      enable = true;
       package = pkgs.sudo.override { withInsults = true; };
       extraConfig = ''
         Defaults lecture="never"
