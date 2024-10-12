@@ -31,6 +31,21 @@ in
         rpc-port = 9091;
         rpc-host-whitelist = "transmission.labs.adtya.xyz";
         watch-dir-enabled = true;
+        preallocation = 2;
+        alt-speed-time-enabled = true;
+        alt-speed-time-begin = 360; # 6AM
+        alt-speed-time-end = 1320; # 10PM
+        alt-speed-time-day = 127; # 1111111 (Everyday)
+        alt-speed-down = 10240;
+        alt-speed-up = 8192;
+        speed-limit-down-enabled = true;
+        speed-limit-down = 20480;
+        speed-limit-up-enabled = true;
+        speed-limit-up = 16384;
+        idle-seeding-limit-enabled = true;
+        idle-seeding-limit = 180;
+        ratio-limit-enabled = true;
+        ratio-limit = 2;
       };
     };
   };
