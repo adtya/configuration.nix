@@ -18,6 +18,7 @@ let cfg = config.nodeconfig; in {
       nixos.enable = lib.mkDefault false;
     };
 
+    fonts.fontconfig.enable = lib.mkDefault false;
     programs.command-not-found.enable = lib.mkDefault false;
 
     xdg = {
@@ -25,6 +26,7 @@ let cfg = config.nodeconfig; in {
       icons.enable = lib.mkDefault false;
       mime.enable = lib.mkDefault false;
       sounds.enable = lib.mkDefault false;
+      menus.enable = lib.mkDefault false;
     };
   };
 }

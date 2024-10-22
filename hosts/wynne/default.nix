@@ -10,6 +10,7 @@ _: {
   nodeconfig = {
     minimize = true;
     nix.auto-gc = true;
+    is-server = true;
   };
 
   environment.sessionVariables = {

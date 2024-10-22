@@ -12,6 +12,7 @@ _: {
     minimize = true;
     nix.auto-gc = true;
     is-pi = true;
+    is-server = true;
   };
 
   i18n = {
