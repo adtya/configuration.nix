@@ -4,6 +4,6 @@ _: {
     enableZshIntegration = true;
     extraOptions = [ "--group-directories-first" "--group" ];
     git = true;
-    icons = true;
+    icons = "auto";
   };
 }
