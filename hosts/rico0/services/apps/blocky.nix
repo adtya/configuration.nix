@@ -79,6 +79,8 @@ in
             "transmission.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
             "jellyfin.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
             "radarr.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
+            "sonarr.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
+            "jackett.labs.adtya.xyz" = "10.10.10.14,fd7c:585c:c4ae::14";
             "jellyfin.local.adtya.xyz" = "192.168.1.14";
           };
         };

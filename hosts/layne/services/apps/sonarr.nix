@@ -1,13 +1,13 @@
 _: {
   services = {
-    caddy.virtualHosts."radarr.labs.adtya.xyz" = {
+    caddy.virtualHosts."sonarr.labs.adtya.xyz" = {
       extraConfig = ''
-        reverse_proxy 127.0.0.1:7878
+        reverse_proxy 127.0.0.1:8989
       '';
     };
-    radarr = {
+    sonarr = {
       enable = true;
-      dataDir = "/mnt/data/radarr";
+      dataDir = "/mnt/data/sonarr";
       user = "mediaserver";
       group = "mediaserver";
     };

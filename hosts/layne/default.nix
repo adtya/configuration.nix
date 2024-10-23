@@ -5,6 +5,7 @@ _: {
     ./services
     ./network.nix
     ./security.nix
+    ./users.nix
   ];
 
   nodeconfig = {

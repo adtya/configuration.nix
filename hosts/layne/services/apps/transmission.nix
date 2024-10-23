@@ -13,6 +13,8 @@ in
       };
     };
     transmission = {
+      user = "mediaserver";
+      group = "mediaserver";
       enable = true;
       package = pkgs.transmission_4;
       downloadDirPermissions = "775";

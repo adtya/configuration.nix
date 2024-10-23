@@ -45,6 +45,8 @@ in
     ];
     jellyfin = {
       enable = true;
+      user = "mediaserver";
+      group = "mediaserver";
       dataDir = "/mnt/data/Jellyfin";
       openFirewall = true;
     };
