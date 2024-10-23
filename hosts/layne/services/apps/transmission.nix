@@ -45,9 +45,11 @@ in
         speed-limit-up-enabled = true;
         speed-limit-up = 16384;
         idle-seeding-limit-enabled = true;
-        idle-seeding-limit = 180;
+        idle-seeding-limit = 1440;
         ratio-limit-enabled = true;
-        ratio-limit = 2;
+        ratio-limit = 3;
+        download-queue-enabled = false;
+        seed-queue-enabled = false;
       };
     };
   };
