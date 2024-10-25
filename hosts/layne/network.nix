@@ -25,7 +25,6 @@
     psk-file = config.sops.secrets."wireguard/layne/psk".path;
     node-ips = [
       "10.10.10.14/24"
-      "fd7c:585c:c4ae::14/64"
     ];
   };
 }

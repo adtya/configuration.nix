@@ -5,7 +5,6 @@ _: {
     endpoint-publickey = "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=";
     allowed-ips = [
       "10.10.10.0/24"
-      "fd7c:585c:c4ae::0/64"
     ];
   };
 }

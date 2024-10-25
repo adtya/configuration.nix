@@ -21,7 +21,6 @@
     psk-file = config.sops.secrets."wireguard/skipper/psk".path;
     node-ips = [
       "10.10.10.2/24"
-      "fd7c:585c:c4ae::2/64"
     ];
   };
 }

@@ -25,7 +25,6 @@
     psk-file = config.sops.secrets."wireguard/rico0/psk".path;
     node-ips = [
       "10.10.10.10/24"
-      "fd7c:585c:c4ae::10/64"
     ];
   };
 }

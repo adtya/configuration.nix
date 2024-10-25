@@ -25,7 +25,6 @@
     psk-file = config.sops.secrets."wireguard/wynne/psk".path;
     node-ips = [
       "10.10.10.13/24"
-      "fd7c:585c:c4ae::13/64"
     ];
   };
 }
