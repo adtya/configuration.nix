@@ -52,16 +52,15 @@ let cfg = config.nodeconfig; in {
 
   config = lib.mkIf cfg.wireguard.enable {
     networking.firewall.trustedInterfaces = [ cfg.wireguard.interface-name ];
-    networking.wireguard = {
-      enable = true;
+    networking.wg-quick = {
       interfaces = {
         "${cfg.wireguard.interface-name}" = {
-          ips = cfg.wireguard.node-ips;
+          address = cfg.wireguard.node-ips;
+          dns = [ "10.10.10.10" ];
           listenPort = cfg.wireguard.listen-port;
           privateKeyFile = cfg.wireguard.pk-file;
           peers = [
             {
-              name = "Default";
               endpoint = cfg.wireguard.endpoint;
               publicKey = cfg.wireguard.endpoint-publickey;
               presharedKeyFile = cfg.wireguard.psk-file;

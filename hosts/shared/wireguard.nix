@@ -1,5 +1,6 @@
 _: {
   nodeconfig.wireguard = {
+    interface-name = "Homelab";
     endpoint = "165.232.180.97:51821";
     endpoint-publickey = "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=";
     allowed-ips = [
