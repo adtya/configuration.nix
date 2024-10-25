@@ -18,7 +18,7 @@ in
       logFormat = logFormat domainName;
       extraConfig = ''
         reverse_proxy /client/* 127.0.0.1:8009
-        reverse_proxy /_matrix/client/unstable/org.matrix.msc3575/sync 127.0.0.1:8009
+        # reverse_proxy /_matrix/client/unstable/org.matrix.msc3575/sync 127.0.0.1:8009
         reverse_proxy /_matrix/* 127.0.0.1:8008
         reverse_proxy /_dendrite/* 127.0.0.1:8008
         reverse_proxy /_synapse/* 127.0.0.1:8008
@@ -40,28 +40,19 @@ in
         transport.useCompression = true;
       }
     ];
-    matrix-sliding-sync = {
-      enable = true;
-      settings = {
-        SYNCV3_SERVER = "https://${domainName}";
-        SYNCV3_BINDADDR = "127.0.0.1:8009";
-        SYNCV3_DB = "postgresql://dendrite@localhost/dendrite?sslmode=disable";
-      };
-      environmentFile = config.sops.secrets."matrix/syncv3_secret".path;
-    };
+      #matrix-sliding-sync = {
+      #enable = true;
+      #settings = {
+      #  SYNCV3_SERVER = "https://${domainName}";
+      #  SYNCV3_BINDADDR = "127.0.0.1:8009";
+      #  SYNCV3_DB = "postgresql://dendrite@localhost/dendrite?sslmode=disable";
+      #};
+      #environmentFile = config.sops.secrets."matrix/syncv3_secret".path;
+    #};
   };
   systemd.services.dendrite =
     let
-      dendrite_package = pkgs.dendrite.overrideAttrs rec {
-        version = "0.13.8";
-        src = pkgs.fetchFromGitHub {
-          owner = "matrix-org";
-          repo = "dendrite";
-          rev = "v${version}";
-          hash = "sha256-zUpZdG2cdZ95L70qLG2HaUlD+G66XTi4f1V4+ZZAh30=";
-        };
-        vendorHash = "sha256-rGOB1ikY3BgChvD1YZUF66g8P6gE29b/k9kxvHR0+WQ=";
-      };
+      dendrite_package = pkgs.dendrite;
     in
     {
       description = "Dendrite Matrix homeserver";
