@@ -48,6 +48,7 @@ in
         auth-file = "/mnt/data/ntfy-sh/user.db";
         attachment-cache-dir = "/mnt/data/ntfy-sh/attachments";
         cache-file = "/mnt/data/ntfy-sh/cache-file.db";
+        enable-login = true;
 
         auth-default-access = "deny-all";
       };
