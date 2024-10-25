@@ -16,6 +16,11 @@
       owner = config.users.users.root.name;
       group = config.users.users.root.group;
     };
+    "proton/layne" = {
+      mode = "400";
+      owner = config.users.users.root.name;
+      group = config.users.users.root.group;
+    };
   };
 
   nodeconfig.wireguard = {
@@ -26,5 +31,11 @@
     node-ips = [
       "10.10.10.14/24"
     ];
+  };
+
+  networking.wg-quick = {
+    interfaces = {
+      ProtonVPN.configFile = config.sops.secrets."proton/layne".path;
+    };
   };
 }
