@@ -22,7 +22,7 @@
       cantarell-fonts
       dejavu_fonts
       liberation_ttf
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-emoji
       smc-chilanka
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
