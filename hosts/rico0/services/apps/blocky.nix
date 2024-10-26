@@ -80,6 +80,7 @@ in
             "jellyfin.labs.adtya.xyz" = "10.10.10.14";
             "radarr.labs.adtya.xyz" = "10.10.10.14";
             "sonarr.labs.adtya.xyz" = "10.10.10.14";
+            "readarr.labs.adtya.xyz" = "10.10.10.14";
             "jackett.labs.adtya.xyz" = "10.10.10.14";
             "jellyfin.local.adtya.xyz" = "192.168.1.14";
           };
