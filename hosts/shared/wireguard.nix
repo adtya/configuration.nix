@@ -12,7 +12,6 @@ let
   peer-layne = mkPeer "192.168.1.14:51834" "qhthtzB7vTGRfS1RGyP7RJ+BZLKd/BNxhaTJvAlYuyo=" "10.10.10.14";
   selectPeer = host: peer: if hostName == host then [ ] else [ peer ];
   interface-name = "Homelab";
-
 in
 {
   nodeconfig.wireguard = {
@@ -21,10 +20,13 @@ in
     endpoint-publickey = "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=";
     allowed-ips = if hostName == "skipper" then [ "10.10.10.0/24" ] else [ "10.10.10.1" "10.10.10.2" "10.10.10.3" ];
   };
-  networking.wg-quick.interfaces.${interface-name}.peers = if hostName == "skipper" then [ ] else
-  ((selectPeer "rico0" peer-rico0)
-    ++ (selectPeer "rico1" peer-rico1)
-    ++ (selectPeer "rico2" peer-rico2)
-    ++ (selectPeer "wynne" peer-wynne)
-    ++ (selectPeer "layne" peer-layne));
+  networking = {
+    firewall.allowedUDPPorts = [ config.nodeconfig.wireguard.listen-port ];
+    wg-quick.interfaces.${interface-name}.peers = if hostName == "skipper" then [ ] else
+    ((selectPeer "rico0" peer-rico0)
+      ++ (selectPeer "rico1" peer-rico1)
+      ++ (selectPeer "rico2" peer-rico2)
+      ++ (selectPeer "wynne" peer-wynne)
+      ++ (selectPeer "layne" peer-layne));
+  };
 }
