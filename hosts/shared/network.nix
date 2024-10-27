@@ -1,7 +1,7 @@
 { lib, ... }: {
   networking = {
     nameservers = [
-      "10.10.10.10"
+      "10.10.10.11"
     ];
     useDHCP = lib.mkDefault false;
   };

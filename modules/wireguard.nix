@@ -37,6 +37,11 @@ let cfg = config.nodeconfig; in {
         default = "wg0";
         description = "Name of the WireGuard interface created";
       };
+      dns = lib.mkOption {
+        type = lib.types.listOf lib.types.str;
+        default = [ ];
+        description = "list of DNS servers";
+      };
       allowed-ips = lib.mkOption {
         type = lib.types.listOf lib.types.str;
         default = [ "10.0.0.0/24" "fd7c::/64" ];
@@ -56,7 +61,7 @@ let cfg = config.nodeconfig; in {
       interfaces = {
         "${cfg.wireguard.interface-name}" = {
           address = cfg.wireguard.node-ips;
-          dns = [ "10.10.10.10" ];
+          dns = cfg.wireguard.dns;
           listenPort = cfg.wireguard.listen-port;
           privateKeyFile = cfg.wireguard.pk-file;
           peers = [
