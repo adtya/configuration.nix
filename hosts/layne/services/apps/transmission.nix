@@ -29,7 +29,7 @@ in
         "--lpd"
       ];
       settings = {
-        peer-port = 64450;
+        peer-port = 36840;
         rpc-bind-address = "127.0.0.1";
         rpc-port = 9091;
         rpc-host-whitelist = "transmission.labs.adtya.xyz";
