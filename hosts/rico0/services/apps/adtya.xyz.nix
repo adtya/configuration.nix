@@ -7,7 +7,7 @@ in
   services = {
     caddy.virtualHosts."${domainName}" = {
       serverAliases = [ "www.${domainName}" ];
-      logFormat = logFormat domainName;
+      inherit logFormat;
       extraConfig = ''
         handle {
           root * ${inputs.adtyaxyz.packages.${pkgs.system}.default}/share/web

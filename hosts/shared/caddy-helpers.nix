@@ -1,11 +1,11 @@
 {
-  logFormat = fileName: ''
+  logFormat = ''
     output stderr
     format json
-    level DEBUG
+    level INFO
   '';
 
-  tlsDNSChallenge = ''
+  tlsAcmeDnsChallenge = ''
     tls {
       dns digitalocean {env.DO_API_TOKEN}
     }

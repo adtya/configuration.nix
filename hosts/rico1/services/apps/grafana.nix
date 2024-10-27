@@ -1,15 +1,15 @@
 _:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsDNSChallenge;
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsAcmeDnsChallenge;
   domainName = "grafana.labs.adtya.xyz";
 in
 {
   services = {
     caddy = {
       virtualHosts."${domainName}" = {
-        logFormat = logFormat domainName;
+        inherit logFormat;
         extraConfig = ''
-          ${tlsDNSChallenge}
+          ${tlsAcmeDnsChallenge}
           reverse_proxy 127.0.0.1:9091
         '';
       };

@@ -1,20 +1,21 @@
 { lib, config, ... }:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsAcmeDnsChallenge;
   domainName = "ntfy.acomputer.lol";
 in
 {
   services = {
     caddy.virtualHosts = {
       "${domainName}" = {
-        logFormat = logFormat domainName;
+        inherit logFormat;
         extraConfig = ''
           reverse_proxy ${config.services.ntfy-sh.settings.listen-http}
         '';
       };
       "${config.networking.hostName}.labs.adtya.xyz" = {
-        logFormat = logFormat domainName;
+        inherit logFormat;
         extraConfig = ''
+          ${tlsAcmeDnsChallenge}
           handle /ntfy-metrics {
             uri replace /ntfy-metrics /metrics
             reverse_proxy ${config.services.ntfy-sh.settings.metrics-listen-http}

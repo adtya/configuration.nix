@@ -23,7 +23,7 @@ in
         metrics
       }
     '';
-    logFormat = logFormat "caddy_main";
+    inherit logFormat;
   };
   systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.secrets."caddy/env_file".path;
   networking.firewall.allowedTCPPorts = [ 80 443 ];

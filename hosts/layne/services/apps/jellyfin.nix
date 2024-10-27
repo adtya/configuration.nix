@@ -1,6 +1,6 @@
 _:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsDNSChallenge;
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsAcmeDnsChallenge;
   domainName = "watch.acomputer.lol";
 in
 {
@@ -8,21 +8,21 @@ in
     caddy = {
       virtualHosts = {
         "jellyfin.local.adtya.xyz" = {
-          logFormat = logFormat "jellyfin.local.adtya.xyz";
+          inherit logFormat;
           extraConfig = ''
-            ${tlsDNSChallenge}
+            ${tlsAcmeDnsChallenge}
             reverse_proxy 127.0.0.1:8096
           '';
         };
         "jellyfin.labs.adtya.xyz" = {
-          logFormat = logFormat "jellyfin.labs.adtya.xyz";
+          inherit logFormat;
           extraConfig = ''
-            ${tlsDNSChallenge}
+            ${tlsAcmeDnsChallenge}
             reverse_proxy 127.0.0.1:8096
           '';
         };
         "${domainName}" = {
-          logFormat = logFormat domainName;
+          inherit logFormat;
           extraConfig = ''
             reverse_proxy 127.0.0.1:8096
           '';

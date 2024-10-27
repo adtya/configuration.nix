@@ -1,14 +1,14 @@
 { pkgs, ... }:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsDNSChallenge;
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsAcmeDnsChallenge;
 in
 {
   services = {
     caddy = {
       virtualHosts."transmission.labs.adtya.xyz" = {
-        logFormat = logFormat "transmission.labs.adtya.xyz";
+        inherit logFormat;
         extraConfig = ''
-          ${tlsDNSChallenge}
+          ${tlsAcmeDnsChallenge}
           reverse_proxy 127.0.0.1:9091
         '';
       };

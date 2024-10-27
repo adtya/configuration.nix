@@ -15,7 +15,7 @@ in
   };
   services = {
     caddy.virtualHosts."${domainName}" = {
-      logFormat = logFormat domainName;
+      inherit logFormat;
       extraConfig = ''
         reverse_proxy /client/* 127.0.0.1:8009
         # reverse_proxy /_matrix/client/unstable/org.matrix.msc3575/sync 127.0.0.1:8009

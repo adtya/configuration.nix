@@ -6,7 +6,7 @@ in
 {
   services = {
     caddy.virtualHosts."${domainName}" = {
-      logFormat = logFormat domainName;
+      inherit logFormat;
       extraConfig = ''
         handle /.well-known/matrix/server {
           header Content-Type application/json

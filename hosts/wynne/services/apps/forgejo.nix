@@ -7,7 +7,7 @@ in
 {
   services = {
     caddy.virtualHosts."${domainName}" = {
-      logFormat = logFormat domainName;
+      inherit logFormat;
       extraConfig = ''
         reverse_proxy ${cfg.settings.server.HTTP_ADDR}:${toString cfg.settings.server.HTTP_PORT}
       '';

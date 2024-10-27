@@ -6,7 +6,7 @@ in
 {
   services = {
     caddy.virtualHosts."${domainName}" = {
-      logFormat = logFormat domainName;
+      inherit logFormat;
       extraConfig = ''
         handle {
           root * ${inputs.wiki.packages.${pkgs.system}.default}/share/web
