@@ -31,7 +31,7 @@
     doctl
     flyctl
     gh
-    git-crypt
+    hcloud
     #localsend
     nixpkgs-review
     nix-init
