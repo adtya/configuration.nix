@@ -1,6 +1,6 @@
 { lib, config, ... }:
 let
-  inherit (import ./caddy-helpers.nix) logFormat;
+  inherit (import ./caddy-helpers.nix) logFormat tlsDNSChallenge;
 in
 {
   services = {
@@ -12,6 +12,7 @@ in
         virtualHosts."${vHost}" = {
           logFormat = logFormat vHost;
           extraConfig = ''
+            ${tlsDNSChallenge}
             metrics /caddy-metrics
             handle /metrics {
               reverse_proxy ${config.services.prometheus.exporters.node.listenAddress}:${toString config.services.prometheus.exporters.node.port}

@@ -1,6 +1,6 @@
 _:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsDNSChallenge;
   domainName = "alertmanager.labs.adtya.xyz";
 in
 {
@@ -9,6 +9,7 @@ in
       virtualHosts."${domainName}" = {
         logFormat = logFormat "${domainName}";
         extraConfig = ''
+          ${tlsDNSChallenge}
           reverse_proxy 127.0.0.1:9093
         '';
       };

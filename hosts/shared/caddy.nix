@@ -17,9 +17,8 @@ in
     package = inputs.caddy.packages.${pkgs.system}.caddy;
     email = "admin@acomputer.lol";
     globalConfig = ''
-      acme_dns digitalocean {env.DO_API_TOKEN}
       servers {
-        trusted_proxies static private_ranges 10.10.10.0/24 fd7c:585c:c4ae::0/64
+        trusted_proxies static private_ranges 10.10.10.0/24
         client_ip_headers X-Forwarded-For X-Real-IP
         metrics
       }
