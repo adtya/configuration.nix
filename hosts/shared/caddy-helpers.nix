@@ -7,7 +7,7 @@
 
   tlsAcmeDnsChallenge = ''
     tls {
-      dns digitalocean {env.DO_API_TOKEN}
+      dns hetzner {env.HETZNER_ACCESS_TOKEN}
     }
   '';
 }
