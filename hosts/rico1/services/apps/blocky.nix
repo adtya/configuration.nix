@@ -79,7 +79,7 @@ in
             "frp.labs.adtya.xyz" = "10.10.10.10";
             "grafana.labs.adtya.xyz" = "10.10.10.11";
             "loki.labs.adtya.xyz" = "10.10.10.11";
-            "prometheus.labs.adtya.xyz" = "10.10.10.10";
+            "prometheus.labs.adtya.xyz" = "10.10.10.11";
             "transmission.labs.adtya.xyz" = "10.10.10.14";
             "jellyfin.labs.adtya.xyz" = "10.10.10.14";
             "radarr.labs.adtya.xyz" = "10.10.10.14";
