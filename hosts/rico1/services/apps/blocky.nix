@@ -74,7 +74,7 @@ in
             "rico2.labs.adtya.xyz" = "10.10.10.12";
             "wynne.labs.adtya.xyz" = "10.10.10.13";
             "layne.labs.adtya.xyz" = "10.10.10.14";
-            "alertmanager.labs.adtya.xyz" = "10.10.10.10";
+            "alertmanager.labs.adtya.xyz" = "10.10.10.11";
             "blocky.labs.adtya.xyz" = "10.10.10.11";
             "frp.labs.adtya.xyz" = "10.10.10.10";
             "grafana.labs.adtya.xyz" = "10.10.10.10";
