@@ -24,6 +24,13 @@ _: {
           linkConfig = {
             RequiredForOnline = "yes";
           };
+          routes = [
+            {
+              Destination = "165.232.180.97";
+              Gateway = "_dhcp4";
+              GatewayOnLink = "yes";
+            }
+          ];
         };
       };
     };

@@ -40,14 +40,14 @@ in
         transport.useCompression = true;
       }
     ];
-      #matrix-sliding-sync = {
-      #enable = true;
-      #settings = {
-      #  SYNCV3_SERVER = "https://${domainName}";
-      #  SYNCV3_BINDADDR = "127.0.0.1:8009";
-      #  SYNCV3_DB = "postgresql://dendrite@localhost/dendrite?sslmode=disable";
-      #};
-      #environmentFile = config.sops.secrets."matrix/syncv3_secret".path;
+    #matrix-sliding-sync = {
+    #enable = true;
+    #settings = {
+    #  SYNCV3_SERVER = "https://${domainName}";
+    #  SYNCV3_BINDADDR = "127.0.0.1:8009";
+    #  SYNCV3_DB = "postgresql://dendrite@localhost/dendrite?sslmode=disable";
+    #};
+    #environmentFile = config.sops.secrets."matrix/syncv3_secret".path;
     #};
   };
   systemd.services.dendrite =
