@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./niri
     ./hyprland
     ./addon
   ];

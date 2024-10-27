@@ -13,15 +13,9 @@
         layer = "top";
         position = "top";
         height = 28;
-        modules-left = [ "niri/workspaces" "hyprland/workspaces" "niri/window" "hyprland/window" "hyprland/submap" ];
+        modules-left = [ "hyprland/workspaces" "hyprland/window" "hyprland/submap" ];
         modules-center = [ ];
         modules-right = [ "tray" "idle_inhibitor" "network" "bluetooth" "wireplumber" "backlight" "battery" "clock" "custom/notification" ];
-        "niri/workspaces" = {
-          all-outputs = false;
-        };
-        "niri/window" = {
-          separate-outputs = true;
-        };
         "hyprland/workspaces" = {
           separate-outputs = true;
         };
