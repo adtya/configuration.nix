@@ -2,7 +2,10 @@
 {
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar;
+    package = pkgs.waybar.override {
+      hyprlandSupport = true;
+      swaySupport = false;
+    };
     systemd.enable = true;
     style = ./style.css;
     settings = {
@@ -10,13 +13,16 @@
         layer = "top";
         position = "top";
         height = 28;
-        modules-left = [ "niri/workspaces" "niri/window" ];
+        modules-left = [ "niri/workspaces" "hyprland/workspaces" "niri/window" "hyprland/window" "hyprland/submap" ];
         modules-center = [ ];
         modules-right = [ "tray" "idle_inhibitor" "network" "bluetooth" "wireplumber" "backlight" "battery" "clock" "custom/notification" ];
         "niri/workspaces" = {
           all-outputs = false;
         };
         "niri/window" = {
+          separate-outputs = true;
+        };
+        "hyprland/workspaces" = {
           separate-outputs = true;
         };
         idle_inhibitor = {
