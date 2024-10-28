@@ -14,6 +14,7 @@ _: {
       { directory = ".config/discord"; method = "symlink"; }
       { directory = ".config/doctl"; method = "symlink"; }
       { directory = ".config/gh"; method = "symlink"; }
+      { directory = ".config/hcloud"; method = "symlink"; }
       { directory = ".config/lazygit"; method = "symlink"; }
       { directory = ".config/nixos"; method = "symlink"; }
       { directory = ".config/nvim"; method = "symlink"; }
