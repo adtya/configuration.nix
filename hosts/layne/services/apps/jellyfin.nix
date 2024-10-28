@@ -1,7 +1,6 @@
 _:
 let
   inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsAcmeDnsChallenge;
-  domainName = "watch.acomputer.lol";
 in
 {
   services = {
@@ -21,30 +20,8 @@ in
             reverse_proxy 127.0.0.1:8096
           '';
         };
-        "${domainName}" = {
-          inherit logFormat;
-          extraConfig = ''
-            reverse_proxy 127.0.0.1:8096
-          '';
-        };
       };
     };
-    frp.settings.proxies = [
-      {
-        name = "http.${domainName}";
-        type = "http";
-        customDomains = [ domainName ];
-        localPort = 80;
-        transport.useCompression = true;
-      }
-      {
-        name = "https.${domainName}";
-        type = "https";
-        customDomains = [ domainName ];
-        localPort = 443;
-        transport.useCompression = true;
-      }
-    ];
     jellyfin = {
       enable = true;
       user = "mediaserver";

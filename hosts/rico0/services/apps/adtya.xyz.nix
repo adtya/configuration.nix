@@ -17,21 +17,5 @@ in
         }
       '';
     };
-    frp.settings.proxies = [
-      {
-        name = "http.${domainName}";
-        type = "http";
-        customDomains = [ "${domainName}" "www.${domainName}" ];
-        localPort = 80;
-        transport.useCompression = true;
-      }
-      {
-        name = "https.${domainName}";
-        type = "https";
-        customDomains = [ "${domainName}" "www.${domainName}" ];
-        localPort = 443;
-        transport.useCompression = true;
-      }
-    ];
   };
 }

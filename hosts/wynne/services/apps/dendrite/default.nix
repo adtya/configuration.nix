@@ -1,8 +1,4 @@
 { config, pkgs, ... }:
-let
-  inherit (import ../../../../shared/caddy-helpers.nix) logFormat;
-  domainName = "matrix.acomputer.lol";
-in
 {
   sops = {
     secrets = {
@@ -12,43 +8,6 @@ in
         inherit (config.users.users.root) group;
       };
     };
-  };
-  services = {
-    caddy.virtualHosts."${domainName}" = {
-      inherit logFormat;
-      extraConfig = ''
-        reverse_proxy /client/* 127.0.0.1:8009
-        # reverse_proxy /_matrix/client/unstable/org.matrix.msc3575/sync 127.0.0.1:8009
-        reverse_proxy /_matrix/* 127.0.0.1:8008
-        reverse_proxy /_dendrite/* 127.0.0.1:8008
-        reverse_proxy /_synapse/* 127.0.0.1:8008
-      '';
-    };
-    frp.settings.proxies = [
-      {
-        name = "http.${domainName}";
-        type = "http";
-        customDomains = [ "${domainName}" ];
-        localPort = 80;
-        transport.useCompression = true;
-      }
-      {
-        name = "https.${domainName}";
-        type = "https";
-        customDomains = [ "${domainName}" ];
-        localPort = 443;
-        transport.useCompression = true;
-      }
-    ];
-    #matrix-sliding-sync = {
-    #enable = true;
-    #settings = {
-    #  SYNCV3_SERVER = "https://${domainName}";
-    #  SYNCV3_BINDADDR = "127.0.0.1:8009";
-    #  SYNCV3_DB = "postgresql://dendrite@localhost/dendrite?sslmode=disable";
-    #};
-    #environmentFile = config.sops.secrets."matrix/syncv3_secret".path;
-    #};
   };
   systemd.services.dendrite =
     let
@@ -69,7 +28,7 @@ in
         RuntimeDirectoryMode = "0700";
         LimitNOFILE = 65535;
         ExecStart = ''
-          ${dendrite_package}/bin/dendrite -http-bind-address 127.0.0.1:8008 -config ${./config.yaml}
+          ${dendrite_package}/bin/dendrite -http-bind-address 10.10.10.13:8008 -config ${./config.yaml}
         '';
         ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
         Restart = "on-failure";

@@ -6,12 +6,6 @@ in
 {
   services = {
     caddy.virtualHosts = {
-      "${domainName}" = {
-        inherit logFormat;
-        extraConfig = ''
-          reverse_proxy ${config.services.ntfy-sh.settings.listen-http}
-        '';
-      };
       "${config.networking.hostName}.labs.adtya.xyz" = {
         inherit logFormat;
         extraConfig = ''
@@ -24,27 +18,11 @@ in
       };
     };
 
-    frp.settings.proxies = [
-      {
-        name = "http.${domainName}";
-        type = "http";
-        customDomains = [ "${domainName}" ];
-        localPort = 80;
-        transport.useCompression = true;
-      }
-      {
-        name = "https.${domainName}";
-        type = "https";
-        customDomains = [ "${domainName}" ];
-        localPort = 443;
-        transport.useCompression = true;
-      }
-    ];
     ntfy-sh = {
       enable = true;
       settings = {
         base-url = "https://${domainName}";
-        listen-http = "127.0.0.1:8080";
+        listen-http = "10.10.10.13:8080";
         metrics-listen-http = "127.0.0.1:8081";
         auth-file = "/mnt/data/ntfy-sh/user.db";
         attachment-cache-dir = "/mnt/data/ntfy-sh/attachments";
