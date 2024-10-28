@@ -6,6 +6,7 @@ in
   imports = [
     ./blocky.nix
     ./prometheus.nix
+    ./redis.nix
     ./loki
     ../../../shared/prometheus-exporters.nix
     ../../../shared/promtail.nix
