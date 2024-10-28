@@ -96,17 +96,11 @@ in
           ];
         }
         {
-          job_name = "frp";
-          scheme = "https";
-          static_configs = [
-            { targets = [ "frp.labs.adtya.xyz" ]; }
-          ];
-        }
-        {
           job_name = "blocky";
           scheme = "https";
           static_configs = [
-            { targets = [ "blocky.labs.adtya.xyz" ]; }
+            { targets = [ "blocky.rico1.labs.adtya.xyz" ]; }
+            { targets = [ "blocky.rico2.labs.adtya.xyz" ]; }
           ];
         }
       ];

@@ -1,7 +1,7 @@
 _:
 let
   inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsAcmeDnsChallenge;
-  domainName = "blocky.rico1.labs.adtya.xyz";
+  domainName = "blocky.rico2.labs.adtya.xyz";
 in
 {
   imports = [
@@ -18,8 +18,8 @@ in
       };
     };
     blocky.settings.ports = {
-      dns = "192.168.1.11:53,10.10.10.11:53";
-      tls = "192.168.1.11:853,10.10.10.11:853";
+      dns = "192.168.1.12:53,10.10.10.12:53";
+      tls = "192.168.1.12:853,10.10.10.12:853";
       http = "127.0.0.1:8080";
     };
   };
