@@ -31,12 +31,6 @@ _: {
       options = [ "subvol=/" "compress-force=zstd" "noatime" ];
     };
 
-    "/mnt/data" = {
-      device = "/dev/disk/by-partlabel/DATA0";
-      fsType = "btrfs";
-      options = [ "subvol=/" "compress-force=zstd" "noatime" "nofail" "x-systemd.automount" "x-systemd.device-timeout=5" ];
-    };
-
     "/boot" = {
       device = "/dev/disk/by-partlabel/RICO0_BOOT";
       fsType = "vfat";
