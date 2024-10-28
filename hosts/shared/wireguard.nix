@@ -16,7 +16,7 @@ in
 {
   nodeconfig.wireguard = {
     inherit interface-name;
-    dns = [ "10.10.10.11" ];
+    dns = [ "10.10.10.11" "10.10.10.12" ];
     endpoint = "165.232.180.97:51821";
     endpoint-publickey = "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=";
     allowed-ips = if hostName == "skipper" then [ "10.10.10.0/24" ] else [ "10.10.10.1" "10.10.10.2" "10.10.10.3" ];
