@@ -2,7 +2,7 @@
   logFormat = ''
     output stderr
     format json
-    level INFO
+    level ERROR
   '';
 
   tlsAcmeDnsChallenge = ''
