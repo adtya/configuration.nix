@@ -103,6 +103,14 @@ in
             { targets = [ "blocky.rico2.labs.adtya.xyz" ]; }
           ];
         }
+        {
+          job_name = "redis";
+          scheme = "https";
+          metrics_path = "/redis-metrics";
+          static_configs = [
+            { targets = [ "rico1.labs.adtya.xyz" ]; }
+          ];
+        }
       ];
     };
   };

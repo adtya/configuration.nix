@@ -31,6 +31,12 @@ in
               reverse_proxy ${config.services.prometheus.exporters.postgres.listenAddress}:${toString config.services.prometheus.exporters.postgres.port}
             }
             ''}
+            ${lib.optionalString config.services.prometheus.exporters.redis.enable ''
+            handle /redis-metrics {
+              uri replace /redis-metrics /metrics
+              reverse_proxy ${config.services.prometheus.exporters.redis.listenAddress}:${toString config.services.prometheus.exporters.redis.port}
+            }
+            ''}
           '';
         };
       };

@@ -115,6 +115,9 @@
           enable = true;
           path = "/metrics";
         };
+        redis = {
+          address = "10.10.10.11:6379";
+        };
         log = {
           level = "warn";
           format = "json";
