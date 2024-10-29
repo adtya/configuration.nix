@@ -19,6 +19,7 @@ in
           enable = true;
           name = "runner-x86_64";
           labels = [
+            "docker:docker://ubuntu:latest"
             "debian-stable:docker://debian:stable"
             "ubuntu:docker://ubuntu:latest"
             "alpine:docker://alpine:latest"
