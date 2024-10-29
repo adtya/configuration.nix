@@ -18,7 +18,11 @@ in
         server = {
           ROOT_URL = "https://${domainName}";
           PROTOCOL = "http";
+          DISABLE_SSH = false;
+          START_SSH_SERVER = true;
+          BUILTIN_SSH_SERVER_USER = "forge";
           SSH_PORT = 42069;
+          SSH_LISTEN_HOST = "10.10.10.13";
           HTTP_ADDR = "10.10.10.13";
           HTTP_PORT = 3000;
           DOMAIN = domainName;
