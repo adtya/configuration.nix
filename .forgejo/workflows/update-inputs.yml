@@ -1,9 +1,5 @@
 name: Update inputs
 
-runs-on: ubuntu
-container:
-  image: node:20-bookworm
-
 on:
   schedule:
     - cron: "0 0 * * 5"
@@ -11,7 +7,9 @@ on:
 
 jobs:
   update-inputs:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu
+    container:
+      image: node:20-bookworm
     name: Update Inputs
     steps:
       - uses: https://github.com/actions/checkout@v3
