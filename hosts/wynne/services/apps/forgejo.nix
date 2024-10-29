@@ -1,10 +1,33 @@
-{ config, lib, ... }:
+{ pkgs, config, lib, ... }:
 let
   cfg = config.services.forgejo;
   domainName = "forge.acomputer.lol";
 in
 {
+  sops.secrets = {
+    "forgejo/runner_registration_token_file" = {
+      mode = "400";
+      owner = config.users.users.root.name;
+      group = config.users.users.root.group;
+    };
+  };
   services = {
+    gitea-actions-runner = {
+      package = pkgs.forgejo-runner;
+      instances = {
+        runner-x86_64 = {
+          enable = true;
+          name = "runner-x86_64";
+          labels = [
+            "debian-stable:docker://debian:stable"
+            "ubuntu:docker://ubuntu:latest"
+            "alpine:docker://alpine:latest"
+          ];
+          tokenFile = config.sops.secrets."forgejo/runner_registration_token_file".path;
+          url = "https://forge.acomputer.lol";
+        };
+      };
+    };
     forgejo = {
       enable = true;
       stateDir = "/mnt/data/Forgejo";
