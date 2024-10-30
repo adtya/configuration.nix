@@ -1,5 +1,5 @@
 _: {
-  virtualisation.podman = {
+  virtualisation.docker = {
     enable = true;
   };
 }

@@ -2,7 +2,7 @@ _: {
   imports = [
     ./apps
     ./btrfs.nix
-    ./podman.nix
+    ./docker.nix
     ./ssh.nix
     ../../shared/caddy.nix
   ];
