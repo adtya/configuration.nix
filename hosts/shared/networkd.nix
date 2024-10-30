@@ -11,9 +11,11 @@ _: {
           enable = true;
           matchConfig = {
             Type = "ether";
+            Name = "e*";
           };
           networkConfig = {
             DHCP = "yes";
+            IPv4Forwarding = "yes";
           };
           dhcpV4Config = {
             UseDomains = true;
