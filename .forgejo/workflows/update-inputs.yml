@@ -7,7 +7,7 @@ on:
 
 jobs:
   update-inputs:
-    runs-on: ubuntu
+    runs-on: docker
     container:
       image: ghcr.io/catthehacker/ubuntu:act-22.04
     name: Update Inputs
