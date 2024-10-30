@@ -9,15 +9,16 @@ jobs:
   update-inputs:
     runs-on: ubuntu
     container:
-      image: node:20-bookworm
+      image: ghcr.io/catthehacker/ubuntu:act-22.04
     name: Update Inputs
     steps:
       - uses: https://github.com/actions/checkout@v3
         with:
           token: ${{ github.token }}
           ref: ${{ github.head_ref }}
-      - uses: https://github.com/cachix/install-nix-action@v20
+      - uses: https://github.com/cachix/install-nix-action@v27
         with:
+          nix_path: nixpkgs=channel:nixos-unstable
           github_access_token: ${{ github.token }}
       - name: Update inputs
         run: |
