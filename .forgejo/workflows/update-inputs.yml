@@ -12,7 +12,7 @@ jobs:
       image: ghcr.io/catthehacker/ubuntu:act-22.04
     name: Update Inputs
     steps:
-      - uses: https://github.com/actions/checkout@v3
+      - uses: https://github.com/actions/checkout@v4
         with:
           token: ${{ github.token }}
           ref: ${{ github.head_ref }}
@@ -22,7 +22,7 @@ jobs:
           github_access_token: ${{ github.token }}
       - name: Update inputs
         run: |
-          nix flake update
+          nix flake update --access-tokens "github.com=${{ secrets.GH_ACCESS_TOKEN }}"
       - name: Commit changes
         uses: https://github.com/EndBug/add-and-commit@v9
         with:
