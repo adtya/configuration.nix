@@ -19,10 +19,8 @@ in
           enable = true;
           name = "runner-x86_64";
           labels = [
-            "docker:docker://ubuntu:latest"
-            "debian-stable:docker://debian:stable"
-            "ubuntu:docker://ubuntu:latest"
-            "alpine:docker://alpine:latest"
+            "docker:docker://debian:stable"
+            "docker-amd64:docker://debian:stable"
           ];
           tokenFile = config.sops.secrets."forgejo/runner_registration_token_file".path;
           url = "https://forge.acomputer.lol";
@@ -31,6 +29,7 @@ in
     };
     forgejo = {
       enable = true;
+      package = pkgs.forgejo;
       stateDir = "/mnt/data/Forgejo";
       settings = {
         database = {

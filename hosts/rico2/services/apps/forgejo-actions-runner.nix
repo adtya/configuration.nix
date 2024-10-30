@@ -13,10 +13,8 @@
         enable = true;
         name = "runner-arm64";
         labels = [
-          "docker:docker://ubuntu:latest"
-          "debian-stable:docker://debian:stable"
-          "ubuntu:docker://ubuntu:latest"
-          "alpine:docker://alpine:latest"
+          "docker:docker://debian-stable"
+          "docker-arm64:docker://debian-stable"
         ];
         tokenFile = config.sops.secrets."forgejo/runner_registration_token_file".path;
         url = "https://forge.acomputer.lol";
