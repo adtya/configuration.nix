@@ -53,10 +53,12 @@ in
     Locked = true;
   };
   Homepage = {
-    StartPage = "previous-session";
+    URL = "https://homepage.labs.adtya.xyz";
+    StartPage = "homepage-locked";
     Locked = true;
   };
   NetworkPrediction = false;
+  NewTabPage = false;
   NoDefaultBookmarks = true;
   OfferToSaveLogins = false;
   OverrideFirstRunPage = "";

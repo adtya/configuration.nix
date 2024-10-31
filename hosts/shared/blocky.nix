@@ -69,6 +69,7 @@
             "blocky.rico1.labs.adtya.xyz" = "10.10.10.11";
             "blocky.rico2.labs.adtya.xyz" = "10.10.10.12";
             "grafana.labs.adtya.xyz" = "10.10.10.12";
+            "homepage.labs.adtya.xyz" = "10.10.10.12";
             "jackett.labs.adtya.xyz" = "10.10.10.14";
             "jellyfin.labs.adtya.xyz" = "10.10.10.14";
             "loki.labs.adtya.xyz" = "10.10.10.11";
