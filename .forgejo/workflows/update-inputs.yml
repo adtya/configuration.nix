@@ -19,10 +19,10 @@ jobs:
       - uses: https://github.com/cachix/install-nix-action@v27
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-          github_access_token: ${{ github.token }}
+          github_access_token: ${{ secrets.GH_PUBLIC_REPO_ACCESS_TOKEN }}
       - name: Update inputs
         run: |
-          nix flake update --access-tokens "github.com=${{ secrets.GH_ACCESS_TOKEN }}"
+          nix flake update --access-tokens "github.com=${{ secrets.GH_PUBLIC_REPO_ACCESS_TOKEN }}"
       - name: Commit changes
         uses: https://github.com/EndBug/add-and-commit@v9
         with:
