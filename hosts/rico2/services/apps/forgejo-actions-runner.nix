@@ -9,12 +9,14 @@
   services.gitea-actions-runner = {
     package = pkgs.forgejo-runner;
     instances = {
-      runner-arm64 = {
+      aarch64-runner = {
         enable = true;
-        name = "runner-arm64";
+        name = "aarch64-runner";
         labels = [
-          "docker:docker://debian-stable"
-          "docker-arm64:docker://debian-stable"
+          "docker:docker://ubuntu:latest"
+          "aarch64-docker:docker://ubuntu:latest"
+          "linux:docker://ubuntu:latest"
+          "aarch64-linux:docker://ubuntu:latest"
         ];
         tokenFile = config.sops.secrets."forgejo/runner_registration_token_file".path;
         url = "https://forge.acomputer.lol";

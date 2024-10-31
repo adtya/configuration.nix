@@ -15,15 +15,17 @@ in
     gitea-actions-runner = {
       package = pkgs.forgejo-runner;
       instances = {
-        runner-x86_64 = {
+        x86_64-runner = {
           enable = true;
-          name = "runner-x86_64";
+          name = "x86_64-runner";
           labels = [
-            "docker:docker://debian:stable"
-            "docker-amd64:docker://debian:stable"
+            "docker:docker://ubuntu:latest"
+            "x86_64-docker:docker://ubuntu:latest"
+            "linux:docker://ubuntu:latest"
+            "x86_64-linux:docker://ubuntu:latest"
           ];
           tokenFile = config.sops.secrets."forgejo/runner_registration_token_file".path;
-          url = "https://forge.acomputer.lol";
+          url = "https://${domainName}";
         };
       };
     };
