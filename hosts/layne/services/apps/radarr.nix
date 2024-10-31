@@ -1,13 +1,12 @@
 _:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsAcmeDnsChallenge;
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
 in
 {
   services = {
     caddy.virtualHosts."radarr.labs.adtya.xyz" = {
       inherit logFormat;
       extraConfig = ''
-        ${tlsAcmeDnsChallenge}
         reverse_proxy 127.0.0.1:7878
       '';
     };

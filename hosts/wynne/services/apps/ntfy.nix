@@ -1,6 +1,6 @@
 { lib, config, ... }:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsAcmeDnsChallenge;
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
   domainName = "ntfy.acomputer.lol";
 in
 {
@@ -9,7 +9,6 @@ in
       "${config.networking.hostName}.labs.adtya.xyz" = {
         inherit logFormat;
         extraConfig = ''
-          ${tlsAcmeDnsChallenge}
           handle /ntfy-metrics {
             uri replace /ntfy-metrics /metrics
             reverse_proxy ${config.services.ntfy-sh.settings.metrics-listen-http}

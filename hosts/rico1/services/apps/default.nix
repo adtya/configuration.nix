@@ -1,6 +1,6 @@
 _:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat tlsAcmeDnsChallenge;
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
 in
 {
   imports = [
@@ -16,28 +16,24 @@ in
       "gateway.labs.adtya.xyz" = {
         inherit logFormat;
         extraConfig = ''
-          ${tlsAcmeDnsChallenge}
           reverse_proxy 192.168.0.1:80
         '';
       };
       "ap1.labs.adtya.xyz" = {
         inherit logFormat;
         extraConfig = ''
-          ${tlsAcmeDnsChallenge}
           reverse_proxy 192.168.1.1:80
         '';
       };
       "ap2.labs.adtya.xyz" = {
         inherit logFormat;
         extraConfig = ''
-          ${tlsAcmeDnsChallenge}
           reverse_proxy 192.168.1.2:80
         '';
       };
       "switch.labs.adtya.xyz" = {
         inherit logFormat;
         extraConfig = ''
-          ${tlsAcmeDnsChallenge}
           reverse_proxy 192.168.1.3:80
         '';
       };

@@ -1,4 +1,4 @@
-{ config, ... }: {
+_: {
   services = {
     promtail = {
       enable = true;
