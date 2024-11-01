@@ -17,5 +17,5 @@ in
       group = "mediaserver";
     };
   };
-  systemd.services.radarr.unitConfig.RequiresMountsFor = [ "/mnt/data" ];
+  systemd.services.readarr.unitConfig.RequiresMountsFor = [ "/mnt/data" ];
 }

@@ -22,7 +22,7 @@ in
     description = "Bazarr";
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
-
+    unitConfig.RequiresMountsFor = [ "/mnt/data" ];
     serviceConfig = {
       Type = "simple";
       User = user;
