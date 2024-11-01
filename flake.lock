@@ -26,11 +26,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1730050467,
-        "narHash": "sha256-gIhrrsWIqWUdmF/jMQcOfAl35LAqdhk2yCy1kcARxOo=",
+        "lastModified": 1730354096,
+        "narHash": "sha256-XQYHv4ES+KyFwdMgLrgA9KA+HRq/KlUPZFdhrrbLKfM=",
         "ref": "main",
-        "rev": "a00042b8e19812d1d2c9922958712e0aed59cec2",
-        "revCount": 7,
+        "rev": "fc48a9749d1031472963ac95cc4830aec08b8d1a",
+        "revCount": 8,
         "type": "git",
         "url": "https://forge.acomputer.lol/adtya/caddy-with-modules"
       },
@@ -427,11 +427,11 @@
     },
     "impermanence": {
       "locked": {
-        "lastModified": 1729068498,
-        "narHash": "sha256-C2sGRJl1EmBq0nO98TNd4cbUy20ABSgnHWXLIJQWRFA=",
+        "lastModified": 1730403150,
+        "narHash": "sha256-W1FH5aJ/GpRCOA7DXT/sJHFpa5r8sq2qAUncWwRZ3Gg=",
         "owner": "nix-community",
         "repo": "impermanence",
-        "rev": "e337457502571b23e449bf42153d7faa10c0a562",
+        "rev": "0d09341beeaa2367bac5d718df1404bf2ce45e6f",
         "type": "github"
       },
       "original": {
@@ -654,11 +654,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1729880355,
-        "narHash": "sha256-RP+OQ6koQQLX5nw0NmcDrzvGL8HDLnyXt/jHhL1jwjM=",
+        "lastModified": 1730200266,
+        "narHash": "sha256-l253w0XMT8nWHGXuXqyiIC/bMvh1VRszGXgdpQlfhvU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "18536bf04cd71abd345f9579158841376fdd0c5a",
+        "rev": "807e9154dcb16384b1b765ebe9cd2bba2ac287fd",
         "type": "github"
       },
       "original": {
