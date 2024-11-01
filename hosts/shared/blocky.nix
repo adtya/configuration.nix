@@ -73,6 +73,7 @@
             "grafana.labs.adtya.xyz" = "10.10.10.12";
             "homepage.labs.adtya.xyz" = "10.10.10.12";
             "jellyfin.labs.adtya.xyz" = "10.10.10.14";
+            "lidarr.labs.adtya.xyz" = "10.10.10.14";
             "loki.labs.adtya.xyz" = "10.10.10.11";
             "prometheus.labs.adtya.xyz" = "10.10.10.11";
             "prowlarr.labs.adtya.xyz" = "10.10.10.14";
