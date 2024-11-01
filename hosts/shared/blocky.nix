@@ -67,6 +67,7 @@
             # Services
             "alertmanager.labs.adtya.xyz" = "10.10.10.12";
             "act-cache.labs.adtya.xyz" = "10.10.10.13";
+            "bazarr.labs.adtya.xyz" = "10.10.10.14";
             "blocky.rico1.labs.adtya.xyz" = "10.10.10.11";
             "blocky.rico2.labs.adtya.xyz" = "10.10.10.12";
             "grafana.labs.adtya.xyz" = "10.10.10.12";
