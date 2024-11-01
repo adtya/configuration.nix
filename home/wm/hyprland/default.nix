@@ -201,6 +201,7 @@ in
 
         "SUPER,l,             layoutmsg,rollnext"
         "SUPER,h,             layoutmsg,rollprev"
+        "SUPER_SHIFT,z,       layoutmsg,orientationcycle left right"
         "SUPER,m,             layoutmsg,focusmaster"
         "SUPER_SHIFT,m,       layoutmsg,swapwithmaster"
 
