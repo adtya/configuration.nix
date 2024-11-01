@@ -2,6 +2,7 @@
 let
   cfg = config.services.forgejo;
   domainName = "forge.acomputer.lol";
+  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
 in
 {
   sops.secrets = {
@@ -12,6 +13,12 @@ in
     };
   };
   services = {
+    caddy.virtualHosts."act-cache.labs.adtya.xyz" = {
+      inherit logFormat;
+      extraConfig = ''
+        reverse_proxy 127.0.0.1:7777
+      '';
+    };
     gitea-actions-runner = {
       package = pkgs.forgejo-runner;
       instances = {
@@ -26,6 +33,14 @@ in
           ];
           tokenFile = config.sops.secrets."forgejo/runner_registration_token_file".path;
           url = "https://${domainName}";
+          settings = {
+            log.level = "info";
+            cache = {
+              enabled = true;
+              port = 7777;
+              external_server = "https://act-cache.labs.adtya.xyz/";
+            };
+          };
         };
       };
     };

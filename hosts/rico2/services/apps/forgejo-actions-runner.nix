@@ -20,6 +20,14 @@
         ];
         tokenFile = config.sops.secrets."forgejo/runner_registration_token_file".path;
         url = "https://forge.acomputer.lol";
+        settings = {
+          log.level = "info";
+          cache = {
+            enabled = true;
+            host = "192.168.1.12";
+            external_server = "https://act-cache.labs.adtya.xyz/";
+          };
+        };
       };
     };
   };
