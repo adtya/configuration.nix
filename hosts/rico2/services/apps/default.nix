@@ -4,7 +4,7 @@ _: {
     ./blocky.nix
     ./forgejo-actions-runner.nix
     ./grafana.nix
-    ./homepage
+    ./homepage.nix
     ../../../shared/prometheus-exporters.nix
     ../../../shared/promtail.nix
   ];
