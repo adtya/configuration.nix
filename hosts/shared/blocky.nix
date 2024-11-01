@@ -75,6 +75,7 @@
             "jellyfin.labs.adtya.xyz" = "10.10.10.14";
             "loki.labs.adtya.xyz" = "10.10.10.11";
             "prometheus.labs.adtya.xyz" = "10.10.10.11";
+            "prowlarr.labs.adtya.xyz" = "10.10.10.14";
             "radarr.labs.adtya.xyz" = "10.10.10.14";
             "readarr.labs.adtya.xyz" = "10.10.10.14";
             "sonarr.labs.adtya.xyz" = "10.10.10.14";

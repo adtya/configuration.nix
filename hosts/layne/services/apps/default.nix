@@ -6,6 +6,7 @@ _: {
     ./sonarr.nix
     ./readarr.nix
     ./jackett.nix
+    ./prowlarr.nix
     ../../../shared/prometheus-exporters.nix
     ../../../shared/promtail.nix
   ];
