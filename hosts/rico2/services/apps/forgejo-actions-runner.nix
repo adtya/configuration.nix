@@ -6,7 +6,7 @@
       group = config.users.users.root.group;
     };
   };
-  services.gitea-actions-runner = {
+   services.gitea-actions-runner = {
     package = pkgs.forgejo-runner;
     instances = {
       aarch64-runner = {
@@ -23,9 +23,7 @@
         settings = {
           log.level = "info";
           cache = {
-            enabled = true;
-            host = "192.168.1.12";
-            external_server = "https://act-cache.labs.adtya.xyz/";
+            enabled = false;
           };
         };
       };
