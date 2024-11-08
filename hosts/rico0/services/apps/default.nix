@@ -4,7 +4,6 @@ _: {
     ./adtya.xyz.nix
     ./dendrite.nix
     ./forgejo.nix
-    ./jellyfin.nix
     ./ntfy.nix
     ./proofs.nix
     ./wiki.nix
