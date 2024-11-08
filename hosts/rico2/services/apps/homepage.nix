@@ -47,7 +47,7 @@ in
                       { title = "NixOS Options"; shortcut = "!no"; url = "https://search.nixos.org/options?channel=unstable&query={QUERY}"; }
                       { title = "Nix Packages"; shortcut = "!np"; url = "https://search.nixos.org/packages?channel=unstable&query={QUERY}"; }
                       { title = "GitHub"; shortcut = "!gh"; url = "https://github.com/search?q={QUERY}&type=repositories"; }
-                      { title = "DockerHub"; shortcut = "!docker"; url = "https://hub.docker.com/search?q={QUERY}";}
+                      { title = "DockerHub"; shortcut = "!docker"; url = "https://hub.docker.com/search?q={QUERY}"; }
                     ];
                   }
                   {
@@ -58,10 +58,11 @@ in
                       { title = "Jellyfin"; url = "https://jellyfin.labs.adtya.xyz/"; icon = "si:jellyfin"; }
                       { title = "Forgejo"; url = "https://forge.acomputer.lol/"; icon = "si:forgejo"; }
                       { title = "Transmission"; url = "https://transmission.labs.adtya.xyz/"; icon = "si:transmission"; }
-                      { title = "Lidarr"; url = "https://lidarr.labs.adtya.xyz/"; icon = "si:lidarr"; }
+                      { title = "Prowlarr"; url = "https://prowlarr.labs.adtya.xyz/"; icon = "si:prowlarr"; }
+                      { title = "Bazarr"; url = "https://bazarr.labs.adtya.xyz/"; icon = "si:bazarr"; }
                       { title = "Radarr"; url = "https://radarr.labs.adtya.xyz/"; icon = "si:radarr"; }
                       { title = "Sonarr"; url = "https://sonarr.labs.adtya.xyz/"; icon = "si:sonarr"; }
-                      { title = "Prowlarr"; url = "https://prowlarr.labs.adtya.xyz/"; icon = "si:prowlarr"; }
+                      { title = "Lidarr"; url = "https://lidarr.labs.adtya.xyz/"; icon = "si:lidarr"; }
                     ];
                   }
 
@@ -80,6 +81,8 @@ in
                         title = "General";
                         links = [
                           { title = "Email"; url = "https://app.fastmail.com/mail/Inbox/"; }
+                          { title = "GitHub Notifications"; url = "https://github.com/notifications"; }
+                          { title = "Nixpkgs PR Tracker"; url = "https://nixpk.gs/pr-tracker.html"; }
                         ];
                       }
                     ];
