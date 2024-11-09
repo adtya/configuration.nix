@@ -201,6 +201,28 @@
               ./hosts/layne
             ];
           };
+        Bifrost =
+          let
+            hostname = "Bifrost";
+            system = "x86_64-linux";
+            username = "adtya";
+          in
+          nixpkgs.lib.nixosSystem {
+            inherit system;
+            pkgs = packages system;
+            specialArgs = { inherit inputs username; };
+            modules = [
+              {
+                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                networking.hostName = lib.mkForce hostname;
+                nixpkgs.hostPlatform = lib.mkDefault system;
+              }
+              sops-nix.nixosModules.sops
+              self.nixosModules.default
+              ./common
+              ./hosts/bifrost
+            ];
+          };
       };
 
       deploy.nodes = {
@@ -244,6 +266,14 @@
             path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.Layne;
           };
         };
+        Bifrost = {
+          hostname = "Biforst";
+          sshUser = "adtya";
+          profiles.system = {
+            user = "root";
+            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.Bifrost;
+          };
+        };
       };
     }
     // flake-utils.lib.eachDefaultSystem (system:
@@ -264,6 +294,7 @@
         ];
       };
       packages.getpaper = pkgs.callPackage ./extra-packages/scripts/getpaper { };
+      packages.digitalOceanImage = (pkgs.nixos { imports = [ "${nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix" ]; system.stateVersion = "24.11"; }).digitalOceanImage;
     }
     );
 }

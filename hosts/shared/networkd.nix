@@ -1,4 +1,4 @@
-_: {
+{ lib, config, ... }: {
   networking = {
     useNetworkd = true;
   };
@@ -26,7 +26,7 @@ _: {
           linkConfig = {
             RequiredForOnline = "yes";
           };
-          routes = [
+          routes = lib.mkIf ((lib.strings.toLower config.networking.hostName) != "bifrost") [
             {
               Destination = "165.232.180.97";
               Gateway = "_dhcp4";

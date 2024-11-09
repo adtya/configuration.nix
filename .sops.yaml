@@ -6,6 +6,7 @@ keys:
   - &host_rico2 age19uy6xerll6st3s3ftfpy7075m9eetm2288l2w07k7ek6z2l3ef6qfw34cf
   - &host_wynne age1jyaf9rn5d5pqjh60shs2q5hs98fwugak8z6cs6qs7yuc3wntugmsumxmv0
   - &host_layne age1k2wpm88wms6hx3ldvu0n2je7pag9fexs9eq0e8hlkfcs2dx9eg9qlkf95d
+  - &host_bifrost age1jt8uleg4auf0h8ftl4ykq73epvgqml29q8ty0lz6kasta5h6td3shgxvrr
 creation_rules:
   - path_regex: secrets.yaml
     key_groups:
@@ -17,3 +18,4 @@ creation_rules:
       - *host_rico2
       - *host_wynne
       - *host_layne
+      - *host_bifrost

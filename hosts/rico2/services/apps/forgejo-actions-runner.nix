@@ -6,7 +6,7 @@
       group = config.users.users.root.group;
     };
   };
-   services.gitea-actions-runner = {
+  services.gitea-actions-runner = {
     package = pkgs.forgejo-runner;
     instances = {
       aarch64-runner = {
