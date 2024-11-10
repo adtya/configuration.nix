@@ -33,9 +33,6 @@
     gh
     hcloud
     #localsend
-    nixpkgs-review
-    nix-init
-    nurl
     ripgrep
     signal-desktop-beta
     spotify
