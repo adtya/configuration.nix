@@ -32,10 +32,4 @@
       "10.10.10.14/24"
     ];
   };
-
-  networking.wg-quick = {
-    interfaces = {
-      ProtonVPN.configFile = config.sops.secrets."proton/layne".path;
-    };
-  };
 }

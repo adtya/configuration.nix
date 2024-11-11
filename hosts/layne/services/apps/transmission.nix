@@ -28,7 +28,7 @@ in
         "--lpd"
       ];
       settings = {
-        peer-port = 36840;
+        peer-port = 42069;
         rpc-bind-address = "127.0.0.1";
         rpc-port = 9091;
         rpc-host-whitelist = "transmission.labs.adtya.xyz";
@@ -60,23 +60,4 @@ in
     };
   };
   systemd.services.transmission.unitConfig.RequiresMountsFor = [ "/mnt/data" ];
-  systemd.timers.transmission-port-mapping = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnCalendar = "*:*:00/30";
-      Unit = "transmission-port-mapping.service";
-    };
-  };
-
-  systemd.services.transmission-port-mapping = {
-    script = ''
-      set -eu
-      ${pkgs.libnatpmp}/bin/natpmpc -g 10.2.0.1 -a 1 0 tcp 60
-      ${pkgs.libnatpmp}/bin/natpmpc -g 10.2.0.1 -a 1 0 udp 60
-    '';
-    serviceConfig = {
-      Type = "oneshot";
-      User = "root";
-    };
-  };
 }
