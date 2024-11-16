@@ -83,6 +83,8 @@ in
                           { title = "Email"; url = "https://app.fastmail.com/mail/Inbox/"; }
                           { title = "GitHub Notifications"; url = "https://github.com/notifications"; }
                           { title = "Nixpkgs PR Tracker"; url = "https://nixpk.gs/pr-tracker.html"; }
+                          { title = "DigitalOcean"; url = "https://cloud.digitalocean.com"; }
+                          { title = "Hetzner DNS Console"; url = "https://www.hetzner.com/dns-console/"; }
                         ];
                       }
                     ];
