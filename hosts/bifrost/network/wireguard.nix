@@ -3,6 +3,7 @@ let
   wireguard-peers = import ../../shared/wireguard-peers.nix;
 in
 {
+  nodeconfig.facts.wireguard-ip = "10.10.10.1";
   sops.secrets = {
     "wireguard/bifrost/pk" = {
       mode = "400";

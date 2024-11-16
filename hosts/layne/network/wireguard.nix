@@ -1,4 +1,4 @@
-{ config, ...}:
+{ config, ... }:
 let
   wireguard-peers = import ../../shared/wireguard-peers.nix;
 in

@@ -1,8 +1,4 @@
-{ config, inputs, pkgs, ... }:
-let
-  inherit (import ./caddy-helpers.nix) logFormat;
-in
-{
+{ config, inputs, pkgs, ... }: {
   sops = {
     secrets = {
       "caddy/env_file" = {
@@ -17,14 +13,12 @@ in
     package = inputs.caddy.packages.${pkgs.system}.caddy;
     email = "admin@acomputer.lol";
     globalConfig = ''
+      admin ${config.nodeconfig.facts.wireguard-ip}:2019
       acme_dns hetzner {env.HETZNER_ACCESS_TOKEN}
       servers {
-        trusted_proxies static private_ranges 10.10.10.0/24
-        client_ip_headers X-Forwarded-For X-Real-IP
         metrics
       }
     '';
-    inherit logFormat;
   };
   systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.secrets."caddy/env_file".path;
   networking.firewall.allowedTCPPorts = [ 80 443 ];

@@ -1,12 +1,10 @@
 _:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
   domainName = "acomputer.lol";
 in
 {
   services = {
     caddy.virtualHosts."${domainName}" = {
-      inherit logFormat;
       extraConfig = ''
         handle /.well-known/matrix/server {
           header Content-Type application/json
