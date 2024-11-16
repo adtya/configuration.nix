@@ -1,14 +1,5 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
-  sops = {
-    secrets = {
-      "matrix/syncv3_secret" = {
-        mode = "444";
-        owner = config.users.users.root.name;
-        inherit (config.users.users.root) group;
-      };
-    };
-  };
   systemd.services.dendrite =
     let
       dendrite_package = pkgs.dendrite;
