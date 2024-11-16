@@ -54,18 +54,20 @@ in
         mfact = 0.65;
         new_status = "master";
         new_on_top = true;
-        no_gaps_when_only = 1;
+        drop_at_cursor = false;
       };
 
       decoration = {
-        "col.shadow" = "rgba(1E202966)";
         dim_around = 0.6;
-        drop_shadow = "yes";
+        dim_inactive = true;
         rounding = 5;
-        shadow_range = 60;
-        shadow_offset = "1 2";
-        shadow_render_power = 3;
-        shadow_scale = 0.97;
+        shadow = {
+          color = "rgba(1E202966)";
+          offset = "1 2";
+          range = 60;
+          render_power = 3;
+          scale = 0.97;
+        };
       };
 
       monitor = [
