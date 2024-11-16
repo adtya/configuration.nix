@@ -9,11 +9,6 @@ in
       owner = config.users.users.root.name;
       group = config.users.users.root.group;
     };
-    "wireguard/wynne/psk" = {
-      mode = "400";
-      owner = config.users.users.root.name;
-      group = config.users.users.root.group;
-    };
   };
 
   systemd = {

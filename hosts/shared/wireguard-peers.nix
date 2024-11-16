@@ -4,7 +4,7 @@ let
   };
 in
 {
-  bifrost = mkPeer "165.232.180.97:51821" "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=" [ "10.10.10.1" "10.10.10.2" "10.10.10.3" ];
+  bifrost = mkPeer "128.199.30.141:51821" "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=" [ "10.10.10.1" "10.10.10.2" "10.10.10.3" ];
   skipper = mkPeer null "ob8Ri5fYBCkksRnpbkq0kBlU0Ll3xjIPpMk8e9TKpl4=" [ "10.10.10.2" ];
   kowalski = mkPeer null "ZgtftftDNAnNsOKo34cgaP3lQim2HMmoCXayALIVsFU=" [ "10.10.10.3" ];
   rico0 = mkPeer "192.168.1.10:51830" "9mfgKUM6hXllEUunvI8szlni9OFpKSbaLVZRAhAh51Q=" [ "10.10.10.10" ];
