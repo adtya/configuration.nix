@@ -4,7 +4,7 @@ _: {
     ./programs
     ./services
     ./containers
-    ./network.nix
+    ./network
     ./security.nix
   ];
 

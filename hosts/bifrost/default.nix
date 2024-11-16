@@ -1,7 +1,7 @@
 { modulesPath, ... }: {
   imports = [
     (modulesPath + "/virtualisation/digital-ocean-config.nix")
-    ./network.nix
+    ./network
     ./programs
     ./services
     ./security.nix

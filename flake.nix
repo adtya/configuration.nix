@@ -267,7 +267,7 @@
           };
         };
         Bifrost = {
-          hostname = "Biforst";
+          hostname = "Bifrost";
           sshUser = "adtya";
           profiles.system = {
             user = "root";

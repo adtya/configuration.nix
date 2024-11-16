@@ -3,7 +3,7 @@ _: {
     ./hardware
     ./programs
     ./services
-    ./network.nix
+    ./network
     ./security.nix
   ];
 

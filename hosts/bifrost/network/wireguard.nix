@@ -1,6 +1,6 @@
-{ lib, config, ... }:
+{ config, ... }:
 let
-  wireguard-peers = import ../shared/wireguard-peers.nix;
+  wireguard-peers = import ../../shared/wireguard-peers.nix;
 in
 {
   sops.secrets = {
@@ -10,45 +10,7 @@ in
       group = config.users.users.root.group;
     };
   };
-  systemd = {
-    network = {
-      enable = true;
-      wait-online.enable = false;
-      networks = {
-        "41-ether" = {
-          enable = true;
-          matchConfig = {
-            Type = "ether";
-            Name = "e*";
-          };
-          networkConfig = {
-            DHCP = "yes";
-            IPv4Forwarding = "yes";
-          };
-          dhcpV4Config = {
-            UseDomains = true;
-          };
-          linkConfig = {
-            RequiredForOnline = "yes";
-          };
-        };
-      };
-    };
-  };
-
-  services.resolved = {
-    enable = true;
-    domains = [ "~." ];
-    fallbackDns = [ ];
-  };
-
   networking = {
-    nameservers = [
-      "10.10.10.11"
-      "10.10.10.12"
-    ];
-    useDHCP = lib.mkDefault false;
-    useNetworkd = true;
     firewall = {
       allowedUDPPorts = [ 51821 ];
       trustedInterfaces = [ "Homelab" ];
@@ -75,5 +37,4 @@ in
       };
     };
   };
-
 }
