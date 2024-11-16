@@ -1,12 +1,20 @@
-_: {
-  imports = [
-    ../../shared/network.nix
-    ./wireguard.nix
-  ];
+{ lib, ... }: {
+  imports = [ ./wireguard.nix ];
+
+  services.resolved = {
+    enable = true;
+    domains = [ "~." ];
+    fallbackDns = [ ];
+  };
 
   networking = {
+    nameservers = [
+      "10.10.10.11"
+      "10.10.10.12"
+    ];
+    useDHCP = lib.mkDefault false;
     extraHosts = ''
-      10.10.10.1 Proxy
+      10.10.10.1 Bifrost
       10.10.10.2 Skipper
       10.10.10.10 Rico0
       10.10.10.11 Rico1
