@@ -1,6 +1,5 @@
 { config, ... }:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
   domainName = "homepage.labs.adtya.xyz";
   cfg = config.services.glance;
 in
@@ -8,7 +7,6 @@ in
   services = {
     caddy = {
       virtualHosts."${domainName}" = {
-        inherit logFormat;
         extraConfig = ''
           reverse_proxy ${cfg.settings.server.host}:${toString cfg.settings.server.port}
         '';

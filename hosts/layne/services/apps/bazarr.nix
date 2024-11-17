@@ -1,6 +1,5 @@
 { pkgs, lib, ... }:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
   user = "mediaserver";
   group = "mediaserver";
   dataDir = "/mnt/data/bazarr";
@@ -8,7 +7,6 @@ let
 in
 {
   services.caddy.virtualHosts."bazarr.labs.adtya.xyz" = {
-    inherit logFormat;
     extraConfig = ''
       reverse_proxy 127.0.0.1:${toString port}
     '';

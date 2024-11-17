@@ -1,19 +1,13 @@
-_:
-let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
-in
-{
+_: {
   services = {
     caddy = {
       virtualHosts = {
         "jellyfin.local.adtya.xyz" = {
-          inherit logFormat;
           extraConfig = ''
             reverse_proxy 127.0.0.1:8096
           '';
         };
         "jellyfin.labs.adtya.xyz" = {
-          inherit logFormat;
           extraConfig = ''
             reverse_proxy 127.0.0.1:8096
           '';

@@ -1,13 +1,8 @@
 _:
-let
-  inherit (import ../../../../shared/caddy-helpers.nix) logFormat;
-  domainName = "loki.labs.adtya.xyz";
-in
-{
+let domainName = "loki.labs.adtya.xyz"; in {
   services = {
     caddy = {
       virtualHosts."${domainName}" = {
-        inherit logFormat;
         extraConfig = ''
           reverse_proxy 127.0.0.1:3100
         '';

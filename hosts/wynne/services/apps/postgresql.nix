@@ -2,7 +2,7 @@
   services = {
     prometheus.exporters.postgres = {
       enable = true;
-      listenAddress = "127.0.0.1";
+      listenAddress = config.nodeconfig.facts.wireguard-ip;
       port = 9187;
       runAsLocalSuperUser = true;
     };

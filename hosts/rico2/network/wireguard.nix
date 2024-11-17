@@ -1,5 +1,5 @@
 { config, ... }:
-let wireguard-peers = import ../shared/wireguard-peers.nix; in {
+let wireguard-peers = import ../../shared/wireguard-peers.nix; in {
   sops.secrets = {
     "wireguard/rico2/pk" = {
       mode = "400";

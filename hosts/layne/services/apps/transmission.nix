@@ -1,12 +1,7 @@
-{ pkgs, ... }:
-let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
-in
-{
+{ pkgs, ... }: {
   services = {
     caddy = {
       virtualHosts."transmission.labs.adtya.xyz" = {
-        inherit logFormat;
         extraConfig = ''
           reverse_proxy 127.0.0.1:9091
         '';

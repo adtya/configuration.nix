@@ -12,6 +12,7 @@
     enable = true;
     package = inputs.caddy.packages.${pkgs.system}.caddy;
     email = "admin@acomputer.lol";
+    enableReload = false;
     globalConfig = ''
       admin ${config.nodeconfig.facts.wireguard-ip}:2019
       acme_dns hetzner {env.HETZNER_ACCESS_TOKEN}

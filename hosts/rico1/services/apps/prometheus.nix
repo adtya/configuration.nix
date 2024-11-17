@@ -1,13 +1,8 @@
 _:
-let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
-  domainName = "prometheus.labs.adtya.xyz";
-in
-{
+let domainName = "prometheus.labs.adtya.xyz"; in {
   services = {
     caddy = {
       virtualHosts."${domainName}" = {
-        inherit logFormat;
         extraConfig = ''
           reverse_proxy 127.0.0.1:9090
         '';
@@ -32,66 +27,57 @@ in
       scrapeConfigs = [
         {
           job_name = "ntfy";
-          scheme = "https";
-          metrics_path = "/ntfy-metrics";
           static_configs = [
-            { targets = [ "wynne.labs.adtya.xyz" ]; }
+            { targets = [ "10.10.10.13:8081" ]; }
           ];
         }
         {
           job_name = "caddy";
-          scheme = "https";
-          metrics_path = "/caddy-metrics";
           static_configs = [
-            { targets = [ "rico0.labs.adtya.xyz" ]; }
-            { targets = [ "rico1.labs.adtya.xyz" ]; }
-            { targets = [ "rico2.labs.adtya.xyz" ]; }
-            { targets = [ "wynne.labs.adtya.xyz" ]; }
-            { targets = [ "layne.labs.adtya.xyz" ]; }
+            { targets = [ "10.10.10.1:2019" ]; }
+            { targets = [ "10.10.10.10:2019" ]; }
+            { targets = [ "10.10.10.11:2019" ]; }
+            { targets = [ "10.10.10.12:2019" ]; }
+            { targets = [ "10.10.10.13:2019" ]; }
+            { targets = [ "10.10.10.14:2019" ]; }
           ];
         }
         {
           job_name = "postgres";
-          scheme = "https";
-          metrics_path = "/postgres-metrics";
           static_configs = [
-            { targets = [ "wynne.labs.adtya.xyz" ]; }
+            { targets = [ "10.10.10.13:9187" ]; }
           ];
         }
         {
           job_name = "systemd";
-          scheme = "https";
-          metrics_path = "/systemd-metrics";
           static_configs = [
-            { targets = [ "rico0.labs.adtya.xyz" ]; }
-            { targets = [ "rico1.labs.adtya.xyz" ]; }
-            { targets = [ "rico2.labs.adtya.xyz" ]; }
-            { targets = [ "wynne.labs.adtya.xyz" ]; }
-            { targets = [ "layne.labs.adtya.xyz" ]; }
+            { targets = [ "10.10.10.1:9558" ]; }
+            { targets = [ "10.10.10.10:9558" ]; }
+            { targets = [ "10.10.10.11:9558" ]; }
+            { targets = [ "10.10.10.12:9558" ]; }
+            { targets = [ "10.10.10.13:9558" ]; }
+            { targets = [ "10.10.10.14:9558" ]; }
           ];
         }
         {
           job_name = "smartctl";
-          scheme = "https";
-          metrics_path = "/smartctl-metrics";
           static_configs = [
-            { targets = [ "rico0.labs.adtya.xyz" ]; }
-            { targets = [ "rico1.labs.adtya.xyz" ]; }
-            { targets = [ "rico2.labs.adtya.xyz" ]; }
-            { targets = [ "wynne.labs.adtya.xyz" ]; }
-            { targets = [ "wynne.labs.adtya.xyz" ]; }
-            { targets = [ "layne.labs.adtya.xyz" ]; }
+            { targets = [ "10.10.10.10:9633" ]; }
+            { targets = [ "10.10.10.11:9633" ]; }
+            { targets = [ "10.10.10.12:9633" ]; }
+            { targets = [ "10.10.10.13:9633" ]; }
+            { targets = [ "10.10.10.14:9633" ]; }
           ];
         }
         {
           job_name = "node";
-          scheme = "https";
           static_configs = [
-            { targets = [ "rico0.labs.adtya.xyz" ]; }
-            { targets = [ "rico1.labs.adtya.xyz" ]; }
-            { targets = [ "rico2.labs.adtya.xyz" ]; }
-            { targets = [ "wynne.labs.adtya.xyz" ]; }
-            { targets = [ "layne.labs.adtya.xyz" ]; }
+            { targets = [ "10.10.10.1:9100" ]; }
+            { targets = [ "10.10.10.10:9100" ]; }
+            { targets = [ "10.10.10.11:9100" ]; }
+            { targets = [ "10.10.10.12:9100" ]; }
+            { targets = [ "10.10.10.13:9100" ]; }
+            { targets = [ "10.10.10.14:9100" ]; }
           ];
         }
         {
@@ -104,10 +90,8 @@ in
         }
         {
           job_name = "redis";
-          scheme = "https";
-          metrics_path = "/redis-metrics";
           static_configs = [
-            { targets = [ "rico1.labs.adtya.xyz" ]; }
+            { targets = [ "10.10.10.11:9121" ]; }
           ];
         }
       ];

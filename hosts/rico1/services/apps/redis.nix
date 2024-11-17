@@ -1,20 +1,16 @@
-_: {
+{ config, ... }: {
   services = {
     prometheus.exporters.redis = {
       enable = true;
-      listenAddress = "127.0.0.1";
+      listenAddress = config.nodeconfig.facts.wireguard-ip;
       port = 9121;
     };
     redis.servers = {
-      blocky = {
+      default = {
         enable = true;
         bind = "10.10.10.11";
         port = 6379;
-      };
-      caddy = {
-        enable = true;
-        bind = "10.10.10.11";
-        port = 6380;
+        extraParams = [ "--protected-mode no" ];
       };
     };
   };

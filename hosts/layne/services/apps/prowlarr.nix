@@ -1,13 +1,11 @@
 { pkgs, lib, ... }:
 let
-  inherit (import ../../../shared/caddy-helpers.nix) logFormat;
   user = "mediaserver";
   group = "mediaserver";
   dataDir = "/mnt/data/prowlarr";
 in
 {
   services.caddy.virtualHosts."prowlarr.labs.adtya.xyz" = {
-    inherit logFormat;
     extraConfig = ''
       reverse_proxy 127.0.0.1:9696
     '';

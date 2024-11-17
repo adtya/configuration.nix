@@ -1,53 +1,20 @@
-{ lib, config, ... }: {
+{ config, ... }: {
   services = {
-    caddy =
-      let
-        vHost = "${config.networking.hostName}.labs.adtya.xyz";
-      in
-      {
-        virtualHosts."${vHost}" = {
-          extraConfig = ''
-            handle /metrics {
-              reverse_proxy ${config.services.prometheus.exporters.node.listenAddress}:${toString config.services.prometheus.exporters.node.port}
-            }
-            handle /smartctl-metrics {
-              uri replace /smartctl-metrics /metrics
-              reverse_proxy ${config.services.prometheus.exporters.smartctl.listenAddress}:${toString config.services.prometheus.exporters.smartctl.port}
-            }
-            handle /systemd-metrics {
-              uri replace /systemd-metrics /metrics
-              reverse_proxy ${config.services.prometheus.exporters.systemd.listenAddress}:${toString config.services.prometheus.exporters.systemd.port}
-            }
-            ${lib.optionalString config.services.prometheus.exporters.postgres.enable ''
-            handle /postgres-metrics {
-              uri replace /postgres-metrics /metrics
-              reverse_proxy ${config.services.prometheus.exporters.postgres.listenAddress}:${toString config.services.prometheus.exporters.postgres.port}
-            }
-            ''}
-            ${lib.optionalString config.services.prometheus.exporters.redis.enable ''
-            handle /redis-metrics {
-              uri replace /redis-metrics /metrics
-              reverse_proxy ${config.services.prometheus.exporters.redis.listenAddress}:${toString config.services.prometheus.exporters.redis.port}
-            }
-            ''}
-          '';
-        };
-      };
     prometheus.exporters = {
       node = {
         enable = true;
-        listenAddress = "127.0.0.1";
+        listenAddress = config.nodeconfig.facts.wireguard-ip;
         port = 9100;
         enabledCollectors = [ "systemd" "processes" ];
       };
       smartctl = {
         enable = true;
-        listenAddress = "127.0.0.1";
+        listenAddress = config.nodeconfig.facts.wireguard-ip;
         port = 9633;
       };
       systemd = {
         enable = true;
-        listenAddress = "127.0.0.1";
+        listenAddress = config.nodeconfig.facts.wireguard-ip;
         port = 9558;
       };
 
