@@ -1,6 +1,5 @@
 _: {
   imports = [
-    ./blocky.nix
     ./prometheus.nix
     ./redis.nix
     ./loki

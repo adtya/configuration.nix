@@ -9,8 +9,7 @@
 
   networking = {
     nameservers = [
-      "10.10.10.11"
-      "10.10.10.12"
+      "10.10.10.1"
     ];
     useDHCP = lib.mkDefault false;
     extraHosts = ''

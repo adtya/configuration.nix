@@ -2,6 +2,7 @@ _: {
   imports = [
     ./adtya.xyz.nix
     ./acomputer.lol.nix
+    ./blocky.nix
     ./dendrite.nix
     ./forgejo.nix
     ./ntfy.nix

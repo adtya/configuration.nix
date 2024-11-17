@@ -1,7 +1,6 @@
 _: {
   imports = [
     ./alertmanager.nix
-    ./blocky.nix
     ./forgejo-actions-runner.nix
     ./grafana.nix
     ./homepage.nix
