@@ -1,8 +1,5 @@
 _:
-let
-  domainName = "forge.acomputer.lol";
-in
-{
+let domainName = "forge.acomputer.lol"; in {
   services = {
     caddy.virtualHosts."${domainName}" = {
       extraConfig = ''
