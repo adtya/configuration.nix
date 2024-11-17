@@ -40,5 +40,6 @@
       "10.10.10.12"
     ];
     useNetworkd = true;
+    nftables.enable = true;
   };
 }

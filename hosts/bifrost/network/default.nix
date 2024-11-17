@@ -1,6 +1,8 @@
 { lib, ... }: {
   imports = [ ./wireguard.nix ];
+
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+
   systemd = {
     network = {
       enable = true;
@@ -42,6 +44,7 @@
     ];
     useDHCP = lib.mkDefault false;
     useNetworkd = true;
+    nftables.enable = true;
   };
 
 }

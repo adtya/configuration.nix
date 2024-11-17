@@ -13,6 +13,11 @@ _: {
     nix.auto-gc = true;
     is-pi = true;
     is-server = true;
+    facts = {
+      external-ip = null;
+      local-ip = "192.168.1.12";
+      wireguard-ip = "10.10.10.12";
+    };
   };
 
   i18n = {

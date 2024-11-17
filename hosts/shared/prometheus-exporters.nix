@@ -1,8 +1,4 @@
-{ lib, config, ... }:
-let
-  inherit (import ./caddy-helpers.nix) logFormat;
-in
-{
+{ lib, config, ... }: {
   services = {
     caddy =
       let
@@ -10,9 +6,7 @@ in
       in
       {
         virtualHosts."${vHost}" = {
-          inherit logFormat;
           extraConfig = ''
-            metrics /caddy-metrics
             handle /metrics {
               reverse_proxy ${config.services.prometheus.exporters.node.listenAddress}:${toString config.services.prometheus.exporters.node.port}
             }

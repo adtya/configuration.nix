@@ -1,8 +1,5 @@
 { config, ... }:
-let
-  wireguard-peers = import ../../shared/wireguard-peers.nix;
-in
-{
+let wireguard-peers = import ../../shared/wireguard-peers.nix; in {
   sops.secrets = {
     "wireguard/wynne/pk" = {
       mode = "400";
@@ -21,7 +18,7 @@ in
           listenPort = 51833;
           privateKeyFile = config.sops.secrets."wireguard/wynne/pk".path;
           address = [
-            "10.10.10.13/24"
+            "${config.nodeconfig.facts.wireguard-ip}/24"
           ];
           dns = [ "10.10.10.11" "10.10.10.12" ];
           peers = with wireguard-peers; [

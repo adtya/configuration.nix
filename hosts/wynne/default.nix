@@ -11,6 +11,11 @@ _: {
     minimize = true;
     nix.auto-gc = true;
     is-server = true;
+    facts = {
+      external-ip = null;
+      local-ip = "192.168.1.13";
+      wireguard-ip = "10.10.10.13";
+    };
   };
 
   environment.sessionVariables = {
