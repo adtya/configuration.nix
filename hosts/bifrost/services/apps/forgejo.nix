@@ -1,5 +1,5 @@
 _:
-let domainName = "forge.acomputer.lol"; in {
+let domainName = "git.ironyofprivacy.org"; in {
   services = {
     caddy.virtualHosts."${domainName}" = {
       extraConfig = ''

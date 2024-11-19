@@ -6,11 +6,11 @@ _: {
       ruleset = ''
         table ip nat {
           chain PREROUTING {
-            type nat hook prerouting priority -100 ;
-            iifname ens3 tcp dport 42069 dnat to 10.10.10.13
+            type nat hook prerouting priority dstnat;
+            iifname ens3 tcp dport 22 dnat to 10.10.10.13:2222
           }
           chain POSTROUTING {
-            type nat hook postrouting priority 100 ;
+            type nat hook postrouting priority srcnat;
             ip daddr 10.10.10.13 masquerade
           };
         }

@@ -19,7 +19,7 @@
           "aarch64-linux:docker://ubuntu:latest"
         ];
         tokenFile = config.sops.secrets."forgejo/runner_registration_token_file".path;
-        url = "https://forge.acomputer.lol";
+        url = "https://git.ironyofprivacy.org";
         settings = {
           log.level = "info";
           cache = {
