@@ -22,7 +22,7 @@ in
           address = [
             "10.10.10.2/24"
           ];
-          dns = [ "10.10.10.11" "10.10.10.12" ];
+          dns = [ "10.10.10.1" ];
           peers = with wireguard-peers; [
             (bifrost // { allowedIPs = [ "10.10.10.0/24" ]; })
           ];

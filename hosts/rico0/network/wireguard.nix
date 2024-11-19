@@ -20,7 +20,7 @@ let wireguard-peers = import ../../shared/wireguard-peers.nix; in {
           address = [
             "${config.nodeconfig.facts.wireguard-ip}/24"
           ];
-          dns = [ "10.10.10.11" "10.10.10.12" ];
+          dns = [ "10.10.10.1" ];
           peers = with wireguard-peers; [
             (bifrost // { persistentKeepalive = 20; })
             rico1
