@@ -2,6 +2,7 @@
   imports = [
     ./btrfs.nix
     ./dbus.nix
+    ./geoclue.nix
     ./keyd.nix
     ./pipewire.nix
     ./udev.nix
