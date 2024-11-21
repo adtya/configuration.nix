@@ -1,6 +1,5 @@
 _: {
   networking = {
-    firewall.allowedTCPPorts = [ 42069 ];
     nftables = {
       enable = true;
       ruleset = ''
