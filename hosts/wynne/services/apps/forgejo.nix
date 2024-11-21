@@ -59,6 +59,10 @@ in
           HTTP_PORT = 3000;
           DOMAIN = domainName;
         };
+        log = {
+          LEVEL = "Warn";
+          "logger.router.MODE" = "";
+        };
         session = {
           COOKIE_SECURE = true;
         };
