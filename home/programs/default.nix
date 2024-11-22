@@ -10,7 +10,6 @@
     ./files.nix
     ./git.nix
     ./gnupg.nix
-    ./helix.nix
     ./kitty.nix
     ./mpv.nix
     ./neovim.nix
