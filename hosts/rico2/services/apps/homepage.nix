@@ -54,7 +54,7 @@ in
                     title = "Services";
                     sites = [
                       { title = "Jellyfin"; url = "https://jellyfin.labs.adtya.xyz/"; icon = "si:jellyfin"; same-tab = true; }
-                      { title = "Forgejo"; url = "https://git.ironyofprivacy.org/"; icon = "si:forgejo"; same-tab = true; }
+                      { title = "Forgejo"; url = "https://git.acomputer.lol/"; icon = "si:forgejo"; same-tab = true; }
                       { title = "Transmission"; url = "https://transmission.labs.adtya.xyz/"; icon = "si:transmission"; }
                       { title = "Prowlarr"; url = "https://prowlarr.labs.adtya.xyz/"; icon = "si:prowlarr"; }
                       { title = "Bazarr"; url = "https://bazarr.labs.adtya.xyz/"; icon = "si:bazarr"; same-tab = true; }

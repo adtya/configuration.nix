@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 let
   cfg = config.services.forgejo;
-  domainName = "git.ironyofprivacy.org";
+  domainName = "git.acomputer.lol";
 in
 {
   sops.secrets = {
@@ -51,7 +51,7 @@ in
           PROTOCOL = "http";
           DISABLE_SSH = false;
           START_SSH_SERVER = true;
-          BUILTIN_SSH_SERVER_USER = "forge";
+          BUILTIN_SSH_SERVER_USER = "git";
           SSH_PORT = 22;
           SSH_LISTEN_PORT = 2222;
           SSH_LISTEN_HOST = "10.10.10.13";
