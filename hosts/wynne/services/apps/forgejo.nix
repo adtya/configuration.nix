@@ -58,6 +58,7 @@ in
           HTTP_ADDR = "10.10.10.13";
           HTTP_PORT = 3000;
           DOMAIN = domainName;
+          LANDING_PAGE = "explore";
         };
         log = {
           LEVEL = "Warn";
