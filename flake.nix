@@ -293,6 +293,7 @@
           statix
           sops
           age
+          ssh-to-age
           deploy-rs.packages.${pkgs.system}.default
         ];
       };
