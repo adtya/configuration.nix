@@ -1,4 +1,5 @@
 _: {
+  systemd.services.nftables.after = [ "wg-quick-Homelab.service" ];
   networking = {
     nftables = {
       enable = true;

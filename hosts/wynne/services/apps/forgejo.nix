@@ -74,4 +74,5 @@ in
       database.createDatabase = true;
     };
   };
+  systemd.services.forgejo.after = [ "wg-quick-Homelab.service" "postgresql.service" ];
 }

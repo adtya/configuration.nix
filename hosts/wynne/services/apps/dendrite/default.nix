@@ -6,7 +6,7 @@
     in
     {
       description = "Dendrite Matrix homeserver";
-      after = [ "network.target" ];
+      after = [ "network.target" "wg-quick-Homelab.service" "postgresql.service" ];
       wantedBy = [ "multi-user.target" ];
       unitConfig.RequiresMountsFor = [ "/mnt/data" ];
       serviceConfig = {

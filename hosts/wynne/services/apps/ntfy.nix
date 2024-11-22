@@ -16,11 +16,16 @@ let domainName = "ntfy.acomputer.lol"; in {
       };
     };
   };
-  systemd.services.ntfy-sh.unitConfig.RequiresMountsFor = [ "/mnt/data" ];
-  systemd.services.ntfy-sh.serviceConfig.WorkingDirectory = "/mnt/data/ntfy-sh";
-  systemd.services.ntfy-sh.serviceConfig.User = "ntfy-sh";
-  systemd.services.ntfy-sh.serviceConfig.Group = "ntfy-sh";
-  systemd.services.ntfy-sh.serviceConfig.DynamicUser = lib.mkForce false;
+  systemd.services.ntfy-sh = {
+    after = [ "wg-quick-Homelab.service" ];
+    unitConfig.RequiresMountsFor = [ "/mnt/data" ];
+    serviceConfig = {
+      WorkingDirectory = "/mnt/data/ntfy-sh";
+      User = "ntfy-sh";
+      Group = "ntfy-sh";
+      DynamicUser = lib.mkForce false;
+    };
+  };
   users.users.ntfy-sh.home = "/mnt/data/ntfy-sh";
   users.users.ntfy-sh.createHome = true;
 
