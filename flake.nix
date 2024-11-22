@@ -17,7 +17,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.0.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -173,6 +173,7 @@
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
+              lix-module.nixosModules.default
               sops-nix.nixosModules.sops
               self.nixosModules.default
               ./common
@@ -195,6 +196,7 @@
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
+              lix-module.nixosModules.default
               sops-nix.nixosModules.sops
               self.nixosModules.default
               ./common
@@ -217,6 +219,7 @@
                 networking.hostName = lib.mkForce hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
+              lix-module.nixosModules.default
               sops-nix.nixosModules.sops
               self.nixosModules.default
               ./common
