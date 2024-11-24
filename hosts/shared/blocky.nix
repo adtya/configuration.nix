@@ -33,7 +33,7 @@
           mapping = { };
         };
         blocking = {
-          startStrategy = "fast";
+          loading.strategy = "fast";
           denylists = {
             ads = [
               "https://raw.githubusercontent.com/blocklistproject/Lists/master/ads.txt"
