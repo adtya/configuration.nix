@@ -1,11 +1,4 @@
-{ config
-, pkgs
-, ...
-}:
-let
-  gnome-keyring-daemon = "${pkgs.gnome-keyring}/bin/gnome-keyring-daemon";
-in
-{
+{ config, pkgs, lib, ... }: {
   programs.zsh = {
     enable = true;
     defaultKeymap = "viins";
@@ -15,13 +8,13 @@ in
     history = {
       expireDuplicatesFirst = true;
       extended = true;
+      ignoreDups = true;
+      ignoreSpace = true;
       path = "${config.xdg.dataHome}/zsh/zsh_history";
     };
+    envExtra = lib.optionalString config.services.gnome-keyring.enable ''export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"'';
     initExtra = ''
       bindkey -v '^?' backward-delete-char
-
-      eval $(${gnome-keyring-daemon} -s -d 2> /dev/null)
-      export SSH_AUTH_SOCK
     '';
     shellAliases = {
       cat = "${pkgs.bat}/bin/bat";

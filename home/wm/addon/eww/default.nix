@@ -24,6 +24,7 @@ in
 {
   programs.eww = {
     enable = true;
+    enableZshIntegration = false;
     configDir = pkgs.callPackage configDir { };
   };
   systemd.user.services = {

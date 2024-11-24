@@ -44,9 +44,11 @@
   ];
 
   programs = {
-    fzf.enable = true;
+    fzf = {
+      enable = true;
+      enableZshIntegration = false;
+    };
     lazygit.enable = true;
-    nix-index.enable = true;
     zoxide.enable = true;
   };
 }
