@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   imports = [
     ./boot
     ./hardware
@@ -17,14 +17,14 @@
     NIXOS_OZONE_WL = 1;
   };
 
-  fonts = {
+  fonts = let smc-fonts = inputs.smc-fonts.packages.${pkgs.system}.default; in {
     packages = with pkgs; [
       cantarell-fonts
       dejavu_fonts
       liberation_ttf
       noto-fonts-cjk-sans
       noto-fonts-emoji
-      smc-chilanka
+      (smc-fonts.override { fonts = [ "chilanka" ]; })
       (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
   };

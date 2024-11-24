@@ -33,6 +33,7 @@
     caddy.url = "git+https://git.acomputer.lol/adtya/caddy-with-modules?ref=main";
     adtyaxyz.url = "git+https://git.acomputer.lol/adtya/adtya.xyz?ref=main";
     wiki.url = "git+https://git.acomputer.lol/adtya/wiki?ref=main";
+    smc-fonts.url = "gitlab:smc/smc-fonts-flake?ref=trunk";
   };
 
   outputs =
@@ -49,6 +50,7 @@
     , caddy
     , adtyaxyz
     , wiki
+    , smc-fonts
     ,
     } @ inputs:
     let
