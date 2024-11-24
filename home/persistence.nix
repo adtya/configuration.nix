@@ -20,6 +20,7 @@ _: {
       { directory = ".config/nvim"; method = "symlink"; }
       { directory = ".config/Signal Beta"; method = "symlink"; }
       { directory = ".config/spotify"; method = "symlink"; }
+      { directory = ".config/supertuxkart"; method = "symlink"; }
       { directory = ".config/transmission-daemon"; method = "symlink"; }
       { directory = ".config/transmission-remote-gtk"; method = "symlink"; }
       { directory = ".fly"; method = "symlink"; }
@@ -30,6 +31,7 @@ _: {
       { directory = ".local/share/lutris"; method = "symlink"; }
       { directory = ".local/share/nix"; method = "symlink"; }
       { directory = ".local/share/nvim"; method = "symlink"; }
+      { directory = ".local/share/supertuxkart"; method = "symlink"; }
       { directory = ".local/share/systemd"; method = "symlink"; }
       { directory = ".local/share/TelegramDesktop"; method = "symlink"; }
       { directory = ".local/share/zoxide"; method = "symlink"; }
