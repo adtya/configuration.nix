@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, utils, ... }:
 let
   cfg = config.services.forgejo;
   domainName = "git.acomputer.lol";
@@ -74,5 +74,8 @@ in
       database.createDatabase = true;
     };
   };
-  systemd.services.forgejo.after = [ "wg-quick-Homelab.service" "postgresql.service" ];
+  systemd.services = {
+    forgejo.after = [ "wg-quick-Homelab.service" "postgresql.service" ];
+    "gitea-runner-${utils.escapeSystemdPath "X86_64-runner"}".unitConfig.RequiresMountsFor = [ "/var/lib/private" ];
+  };
 }
