@@ -31,13 +31,16 @@ _: {
       { directory = ".local/share/lutris"; method = "symlink"; }
       { directory = ".local/share/nix"; method = "symlink"; }
       { directory = ".local/share/nvim"; method = "symlink"; }
+      { directory = ".local/share/Steam"; method = "symlink"; }
       { directory = ".local/share/supertuxkart"; method = "symlink"; }
       { directory = ".local/share/systemd"; method = "symlink"; }
       { directory = ".local/share/TelegramDesktop"; method = "symlink"; }
       { directory = ".local/share/zoxide"; method = "symlink"; }
       { directory = ".local/share/zsh"; method = "symlink"; }
+      { directory = ".steam"; method = "symlink"; }
       { directory = "Documents"; method = "symlink"; }
       { directory = "Downloads"; method = "symlink"; }
+      { directory = "Games"; method = "symlink"; }
       { directory = "Music"; method = "symlink"; }
       { directory = "Others"; method = "symlink"; }
       { directory = "Pictures"; method = "symlink"; }
