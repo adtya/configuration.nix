@@ -33,6 +33,7 @@
     caddy.url = "git+https://git.acomputer.lol/adtya/caddy-with-modules?ref=main";
     adtyaxyz.url = "git+https://git.acomputer.lol/adtya/adtya.xyz?ref=main";
     wiki.url = "git+https://git.acomputer.lol/adtya/wiki?ref=main";
+    recipes.url = "git+https://git.acomputer.lol/adtya/recipes.nix?ref=main";
     smc-fonts.url = "gitlab:smc/smc-fonts-flake?ref=trunk";
   };
 
@@ -50,6 +51,7 @@
     , caddy
     , adtyaxyz
     , wiki
+    , recipes
     , smc-fonts
     ,
     } @ inputs:
@@ -110,6 +112,7 @@
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
               sops-nix.nixosModules.sops
+              recipes.nixosModules.default
               self.nixosModules.default
               ./common
               ./hosts/rico0
@@ -132,6 +135,7 @@
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
               sops-nix.nixosModules.sops
+              recipes.nixosModules.default
               self.nixosModules.default
               ./common
               ./hosts/rico1
@@ -154,6 +158,7 @@
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
               sops-nix.nixosModules.sops
+              recipes.nixosModules.default
               self.nixosModules.default
               ./common
               ./hosts/rico2
@@ -177,6 +182,7 @@
               }
               lix-module.nixosModules.default
               sops-nix.nixosModules.sops
+              recipes.nixosModules.default
               self.nixosModules.default
               ./common
               ./hosts/wynne
@@ -200,6 +206,7 @@
               }
               lix-module.nixosModules.default
               sops-nix.nixosModules.sops
+              recipes.nixosModules.default
               self.nixosModules.default
               ./common
               ./hosts/layne
@@ -223,6 +230,7 @@
               }
               lix-module.nixosModules.default
               sops-nix.nixosModules.sops
+              recipes.nixosModules.default
               self.nixosModules.default
               ./common
               ./hosts/bifrost

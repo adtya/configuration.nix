@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./conduwuit.nix
     ./dendrite
     ./forgejo.nix
     ./ntfy.nix

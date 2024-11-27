@@ -3,7 +3,7 @@ version: 2
 global:
   server_name: acomputer.lol
   private_key: /persist/secrets/dendrite/matrix_key.pem
-  key_validity_period: 168h0m0s
+  key_validity_period: 0h10m0s
   database:
     connection_string: postgresql://dendrite@localhost/dendrite?sslmode=disable
     max_open_conns: 90
