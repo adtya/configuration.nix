@@ -23,6 +23,8 @@
           allow_check_for_updates = false;
           allow_encryption = true;
           allow_federation = true;
+          allow_device_name_federation = true;
+          query_trusted_key_servers_first = false;
           trusted_servers = [ "matrix.org" ];
           well_known = {
             server = "matrix.${domain}:443";
@@ -46,6 +48,8 @@
           allow_check_for_updates = false;
           allow_encryption = true;
           allow_federation = true;
+          allow_device_name_federation = true;
+          query_trusted_key_servers_first = false;
           trusted_servers = [ "matrix.org" ];
           well_known = {
             server = "matrix.${domain}:443";
