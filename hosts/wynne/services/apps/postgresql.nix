@@ -15,12 +15,8 @@
         host   all  all  ::1/128               trust
         host   all  all  10.10.10.0/24         trust
       '';
-      ensureDatabases = [ "dendrite" "forgejo" ];
+      ensureDatabases = [ "forgejo" ];
       ensureUsers = [
-        {
-          name = "dendrite";
-          ensureDBOwnership = true;
-        }
         {
           name = "forgejo";
           ensureDBOwnership = true;

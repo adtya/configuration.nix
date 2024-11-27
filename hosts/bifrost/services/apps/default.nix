@@ -4,7 +4,6 @@ _: {
     ./acomputer.lol.nix
     ./blocky.nix
     ./conduwuit.nix
-    ./dendrite.nix
     ./forgejo.nix
     ./ironyofprivacy.org.nix
     ./ntfy.nix
