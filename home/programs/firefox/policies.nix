@@ -35,7 +35,6 @@ in
     "{3c078156-979c-498b-8990-85f7987dd929}" = install "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
     "{b743f56d-1cc1-4048-8ba6-f9c2ab7aa54d}" = install "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
     "{d634138d-c276-4fc8-924b-40a0ea21d284}" = install "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
-    "newtaboverride@agenedia.com" = install "https://addons.mozilla.org/firefox/downloads/latest/new-tab-override/latest.xpi";
   };
   FirefoxHome = {
     Search = true;
@@ -81,6 +80,7 @@ in
     "browser.aboutHomeSnippets.updateUrl" = lock "";
     "browser.crashReports.unsubmittedCheck.autoSubmit2" = lock false;
     "browser.selfsupport.url" = lock "";
+    "browser.startup.homepage" = lock "https://homepage.labs.adtya.xyz";
     "browser.startup.homepage_override.mstone" = lock "ignore";
     "browser.startup.homepage_override.buildID" = lock "";
     "browser.tabs.firefox-view" = lock false;
