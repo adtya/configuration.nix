@@ -75,7 +75,10 @@ in
     };
   };
   systemd.services = {
-    forgejo.after = [ "wg-quick-Homelab.service" "postgresql.service" ];
+    forgejo = {
+      after = [ "wg-quick-Homelab.service" "postgresql.service" ];
+      wants = [ "postgresql.service" ];
+    };
     "gitea-runner-${utils.escapeSystemdPath "X86_64-runner"}".unitConfig.RequiresMountsFor = [ "/var/lib/private" ];
   };
 }

@@ -786,11 +786,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1732838483,
-        "narHash": "sha256-I73ckA2YONWTK5teDyW4YauUVQLh8+wfakYYukfOc78=",
+        "lastModified": 1733046123,
+        "narHash": "sha256-nfi/zbiXgYRJ3RnO1GrypvKlUxqUsp1ORlTbgMgKNE4=",
         "ref": "main",
-        "rev": "c3e89a8a6abdb33cbc2e79d9ef744810680ee11d",
-        "revCount": 8,
+        "rev": "d0ffd1a57e5a2d91e5c689f0304c21f6fd5f519d",
+        "revCount": 12,
         "type": "git",
         "url": "https://git.acomputer.lol/adtya/recipes.nix"
       },
