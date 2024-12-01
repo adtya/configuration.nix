@@ -4,22 +4,20 @@
     blocky = {
       enable = true;
       settings = {
-        bootstrapDns = [ "tcp+udp:1.1.1.1" ];
+        bootstrapDns = [
+          "tcp+udp:1.1.1.1"
+          "tcp+udp:1.0.0.1"
+        ];
         upstreams = {
           groups = {
             default = [
               # Cloudflare
               "tcp+udp:1.1.1.1"
+              "tcp+udp:1.0.0.1"
 
               # Google
               "tcp+udp:8.8.8.8"
               "tcp+udp:8.8.4.4"
-
-              # Quad9
-              "tcp+udp:9.9.9.9"
-              "tcp+udp:149.112.112.112"
-              "tcp-tls:dns.quad9.net:853"
-              "https://dns.quad9.net/dns-query"
             ];
           };
           strategy = "parallel_best";
