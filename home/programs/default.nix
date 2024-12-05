@@ -25,6 +25,7 @@
   home.packages = with pkgs; [
     _1password-gui
     android-file-transfer
+    bitwarden-desktop
     blueberry
     discord
     doctl
@@ -35,7 +36,7 @@
     #localsend
     (lutris.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud p.vulkan-tools ]; })
     ripgrep
-    signal-desktop-beta
+    signal-desktop
     spotify
     (steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud p.vulkan-tools ]; })
     swayimg
