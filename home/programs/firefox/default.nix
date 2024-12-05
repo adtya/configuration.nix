@@ -2,14 +2,14 @@
   programs = {
     firefox = {
       enable = true;
-      package = pkgs.firefox.override {
-        extraPolicies = import ./policies.nix;
-        extraPrefs = builtins.readFile ./prefs.cfg;
-      };
+      package = pkgs.firefox;
+      nativeMessagingHosts = with pkgs; [ _1password-gui bitwarden-desktop ];
+      policies = import ./policies.nix;
       profiles.default = {
         id = 0;
         name = "Default";
         isDefault = true;
+        extraConfig = builtins.readFile ./prefs.cfg;
         search = {
           default = "DuckDuckGo";
           engines = {
