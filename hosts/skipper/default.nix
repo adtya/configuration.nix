@@ -24,8 +24,8 @@
       liberation_ttf
       noto-fonts-cjk-sans
       noto-fonts-emoji
+      nerd-fonts.fira-code
       (smc-fonts.override { fonts = [ "chilanka" ]; })
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
   };
 
