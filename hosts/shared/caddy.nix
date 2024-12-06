@@ -21,7 +21,6 @@
     '';
   };
   systemd.services.caddy = {
-    after = [ "wg-quick-Homelab.service" ];
     serviceConfig.EnvironmentFile = config.sops.secrets."caddy/env_file".path;
   };
   networking.firewall.allowedTCPPorts = [ 80 443 ];

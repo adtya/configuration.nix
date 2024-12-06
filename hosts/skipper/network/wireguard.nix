@@ -1,32 +1,41 @@
 { config, ... }:
-let
-  wireguard-peers = import ../../shared/wireguard-peers.nix;
-in
-{
+let wireguard-peers = import ../../shared/wireguard-peers.nix { }; in {
   sops.secrets = {
     "wireguard/skipper/pk" = {
       mode = "400";
-      owner = config.users.users.root.name;
-      group = config.users.users.root.group;
+      owner = config.users.users.systemd-network.name;
+      group = config.users.users.systemd-network.group;
     };
   };
   networking = {
     firewall = {
       trustedInterfaces = [ "Homelab" ];
     };
-    wg-quick = {
-      interfaces = {
-        Homelab = {
-          listenPort = 51822;
-          privateKeyFile = config.sops.secrets."wireguard/skipper/pk".path;
-          address = [
-            "10.10.10.2/24"
-          ];
-          dns = [ "10.10.10.1" ];
-          peers = with wireguard-peers; [
-            (bifrost // { allowedIPs = [ "10.10.10.0/24" ]; })
-          ];
-        };
+  };
+  systemd.network = {
+    enable = true;
+    netdevs."99-Homelab" = {
+      netdevConfig = {
+        Name = "Homelab";
+        Kind = "wireguard";
+      };
+      wireguardConfig = {
+        ListenPort = 51822;
+        PrivateKeyFile = config.sops.secrets."wireguard/skipper/pk".path;
+      };
+      wireguardPeers = with wireguard-peers; [
+        (bifrost // { AllowedIPs = [ "10.10.10.0/24" ]; })
+      ];
+    };
+    networks."99-Homelab" = {
+      matchConfig = {
+        Name = "Homelab";
+      };
+      networkConfig = {
+        DNS = "10.10.10.1";
+        Address = [
+          "${config.nodeconfig.facts.wireguard-ip}/24"
+        ];
       };
     };
   };

@@ -10,6 +10,10 @@
     ./security.nix
   ];
 
+  nodeconfig.facts = {
+    wireguard-ip = "10.10.10.2";
+  };
+
   console.useXkbConfig = true;
 
   environment.sessionVariables = {

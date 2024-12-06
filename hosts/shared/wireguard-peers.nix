@@ -1,12 +1,13 @@
+{ noEndpoints ? false }:
 let
-  mkPeer = endpoint: publicKey: allowedIPs: {
-    inherit endpoint publicKey allowedIPs;
-  };
+  mkPeer = Endpoint: PublicKey: AllowedIPs: {
+    inherit PublicKey AllowedIPs;
+  } // (if (noEndpoints) then { } else { inherit Endpoint; });
 in
 {
   bifrost = mkPeer "128.199.30.141:51821" "NNw/iDMCTq8mpHncrecEh4UlvtINX/UUDtCJf2ToFR4=" [ "10.10.10.1" "10.10.10.2" "10.10.10.3" ];
-  skipper = mkPeer null "ob8Ri5fYBCkksRnpbkq0kBlU0Ll3xjIPpMk8e9TKpl4=" [ "10.10.10.2" ];
-  kowalski = mkPeer null "ZgtftftDNAnNsOKo34cgaP3lQim2HMmoCXayALIVsFU=" [ "10.10.10.3" ];
+  skipper = mkPeer "" "ob8Ri5fYBCkksRnpbkq0kBlU0Ll3xjIPpMk8e9TKpl4=" [ "10.10.10.2" ];
+  kowalski = mkPeer "" "ZgtftftDNAnNsOKo34cgaP3lQim2HMmoCXayALIVsFU=" [ "10.10.10.3" ];
   rico0 = mkPeer "192.168.1.10:51830" "9mfgKUM6hXllEUunvI8szlni9OFpKSbaLVZRAhAh51Q=" [ "10.10.10.10" ];
   rico1 = mkPeer "192.168.1.11:51831" "lFtIm7CX3gcHMAu673ptRzNDQh5QEa7FbzlHSQerRg0=" [ "10.10.10.11" ];
   rico2 = mkPeer "192.168.1.12:51832" "FyFlOHfAprr474cJCXKRvgsU6o22xaQ8gzs1563AQnI=" [ "10.10.10.12" ];

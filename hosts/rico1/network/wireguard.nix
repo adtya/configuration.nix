@@ -1,10 +1,10 @@
 { config, ... }:
-let wireguard-peers = import ../../shared/wireguard-peers.nix; in {
+let wireguard-peers = import ../../shared/wireguard-peers.nix { }; in {
   sops.secrets = {
     "wireguard/rico1/pk" = {
       mode = "400";
-      owner = config.users.users.root.name;
-      group = config.users.users.root.group;
+      owner = config.users.users.systemd-network.name;
+      group = config.users.users.systemd-network.group;
     };
   };
   networking = {
@@ -12,23 +12,34 @@ let wireguard-peers = import ../../shared/wireguard-peers.nix; in {
       allowedUDPPorts = [ 51831 ];
       trustedInterfaces = [ "Homelab" ];
     };
-    wg-quick = {
-      interfaces = {
-        Homelab = {
-          listenPort = 51831;
-          privateKeyFile = config.sops.secrets."wireguard/rico1/pk".path;
-          address = [
-            "${config.nodeconfig.facts.wireguard-ip}/24"
-          ];
-          dns = [ "10.10.10.1" ];
-          peers = with wireguard-peers; [
-            (bifrost // { persistentKeepalive = 20; })
-            rico0
-            rico2
-            wynne
-            layne
-          ];
-        };
+  };
+  systemd.network = {
+    netdevs."99-Homelab" = {
+      netdevConfig = {
+        Name = "Homelab";
+        Kind = "wireguard";
+      };
+      wireguardConfig = {
+        ListenPort = 51831;
+        PrivateKeyFile = config.sops.secrets."wireguard/rico1/pk".path;
+      };
+      wireguardPeers = with wireguard-peers; [
+        (bifrost // { PersistentKeepalive = 20; })
+        rico0
+        rico2
+        wynne
+        layne
+      ];
+    };
+    networks."99-Homelab" = {
+      matchConfig = {
+        Name = "Homelab";
+      };
+      networkConfig = {
+        DNS = "10.10.10.1";
+        Address = [
+          "${config.nodeconfig.facts.wireguard-ip}/24"
+        ];
       };
     };
   };
