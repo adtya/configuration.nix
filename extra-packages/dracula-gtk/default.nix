@@ -11,8 +11,8 @@ stdenvNoCC.mkDerivation {
   src = fetchFromGitHub {
     owner = "dracula";
     repo = "gtk";
-    rev = "a0b0ab451447d374600a74519abaa0588f2fa536";
-    hash = "sha256-0Ndk9Mh58KU2eoG1Z/CzZPiLNxy2bdloq9p4gzMDu2M=";
+    rev = "3478e48925f33af411393adaa4043193f03a4e9a";
+    hash = "sha256-/7/zJXk1LLZKWOpYbrFWBfhFcyddU1y0IwT+RXyyP1M=";
   };
 
   propagatedUserEnvPkgs = [ gtk-engine-murrine ];
