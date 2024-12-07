@@ -1,4 +1,5 @@
-_: let persistant-path = "/persist/system"; in {
+_:
+let persistant-path = "/persist/system"; in {
   environment = {
     etc = {
       "machine-id" = {

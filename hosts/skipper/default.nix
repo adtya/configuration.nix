@@ -49,7 +49,7 @@
       LC_TIME = "en_IN.UTF-8";
       LC_ALL = "en_IN.UTF-8";
     };
-    supportedLocales = [ "en_IN/UTF-8" "en_US.UTF-8/UTF-8" "ml_IN/UTF-8" ];
+    supportedLocales = [ "ml_IN/UTF-8" "en_IN/UTF-8" "en_US.UTF-8/UTF-8" ];
   };
 
   services.xserver.xkb = {
