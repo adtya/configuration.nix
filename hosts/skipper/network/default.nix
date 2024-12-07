@@ -42,6 +42,15 @@
             Unmanaged = true;
           };
         };
+        "23-vnet" = {
+          matchConfig = {
+            Name = "vnet*";
+            Type = "ether";
+          };
+          linkConfig = {
+            Unmanaged = true;
+          };
+        };
         "40-ether" = {
           enable = true;
           matchConfig = {
