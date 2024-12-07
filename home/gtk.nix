@@ -1,19 +1,17 @@
-{ pkgs
-, ...
-}:
+{ pkgs, ...}:
 let
-  gtkTheme = {
+  theme = {
     name = "Dracula";
-    package = pkgs.dracula-gtk;
+    package = pkgs.dracula-theme;
   };
 
   iconTheme = {
-    name = "Papirus-Dark";
-    package = pkgs.papirus-icon-theme.override { color = "black"; };
+    name = "Dracula";
+    package = pkgs.dracula-icon-theme;
   };
 
   cursorTheme = {
-    name = "Bibata-Modern-Classic";
+    name = "Bibata-Modern-Amber";
     package = pkgs.bibata-cursors;
   };
 in
@@ -21,9 +19,7 @@ in
   home.pointerCursor = cursorTheme // { gtk.enable = true; size = 24; x11.enable = true; };
   gtk = {
     enable = true;
-    theme = gtkTheme;
-    inherit cursorTheme;
-    inherit iconTheme;
+    inherit theme cursorTheme iconTheme;
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
@@ -32,11 +28,11 @@ in
     };
   };
 
-  home.sessionVariables.GTK_THEME = gtkTheme.name;
+  home.sessionVariables.GTK_THEME = theme.name;
   xdg.configFile = {
-    "gtk-4.0/assets".source = "${gtkTheme.package}/share/themes/${gtkTheme.name}/gtk-4.0/assets";
-    "gtk-4.0/gtk.css".source = "${gtkTheme.package}/share/themes/${gtkTheme.name}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${gtkTheme.package}/share/themes/${gtkTheme.name}/gtk-4.0/gtk-dark.css";
+    "gtk-4.0/assets".source = "${theme.package}/share/themes/${theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${theme.package}/share/themes/${theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${theme.package}/share/themes/${theme.name}/gtk-4.0/gtk-dark.css";
   };
 
   dconf.settings = {

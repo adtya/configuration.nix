@@ -1,5 +1,4 @@
 final: prev: {
-  dracula-gtk = prev.callPackage ./dracula-gtk { };
   misc-scripts = prev.callPackage ./scripts/misc { };
   getpaper = prev.callPackage ./scripts/getpaper { };
   youtube = prev.callPackage ./scripts/youtube { };
