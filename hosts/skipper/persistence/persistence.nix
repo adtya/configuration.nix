@@ -1,8 +1,4 @@
-_:
-let
-  persistant-path = "/persist/system";
-in
-{
+_: let persistant-path = "/persist/system"; in {
   environment = {
     etc = {
       "machine-id" = {
@@ -14,7 +10,6 @@ in
     persistence."${persistant-path}" = {
       hideMounts = true;
       directories = [
-        "/etc/NetworkManager/system-connections"
         "/etc/systemd/nspawn"
         "/root/.local/share/nix"
         "/var/cache/fwupd"
@@ -24,7 +19,6 @@ in
         "/var/lib/iwd"
         "/var/lib/libvirt"
         "/var/lib/machines"
-        "/var/lib/NetworkManager"
         "/var/lib/nixos"
         "/var/lib/portables"
         "/var/lib/systemd"
