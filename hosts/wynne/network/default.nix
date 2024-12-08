@@ -41,6 +41,7 @@
           networkConfig = {
             DHCP = "yes";
             IPv4Forwarding = "yes";
+            Domains = [ "~." ];
           };
           dhcpV4Config = {
             UseDomains = true;
@@ -57,17 +58,9 @@
     };
   };
 
-  services.resolved = {
-    enable = true;
-    domains = [ "~." ];
-    fallbackDns = [ ];
-  };
-
+  services.resolved.enable = true;
   networking = {
     useDHCP = lib.mkDefault false;
-    nameservers = [
-      "10.10.10.1"
-    ];
     useNetworkd = true;
   };
 }
