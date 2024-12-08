@@ -1,12 +1,6 @@
 { lib, ... }: {
   imports = [ ./wireguard.nix ];
 
-  services.resolved = {
-    enable = true;
-    domains = [ "~." ];
-    fallbackDns = [ ];
-  };
-
   systemd = {
     network = {
       enable = true;
@@ -58,6 +52,7 @@
           };
           networkConfig = {
             DHCP = "yes";
+            Domains = [ "~." ];
           };
           dhcpV4Config = {
             UseDomains = true;
@@ -75,6 +70,7 @@
           networkConfig = {
             DHCP = "yes";
             IgnoreCarrierLoss = "3s";
+            Domains = [ "~." ];
           };
           dhcpV4Config = {
             UseDomains = true;
@@ -91,20 +87,10 @@
     };
   };
 
+  services.resolved.enable = true;
   networking = {
-    nameservers = [
-      "10.10.10.1"
-    ];
     useDHCP = lib.mkDefault false;
-    extraHosts = ''
-      10.10.10.1 Bifrost
-      10.10.10.2 Skipper
-      10.10.10.10 Rico0
-      10.10.10.11 Rico1
-      10.10.10.12 Rico2
-      10.10.10.13 Wynne
-      10.10.10.14 Layne
-    '';
+    useNetworkd = true;
 
     firewall = {
       allowedTCPPorts = [

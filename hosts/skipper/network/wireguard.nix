@@ -7,11 +7,7 @@ let wireguard-peers = import ../../shared/wireguard-peers.nix { }; in {
       group = config.users.users.systemd-network.group;
     };
   };
-  networking = {
-    firewall = {
-      trustedInterfaces = [ "Homelab" ];
-    };
-  };
+  networking.firewall.trustedInterfaces = [ "Homelab" ];
   systemd.network = {
     enable = true;
     netdevs."99-Homelab" = {
@@ -33,6 +29,7 @@ let wireguard-peers = import ../../shared/wireguard-peers.nix { }; in {
       };
       networkConfig = {
         DNS = "10.10.10.1";
+        Domains = [ "labs.adtya.xyz" ];
         Address = [
           "${config.nodeconfig.facts.wireguard-ip}/24"
         ];
