@@ -12,11 +12,11 @@
           enable = true;
           matchConfig = {
             Type = "ether";
-            Name = "e*";
           };
           networkConfig = {
             DHCP = "yes";
             IPv4Forwarding = "yes";
+            Domains = [ "~." ];
           };
           dhcpV4Config = {
             UseDomains = true;
@@ -29,16 +29,8 @@
     };
   };
 
-  services.resolved = {
-    enable = true;
-    domains = [ "~." ];
-    fallbackDns = [ ];
-  };
-
+  services.resolved.enable = true;
   networking = {
-    nameservers = [
-      "10.10.10.1"
-    ];
     useDHCP = lib.mkDefault false;
     useNetworkd = true;
   };

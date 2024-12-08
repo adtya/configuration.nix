@@ -39,6 +39,7 @@ let wireguard-peers = import ../../shared/wireguard-peers.nix { noEndpoints = tr
       };
       networkConfig = {
         DNS = "10.10.10.1";
+        Domains = [ "labs.adtya.xyz" ];
         Address = [
           "${config.nodeconfig.facts.wireguard-ip}/24"
         ];
