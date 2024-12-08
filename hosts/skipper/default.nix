@@ -14,6 +14,9 @@
     wireguard-ip = "10.10.10.2";
   };
 
+  # required for nixos-rebuild if target-host is of different arch. (even if --build-host is used)
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   console.useXkbConfig = true;
 
   environment.sessionVariables = {
