@@ -10,7 +10,10 @@ _: {
 
   nodeconfig = {
     minimize = true;
-    nix.auto-gc = true;
+    nix = {
+      auto-optimise = true;
+      auto-gc = true;
+    };
     is-server = true;
     facts = {
       external-ip = null;

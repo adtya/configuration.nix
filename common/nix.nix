@@ -1,10 +1,7 @@
 _: {
   nix = {
     channel.enable = false;
-    daemonCPUSchedPolicy = "idle";
-    daemonIOSchedClass = "idle";
     settings = {
-      auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" "auto-allocate-uids" "cgroups" "ca-derivations" ];
       auto-allocate-uids = true;
       sandbox = true;

@@ -10,8 +10,14 @@
     ./security.nix
   ];
 
-  nodeconfig.facts = {
-    wireguard-ip = "10.10.10.2";
+  nodeconfig = {
+    facts = {
+      wireguard-ip = "10.10.10.2";
+    };
+    nix = {
+      auto-optimise = true;
+      is-laptop = true;
+    };
   };
 
   # required for nixos-rebuild if target-host is of different arch. (even if --build-host is used)
