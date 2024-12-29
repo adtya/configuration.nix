@@ -9,10 +9,13 @@
     };
   };
 
+  nodeconfig.facts.tailnet-name = "taila9bb20.ts.net";
+
   services.tailscale = {
     enable = true;
     authKeyFile = config.sops.secrets."tailscale_auth".path;
     openFirewall = true;
+    permitCertUid = "caddy";
   };
 
   networking.firewall.trustedInterfaces = [ config.services.tailscale.interfaceName ];

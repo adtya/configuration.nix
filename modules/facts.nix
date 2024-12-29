@@ -1,6 +1,12 @@
 { lib, ... }: {
   options.nodeconfig = {
     facts = {
+      tailnet-name = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = null;
+        example = "tailabcdef.ts.net";
+        description = "Tailnet Name";
+      };
       local-ip = lib.mkOption {
         type = lib.types.nullOr lib.types.str;
         default = null;
