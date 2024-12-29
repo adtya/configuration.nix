@@ -30,10 +30,10 @@
     deploy-rs.url = "github:serokell/deploy-rs?ref=master";
     flake-utils.url = "github:numtide/flake-utils?ref=main";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
-    caddy.url = "git+https://git.acomputer.lol/adtya/caddy-with-modules?ref=main";
-    adtyaxyz.url = "git+https://git.acomputer.lol/adtya/adtya.xyz?ref=main";
-    wiki.url = "git+https://git.acomputer.lol/adtya/wiki?ref=main";
-    recipes.url = "git+https://git.acomputer.lol/adtya/recipes.nix?ref=main";
+    caddy.url = "github:/adtya/caddy-with-modules?ref=main";
+    adtyaxyz.url = "github:/adtya/adtya.xyz?ref=main";
+    wiki.url = "github:/adtya/wiki?ref=main";
+    recipes.url = "github:/adtya/recipes.nix?ref=main";
     smc-fonts.url = "gitlab:smc/smc-fonts-flake?ref=trunk";
   };
 
