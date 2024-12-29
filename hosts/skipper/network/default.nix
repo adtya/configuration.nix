@@ -1,4 +1,5 @@
 { lib, ... }: {
+  imports = [ ./tailscale.nix ];
   systemd = {
     network = {
       enable = true;
