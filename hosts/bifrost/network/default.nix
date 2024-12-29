@@ -1,5 +1,5 @@
 { lib, ... }: {
-  imports = [ ./firewall.nix ./wireguard.nix ];
+  imports = [ ./firewall.nix ];
 
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 

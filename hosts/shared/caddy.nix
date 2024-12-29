@@ -13,7 +13,6 @@
     package = inputs.caddy.packages.${pkgs.system}.caddy;
     email = "admin@acomputer.lol";
     globalConfig = ''
-      admin ${config.nodeconfig.facts.wireguard-ip}:2019
       acme_dns hetzner {env.HETZNER_ACCESS_TOKEN}
       servers {
         metrics

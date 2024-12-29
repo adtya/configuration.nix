@@ -1,6 +1,4 @@
 { lib, ... }: {
-  imports = [ ./wireguard.nix ];
-
   systemd = {
     network = {
       enable = true;

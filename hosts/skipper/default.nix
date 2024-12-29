@@ -11,9 +11,6 @@
   ];
 
   nodeconfig = {
-    facts = {
-      wireguard-ip = "10.10.10.2";
-    };
     nix = {
       auto-optimise = true;
       is-laptop = true;
