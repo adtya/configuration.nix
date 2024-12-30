@@ -8,13 +8,16 @@ rico0           IN CNAME rico0.@tailnetName@.
 rico1           IN CNAME rico1.@tailnetName@.
 
 rico2           IN CNAME rico2.@tailnetName@.
+homepage        IN CNAME rico2
 
 layne           IN CNAME layne.@tailnetName@.
 jellyfin        IN CNAME layne
 sonarr          IN CNAME layne
 radarr          IN CNAME layne
 lidarr          IN CNAME layne
+readarr         IN CNAME layne
 bazarr          IN CNAME layne
+prowlarr        IN CNAME layne
 transmission    IN CNAME layne
 
 wynne           IN CNAME wynne.@tailnetName@.

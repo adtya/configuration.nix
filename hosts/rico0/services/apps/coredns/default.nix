@@ -12,9 +12,22 @@ in
     enable = true;
     config = ''
       labs.adtya.xyz:53 {
+        errors
         log stdout
         bind ${tailscaleIP}
         file ${zoneFile}
+      }
+      ${tailnetName}:53 {
+        errors
+        log stdout
+        bind ${tailscaleIP}
+        forward . 100.100.100.100:53
+      }
+      .:53 {
+        errors
+        log stdout
+        bind ${tailscaleIP}
+        forward . 8.8.8.8
       }
     '';
   };
