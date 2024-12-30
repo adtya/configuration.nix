@@ -1,0 +1,24 @@
+$TTL 3600
+$ORIGIN labs.adtya.xyz.
+labs.adtya.xyz. IN SOA ns.labs.adtya.xyz. hostmaster.labs.adtya.xyz. 1 10800 3600 604800 3600
+labs.adtya.xyz. IN NS  ns.labs.adtya.xyz.
+ns              IN A   @tailscaleIP@
+rico0           IN CNAME rico0.@tailnetName@.
+
+rico1           IN CNAME rico1.@tailnetName@.
+
+rico2           IN CNAME rico2.@tailnetName@.
+
+layne           IN CNAME layne.@tailnetName@.
+jellyfin        IN CNAME layne
+sonarr          IN CNAME layne
+radarr          IN CNAME layne
+lidarr          IN CNAME layne
+bazarr          IN CNAME layne
+transmission    IN CNAME layne
+
+wynne           IN CNAME wynne.@tailnetName@.
+
+skipper         IN CNAME skipper.@tailnetName@.
+gloria          IN CNAME gloria.@tailnetName@.
+kowalski        IN CNAME kowalski.@tailnetName@.
