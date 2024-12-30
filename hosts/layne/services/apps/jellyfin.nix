@@ -19,7 +19,6 @@ _: {
       user = "mediaserver";
       group = "mediaserver";
       dataDir = "/mnt/data/Jellyfin";
-      openFirewall = true;
     };
   };
   systemd.services.jellyfin.unitConfig.RequiresMountsFor = [ "/mnt/data" ];
