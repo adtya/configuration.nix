@@ -13,6 +13,7 @@ _: {
     is-server = true;
     facts = {
       local-ip = "192.168.1.13";
+      tailscale-ip = "100.103.71.55";
     };
   };
 

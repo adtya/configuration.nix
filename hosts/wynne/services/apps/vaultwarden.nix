@@ -1,8 +1,4 @@
-{ config, ... }:
-let
-  tailnet-name = config.nodeconfig.facts.tailnet-name;
-in
-{
+{ config, ... }: {
   sops.secrets = {
     "vaultwarden/secrets" = {
       mode = "400";
@@ -11,7 +7,7 @@ in
     };
   };
 
-  services.caddy.virtualHosts."vault.${tailnet-name}" = {
+  services.caddy.virtualHosts."vault.labs.adtya.xyz" = {
     extraConfig = with config.recipes.vaultwarden.config; ''
       reverse_proxy ${ROCKET_ADDRESS}:${ROCKET_PORT}
     '';
@@ -22,7 +18,7 @@ in
     config = {
       ROCKET_ADDRESS = "127.0.0.1";
       ROCKET_PORT = "8222";
-      DOMAIN = "https://vault.${tailnet-name}";
+      DOMAIN = "https://vault.labs.adtya.xyz";
       SIGNUPS_ALLOWED = "false";
       DATABASE_URL = "postgresql://vaultwarden@localhost/vaultwarden?sslmode=disable";
       WEB_VAULT_ENABLED = "true";

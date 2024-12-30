@@ -18,6 +18,7 @@ bazarr          IN CNAME layne
 transmission    IN CNAME layne
 
 wynne           IN CNAME wynne.@tailnetName@.
+vault           IN CNAME wynne
 
 skipper         IN CNAME skipper.@tailnetName@.
 gloria          IN CNAME gloria.@tailnetName@.
