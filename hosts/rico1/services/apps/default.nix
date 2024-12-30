@@ -1,11 +1,4 @@
 _: {
-  imports = [
-    ./prometheus.nix
-    ./redis.nix
-    ./loki
-    ../../../shared/prometheus-exporters.nix
-    ../../../shared/promtail.nix
-  ];
   services.caddy = {
     virtualHosts = {
       "gateway.labs.adtya.xyz" = {

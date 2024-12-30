@@ -14,9 +14,7 @@ _: {
     is-pi = true;
     is-server = true;
     facts = {
-      external-ip = null;
       local-ip = "192.168.1.11";
-      wireguard-ip = "10.10.10.11";
     };
   };
 
