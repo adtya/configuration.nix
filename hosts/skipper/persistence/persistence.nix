@@ -23,6 +23,7 @@ let persistant-path = "/persist/system"; in {
         "/var/lib/nixos"
         "/var/lib/portables"
         "/var/lib/systemd"
+        "/var/lib/tailscale"
         "/var/log"
       ];
     };
