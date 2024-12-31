@@ -1,8 +1,10 @@
-$TTL 3600
 $ORIGIN labs.adtya.xyz.
-labs.adtya.xyz. IN SOA ns.labs.adtya.xyz. hostmaster.labs.adtya.xyz. 1 10800 3600 604800 3600
-labs.adtya.xyz. IN NS  ns.labs.adtya.xyz.
-ns              IN A   @tailscaleIP@
+$TTL    86400
+
+@  IN SOA ns.labs.adtya.xyz. hostmaster.labs.adtya.xyz. 2024123119 86400 10800 3600000 3600
+@  IN NS  ns.labs.adtya.xyz.
+ns IN A   @tailscaleIP@
+
 rico0           IN CNAME rico0.@tailnetName@.
 
 rico1           IN CNAME rico1.@tailnetName@.

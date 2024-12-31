@@ -8,6 +8,7 @@ in
   services.caddy.virtualHosts."prowlarr.labs.adtya.xyz" = {
     extraConfig = ''
       reverse_proxy 127.0.0.1:9696
+      import hetzner
     '';
   };
   systemd.tmpfiles.settings."10-prowlarr".${dataDir}.d = {

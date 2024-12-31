@@ -4,6 +4,7 @@
       virtualHosts."transmission.labs.adtya.xyz" = {
         extraConfig = ''
           reverse_proxy 127.0.0.1:9091
+          import hetzner
         '';
       };
     };

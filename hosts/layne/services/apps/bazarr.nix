@@ -9,6 +9,7 @@ in
   services.caddy.virtualHosts."bazarr.labs.adtya.xyz" = {
     extraConfig = ''
       reverse_proxy 127.0.0.1:${toString port}
+      import hetzner
     '';
   };
   systemd.tmpfiles.settings."10-bazarr".${dataDir}.d = {

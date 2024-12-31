@@ -5,12 +5,11 @@ let
 in
 {
   services = {
-    caddy = {
-      virtualHosts."${domainName}" = {
-        extraConfig = ''
-          reverse_proxy ${cfg.settings.server.host}:${toString cfg.settings.server.port}
-        '';
-      };
+    caddy.virtualHosts."${domainName}" = {
+      extraConfig = ''
+        reverse_proxy ${cfg.settings.server.host}:${toString cfg.settings.server.port}
+        import hetzner
+      '';
     };
     glance = {
       enable = true;

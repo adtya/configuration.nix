@@ -12,8 +12,15 @@
     enable = true;
     package = inputs.caddy.packages.${pkgs.system}.caddy;
     email = "admin@acomputer.lol";
+    extraConfig = ''
+      (hetzner) {
+        tls {
+          dns hetzner {env.HETZNER_ACCESS_TOKEN}
+          resolvers 1.1.1.1
+        }
+      }
+    '';
     globalConfig = ''
-      acme_dns hetzner {env.HETZNER_ACCESS_TOKEN}
       servers {
         metrics
       }

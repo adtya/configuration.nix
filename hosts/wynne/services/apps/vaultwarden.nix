@@ -10,6 +10,7 @@
   services.caddy.virtualHosts."vault.labs.adtya.xyz" = {
     extraConfig = with config.recipes.vaultwarden.config; ''
       reverse_proxy ${ROCKET_ADDRESS}:${ROCKET_PORT}
+      import hetzner
     '';
   };
   recipes.vaultwarden = {

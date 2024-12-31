@@ -3,6 +3,7 @@ _: {
     caddy.virtualHosts."sonarr.labs.adtya.xyz" = {
       extraConfig = ''
         reverse_proxy 127.0.0.1:8989
+        import hetzner
       '';
     };
     sonarr = {

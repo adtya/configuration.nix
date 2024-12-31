@@ -3,6 +3,7 @@ _: {
     caddy.virtualHosts."radarr.labs.adtya.xyz" = {
       extraConfig = ''
         reverse_proxy 127.0.0.1:7878
+        import hetzner
       '';
     };
     radarr = {

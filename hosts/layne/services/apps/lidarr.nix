@@ -3,6 +3,7 @@ _: {
     caddy.virtualHosts."lidarr.labs.adtya.xyz" = {
       extraConfig = ''
         reverse_proxy 127.0.0.1:8686
+        import hetzner
       '';
     };
     lidarr = {
