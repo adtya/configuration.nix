@@ -27,7 +27,7 @@ in
         errors
         log stdout
         bind ${tailscaleIP}
-        forward . 8.8.8.8
+        forward . 1.1.1.1:53
       }
     '';
   };
