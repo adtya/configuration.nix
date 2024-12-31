@@ -54,27 +54,20 @@ in
                     title = "Services";
                     sites = [
                       { title = "Jellyfin"; url = "https://jellyfin.labs.adtya.xyz/"; icon = "si:jellyfin"; same-tab = true; }
-                      { title = "Forgejo"; url = "https://git.acomputer.lol/"; icon = "si:forgejo"; same-tab = true; }
-                      { title = "Transmission"; url = "https://transmission.labs.adtya.xyz/"; icon = "si:transmission"; }
-                      { title = "Prowlarr"; url = "https://prowlarr.labs.adtya.xyz/"; icon = "si:prowlarr"; }
+                      { title = "Vaultwarden"; url = "https://vault.labs.adtya.xyz/"; icon = "si:vaultwarden"; same-tab = true; }
+                      { title = "Transmission"; url = "https://transmission.labs.adtya.xyz/"; icon = "si:transmission"; same-tab = true; }
+                      { title = "Prowlarr"; url = "https://prowlarr.labs.adtya.xyz/"; icon = "si:prowlarr"; same-tab = true; }
                       { title = "Bazarr"; url = "https://bazarr.labs.adtya.xyz/"; icon = "si:bazarr"; same-tab = true; }
                       { title = "Radarr"; url = "https://radarr.labs.adtya.xyz/"; icon = "si:radarr"; same-tab = true; }
                       { title = "Sonarr"; url = "https://sonarr.labs.adtya.xyz/"; icon = "si:sonarr"; same-tab = true; }
                       { title = "Lidarr"; url = "https://lidarr.labs.adtya.xyz/"; icon = "si:lidarr"; same-tab = true; }
+                      { title = "Readarr"; url = "https://readarr.labs.adtya.xyz/"; icon = "si:readarr"; same-tab = true; }
                     ];
                   }
 
                   {
                     type = "bookmarks";
                     groups = [
-                      {
-                        title = "Homelab";
-                        links = [
-                          { title = "Grafana"; url = "https://grafana.labs.adtya.xyz/"; icon = "si:grafana"; same-tab = true; }
-                          { title = "Prometheus"; url = "https://prometheus.labs.adtya.xyz/"; icon = "si:prometheus"; same-tab = true; }
-                          { title = "Alert Manager"; url = "https://alertmanager.labs.adtya.xyz/"; icon = "si:prometheus"; same-tab = true; }
-                        ];
-                      }
                       {
                         title = "General";
                         links = [
