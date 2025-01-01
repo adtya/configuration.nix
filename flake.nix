@@ -30,7 +30,6 @@
     deploy-rs.url = "github:serokell/deploy-rs?ref=master";
     flake-utils.url = "github:numtide/flake-utils?ref=main";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
-    caddy.url = "github:/adtya/caddy-with-modules?ref=main";
     adtyaxyz.url = "github:/adtya/adtya.xyz?ref=main";
     wiki.url = "github:/adtya/wiki?ref=main";
     recipes.url = "github:/adtya/recipes.nix?ref=main";
@@ -48,7 +47,6 @@
     , deploy-rs
     , flake-utils
     , neovim-nightly
-    , caddy
     , adtyaxyz
     , wiki
     , recipes
@@ -66,7 +64,7 @@
             "dotnet-sdk-6.0.428"
           ];
         };
-        overlays = [ (import ./extra-packages) ];
+        overlays = [ (import ./packages) ];
       };
     in
     {
@@ -311,7 +309,6 @@
           deploy-rs.packages.${pkgs.system}.default
         ];
       };
-      packages.getpaper = pkgs.callPackage ./extra-packages/scripts/getpaper { };
       packages.digitalOceanImage = (pkgs.nixos { imports = [ "${nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix" ]; system.stateVersion = "24.11"; }).digitalOceanImage;
     }
     );

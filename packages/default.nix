@@ -3,6 +3,6 @@ final: prev: {
   getpaper = prev.callPackage ./scripts/getpaper { };
   youtube = prev.callPackage ./scripts/youtube { };
   rofi-bluetooth = prev.callPackage ./rofi-bluetooth { };
-  smc-manjari = prev.callPackage ./smc-manjari { };
   smc-nupuram = prev.callPackage ./smc-nupuram { };
+  caddy-hetzner = prev.callPackage ./caddy { };
 }
