@@ -15,7 +15,9 @@
     enable = true;
     authKeyFile = config.sops.secrets."tailscale_auth".path;
     openFirewall = true;
-    permitCertUid = "caddy";
+    extraUpFlags = [
+      "--ssh"
+    ];
   };
 
   networking.firewall.trustedInterfaces = [ config.services.tailscale.interfaceName ];
