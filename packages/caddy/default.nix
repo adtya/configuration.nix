@@ -1,11 +1,11 @@
 { lib, fetchFromGitHub, buildGoModule, installShellFiles }:
 let
-  version = "2.8.4";
+  version = "2.9.0";
   caddy-src = fetchFromGitHub {
     owner = "caddyserver";
     repo = "dist";
     rev = "v${version}";
-    hash = "sha256-O4s7PhSUTXoNEIi+zYASx8AgClMC5rs7se863G6w+l0=";
+    hash = "sha256-3QcpmPUhZZ8oN/CUbCh/A1D0B59o1RxWPyMbA/WoRcU=";
   };
 in
 buildGoModule {
@@ -13,7 +13,7 @@ buildGoModule {
   inherit version;
   src = ./src;
   runVend = true;
-  vendorHash = "sha256-GKMB7/jSKY9CHRGEd45xAdu4nX1aFOBoGZh7mfPOUOk=";
+  vendorHash = "sha256-rH4J33idvgkAmXF3NbHolifUwcq7EEIP7zJUy+Qvorw=";
 
   ldflags = [
     "-s"
@@ -42,4 +42,4 @@ buildGoModule {
     license = lib.licenses.asl20;
     mainProgram = "caddy";
   };
-};
+}
