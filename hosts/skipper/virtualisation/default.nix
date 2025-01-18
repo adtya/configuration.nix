@@ -1,3 +1,3 @@
 _: {
-  imports = [ ./libvirtd.nix ./docker.nix ];
+  imports = [ ./docker.nix ];
 }

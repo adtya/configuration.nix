@@ -135,10 +135,6 @@ in
         "size 60% 60%,class:lutris"
 
         "dimaround,class:^(gcr-prompter)$"
-
-        "float,class:^(virt-manager)$"
-        "size 25% 50%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$"
-        "move 5%% 10%,class:^(virt-manager)$,title:^(Virtual Machine Manager)$"
       ];
 
       exec-once = [

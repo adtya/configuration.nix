@@ -25,7 +25,7 @@
       hashedPasswordFile = config.sops.secrets."passwd/${username}".path;
       description = "Adithya Nair";
       isNormalUser = true;
-      extraGroups = [ "docker" "libvirtd" "networkmanager" "wheel" ];
+      extraGroups = [ "docker" "wheel" ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPxDgoV9yf+yPnp4pt5EWgo7uC25W66ehoL/rlshVW+8 Skipper"

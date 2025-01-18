@@ -18,7 +18,6 @@ let persistant-path = "/persist/system"; in {
         "/var/lib/btrfs"
         "/var/lib/fwupd"
         "/var/lib/iwd"
-        "/var/lib/libvirt"
         "/var/lib/machines"
         "/var/lib/nixos"
         "/var/lib/portables"
