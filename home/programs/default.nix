@@ -33,11 +33,9 @@
     gh
     hcloud
     #localsend
-    (lutris.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud p.vulkan-tools ]; })
     ripgrep
     signal-desktop
     spotify
-    (steam.override { extraPkgs = p: [ p.gamemode p.gamescope p.mangohud p.vulkan-tools ]; })
     swayimg
     telegram-desktop
     transmission-remote-gtk
