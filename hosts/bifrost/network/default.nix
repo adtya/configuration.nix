@@ -1,7 +1,5 @@
 { lib, ... }: {
-  imports = [ ./firewall.nix ];
-
-  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
+  imports = [ ../../shared/tailscale.nix ];
 
   systemd = {
     network = {
