@@ -1,6 +1,6 @@
 keys:
   - &user_adtya age1w5rvr4nl8xvjjxpct4e2a2eajvm79v4r9nyxrcn40fm8d7h9l9cqkk0jtt
-  - &user_adtya_alex age18rr0fz0cyh39f7zhhwq5vrznxaee0ges9uxqz0hlgrgk52prhazqsd5v4w
+  - &user_adtya_gloria age1r4hmqwyy4mvs0gjvcx5l06qvxfjt56ec2y00qmdgmyrrl2y0ysmspqc6cd
   - &host_skipper age1mhks8qmhjrtc2u5ufvp3pv2hn7tkadvmscnp7wd0ywmnse0szctqsnpy0a
   - &host_rico0 age106k9u5ns9h7smh3gqc40k9fft5emknvq669qdv8a29ak3ah4j38s5ng2gt
   - &host_rico1 age1829x4l8vdhcn97af0zq898tupll0smrqywxka4pswkt6mtn8qp7qqnnnl4
@@ -13,7 +13,7 @@ creation_rules:
     key_groups:
     - age:
       - *user_adtya
-      - *user_adtya_alex
+      - *user_adtya_gloria
       - *host_skipper
       - *host_rico0
       - *host_rico1
