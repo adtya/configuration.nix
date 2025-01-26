@@ -6,20 +6,16 @@
     users.${username} = _: {
       imports = [
         inputs.impermanence.nixosModules.home-manager.impermanence
-        {
-          imports = [
-            ./programs
-            ./services
-            ./wm
-            ./gtk.nix
-            ./persistence.nix
-            ./qt.nix
-            ./secrets.nix
-            ./xdg.nix
-          ];
-          home.stateVersion = "23.11";
-        }
+        ./programs
+        ./services
+        ./wm
+        ./gtk.nix
+        ./persistence.nix
+        ./qt.nix
+        ./secrets.nix
+        ./xdg.nix
       ];
+      home.stateVersion = "23.11";
     };
   };
 }

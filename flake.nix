@@ -17,7 +17,11 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.91.1-2.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -40,6 +44,7 @@
     { self
     , nixpkgs
     , lix-module
+    , nix-darwin
     , home-manager
     , impermanence
     , lanzaboote
@@ -69,6 +74,27 @@
     in
     {
       nixosModules.default = import ./modules;
+      darwinConfigurations.Gloria =
+        let
+          hostname = "Gloria";
+          system = "x86_64-darwin";
+          username = "adtya";
+        in
+        nix-darwin.lib.darwinSystem {
+          inherit system;
+          pkgs = packages system;
+          specialArgs = { inherit inputs username; };
+          modules = [
+            {
+              system.configurationRevision = self.rev or self.dirtyRev or null;
+              networking.hostName = lib.mkDefault hostname;
+              nixpkgs.hostPlatform = lib.mkDefault system;
+            }
+            lix-module.nixosModules.default
+            home-manager.darwinModules.home-manager
+            ./hosts/gloria
+          ];
+        };
       nixosConfigurations = {
         Skipper =
           let
@@ -82,7 +108,7 @@
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                system.configurationRevision = self.rev or self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
@@ -109,7 +135,7 @@
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                system.configurationRevision = self.rev or self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
@@ -132,7 +158,7 @@
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                system.configurationRevision = self.rev or self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
@@ -155,7 +181,7 @@
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                system.configurationRevision = self.rev or self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
@@ -178,7 +204,7 @@
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                system.configurationRevision = self.rev or self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
@@ -202,7 +228,7 @@
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                system.configurationRevision = self.rev or self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
@@ -226,7 +252,7 @@
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = lib.mkIf (self ? rev) self.rev;
+                system.configurationRevision = self.rev or self.dirtyRev or null;
                 networking.hostName = lib.mkForce hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
