@@ -3,6 +3,7 @@ _: {
     ./direnv.nix
     ./eza.nix
     ./git.nix
+    ./kitty.nix
     ./neovim.nix
     ./starship.nix
     ./zsh.nix
