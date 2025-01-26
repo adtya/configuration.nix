@@ -11,6 +11,7 @@ rico1           IN CNAME rico1.@tailnetName@.
 
 rico2           IN CNAME rico2.@tailnetName@.
 homepage        IN CNAME rico2
+vault           IN CNAME rico2
 
 layne           IN CNAME layne.@tailnetName@.
 jellyfin        IN CNAME layne
@@ -23,7 +24,6 @@ prowlarr        IN CNAME layne
 transmission    IN CNAME layne
 
 wynne           IN CNAME wynne.@tailnetName@.
-vault           IN CNAME wynne
 
 skipper         IN CNAME skipper.@tailnetName@.
 gloria          IN CNAME gloria.@tailnetName@.
