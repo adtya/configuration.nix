@@ -69,7 +69,7 @@
             "dotnet-sdk-6.0.428"
           ];
         };
-        overlays = [ (import ./packages) ];
+        overlays = [ (import ./packages) recipes.overlays.default ];
       };
     in
     {

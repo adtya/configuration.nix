@@ -23,7 +23,7 @@
       SIGNUPS_ALLOWED = "false";
       DATABASE_URL = "postgresql://vaultwarden@localhost/vaultwarden?sslmode=disable";
       WEB_VAULT_ENABLED = "true";
-      SMTP_FROM = "vault@acomputer.lol";
+      SMTP_FROM = "homelab@acomputer.lol";
       SMTP_FROM_NAME = "Vaultwarden";
       IP_HEADER = "X-Forwarded-For";
       LOG_LEVEL = "warn";

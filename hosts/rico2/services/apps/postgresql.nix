@@ -9,10 +9,14 @@
         host   all  all  ::1/128               trust
         host   all  all  10.10.10.0/24         trust
       '';
-      ensureDatabases = [ "vaultwarden" ];
+      ensureDatabases = [ "vaultwarden" "ezbookkeeping" ];
       ensureUsers = [
         {
           name = "vaultwarden";
+          ensureDBOwnership = true;
+        }
+        {
+          name = "ezbookkeeping";
           ensureDBOwnership = true;
         }
       ];

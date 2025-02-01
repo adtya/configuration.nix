@@ -12,6 +12,7 @@ rico1           IN CNAME rico1.@tailnetName@.
 rico2           IN CNAME rico2.@tailnetName@.
 homepage        IN CNAME rico2
 vault           IN CNAME rico2
+money           IN CNAME rico2
 
 layne           IN CNAME layne.@tailnetName@.
 jellyfin        IN CNAME layne

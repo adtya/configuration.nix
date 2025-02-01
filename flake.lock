@@ -749,11 +749,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1733046123,
-        "narHash": "sha256-nfi/zbiXgYRJ3RnO1GrypvKlUxqUsp1ORlTbgMgKNE4=",
+        "lastModified": 1738435442,
+        "narHash": "sha256-EZyixXxXjRrYSoprdzDvOm4sLkXhCyUlY+xwKzdsQDE=",
         "owner": "adtya",
         "repo": "recipes.nix",
-        "rev": "d0ffd1a57e5a2d91e5c689f0304c21f6fd5f519d",
+        "rev": "e4d69176b4df2381759e3b89c3e7ebe926ee817a",
         "type": "github"
       },
       "original": {
