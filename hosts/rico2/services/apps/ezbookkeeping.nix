@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, ... }: let domain = "money.labs.adtya.xyz"; in {
   sops.secrets = {
     "ezbookkeeping/secrets" = {
       mode = "400";
@@ -6,7 +6,7 @@
       group = config.users.users.root.group;
     };
   };
-  services.caddy.virtualHosts."money.labs.adtya.xyz" = {
+  services.caddy.virtualHosts."${domain}" = {
     extraConfig = with config.recipes.ezbookkeeping.configuration; ''
       reverse_proxy ${server.http_addr}:${server.http_port}
       import hetzner
@@ -23,8 +23,8 @@
         protocol = "http";
         http_addr = "127.0.0.1";
         http_port = "8081";
-        domain = "money.labs.adtya.xyz";
-        root_url = "https://money.labs.adtya.xyz/";
+        inherit domain;
+        root_url = "https://${domain}/";
       };
       database = {
         type = "postgres";
@@ -38,7 +38,7 @@
       };
       log = {
         mode = "console";
-        level = "info";
+        level = "warn";
       };
       storage = {
         type = "local_filesystem";
