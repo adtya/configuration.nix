@@ -22,20 +22,16 @@
   ];
 
   home.packages = with pkgs; [
+    _1password-cli
     _1password-gui
     android-file-transfer
-    bitwarden-desktop
     blueberry
-    discord
     doctl
     flyctl
-    fractal
     gh
     hcloud
     #localsend
     ripgrep
-    signal-desktop
-    spotify
     swayimg
     telegram-desktop
     transmission-remote-gtk
