@@ -2,13 +2,13 @@ _: {
   boot.initrd.systemd.services.rollback = {
     description = "Rollback root subvolume to blank state";
     wantedBy = [ "initrd.target" ];
-    after = [ "dev-vg0-system.device" ];
+    after = [ "dev-mapper-CRYPT.device" ];
     before = [ "sysroot.mount" ];
     unitConfig.DefaultDependencies = "no";
     serviceConfig.Type = "oneshot";
     script = ''
       mkdir -p /mnt
-      mount -o subvol=/ /dev/vg0/system /mnt
+      mount -o subvol=/ /dev/mapper/CRYPT /mnt
 
       btrfs subvolume list -o /mnt/@root | cut -f9 -d' ' | while read subvolume; do
         echo "deleting /$subvolume subvolume..."
