@@ -9,6 +9,7 @@
         ./services
         ./wm
         ./gtk.nix
+        ./persistence.nix
         ./qt.nix
         ./secrets.nix
         ./xdg.nix
