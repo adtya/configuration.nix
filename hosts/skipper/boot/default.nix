@@ -1,10 +1,6 @@
 { lib, pkgs, ... }: {
   imports = [ ./plymouth.nix ];
   environment = {
-    #etc."secureboot" = {
-    #  mode = "symlink";
-    #  source = "/persist/secrets/secureboot";
-    #};
     systemPackages = with pkgs; [
       sbctl
     ];

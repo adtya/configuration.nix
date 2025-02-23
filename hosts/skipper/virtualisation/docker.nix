@@ -4,7 +4,7 @@
     docker = {
       enable = true;
       daemon.settings = {
-        data-root = "/persist/docker";
+        data-root = "/persist/data/docker";
       };
       storageDriver = "btrfs";
     };
