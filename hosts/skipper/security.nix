@@ -25,7 +25,7 @@
       extraConfig = ''
         Defaults lecture="never"
       '';
-      wheelNeedsPassword = true;
+      wheelNeedsPassword = false;
     };
   };
 }
