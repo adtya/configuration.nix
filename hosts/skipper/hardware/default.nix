@@ -6,7 +6,7 @@
 
   boot = {
     consoleLogLevel = 3;
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_zen;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
     kernelParams = [ "quiet" ];
     kernelModules = [ "kvm-intel" ];
     kernel.sysctl = {
