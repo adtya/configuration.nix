@@ -57,7 +57,7 @@ in
       };
       Service = {
         Type = "oneshot";
-        ExecStart = "${lib.getExe config.programs.eww.package} open activate-notice";
+        ExecStart = "${lib.getExe config.programs.eww.package} open default";
       };
     };
   };
