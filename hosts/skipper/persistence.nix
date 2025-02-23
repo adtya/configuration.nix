@@ -1,16 +1,15 @@
-_: {
+_:
+let
+  bindMount = source: target: {
+    device = source;
+    mountPoint = target;
+    fsType = "none";
+    options = [ "bind" ];
+  };
+in
+{
   fileSystems = {
-    secureboot = {
-      mountPoint = "/var/lib/sbctl";
-      device = "/persist/secrets/secureboot";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-    tailscale = {
-      mountPoint = "/var/lib/tailscale";
-      device = "/persist/data/tailscale";
-      fsType = "none";
-      options = [ "bind" ];
-    };
+    secureboot = bindMount "/persist/secrets/secureboot" "/var/lib/sbctl";
+    tailscale = bindMount "/persist/data/tailscale" "/var/lib/tailscale";
   };
 }
