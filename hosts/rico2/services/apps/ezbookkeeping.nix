@@ -1,4 +1,5 @@
-{ config, ... }: let domain = "money.labs.adtya.xyz"; in {
+{ config, ... }:
+let domain = "money.labs.adtya.xyz"; in {
   sops.secrets = {
     "ezbookkeeping/secrets" = {
       mode = "400";
