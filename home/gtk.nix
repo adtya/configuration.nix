@@ -6,8 +6,8 @@ let
   };
 
   iconTheme = {
-    name = "Dracula";
-    package = pkgs.dracula-icon-theme;
+    name = "MoreWaita";
+    package = pkgs.morewaita-icon-theme;
   };
 
   cursorTheme = {
