@@ -10,6 +10,7 @@
   ];
   services = {
     cpupower-gui.enable = true;
+    flatpak.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
     getty.autologinUser = config.users.users.${username}.name;
@@ -19,7 +20,6 @@
     logind.extraConfig = ''
       HandlePowerKey=ignore
     '';
-    lvm.dmeventd.enable = true;
     pcscd.enable = true;
     power-profiles-daemon.enable = true;
     thermald.enable = true;
