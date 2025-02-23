@@ -6,6 +6,7 @@ _: {
     mimeApps = {
       enable = true;
       defaultApplications = {
+        "x-scheme-handler/tonsite" = [ "org.telegram.desktop.desktop" ];
         "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
         "x-scheme-handler/magnet" = [ "io.github.TransmissionRemoteGtk.desktop" ];
       };
