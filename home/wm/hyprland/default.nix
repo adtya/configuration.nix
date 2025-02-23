@@ -11,7 +11,7 @@ let
   rofi = "${config.programs.rofi.package}/bin/rofi";
   swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
   tmux = "${config.programs.tmux.package}/bin/tmux";
-  wpaperctl = "${config.programs.wpaperd.package}/bin/wpaperctl";
+  wpaperctl = "${config.services.wpaperd.package}/bin/wpaperctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   yazi = "${pkgs.yazi}/bin/yazi";
   youtube = "${pkgs.youtube}/bin/youtube";
