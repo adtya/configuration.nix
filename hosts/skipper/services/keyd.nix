@@ -8,10 +8,6 @@ _: {
           main = {
             pageup = "noop";
             pagedown = "noop";
-            right = "noop";
-            left = "noop";
-            up = "noop";
-            down = "noop";
           };
         };
       };
