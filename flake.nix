@@ -25,7 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     disko.url = "github:nix-community/disko?ref=latest";
-    impermanence.url = "github:nix-community/impermanence?ref=master";
     lanzaboote.url = "github:nix-community/lanzaboote?ref=master";
     sops-nix.url = "github:Mic92/sops-nix?ref=master";
     deploy-rs.url = "github:serokell/deploy-rs?ref=master";
@@ -43,7 +42,6 @@
     , nix-darwin
     , home-manager
     , disko
-    , impermanence
     , lanzaboote
     , sops-nix
     , deploy-rs
@@ -111,7 +109,6 @@
               sops-nix.nixosModules.sops
               disko.nixosModules.disko
               lanzaboote.nixosModules.lanzaboote
-              impermanence.nixosModules.impermanence
               home-manager.nixosModules.home-manager
               self.nixosModules.default
               ./common

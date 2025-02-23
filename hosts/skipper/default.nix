@@ -5,7 +5,6 @@
     ./programs
     ./services
     ./network
-    ./persistence
     ./virtualisation
     ./security.nix
   ];

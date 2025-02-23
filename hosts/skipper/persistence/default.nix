@@ -1,3 +1,3 @@
 _: {
-  imports = [ ./persistence.nix ./rollback.nix ];
+  imports = [ ./persistence.nix ];
 }
