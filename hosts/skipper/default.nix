@@ -22,9 +22,12 @@
 
   console.useXkbConfig = true;
 
-  environment.sessionVariables = {
-    VDPAU_DRIVER = "va_gl";
-    NIXOS_OZONE_WL = 1;
+  environment = {
+    pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" "/share/zsh" ];
+    sessionVariables = {
+      VDPAU_DRIVER = "va_gl";
+      NIXOS_OZONE_WL = 1;
+    };
   };
 
   fonts = let smc-fonts = inputs.smc-fonts.packages.${pkgs.system}.default; in {
