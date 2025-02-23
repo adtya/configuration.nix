@@ -34,6 +34,7 @@
   };
 
   fonts = let smc-fonts = inputs.smc-fonts.packages.${pkgs.system}.default; in {
+    fontconfig.useEmbeddedBitmaps = true;
     packages = with pkgs; [
       cantarell-fonts
       dejavu_fonts
