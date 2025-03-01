@@ -1,4 +1,14 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  firefox-csshacks = pkgs.fetchFromGitHub {
+    owner = "MrOtherguy";
+    repo = "firefox-csshacks";
+    rev = "8c371d758a64099bb6711b98deb871b7474aa040";
+    hash = "sha256-ZThxJ6/dH6dYieOLEwHYGivEG0gESoWUKoYu2FvEhgU=";
+  };
+  importChrome = file: "@import url('${firefox-csshacks}/chrome/${file}');\n";
+in
+{
   programs = {
     firefox = {
       enable = true;
@@ -81,6 +91,25 @@
           };
           force = true;
         };
+        userChrome = ''
+          ${importChrome "window_control_placeholder_support.css"}
+          ${importChrome "hide_tabs_toolbar.css"}
+          ${importChrome "tab_close_button_always_on_hover.css"}
+          ${importChrome "tab_loading_progress_throbber.css"}
+          ${importChrome "button_effect_scale_onclick.css"}
+          ${importChrome "blank_page_background.css"}
+          ${importChrome "autohide_menubar.css"}
+          ${importChrome "hide_toolbox_top_bottom_borders.css"}
+          ${importChrome "vertical_context_navigation.css"}
+          ${importChrome "minimal_popup_scrollbars.css"}
+          ${importChrome "button_effect_icon_glow.css"}
+          ${importChrome "dark_context_menus.css"}
+          ${importChrome "dark_additional_windows.css"}
+          ${importChrome "dark_checkboxes_and_radios.css"}
+          ${importChrome "minimal_text_fields.css"}
+          ${importChrome "minimal_toolbarbuttons.css"}
+          ${importChrome "urlbar_centered_text.css"}
+        '';
       };
     };
   };
