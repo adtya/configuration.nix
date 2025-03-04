@@ -1,11 +1,11 @@
 { lib, fetchFromGitHub, buildGoModule, installShellFiles }:
 let
-  version = "2.9.0";
+  version = "2.9.1";
   caddy-src = fetchFromGitHub {
     owner = "caddyserver";
     repo = "dist";
     rev = "v${version}";
-    hash = "sha256-3QcpmPUhZZ8oN/CUbCh/A1D0B59o1RxWPyMbA/WoRcU=";
+    hash = "sha256-us1TnszA/10OMVSDsNvzRb6mcM4eMR3pQ5EF4ggA958=";
   };
 in
 buildGoModule {
