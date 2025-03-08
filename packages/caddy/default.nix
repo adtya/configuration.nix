@@ -5,7 +5,7 @@ let
     owner = "caddyserver";
     repo = "dist";
     rev = "v${version}";
-    hash = "sha256-us1TnszA/10OMVSDsNvzRb6mcM4eMR3pQ5EF4ggA958=";
+    hash = "sha256-28ahonJ0qeynoqf02gws0LstaL4E08dywSJ8s3tgEDI=";
   };
 in
 buildGoModule {
