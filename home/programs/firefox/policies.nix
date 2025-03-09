@@ -29,13 +29,13 @@ in
       installation_mode = "blocked";
       blocked_install_message = "Add it to firefox/policies.nix to install it.";
     };
-    "addon@darkreader.org" = install "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
     "queryamoid@kaply.com" = install "https://github.com/mkaply/queryamoid/releases/download/v0.2/query_amo_addon_id-0.2-fx.xpi";
+    "addon@darkreader.org" = install "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
     "uBlock0@raymondhill.net" = install "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+    "jid1-MnnxcxisBPnSXQ@jetpack" = install "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
     "{3c078156-979c-498b-8990-85f7987dd929}" = install "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi";
     "{b743f56d-1cc1-4048-8ba6-f9c2ab7aa54d}" = install "https://addons.mozilla.org/firefox/downloads/latest/dracula-dark-colorscheme/latest.xpi";
     "{d634138d-c276-4fc8-924b-40a0ea21d284}" = install "https://addons.mozilla.org/firefox/downloads/latest/1password-x-password-manager/latest.xpi";
-    "{446900e4-71c2-419f-a6a7-df9c091e268b}" = install "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
   };
   FirefoxHome = {
     Search = true;
