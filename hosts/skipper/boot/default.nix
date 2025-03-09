@@ -33,5 +33,6 @@
       enable = true;
       pkiBundle = "/persist/secrets/secureboot";
     };
+    tmp.cleanOnBoot = true;
   };
 }
