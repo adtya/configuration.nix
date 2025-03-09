@@ -5,14 +5,8 @@
   imports = [ ./filesystem.nix ];
 
   boot = {
-    consoleLogLevel = 3;
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-    kernelParams = [ "quiet" ];
     kernelModules = [ "kvm-intel" ];
-    kernel.sysctl = {
-      "vm.swappiness" = 10;
-      "vm.dirty_ratio" = 3;
-    };
     initrd = {
       availableKernelModules = [
         "xhci_pci"
@@ -21,7 +15,6 @@
         "rtsx_pci_sdmmc"
       ];
       kernelModules = [ "i915" "dm-snapshot" ];
-      systemd.enable = true;
     };
   };
 

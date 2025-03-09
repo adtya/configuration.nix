@@ -7,9 +7,9 @@
   };
 
   services.bazarr = {
-      enable = true;
-      user = "mediaserver";
-      group = "mediaserver";
+    enable = true;
+    user = "mediaserver";
+    group = "mediaserver";
   };
   systemd.services.bazarr.unitConfig.RequiresMountsFor = [ "/mnt/data" ];
 }
