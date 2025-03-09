@@ -55,7 +55,6 @@ in
 
       decoration = {
         dim_around = 0.6;
-        dim_inactive = true;
         rounding = 5;
         shadow = {
           color = "rgba(1E202966)";
