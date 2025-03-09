@@ -8,7 +8,6 @@ _: {
     };
     sonarr = {
       enable = true;
-      dataDir = "/mnt/data/sonarr";
       user = "mediaserver";
       group = "mediaserver";
     };

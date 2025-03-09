@@ -2,7 +2,6 @@
 let
   user = "mediaserver";
   group = "mediaserver";
-  dataDir = "/mnt/data/prowlarr";
 in
 {
   services.caddy.virtualHosts."prowlarr.labs.adtya.xyz" = {
@@ -10,10 +9,6 @@ in
       reverse_proxy 127.0.0.1:9696
       import hetzner
     '';
-  };
-  systemd.tmpfiles.settings."10-prowlarr".${dataDir}.d = {
-    inherit user group;
-    mode = "0700";
   };
 
   systemd.services.prowlarr = {
@@ -25,7 +20,9 @@ in
       Type = "simple";
       User = user;
       Group = group;
-      ExecStart = "${lib.getExe pkgs.prowlarr} -nobrowser -data='${dataDir}'";
+      StateDirectory = "prowlarr";
+      StateDirectoryMode = "0700";
+      ExecStart = "${lib.getExe pkgs.prowlarr} -nobrowser -data='/var/lib/prowlarr'";
       Restart = "on-failure";
     };
   };

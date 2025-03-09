@@ -8,7 +8,6 @@ _: {
     };
     radarr = {
       enable = true;
-      dataDir = "/mnt/data/radarr";
       user = "mediaserver";
       group = "mediaserver";
     };

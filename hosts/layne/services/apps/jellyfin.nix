@@ -18,7 +18,6 @@ _: {
       enable = true;
       user = "mediaserver";
       group = "mediaserver";
-      dataDir = "/mnt/data/Jellyfin";
     };
   };
   systemd.services.jellyfin.unitConfig.RequiresMountsFor = [ "/mnt/data" ];
