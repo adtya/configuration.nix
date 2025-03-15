@@ -28,5 +28,9 @@ in
       source = linkTo "${persist}/Projects";
       target = "Projects";
     };
+    videos = {
+      source = linkTo "${persist}/Videos";
+      target = "Videos";
+    };
   };
 }
