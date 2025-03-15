@@ -26,6 +26,7 @@
     _1password-gui
     android-file-transfer
     blueberry
+    devenv
     doctl
     flyctl
     gh
