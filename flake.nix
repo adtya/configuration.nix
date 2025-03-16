@@ -16,6 +16,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-1.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -40,6 +44,7 @@
   outputs =
     { self
     , nixpkgs
+    , lix-module
     , nix-darwin
     , home-manager
     , disko
@@ -108,6 +113,7 @@
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
+              lix-module.nixosModules.default
               sops-nix.nixosModules.sops
               disko.nixosModules.disko
               lanzaboote.nixosModules.lanzaboote
