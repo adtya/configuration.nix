@@ -29,6 +29,7 @@
     sops-nix.url = "github:Mic92/sops-nix?ref=master";
     deploy-rs.url = "github:serokell/deploy-rs?ref=master";
     flake-utils.url = "github:numtide/flake-utils?ref=main";
+    treefmt-nix.url = "github:numtide/treefmt-nix?ref=main";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
     adtyaxyz.url = "github:/adtya/adtya.xyz?ref=main";
     wiki.url = "github:/adtya/wiki?ref=main";
@@ -46,6 +47,7 @@
     , sops-nix
     , deploy-rs
     , flake-utils
+    ,treefmt-nix
     , neovim-nightly
     , adtyaxyz
     , wiki
@@ -312,9 +314,10 @@
       pkgs = import nixpkgs {
         inherit system;
       };
+      treeFmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
     in
     {
-      formatter = pkgs.nixpkgs-fmt;
+      formatter = treeFmtEval.config.build.wrapper;
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           git
