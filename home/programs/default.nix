@@ -31,6 +31,7 @@
     flyctl
     gh
     hcloud
+    impala
     #localsend
     ripgrep
     swayimg
