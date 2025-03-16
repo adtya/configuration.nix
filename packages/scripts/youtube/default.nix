@@ -30,4 +30,6 @@ stdenvNoCC.mkDerivation {
   postInstall = ''
     wrapProgram $out/bin/youtube --prefix PATH : ${lib.makeBinPath [kitty mpv rofi-wayland ueberzugpp ytfzf]}
   '';
+
+  meta.mainProgram = "youtube";
 }

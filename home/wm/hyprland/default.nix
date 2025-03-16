@@ -1,20 +1,22 @@
 { config, pkgs, lib, ... }:
 let
-  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
-  firefox = "${config.programs.firefox.finalPackage}/bin/firefox";
-  grimblast = "${pkgs.grimblast}/bin/grimblast";
-  hyprctl = "${pkgs.hyprland}/bin/hyprctl";
-  kitty = "${config.programs.kitty.package}/bin/kitty";
-  librewolf = "${pkgs.librewolf}/bin/librewolf";
+  cfg = config.wayland.windowManager.hyprland;
+
+  brightnessctl = "${lib.getExe pkgs.brightnessctl}";
+  firefox = "${lib.getExe config.programs.firefox.finalPackage}";
+  grimblast = "${lib.getExe pkgs.grimblast}";
+  hyprctl = "${lib.getExe cfg.package}";
+  kitty = "${lib.getExe config.programs.kitty.package}";
+  librewolf = "${lib.getExe pkgs.librewolf}";
   loginctl = "${pkgs.systemd}/bin/loginctl";
-  playerctl = "${pkgs.playerctl}/bin/playerctl";
-  rofi = "${config.programs.rofi.package}/bin/rofi";
+  playerctl = "${lib.getExe pkgs.playerctl}";
+  rofi = "${lib.getExe config.programs.rofi.package}";
   swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
-  tmux = "${config.programs.tmux.package}/bin/tmux";
+  tmux = "${lib.getExe config.programs.tmux.package}";
   wpaperctl = "${config.services.wpaperd.package}/bin/wpaperctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
-  yazi = "${pkgs.yazi}/bin/yazi";
-  youtube = "${pkgs.youtube}/bin/youtube";
+  yazi = "${lib.getExe pkgs.yazi}";
+  youtube = "${lib.getExe pkgs.youtube}";
 
   pictures = "${config.xdg.userDirs.pictures}";
 in
