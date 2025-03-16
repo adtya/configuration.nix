@@ -11,13 +11,13 @@ keys:
 creation_rules:
   - path_regex: secrets.yaml
     key_groups:
-    - age:
-      - *user_adtya
-      - *user_adtya_gloria
-      - *host_skipper
-      - *host_rico0
-      - *host_rico1
-      - *host_rico2
-      - *host_wynne
-      - *host_layne
-      - *host_bifrost
+      - age:
+          - *user_adtya
+          - *user_adtya_gloria
+          - *host_skipper
+          - *host_rico0
+          - *host_rico1
+          - *host_rico2
+          - *host_wynne
+          - *host_layne
+          - *host_bifrost

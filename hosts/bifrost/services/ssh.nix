@@ -1,5 +1,5 @@
 { config, ... }:
-let facts = config.nodeconfig.facts; in {
+{
   #networking.firewall.interfaces = {
   #  ens3.allowedTCPPorts = [ 2222 ];
   #  ens4.allowedTCPPorts = [ 22 ];

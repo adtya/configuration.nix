@@ -42,37 +42,42 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , lix-module
-    , nix-darwin
-    , home-manager
-    , disko
-    , lanzaboote
-    , sops-nix
-    , deploy-rs
-    , flake-utils
-    ,treefmt-nix
-    , neovim-nightly
-    , adtyaxyz
-    , wiki
-    , recipes
-    , smc-fonts
-    ,
-    } @ inputs:
+    {
+      self,
+      nixpkgs,
+      lix-module,
+      nix-darwin,
+      home-manager,
+      disko,
+      lanzaboote,
+      sops-nix,
+      deploy-rs,
+      flake-utils,
+      treefmt-nix,
+      neovim-nightly,
+      adtyaxyz,
+      wiki,
+      recipes,
+      smc-fonts,
+    }@inputs:
     let
       inherit (nixpkgs) lib;
-      packages = system: import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-          permittedInsecurePackages = [
-            "aspnetcore-runtime-6.0.36"
-            "dotnet-sdk-6.0.428"
+      packages =
+        system:
+        import nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
+            permittedInsecurePackages = [
+              "aspnetcore-runtime-6.0.36"
+              "dotnet-sdk-6.0.428"
+            ];
+          };
+          overlays = [
+            (import ./packages)
+            recipes.overlays.default
           ];
         };
-        overlays = [ (import ./packages) recipes.overlays.default ];
-      };
     in
     {
       nixosModules.default = import ./modules;
@@ -315,26 +320,29 @@
         };
       };
     }
-    // flake-utils.lib.eachDefaultSystem (system:
-    let
-      pkgs = import nixpkgs {
-        inherit system;
-      };
-      treeFmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
-    in
-    {
-      formatter = treeFmtEval.config.build.wrapper;
-      devShells.default = pkgs.mkShell {
-        buildInputs = with pkgs; [
-          git
-          statix
-          sops
-          age
-          ssh-to-age
-          deploy-rs.packages.${pkgs.system}.default
-        ];
-      };
-      packages.digitalOceanImage = (pkgs.nixos { imports = [ "${nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix" ]; system.stateVersion = "24.11"; }).digitalOceanImage;
-    }
+    // flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+        treeFmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
+      in
+      {
+        formatter = treeFmtEval.config.build.wrapper;
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            git
+            statix
+            sops
+            age
+            ssh-to-age
+            deploy-rs.packages.${pkgs.system}.default
+          ];
+        };
+        packages.digitalOceanImage =
+          (pkgs.nixos {
+            imports = [ "${nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix" ];
+            system.stateVersion = "24.11";
+          }).digitalOceanImage;
+      }
     );
 }

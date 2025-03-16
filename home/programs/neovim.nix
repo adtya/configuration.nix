@@ -1,4 +1,5 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+{
   xdg = {
     desktopEntries = {
       "nvim".name = "Neovim wrapper";

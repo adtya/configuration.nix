@@ -1,4 +1,4 @@
-final: prev: {
+_final: prev: {
   misc-scripts = prev.callPackage ./scripts/misc { };
   getpaper = prev.callPackage ./scripts/getpaper { };
   youtube = prev.callPackage ./scripts/youtube { };

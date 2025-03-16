@@ -1,4 +1,5 @@
-{ osConfig, username, ... }: {
+{ osConfig, username, ... }:
+{
   programs.git = {
     enable = true;
     delta = {
@@ -31,7 +32,9 @@
       };
       pull.ff = "only";
     };
-    ignores = [ "/.nix" "/.direnv" ];
+    ignores = [
+      "/.nix"
+      "/.direnv"
+    ];
   };
 }
-

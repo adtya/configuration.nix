@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   configFile = pkgs.substituteAll {
     src = ./config/eww.yuck;
@@ -7,19 +12,24 @@ let
 
   cssFile = ./config/eww.scss;
 
-  configDir = _: pkgs.stdenvNoCC.mkDerivation {
-    name = "eww-config";
+  configDir =
+    _:
+    pkgs.stdenvNoCC.mkDerivation {
+      name = "eww-config";
 
-    srcs = [ configFile cssFile ];
-    dontUnpack = true;
+      srcs = [
+        configFile
+        cssFile
+      ];
+      dontUnpack = true;
 
-    installPhase = ''
-      mkdir -p $out
-      for src in $srcs; do
-        cp "$src" $out/$(stripHash "$src")
-      done
-    '';
-  };
+      installPhase = ''
+        mkdir -p $out
+        for src in $srcs; do
+          cp "$src" $out/$(stripHash "$src")
+        done
+      '';
+    };
 in
 {
   programs.eww = {

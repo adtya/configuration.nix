@@ -1,4 +1,5 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   programs.neovim = {
     enable = true;
     package = inputs.neovim-nightly.packages.${pkgs.system}.default;

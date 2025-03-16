@@ -1,4 +1,9 @@
-{ lib, fetchFromGitHub, buildGoModule, installShellFiles }:
+{
+  lib,
+  fetchFromGitHub,
+  buildGoModule,
+  installShellFiles,
+}:
 let
   version = "2.9.1";
   caddy-src = fetchFromGitHub {

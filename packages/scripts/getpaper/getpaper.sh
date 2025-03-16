@@ -14,7 +14,7 @@ CURL_BASE_CMD="curl --silent ${API_KEY_HEADER}"
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 CONFIG_FILE="${CONFIG_DIR}/wallpaper_config.json"
 if [ ! -e "${CONFIG_FILE}" ]; then
-  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M", "look_at": 120}' | jq > "${CONFIG_FILE}"
+  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M", "look_at": 120}' | jq >"${CONFIG_FILE}"
 fi
 
 CONFIG="$(cat "${CONFIG_FILE}")"
@@ -89,15 +89,15 @@ fi
 if [ "${NO_OF_IMAGES}" -gt "${LOOK_AT}" ]; then
   NO_OF_IMAGES=$LOOK_AT
 fi
-RANDOM_ITEM="$(shuf -i 0-$((NO_OF_IMAGES-1)) -n 1 --random-source=/dev/urandom)"
-ITEM_PAGE=$((RANDOM_ITEM/24))
-ITEM_NUMBER=$((RANDOM_ITEM%24))
+RANDOM_ITEM="$(shuf -i 0-$((NO_OF_IMAGES - 1)) -n 1 --random-source=/dev/urandom)"
+ITEM_PAGE=$((RANDOM_ITEM / 24))
+ITEM_NUMBER=$((RANDOM_ITEM % 24))
 if [ "${ITEM_PAGE}" -gt 0 ]; then
   SEED="$(echo "${RESULT}" | jq -r '.meta.seed // empty')"
   if [ -n "${SEED}" ]; then
     SEED="seed=${SEED}&"
   fi
-  CURL_CMD="${CURL_BASE_CMD} \"${URL}${SEED}page=$((ITEM_PAGE+1))\""
+  CURL_CMD="${CURL_BASE_CMD} \"${URL}${SEED}page=$((ITEM_PAGE + 1))\""
   RESULT="$(eval "${CURL_CMD}")"
 fi
 IMAGE_URL="$(echo "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].path")"
@@ -106,4 +106,3 @@ if [ ! -f "${DIR}/${FILENAME}" ]; then
   curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
 fi
 echo "${DIR}/${FILENAME}"
-

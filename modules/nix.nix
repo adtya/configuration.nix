@@ -1,5 +1,8 @@
 { lib, config, ... }:
-let cfg = config.nodeconfig; in {
+let
+  cfg = config.nodeconfig;
+in
+{
   options.nodeconfig = {
     nix.auto-gc = lib.mkOption {
       type = lib.types.bool;
@@ -21,8 +24,8 @@ let cfg = config.nodeconfig; in {
     };
   };
 
-  config = lib.mkIf cfg.nix.auto-gc
-    {
+  config =
+    lib.mkIf cfg.nix.auto-gc {
       nix.gc = {
         automatic = true;
         dates = "Fri *-*-* 00:00:00";
@@ -30,15 +33,13 @@ let cfg = config.nodeconfig; in {
         randomizedDelaySec = "1h";
       };
     }
-  // lib.mkIf cfg.nix.auto-optimise
-    {
+    // lib.mkIf cfg.nix.auto-optimise {
       nix.optimise = {
         automatic = true;
         dates = [ "Fri *-*-* 06:00:00" ];
       };
     }
-  // lib.mkIf cfg.nix.is-laptop
-    {
+    // lib.mkIf cfg.nix.is-laptop {
       nix.daemonCPUSchedPolicy = "idle";
       nix.daemonIOSchedClass = "idle";
     };

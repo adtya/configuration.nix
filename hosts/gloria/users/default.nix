@@ -1,4 +1,5 @@
-{ pkgs, username, ... }: {
+{ pkgs, username, ... }:
+{
   users.users.${username} = {
     uid = 501;
     gid = 20;

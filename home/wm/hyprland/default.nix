@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   cfg = config.wayland.windowManager.hyprland;
 
@@ -138,9 +143,7 @@ in
         "dimaround,class:^(gcr-prompter)$"
       ];
 
-      exec-once = [
-        "${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24"
-      ];
+      exec-once = [ "${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24" ];
 
       bindm = [
         "SUPER,mouse:272,           movewindow"

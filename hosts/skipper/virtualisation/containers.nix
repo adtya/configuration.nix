@@ -1,4 +1,5 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
   virtualisation = {
     containers = {
       enable = true;
@@ -17,7 +18,9 @@
       enable = true;
       dockerCompat = true;
       dockerSocket.enable = true;
-      defaultNetwork.settings = { dns_enabled = true; };
+      defaultNetwork.settings = {
+        dns_enabled = true;
+      };
     };
   };
 }

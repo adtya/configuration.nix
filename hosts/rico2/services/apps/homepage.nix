@@ -40,11 +40,31 @@ in
                     autofocus = true;
                     search-engine = "duckduckgo";
                     bangs = [
-                      { title = "YouTube"; shortcut = "!yt"; url = "https://www.youtube.com/results?search_query={QUERY}"; }
-                      { title = "NixOS Options"; shortcut = "!no"; url = "https://search.nixos.org/options?channel=unstable&query={QUERY}"; }
-                      { title = "Nix Packages"; shortcut = "!np"; url = "https://search.nixos.org/packages?channel=unstable&query={QUERY}"; }
-                      { title = "GitHub"; shortcut = "!gh"; url = "https://github.com/search?q={QUERY}&type=repositories"; }
-                      { title = "DockerHub"; shortcut = "!docker"; url = "https://hub.docker.com/search?q={QUERY}"; }
+                      {
+                        title = "YouTube";
+                        shortcut = "!yt";
+                        url = "https://www.youtube.com/results?search_query={QUERY}";
+                      }
+                      {
+                        title = "NixOS Options";
+                        shortcut = "!no";
+                        url = "https://search.nixos.org/options?channel=unstable&query={QUERY}";
+                      }
+                      {
+                        title = "Nix Packages";
+                        shortcut = "!np";
+                        url = "https://search.nixos.org/packages?channel=unstable&query={QUERY}";
+                      }
+                      {
+                        title = "GitHub";
+                        shortcut = "!gh";
+                        url = "https://github.com/search?q={QUERY}&type=repositories";
+                      }
+                      {
+                        title = "DockerHub";
+                        shortcut = "!docker";
+                        url = "https://hub.docker.com/search?q={QUERY}";
+                      }
                     ];
                   }
                   {
@@ -52,15 +72,60 @@ in
                     cache = "1m";
                     title = "Services";
                     sites = [
-                      { title = "Jellyfin"; url = "https://jellyfin.labs.adtya.xyz/"; icon = "si:jellyfin"; same-tab = true; }
-                      { title = "Vaultwarden"; url = "https://vault.labs.adtya.xyz/"; icon = "si:vaultwarden"; same-tab = true; }
-                      { title = "Transmission"; url = "https://transmission.labs.adtya.xyz/"; icon = "si:transmission"; same-tab = true; }
-                      { title = "Prowlarr"; url = "https://prowlarr.labs.adtya.xyz/"; icon = "si:prowlarr"; same-tab = true; }
-                      { title = "Bazarr"; url = "https://bazarr.labs.adtya.xyz/"; icon = "si:bazarr"; same-tab = true; }
-                      { title = "Radarr"; url = "https://radarr.labs.adtya.xyz/"; icon = "si:radarr"; same-tab = true; }
-                      { title = "Sonarr"; url = "https://sonarr.labs.adtya.xyz/"; icon = "si:sonarr"; same-tab = true; }
-                      { title = "Lidarr"; url = "https://lidarr.labs.adtya.xyz/"; icon = "si:lidarr"; same-tab = true; }
-                      { title = "Readarr"; url = "https://readarr.labs.adtya.xyz/"; icon = "si:readarr"; same-tab = true; }
+                      {
+                        title = "Jellyfin";
+                        url = "https://jellyfin.labs.adtya.xyz/";
+                        icon = "si:jellyfin";
+                        same-tab = true;
+                      }
+                      {
+                        title = "Vaultwarden";
+                        url = "https://vault.labs.adtya.xyz/";
+                        icon = "si:vaultwarden";
+                        same-tab = true;
+                      }
+                      {
+                        title = "Transmission";
+                        url = "https://transmission.labs.adtya.xyz/";
+                        icon = "si:transmission";
+                        same-tab = true;
+                      }
+                      {
+                        title = "Prowlarr";
+                        url = "https://prowlarr.labs.adtya.xyz/";
+                        icon = "si:prowlarr";
+                        same-tab = true;
+                      }
+                      {
+                        title = "Bazarr";
+                        url = "https://bazarr.labs.adtya.xyz/";
+                        icon = "si:bazarr";
+                        same-tab = true;
+                      }
+                      {
+                        title = "Radarr";
+                        url = "https://radarr.labs.adtya.xyz/";
+                        icon = "si:radarr";
+                        same-tab = true;
+                      }
+                      {
+                        title = "Sonarr";
+                        url = "https://sonarr.labs.adtya.xyz/";
+                        icon = "si:sonarr";
+                        same-tab = true;
+                      }
+                      {
+                        title = "Lidarr";
+                        url = "https://lidarr.labs.adtya.xyz/";
+                        icon = "si:lidarr";
+                        same-tab = true;
+                      }
+                      {
+                        title = "Readarr";
+                        url = "https://readarr.labs.adtya.xyz/";
+                        icon = "si:readarr";
+                        same-tab = true;
+                      }
                     ];
                   }
 
@@ -70,11 +135,36 @@ in
                       {
                         title = "General";
                         links = [
-                          { title = "Email"; url = "https://app.fastmail.com/mail/Inbox/"; icon = "si:fastmail"; same-tab = true; }
-                          { title = "GitHub Notifications"; url = "https://github.com/notifications"; icon = "si:github"; same-tab = true; }
-                          { title = "Nixpkgs PR Tracker"; url = "https://nixpk.gs/pr-tracker.html"; icon = "si:nixos"; same-tab = true; }
-                          { title = "DigitalOcean"; url = "https://cloud.digitalocean.com"; icon = "si:digitalocean"; same-tab = true; }
-                          { title = "Hetzner DNS Console"; url = "https://www.hetzner.com/dns-console/"; icon = "si:hetzner"; same-tab = true; }
+                          {
+                            title = "Email";
+                            url = "https://app.fastmail.com/mail/Inbox/";
+                            icon = "si:fastmail";
+                            same-tab = true;
+                          }
+                          {
+                            title = "GitHub Notifications";
+                            url = "https://github.com/notifications";
+                            icon = "si:github";
+                            same-tab = true;
+                          }
+                          {
+                            title = "Nixpkgs PR Tracker";
+                            url = "https://nixpk.gs/pr-tracker.html";
+                            icon = "si:nixos";
+                            same-tab = true;
+                          }
+                          {
+                            title = "DigitalOcean";
+                            url = "https://cloud.digitalocean.com";
+                            icon = "si:digitalocean";
+                            same-tab = true;
+                          }
+                          {
+                            title = "Hetzner DNS Console";
+                            url = "https://www.hetzner.com/dns-console/";
+                            icon = "si:hetzner";
+                            same-tab = true;
+                          }
                         ];
                       }
                     ];

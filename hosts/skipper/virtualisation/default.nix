@@ -1,3 +1,1 @@
-_: {
-  imports = [ ./containers.nix ];
-}
+_: { imports = [ ./containers.nix ]; }

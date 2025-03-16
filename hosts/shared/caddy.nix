@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   sops = {
     secrets = {
       "caddy/env_file" = {
@@ -29,7 +30,12 @@
   systemd.services.caddy = {
     serviceConfig.EnvironmentFile = config.sops.secrets."caddy/env_file".path;
   };
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
-  networking.firewall.allowedUDPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
+  networking.firewall.allowedUDPPorts = [
+    80
+    443
+  ];
 }
-

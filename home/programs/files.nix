@@ -1,8 +1,12 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   programs = {
     fd = {
       enable = true;
-      ignores = [ ".git/" "node_modules/" ];
+      ignores = [
+        ".git/"
+        "node_modules/"
+      ];
     };
     yazi = {
       enable = true;
@@ -20,21 +24,45 @@
         };
         opener = {
           edit-text = [
-            { run = ''${config.programs.neovim.package}/bin/nvim "$0"''; block = true; }
+            {
+              run = ''${config.programs.neovim.package}/bin/nvim "$0"'';
+              block = true;
+            }
           ];
           terminal = [
-            { run = ''${config.programs.kitty.package}/bin/kitty --class=yazi -d="$0"''; orphan = true; }
+            {
+              run = ''${config.programs.kitty.package}/bin/kitty --class=yazi -d="$0"'';
+              orphan = true;
+            }
           ];
           open = [
-            { run = ''${pkgs.xdg-utils}/bin/xdg-open "$0"''; orphan = true; }
+            {
+              run = ''${pkgs.xdg-utils}/bin/xdg-open "$0"'';
+              orphan = true;
+            }
           ];
         };
         open.rules = [
-          { mime = "text/*"; use = [ "edit-text" ]; }
-          { mime = "application/json"; use = [ "edit-text" ]; }
-          { mime = "inode/directory"; use = [ "terminal" ]; }
-          { mime = "*"; use = [ "open" ]; }
-          { name = "*"; use = [ "open" ]; }
+          {
+            mime = "text/*";
+            use = [ "edit-text" ];
+          }
+          {
+            mime = "application/json";
+            use = [ "edit-text" ];
+          }
+          {
+            mime = "inode/directory";
+            use = [ "terminal" ];
+          }
+          {
+            mime = "*";
+            use = [ "open" ];
+          }
+          {
+            name = "*";
+            use = [ "open" ];
+          }
         ];
       };
     };

@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./nix.nix
     ./users
@@ -7,9 +8,7 @@
     ./services
   ];
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-  ];
+  fonts.packages = with pkgs; [ nerd-fonts.fira-code ];
 
   system.stateVersion = 5;
 }

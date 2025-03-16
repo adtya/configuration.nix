@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   systemd.user.services = {
     transmission-daemon =
       let

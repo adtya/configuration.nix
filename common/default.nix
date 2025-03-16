@@ -1,5 +1,8 @@
 _: {
-  imports = [ ./nix.nix ./users.nix ];
+  imports = [
+    ./nix.nix
+    ./users.nix
+  ];
 
   sops = {
     defaultSopsFile = ../secrets.yaml;

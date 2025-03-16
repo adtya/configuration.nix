@@ -1,10 +1,10 @@
-{ lib
-, fetchFromGitHub
-, makeWrapper
-, stdenvNoCC
-, bluez
-, rofi-wayland
-,
+{
+  lib,
+  fetchFromGitHub,
+  makeWrapper,
+  stdenvNoCC,
+  bluez,
+  rofi-wayland,
 }:
 stdenvNoCC.mkDerivation {
   pname = "rofi-bluetooth";
@@ -17,7 +17,10 @@ stdenvNoCC.mkDerivation {
   };
 
   nativeBuildInputs = [ makeWrapper ];
-  buildInputs = [ bluez rofi-wayland ];
+  buildInputs = [
+    bluez
+    rofi-wayland
+  ];
 
   installPhase = ''
     mkdir -p $out/bin
@@ -29,6 +32,11 @@ stdenvNoCC.mkDerivation {
   '';
 
   postInstall = ''
-    wrapProgram $out/bin/rofi-bluetooth --prefix PATH : ${lib.makeBinPath [bluez rofi-wayland]}
+    wrapProgram $out/bin/rofi-bluetooth --prefix PATH : ${
+      lib.makeBinPath [
+        bluez
+        rofi-wayland
+      ]
+    }
   '';
 }

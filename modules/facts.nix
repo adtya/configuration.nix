@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   options.nodeconfig = {
     facts = {
       tailnet-name = lib.mkOption {

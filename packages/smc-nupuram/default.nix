@@ -1,4 +1,9 @@
-{ lib, stdenvNoCC, fetchurl, truetype ? false }:
+{
+  lib,
+  stdenvNoCC,
+  fetchurl,
+  truetype ? false,
+}:
 
 stdenvNoCC.mkDerivation rec {
   pname = "smc-nupuram";

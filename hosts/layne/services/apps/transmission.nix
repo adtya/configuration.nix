@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   services = {
     caddy = {
       virtualHosts."transmission.labs.adtya.xyz" = {

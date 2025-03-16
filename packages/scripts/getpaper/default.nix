@@ -1,11 +1,11 @@
-{ lib
-, stdenvNoCC
-, makeWrapper
-, curl
-, envsubst
-, jq
-, libsecret
-,
+{
+  lib,
+  stdenvNoCC,
+  makeWrapper,
+  curl,
+  envsubst,
+  jq,
+  libsecret,
 }:
 stdenvNoCC.mkDerivation {
   pname = "getpaper";
@@ -13,7 +13,12 @@ stdenvNoCC.mkDerivation {
   src = ./.;
 
   nativeBuildInputs = [ makeWrapper ];
-  buildInputs = [ curl envsubst jq libsecret ];
+  buildInputs = [
+    curl
+    envsubst
+    jq
+    libsecret
+  ];
 
   installPhase = ''
     runHook preInstall
@@ -26,6 +31,13 @@ stdenvNoCC.mkDerivation {
   '';
 
   postInstall = ''
-    wrapProgram $out/bin/getpaper --prefix PATH : ${lib.makeBinPath [curl envsubst jq libsecret]}
+    wrapProgram $out/bin/getpaper --prefix PATH : ${
+      lib.makeBinPath [
+        curl
+        envsubst
+        jq
+        libsecret
+      ]
+    }
   '';
 }

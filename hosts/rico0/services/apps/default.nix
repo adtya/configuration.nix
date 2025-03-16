@@ -1,5 +1,1 @@
-_: {
-  imports = [
-    ./coredns
-  ];
-}
+_: { imports = [ ./coredns ]; }

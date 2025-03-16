@@ -13,7 +13,10 @@ in
     firefox = {
       enable = true;
       package = pkgs.firefox;
-      nativeMessagingHosts = with pkgs; [ _1password-gui bitwarden-desktop ];
+      nativeMessagingHosts = with pkgs; [
+        _1password-gui
+        bitwarden-desktop
+      ];
       policies = import ./policies.nix;
       profiles.default = {
         id = 0;
@@ -30,8 +33,14 @@ in
                 {
                   template = "https://search.nixos.org/packages";
                   params = [
-                    { name = "channel"; value = "unstable"; }
-                    { name = "query"; value = "{searchTerms}"; }
+                    {
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
                   ];
                 }
               ];
@@ -43,8 +52,14 @@ in
                 {
                   template = "https://search.nixos.org/options";
                   params = [
-                    { name = "channel"; value = "unstable"; }
-                    { name = "query"; value = "{searchTerms}"; }
+                    {
+                      name = "channel";
+                      value = "unstable";
+                    }
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
                   ];
                 }
               ];
@@ -56,8 +71,14 @@ in
                 {
                   template = "https://github.com/search";
                   params = [
-                    { name = "q"; value = "{searchTerms}"; }
-                    { name = "type"; value = "repositories"; }
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
+                    {
+                      name = "type";
+                      value = "repositories";
+                    }
                   ];
                 }
               ];
@@ -69,7 +90,10 @@ in
                 {
                   template = "https://hub.docker.com/search";
                   params = [
-                    { name = "q"; value = "{searchTerms}"; }
+                    {
+                      name = "q";
+                      value = "{searchTerms}";
+                    }
                   ];
                 }
               ];
@@ -81,7 +105,10 @@ in
                 {
                   template = "https://www.youtube.com/results";
                   params = [
-                    { name = "search_query"; value = "{searchTerms}"; }
+                    {
+                      name = "search_query";
+                      value = "{searchTerms}";
+                    }
                   ];
                 }
               ];

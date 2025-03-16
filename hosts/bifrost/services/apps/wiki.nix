@@ -1,5 +1,8 @@
 { inputs, pkgs, ... }:
-let domainName = "wiki.adtya.xyz"; in {
+let
+  domainName = "wiki.adtya.xyz";
+in
+{
   services = {
     caddy.virtualHosts."${domainName}" = {
       extraConfig = ''

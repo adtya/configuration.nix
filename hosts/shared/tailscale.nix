@@ -1,10 +1,11 @@
-{ config, ... }: {
+{ config, ... }:
+{
   sops = {
     secrets = {
       "tailscale_auth" = {
         mode = "400";
         owner = config.users.users.root.name;
-        group = config.users.users.root.group;
+        inherit (config.users.users.root) group;
       };
     };
   };
@@ -15,9 +16,7 @@
     enable = true;
     authKeyFile = config.sops.secrets."tailscale_auth".path;
     openFirewall = true;
-    extraUpFlags = [
-      "--ssh"
-    ];
+    extraUpFlags = [ "--ssh" ];
   };
 
   networking.firewall.trustedInterfaces = [ config.services.tailscale.interfaceName ];

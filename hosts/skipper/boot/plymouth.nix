@@ -1,5 +1,8 @@
 { lib, pkgs, ... }:
-let theme = "owl"; in {
+let
+  theme = "owl";
+in
+{
   boot.plymouth = {
     enable = true;
     themePackages = lib.mkDefault [

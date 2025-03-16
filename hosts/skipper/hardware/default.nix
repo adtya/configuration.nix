@@ -1,7 +1,5 @@
-{ lib
-, pkgs
-, ...
-}: {
+{ lib, pkgs, ... }:
+{
   imports = [ ./filesystem.nix ];
 
   boot = {
@@ -14,7 +12,10 @@
         "nvme"
         "rtsx_pci_sdmmc"
       ];
-      kernelModules = [ "i915" "dm-snapshot" ];
+      kernelModules = [
+        "i915"
+        "dm-snapshot"
+      ];
     };
   };
 
@@ -35,8 +36,15 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [ intel-media-driver vpl-gpu-rt libvdpau-va-gl ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [ intel-media-driver libvdpau-va-gl ];
+      extraPackages = with pkgs; [
+        intel-media-driver
+        vpl-gpu-rt
+        libvdpau-va-gl
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        intel-media-driver
+        libvdpau-va-gl
+      ];
     };
     sensor.hddtemp = {
       enable = true;

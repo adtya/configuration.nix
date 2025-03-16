@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   imports = [ ../../shared/tailscale.nix ];
   systemd = {
     network = {
@@ -57,13 +58,13 @@
 
     firewall = {
       allowedTCPPorts = [
-        41414 #Torrent
-        53317 #LocalSend
+        41414 # Torrent
+        53317 # LocalSend
       ];
       allowedUDPPorts = [
-        6771 #Torrent
-        41414 #Torrent
-        53317 #LocalSend
+        6771 # Torrent
+        41414 # Torrent
+        53317 # LocalSend
       ];
     };
 

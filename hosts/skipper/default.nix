@@ -1,4 +1,5 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   imports = [
     ./boot
     ./hardware
@@ -26,25 +27,33 @@
   console.useXkbConfig = true;
 
   environment = {
-    pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" "/share/zsh" ];
+    pathsToLink = [
+      "/share/applications"
+      "/share/xdg-desktop-portal"
+      "/share/zsh"
+    ];
     sessionVariables = {
       VDPAU_DRIVER = "va_gl";
       NIXOS_OZONE_WL = 1;
     };
   };
 
-  fonts = let smc-fonts = inputs.smc-fonts.packages.${pkgs.system}.default; in {
-    fontconfig.useEmbeddedBitmaps = true;
-    packages = with pkgs; [
-      cantarell-fonts
-      dejavu_fonts
-      liberation_ttf
-      noto-fonts-cjk-sans
-      noto-fonts-emoji
-      nerd-fonts.fira-code
-      (smc-fonts.override { fonts = [ "chilanka" ]; })
-    ];
-  };
+  fonts =
+    let
+      smc-fonts = inputs.smc-fonts.packages.${pkgs.system}.default;
+    in
+    {
+      fontconfig.useEmbeddedBitmaps = true;
+      packages = with pkgs; [
+        cantarell-fonts
+        dejavu_fonts
+        liberation_ttf
+        noto-fonts-cjk-sans
+        noto-fonts-emoji
+        nerd-fonts.fira-code
+        (smc-fonts.override { fonts = [ "chilanka" ]; })
+      ];
+    };
 
   gtk.iconCache.enable = true;
 
@@ -62,7 +71,11 @@
       LC_TIME = "en_IN.UTF-8";
       LC_ALL = "en_IN.UTF-8";
     };
-    supportedLocales = [ "ml_IN/UTF-8" "en_IN/UTF-8" "en_US.UTF-8/UTF-8" ];
+    supportedLocales = [
+      "ml_IN/UTF-8"
+      "en_IN/UTF-8"
+      "en_US.UTF-8/UTF-8"
+    ];
   };
 
   services.xserver.xkb = {

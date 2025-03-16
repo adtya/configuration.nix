@@ -1,4 +1,5 @@
-{ config, username, ... }: {
+{ config, username, ... }:
+{
   imports = [
     ./btrfs.nix
     ./dbus.nix

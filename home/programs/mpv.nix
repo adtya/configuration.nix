@@ -1,7 +1,15 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.mpv = {
     enable = true;
-    package = pkgs.mpv.override { youtubeSupport = true; scripts = with pkgs.mpvScripts; [ mpris modernx thumbfast ]; };
+    package = pkgs.mpv.override {
+      youtubeSupport = true;
+      scripts = with pkgs.mpvScripts; [
+        mpris
+        modernx
+        thumbfast
+      ];
+    };
     config = {
       border = "no";
       osc = "no";

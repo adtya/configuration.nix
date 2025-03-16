@@ -7,23 +7,22 @@ NIRI_SOCKET=${NIRI_SOCKET:-}
 
 chpower() {
   case "$1" in
-    "")
+  "") ;;
+  Shutdown)
+    exec systemctl poweroff
     ;;
-    Shutdown)
-      exec systemctl poweroff
+  Reboot)
+    exec systemctl reboot
     ;;
-    Reboot)
-      exec systemctl reboot
+  Hibernate)
+    exec systemctl hibernate
     ;;
-    Hibernate)
-      exec systemctl hibernate
+  Logout)
+    [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && hyprctl dispatch exit
+    [ -n "$NIRI_SOCKET" ] && niri msg action quit
     ;;
-    Logout)
-      [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && hyprctl dispatch exit
-      [ -n "$NIRI_SOCKET" ] && niri msg action quit
-    ;;
-    *)
-      notify-send -t 1500 -u low "Invalid Option"
+  *)
+    notify-send -t 1500 -u low "Invalid Option"
     ;;
   esac
 }
@@ -31,4 +30,3 @@ chpower() {
 OPTIONS="Shutdown\nReboot\nHibernate\nLogout"
 
 chpower "$(printf "%b" "$OPTIONS" | sort | rofi -dmenu -p "Power Menu")"
-

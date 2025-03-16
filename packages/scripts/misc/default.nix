@@ -1,12 +1,12 @@
-{ lib
-, stdenvNoCC
-, makeWrapper
-, hyprland
-, kitty
-, libnotify
-, rofi-wayland
-, tmux
-,
+{
+  lib,
+  stdenvNoCC,
+  makeWrapper,
+  hyprland,
+  kitty,
+  libnotify,
+  rofi-wayland,
+  tmux,
 }:
 stdenvNoCC.mkDerivation {
   pname = "misc-scripts";
@@ -14,7 +14,13 @@ stdenvNoCC.mkDerivation {
   src = ./.;
 
   nativeBuildInputs = [ makeWrapper ];
-  buildInputs = [ hyprland kitty libnotify rofi-wayland tmux ];
+  buildInputs = [
+    hyprland
+    kitty
+    libnotify
+    rofi-wayland
+    tmux
+  ];
 
   installPhase = ''
     runHook preInstall
@@ -31,7 +37,19 @@ stdenvNoCC.mkDerivation {
   '';
 
   postInstall = ''
-    wrapProgram $out/bin/power-menu --prefix PATH : ${lib.makeBinPath [hyprland libnotify rofi-wayland]}
-    wrapProgram $out/bin/tmux-sessions --prefix PATH : ${lib.makeBinPath [kitty rofi-wayland tmux]}
+    wrapProgram $out/bin/power-menu --prefix PATH : ${
+      lib.makeBinPath [
+        hyprland
+        libnotify
+        rofi-wayland
+      ]
+    }
+    wrapProgram $out/bin/tmux-sessions --prefix PATH : ${
+      lib.makeBinPath [
+        kitty
+        rofi-wayland
+        tmux
+      ]
+    }
   '';
 }

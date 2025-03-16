@@ -1,5 +1,8 @@
 { lib, config, ... }:
-let cfg = config.nodeconfig; in {
+let
+  cfg = config.nodeconfig;
+in
+{
   options.nodeconfig = {
     is-server = lib.mkOption {
       type = lib.types.bool;

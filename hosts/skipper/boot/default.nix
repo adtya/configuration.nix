@@ -1,9 +1,8 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
   imports = [ ./plymouth.nix ];
   environment = {
-    systemPackages = with pkgs; [
-      sbctl
-    ];
+    systemPackages = with pkgs; [ sbctl ];
   };
   boot = {
     bootspec.enable = true;

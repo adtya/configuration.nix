@@ -1,4 +1,5 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   services.caddy.virtualHosts."bazarr.labs.adtya.xyz" = {
     extraConfig = ''
       reverse_proxy 127.0.0.1:${toString config.services.bazarr.listenPort}

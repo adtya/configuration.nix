@@ -1,6 +1,9 @@
 _: {
   services.btrfs.autoScrub = {
     enable = true;
-    fileSystems = [ "/mnt/system" "/mnt/data" ];
+    fileSystems = [
+      "/mnt/system"
+      "/mnt/data"
+    ];
   };
 }

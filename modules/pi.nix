@@ -1,5 +1,13 @@
-{ lib, config, pkgs, ... }:
-let cfg = config.nodeconfig; in {
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+let
+  cfg = config.nodeconfig;
+in
+{
   options.nodeconfig = {
     is-pi = lib.mkOption {
       type = lib.types.bool;
@@ -12,9 +20,8 @@ let cfg = config.nodeconfig; in {
   config = lib.mkIf cfg.is-pi {
     # https://github.com/NixOS/nixpkgs/issues/126755#issuecomment-869149243
     nixpkgs.overlays = [
-      (final: super: {
-        makeModulesClosure = x:
-          super.makeModulesClosure (x // { allowMissing = true; });
+      (_final: super: {
+        makeModulesClosure = x: super.makeModulesClosure (x // { allowMissing = true; });
       })
     ];
 

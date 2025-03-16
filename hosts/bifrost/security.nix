@@ -6,4 +6,3 @@ _: {
     polkit.enable = true;
   };
 }
-

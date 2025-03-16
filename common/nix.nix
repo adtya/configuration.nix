@@ -2,7 +2,13 @@ _: {
   nix = {
     channel.enable = false;
     settings = {
-      experimental-features = [ "nix-command" "flakes" "auto-allocate-uids" "cgroups" "ca-derivations" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+        "auto-allocate-uids"
+        "cgroups"
+        "ca-derivations"
+      ];
       auto-allocate-uids = true;
       sandbox = true;
       trusted-substituters = [

@@ -13,9 +13,23 @@
         layer = "top";
         position = "top";
         height = 28;
-        modules-left = [ "hyprland/workspaces" "hyprland/window" "hyprland/submap" ];
+        modules-left = [
+          "hyprland/workspaces"
+          "hyprland/window"
+          "hyprland/submap"
+        ];
         modules-center = [ ];
-        modules-right = [ "tray" "idle_inhibitor" "network" "bluetooth" "wireplumber" "backlight" "battery" "clock" "custom/notification" ];
+        modules-right = [
+          "tray"
+          "idle_inhibitor"
+          "network"
+          "bluetooth"
+          "wireplumber"
+          "backlight"
+          "battery"
+          "clock"
+          "custom/notification"
+        ];
         "hyprland/workspaces" = {
           separate-outputs = true;
         };
@@ -35,7 +49,15 @@
         };
         backlight = {
           format = "{icon}";
-          format-icons = [ "󰃚" "󰃛" "󰃜" "󰃝" "󰃞" "󰃟" "󰃠" ];
+          format-icons = [
+            "󰃚"
+            "󰃛"
+            "󰃜"
+            "󰃝"
+            "󰃞"
+            "󰃟"
+            "󰃠"
+          ];
           tooltip = false;
         };
         battery = {
@@ -48,7 +70,19 @@
           format-alt = "{icon} {capacity}% ({time})";
           format-charging = "󰂄 {capacity}%";
           format-plugged = "‭󰚥 {capacity}%";
-          format-icons = [ "󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+          format-icons = [
+            "󰂃"
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
           tooltip = false;
         };
         network = {
@@ -63,7 +97,11 @@
           format = "{icon}";
           format-muted = "‭󰝟";
           on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
-          format-icons = [ "󰕿" "󰖀" "󰕾" ];
+          format-icons = [
+            "󰕿"
+            "󰖀"
+            "󰕾"
+          ];
           tooltip = false;
         };
         bluetooth = {
@@ -77,23 +115,27 @@
         tray = {
           spacing = 4;
         };
-        "custom/notification" = let swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client"; in {
-          tooltip = false;
-          format = "{icon}";
-          format-icons = {
-            notification = "󱅫";
-            none = "󰂚";
-            dnd-notification = "󰂠";
-            dnd-none = "󰂠";
-            inhibited-notification = "󰂛";
-            inhibited-none = "󰂛";
-            dnd-inhibited-notification = "󰂛";
-            dnd-inhibited-none = "󰂛";
+        "custom/notification" =
+          let
+            swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
+          in
+          {
+            tooltip = false;
+            format = "{icon}";
+            format-icons = {
+              notification = "󱅫";
+              none = "󰂚";
+              dnd-notification = "󰂠";
+              dnd-none = "󰂠";
+              inhibited-notification = "󰂛";
+              inhibited-none = "󰂛";
+              dnd-inhibited-notification = "󰂛";
+              dnd-inhibited-none = "󰂛";
+            };
+            return-type = "json";
+            exec = "${swaync-client} -swb";
+            on-click = "${swaync-client} -d -sw";
           };
-          return-type = "json";
-          exec = "${swaync-client} -swb";
-          on-click = "${swaync-client} -d -sw";
-        };
       };
     };
   };

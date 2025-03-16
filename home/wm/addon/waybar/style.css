@@ -11,57 +11,57 @@
 @define-color orange #ffb86c;
 
 * {
-    border: none;
-    border-radius: 0px;
-    font-family: 'FiraCode Nerd Font, Chilanka';
-    font-size: 16px;
-    min-height: 0;
+  border: none;
+  border-radius: 0px;
+  font-family: "FiraCode Nerd Font, Chilanka";
+  font-size: 16px;
+  min-height: 0;
 }
 
 #window {
-    padding: 0px 10px;
-    background: @background;
+  padding: 0px 10px;
+  background: @background;
 }
 
 window#waybar {
-    background: @background;
-    color: @foreground;
+  background: @background;
+  color: @foreground;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 window#waybar.empty {
-    background: @background;
+  background: @background;
 }
 
 window#waybar.solo {
-    background: @background;
+  background: @background;
 }
 
 #workspaces button {
-    padding: 0px 3px;
-    background: @background;
-    color: @foreground;
+  padding: 0px 3px;
+  background: @background;
+  color: @foreground;
 }
 
 #workspaces button.focused {
-    color: @green;
+  color: @green;
 }
 
 #workspaces button.active {
-    color: @green;
+  color: @green;
 }
 
 #workspaces button.urgent {
-    background: @background;
-    color: @red;
+  background: @background;
+  color: @red;
 }
 
 #mode {
-    background: @background;
-    border: 3px solid @purple;
+  background: @background;
+  border: 3px solid @purple;
 }
 
 #clock,
@@ -76,48 +76,48 @@ window#waybar.solo {
 #idle_inhibitor,
 #bluetooth,
 #custom-notification {
-    padding: 0 10px;
-    color: @foreground;
-    background-color: @background;
+  padding: 0 10px;
+  color: @foreground;
+  background-color: @background;
 }
 
 @keyframes blink {
-    to {
-        color: @foreground;
-    }
+  to {
+    color: @foreground;
+  }
 }
 
 #battery.warning {
-    color: @yellow;
-    animation-name: blink;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
+  color: @yellow;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
 }
 
 #battery.critical {
-    color: @red;
-    animation-name: blink;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
+  color: @red;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
 }
 
 #battery.charging {
-    color: @green;
-    animation-name: blink;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
+  color: @green;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
 }
 
 label:focus {
-    background-color: @selection;
+  background-color: @selection;
 }
 
 #idle_inhibitor.activated {
-    color: @green;
+  color: @green;
 }

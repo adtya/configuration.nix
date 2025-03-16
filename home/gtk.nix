@@ -16,7 +16,11 @@ let
   };
 in
 {
-  home.pointerCursor = cursorTheme // { gtk.enable = true; size = 24; x11.enable = true; };
+  home.pointerCursor = cursorTheme // {
+    gtk.enable = true;
+    size = 24;
+    x11.enable = true;
+  };
   gtk = {
     enable = true;
     inherit theme cursorTheme iconTheme;

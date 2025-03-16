@@ -1,12 +1,12 @@
-{ lib
-, stdenvNoCC
-, makeWrapper
-, mpv
-, kitty
-, rofi-wayland
-, ueberzugpp
-, ytfzf
-,
+{
+  lib,
+  stdenvNoCC,
+  makeWrapper,
+  mpv,
+  kitty,
+  rofi-wayland,
+  ueberzugpp,
+  ytfzf,
 }:
 stdenvNoCC.mkDerivation {
   pname = "youtube";
@@ -14,7 +14,13 @@ stdenvNoCC.mkDerivation {
   src = ./.;
 
   nativeBuildInputs = [ makeWrapper ];
-  buildInputs = [ kitty mpv rofi-wayland ueberzugpp ytfzf ];
+  buildInputs = [
+    kitty
+    mpv
+    rofi-wayland
+    ueberzugpp
+    ytfzf
+  ];
 
   installPhase = ''
     runHook preInstall
@@ -28,7 +34,15 @@ stdenvNoCC.mkDerivation {
   '';
 
   postInstall = ''
-    wrapProgram $out/bin/youtube --prefix PATH : ${lib.makeBinPath [kitty mpv rofi-wayland ueberzugpp ytfzf]}
+    wrapProgram $out/bin/youtube --prefix PATH : ${
+      lib.makeBinPath [
+        kitty
+        mpv
+        rofi-wayland
+        ueberzugpp
+        ytfzf
+      ]
+    }
   '';
 
   meta.mainProgram = "youtube";
