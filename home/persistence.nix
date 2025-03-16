@@ -4,9 +4,6 @@ let
   persist = "/persist/home";
 in
 {
-  xdg.configFile = {
-    "nixos".source = linkTo "${persist}/.config/nixos";
-  };
   home.file = {
     documents = {
       source = linkTo "${persist}/Documents";

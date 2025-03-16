@@ -28,7 +28,7 @@
       grep = "grep --color=auto";
       ln = "ln -v";
       mv = "mv -v";
-      rebuild_system = "sudo nixos-rebuild --flake /persist/home/.config/nixos#Skipper --cores 0";
+      rebuild_system = "nh os switch /persist/config/nixos";
     };
   };
 }
