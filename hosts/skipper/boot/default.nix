@@ -22,8 +22,7 @@
     };
     lanzaboote = {
       enable = true;
-      pkiBundle = "/persist/secrets/secureboot";
+      pkiBundle = "/var/lib/sbctl";
     };
-    tmp.cleanOnBoot = true;
   };
 }

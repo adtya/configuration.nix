@@ -35,7 +35,10 @@
 
         ".local/state"
       ];
-      files = [ ".config/wallpaper_config.json" ];
+      files = [
+        ".config/wallpaper_config.json"
+        ".config/sops/age/keys.txt"
+      ];
     };
   };
 }
