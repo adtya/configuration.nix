@@ -1,6 +1,6 @@
 { username, ... }:
 {
-  environment.persistence."/persist/home" = {
+  environment.persistence."/persist/system" = {
     users."${username}" = {
       directories = [
         ".mozilla"
