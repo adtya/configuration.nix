@@ -1,5 +1,5 @@
 _: {
-  environment.persistence."/persist/system" = {
+  environment.persistence."/persist/state" = {
     hideMounts = true;
     directories = [
       "/var/lib/bluetooth"

@@ -1,6 +1,6 @@
 { username, ... }:
 {
-  environment.persistence."/persist/system" = {
+  environment.persistence."/persist/state" = {
     users."${username}" = {
       directories = [
         "Documents"
