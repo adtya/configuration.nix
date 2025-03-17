@@ -3,6 +3,12 @@ _: {
     hideMounts = true;
     directories = [
       "/var/lib/bluetooth"
+      {
+        directory = "/var/lib/containers";
+        mode = "0700";
+        user = "root";
+        group = "root";
+      }
       "/var/lib/btrfs"
       "/var/lib/iwd"
       "/var/lib/nixos"

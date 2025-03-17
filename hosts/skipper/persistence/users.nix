@@ -11,9 +11,15 @@
         "Videos"
 
         ".fly"
-        ".gnupg"
+        {
+          directory = ".gnupg";
+          mode = "0700";
+        }
         ".mozilla"
-        ".ssh"
+        {
+          directory = ".ssh";
+          mode = "0700";
+        }
 
         ".config/1Password"
         ".config/doctl"
@@ -24,6 +30,10 @@
         ".config/transmission-daemon"
         ".config/transmission-remote-gtk"
 
+        {
+          directory = ".local/share/containers";
+          mode = "0700";
+        }
         ".local/share/direnv"
         ".local/share/keyrings"
         ".local/share/nvim"
@@ -37,7 +47,12 @@
       ];
       files = [
         ".config/wallpaper_config.json"
-        ".config/sops/age/keys.txt"
+        {
+          file = ".config/sops/age/keys.txt";
+          parentDirectory = {
+            mode = "0700";
+          };
+        }
       ];
     };
   };
