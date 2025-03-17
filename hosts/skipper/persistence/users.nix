@@ -20,6 +20,7 @@
           directory = ".ssh";
           mode = "0700";
         }
+        ".var"
 
         ".config/1Password"
         ".config/doctl"
@@ -35,6 +36,7 @@
           mode = "0700";
         }
         ".local/share/direnv"
+        ".local/share/flatpak"
         ".local/share/keyrings"
         ".local/share/nvim"
         ".local/share/nix"
