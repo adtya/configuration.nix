@@ -3,11 +3,11 @@
   imports = [
     ./boot
     ./hardware
+    ./network
+    ./persistence
     ./programs
     ./services
-    ./network
     ./virtualisation
-    ./persistence.nix
     ./security.nix
   ];
 
