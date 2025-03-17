@@ -56,7 +56,7 @@ _: {
     };
 
     "/mnt/data" = {
-      device = "/dev/disk/by-uuid/524bc3e3-d2be-4f56-b124-1ef1ef3afa81";
+      device = "/dev/disk/by-label/DATA";
       fsType = "btrfs";
       options = [
         "subvol=/"
