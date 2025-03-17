@@ -28,7 +28,6 @@
       grep = "grep --color=auto";
       ln = "ln -v";
       mv = "mv -v";
-      rebuild_system = "nh os switch /persist/config/nixos";
     };
   };
 }
