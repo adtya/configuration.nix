@@ -23,6 +23,7 @@
         ".var"
 
         ".config/1Password"
+        ".config/dconf"
         ".config/doctl"
         ".config/gh"
         ".config/hcloud"
