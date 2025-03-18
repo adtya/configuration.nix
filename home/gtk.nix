@@ -6,8 +6,8 @@ let
   };
 
   iconTheme = {
-    name = "MoreWaita";
-    package = pkgs.morewaita-icon-theme;
+    name = "Dracula";
+    package = pkgs.dracula-icon-theme;
   };
 
   cursorTheme = {
@@ -25,9 +25,6 @@ in
     enable = true;
     inherit theme cursorTheme iconTheme;
     gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = true;
-    };
-    gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
   };
