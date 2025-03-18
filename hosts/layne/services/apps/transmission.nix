@@ -29,7 +29,6 @@
         rpc-bind-address = "127.0.0.1";
         rpc-port = 9091;
         rpc-host-whitelist = "transmission.labs.adtya.xyz";
-        watch-dir-enabled = true;
         preallocation = 2;
         alt-speed-time-enabled = true;
         alt-speed-time-begin = 360; # 6AM
