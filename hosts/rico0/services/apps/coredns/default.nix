@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 let
+  tailscaleInterface = config.services.tailscale.interfaceName;
   tailscaleIP = config.nodeconfig.facts.tailscale-ip;
   tailnetName = config.nodeconfig.facts.tailnet-name;
   zoneFile = pkgs.substituteAll {
@@ -14,19 +15,19 @@ in
       labs.adtya.xyz:53 {
         errors
         log stdout
-        bind ${tailscaleIP}
+        bind ${tailscaleInterface}
         file ${zoneFile}
       }
       ${tailnetName}:53 {
         errors
         log stdout
-        bind ${tailscaleIP}
+        bind ${tailscaleInterface}
         forward . 100.100.100.100:53
       }
       .:53 {
         errors
         log stdout
-        bind ${tailscaleIP}
+        bind ${tailscaleInterface}
         forward . 1.1.1.1:53
       }
     '';
