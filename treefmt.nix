@@ -22,6 +22,8 @@
       "LICENSE"
       "README.md"
       "*.png"
+      "*/go.mod"
+      "*/go.sum"
     ];
   };
 }

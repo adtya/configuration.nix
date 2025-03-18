@@ -334,7 +334,6 @@
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             git
-            statix
             sops
             age
             ssh-to-age
