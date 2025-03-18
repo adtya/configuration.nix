@@ -28,6 +28,7 @@
     android-file-transfer
     blueberry
     devenv
+    dino
     doctl
     flyctl
     gh
