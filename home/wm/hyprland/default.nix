@@ -21,7 +21,6 @@ let
   wpaperctl = "${config.services.wpaperd.package}/bin/wpaperctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   yazi = "${lib.getExe pkgs.yazi}";
-  youtube = "${lib.getExe pkgs.youtube}";
 
   pictures = "${config.xdg.userDirs.pictures}";
 in
@@ -169,7 +168,6 @@ in
 
         "SUPER_SHIFT,escape,  exec, ${pkgs.misc-scripts}/bin/power-menu"
         "SUPER,f11,           exec, ${pkgs.misc-scripts}/bin/tmux-sessions"
-        "SUPER_SHIFT,y,       exec, ${youtube}"
         "SUPER_SHIFT,b,       exec, ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
