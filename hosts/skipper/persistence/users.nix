@@ -24,6 +24,7 @@
 
         ".config/1Password"
         ".config/dconf"
+        ".config/discord"
         ".config/doctl"
         ".config/gh"
         ".config/hcloud"

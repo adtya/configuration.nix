@@ -29,6 +29,7 @@
     blueberry
     devenv
     dino
+    discord
     doctl
     flyctl
     gh
