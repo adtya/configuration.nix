@@ -14,7 +14,6 @@
     flatpak.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
-    getty.autologinUser = config.users.users.${username}.name;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
     irqbalance.enable = true;

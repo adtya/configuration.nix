@@ -1,15 +1,13 @@
 { pkgs, ... }:
 let
   theme = {
-    name = "Dracula";
-    package = pkgs.dracula-theme;
+    name = "Adwaita";
+    package = pkgs.gnome-themes-extra;
   };
-
   iconTheme = {
-    name = "Dracula";
-    package = pkgs.dracula-icon-theme;
+    name = "Adwaita";
+    package = pkgs.gnome-themes-extra;
   };
-
   cursorTheme = {
     name = "Bibata-Modern-Amber";
     package = pkgs.bibata-cursors;
@@ -26,19 +24,21 @@ in
     inherit theme cursorTheme iconTheme;
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
+      gtk-decoration-layout = ":appmenu";
+      gtk-xft-antialias = 1;
+      gtk-xft-hinting = 1;
+      gtk-xft-hintstyle = "hintfull";
+      gtk-xft-rgba = "rgb";
+      gtk-recent-files-enabled = false;
     };
   };
 
   home.sessionVariables.GTK_THEME = theme.name;
-  xdg.configFile = {
-    "gtk-4.0/assets".source = "${theme.package}/share/themes/${theme.name}/gtk-4.0/assets";
-    "gtk-4.0/gtk.css".source = "${theme.package}/share/themes/${theme.name}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${theme.package}/share/themes/${theme.name}/gtk-4.0/gtk-dark.css";
-  };
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      font-antialiasing = "rgba";
     };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = ":appmenu";

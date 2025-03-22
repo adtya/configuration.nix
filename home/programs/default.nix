@@ -36,6 +36,7 @@
     impala
     #localsend
     ripgrep
+    seahorse
     swayimg
     telegram-desktop
     transmission-remote-gtk
