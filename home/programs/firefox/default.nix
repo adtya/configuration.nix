@@ -24,10 +24,10 @@ in
         isDefault = true;
         extraConfig = builtins.readFile ./prefs.cfg;
         search = {
-          default = "DuckDuckGo";
+          default = "ddg";
           engines = {
-            "Bing".metaData.hidden = true;
-            "Google".metaData.hidden = true;
+            "bing".metaData.hidden = true;
+            "google".metaData.hidden = true;
             "Nix Packages" = {
               urls = [
                 {
@@ -82,7 +82,7 @@ in
                   ];
                 }
               ];
-              iconUpdateURL = "https://github.com/favicon.ico";
+              icon = "https://github.com/favicon.ico";
               definedAliases = [ "@gh" ];
             };
             "Docker Hub" = {
@@ -97,10 +97,10 @@ in
                   ];
                 }
               ];
-              iconUpdateURL = "https://hub.docker.com/favicon.ico";
+              icon = "https://hub.docker.com/favicon.ico";
               definedAliases = [ "@docker" ];
             };
-            "YouTube" = {
+            "youtube" = {
               urls = [
                 {
                   template = "https://www.youtube.com/results";
@@ -112,7 +112,7 @@ in
                   ];
                 }
               ];
-              iconUpdateURL = "https://www.youtube.com/favicon.ico";
+              icon = "https://www.youtube.com/favicon.ico";
               definedAliases = [ "@yt" ];
             };
           };
