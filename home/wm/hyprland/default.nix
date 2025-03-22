@@ -10,7 +10,7 @@ let
   brightnessctl = "${lib.getExe pkgs.brightnessctl}";
   firefox = "${lib.getExe config.programs.firefox.finalPackage}";
   grimblast = "${lib.getExe pkgs.grimblast}";
-  hyprctl = "${lib.getExe cfg.package}";
+  hyprctl = "${cfg.package}/bin/hyprctl";
   kitty = "${lib.getExe config.programs.kitty.package}";
   librewolf = "${lib.getExe pkgs.librewolf}";
   loginctl = "${pkgs.systemd}/bin/loginctl";
@@ -40,7 +40,7 @@ in
   };
   programs.zsh.profileExtra = ''
     if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] ; then
-      exec ${lib.getExe config.wayland.windowManager.hyprland.package}
+      exec ${lib.getExe cfg.package}
     fi
   '';
   wayland.windowManager.hyprland = {
@@ -167,8 +167,8 @@ in
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
         "SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service"
 
-        "SUPER,Return,        exec, ${kitty}"
-        "SUPER_SHIFT,Return,  exec, ${kitty} ${tmux} new"
+        "SUPER,Return,        exec, ${kitty} ${tmux} new"
+        "SUPER_SHIFT,Return,  exec, ${kitty}"
         "SUPER,d,             exec, ${rofi} -show drun"
         "SUPER,e,             exec, ${kitty} --class=yazi ${yazi}"
         "SUPER_SHIFT,u,       exec, ${swaync-client} -t -sw"
