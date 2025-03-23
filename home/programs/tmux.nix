@@ -19,8 +19,8 @@
     ];
     extraConfig = ''
       set -g update-environment 'TERM DISPLAY WAYLAND_DISPLAY SWAYSOCK HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP'
-      if "[[ ''${TERM} =~ 256color || ''${TERM} == xterm-kitty || ''${TERM} == fbterm ]]" 'set -g default-terminal tmux-256color'
-      set-option -sa terminal-features ',xterm-kitty:RGB'
+      if "[[ ''${TERM} == xterm-kitty ]]" "set-option -sa terminal-features ',xterm-kitty:RGB'"
+      set -g default-terminal tmux-256color
       set -g allow-rename on
       set -g set-titles on
       set -g set-titles-string "#W"
