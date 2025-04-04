@@ -41,30 +41,18 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      lix-module,
-      nix-darwin,
-      home-manager,
-      disko,
-      impermanence,
-      lanzaboote,
-      sops-nix,
-      deploy-rs,
-      flake-utils,
-      treefmt-nix,
-      neovim-nightly,
-      adtyaxyz,
-      wiki,
-      recipes,
-      smc-fonts,
-    }@inputs:
+    inputs:
     let
-      inherit (nixpkgs) lib;
-      packages =
+      inherit (inputs.nixpkgs) lib;
+      forAllSystems = lib.genAttrs [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ];
+      pkgsFor =
         system:
-        import nixpkgs {
+        import inputs.nixpkgs {
           inherit system;
           config = {
             allowUnfree = true;
@@ -75,32 +63,51 @@
           };
           overlays = [
             (import ./packages)
-            recipes.overlays.default
+            inputs.recipes.overlays.default
           ];
         };
+      treeFmtEval = pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
     in
     {
-      nixosModules.default = import ./modules;
-      darwinConfigurations.Gloria =
+      formatter = forAllSystems (system: (treeFmtEval (pkgsFor system)).config.build.wrapper);
+      devShells = forAllSystems (
+        system:
         let
-          hostname = "Gloria";
-          system = "x86_64-darwin";
-          username = "adtya";
+          pkgs = pkgsFor system;
         in
-        nix-darwin.lib.darwinSystem {
-          inherit system;
-          pkgs = packages system;
-          specialArgs = { inherit inputs username; };
-          modules = [
-            {
-              system.configurationRevision = self.rev or self.dirtyRev or null;
-              networking.hostName = lib.mkDefault hostname;
-              nixpkgs.hostPlatform = lib.mkDefault system;
-            }
-            home-manager.darwinModules.home-manager
-            ./hosts/gloria
-          ];
-        };
+        {
+          default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              git
+              sops
+              age
+              ssh-to-age
+              inputs.deploy-rs.packages.${pkgs.system}.default
+            ];
+          };
+
+        }
+      );
+
+      packages = forAllSystems (
+        system:
+        let
+          pkgs = pkgsFor system;
+        in
+        {
+          inherit
+            (
+              (pkgs.nixos {
+                imports = [ "${inputs.nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix" ];
+                system.stateVersion = "24.11";
+              })
+            )
+            digitalOceanImage
+            ;
+        }
+      );
+
+      nixosModules.default = import ./modules;
       nixosConfigurations = {
         Skipper =
           let
@@ -108,23 +115,23 @@
             system = "x86_64-linux";
             username = "adtya";
           in
-          nixpkgs.lib.nixosSystem {
+          inputs.nixpkgs.lib.nixosSystem {
             inherit system;
-            pkgs = packages system;
+            pkgs = pkgsFor system;
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = self.rev or self.dirtyRev or null;
+                system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              lix-module.nixosModules.default
-              sops-nix.nixosModules.sops
-              disko.nixosModules.disko
-              impermanence.nixosModules.impermanence
-              lanzaboote.nixosModules.lanzaboote
-              home-manager.nixosModules.home-manager
-              self.nixosModules.default
+              inputs.lix-module.nixosModules.default
+              inputs.sops-nix.nixosModules.sops
+              inputs.disko.nixosModules.disko
+              inputs.impermanence.nixosModules.impermanence
+              inputs.lanzaboote.nixosModules.lanzaboote
+              inputs.home-manager.nixosModules.home-manager
+              inputs.self.nixosModules.default
               ./common
               ./hosts/skipper
               ./home
@@ -136,19 +143,19 @@
             system = "aarch64-linux";
             username = "adtya";
           in
-          nixpkgs.lib.nixosSystem {
+          inputs.nixpkgs.lib.nixosSystem {
             inherit system;
-            pkgs = packages system;
+            pkgs = pkgsFor system;
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = self.rev or self.dirtyRev or null;
+                system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              sops-nix.nixosModules.sops
-              recipes.nixosModules.default
-              self.nixosModules.default
+              inputs.sops-nix.nixosModules.sops
+              inputs.recipes.nixosModules.default
+              inputs.self.nixosModules.default
               ./common
               ./hosts/rico0
             ];
@@ -159,19 +166,19 @@
             system = "aarch64-linux";
             username = "adtya";
           in
-          nixpkgs.lib.nixosSystem {
+          inputs.nixpkgs.lib.nixosSystem {
             inherit system;
-            pkgs = packages system;
+            pkgs = pkgsFor system;
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = self.rev or self.dirtyRev or null;
+                system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              sops-nix.nixosModules.sops
-              recipes.nixosModules.default
-              self.nixosModules.default
+              inputs.sops-nix.nixosModules.sops
+              inputs.recipes.nixosModules.default
+              inputs.self.nixosModules.default
               ./common
               ./hosts/rico1
             ];
@@ -182,19 +189,19 @@
             system = "aarch64-linux";
             username = "adtya";
           in
-          nixpkgs.lib.nixosSystem {
+          inputs.nixpkgs.lib.nixosSystem {
             inherit system;
-            pkgs = packages system;
+            pkgs = pkgsFor system;
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = self.rev or self.dirtyRev or null;
+                system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              sops-nix.nixosModules.sops
-              recipes.nixosModules.default
-              self.nixosModules.default
+              inputs.sops-nix.nixosModules.sops
+              inputs.recipes.nixosModules.default
+              inputs.self.nixosModules.default
               ./common
               ./hosts/rico2
             ];
@@ -205,19 +212,19 @@
             system = "x86_64-linux";
             username = "adtya";
           in
-          nixpkgs.lib.nixosSystem {
+          inputs.nixpkgs.lib.nixosSystem {
             inherit system;
-            pkgs = packages system;
+            pkgs = pkgsFor system;
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = self.rev or self.dirtyRev or null;
+                system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              sops-nix.nixosModules.sops
-              recipes.nixosModules.default
-              self.nixosModules.default
+              inputs.sops-nix.nixosModules.sops
+              inputs.recipes.nixosModules.default
+              inputs.self.nixosModules.default
               ./common
               ./hosts/wynne
             ];
@@ -228,19 +235,19 @@
             system = "x86_64-linux";
             username = "adtya";
           in
-          nixpkgs.lib.nixosSystem {
+          inputs.nixpkgs.lib.nixosSystem {
             inherit system;
-            pkgs = packages system;
+            pkgs = pkgsFor system;
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = self.rev or self.dirtyRev or null;
+                system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
                 networking.hostName = lib.mkDefault hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              sops-nix.nixosModules.sops
-              recipes.nixosModules.default
-              self.nixosModules.default
+              inputs.sops-nix.nixosModules.sops
+              inputs.recipes.nixosModules.default
+              inputs.self.nixosModules.default
               ./common
               ./hosts/layne
             ];
@@ -251,98 +258,47 @@
             system = "x86_64-linux";
             username = "adtya";
           in
-          nixpkgs.lib.nixosSystem {
+          inputs.nixpkgs.lib.nixosSystem {
             inherit system;
-            pkgs = packages system;
+            pkgs = pkgsFor system;
             specialArgs = { inherit inputs username; };
             modules = [
               {
-                system.configurationRevision = self.rev or self.dirtyRev or null;
+                system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
                 networking.hostName = lib.mkForce hostname;
                 nixpkgs.hostPlatform = lib.mkDefault system;
               }
-              sops-nix.nixosModules.sops
-              recipes.nixosModules.default
-              self.nixosModules.default
+              inputs.sops-nix.nixosModules.sops
+              inputs.recipes.nixosModules.default
+              inputs.self.nixosModules.default
               ./common
               ./hosts/bifrost
             ];
           };
       };
 
-      deploy.nodes = {
-        Rico0 = {
-          hostname = "Rico0";
-          sshUser = "adtya";
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.Rico0;
+      deploy.nodes =
+        let
+          deploy = inputs.deploy-rs.lib;
+          hosts = inputs.self.nixosConfigurations;
+          hostArch = {
+            Skipper = "x86_64-linux";
+            Rico0 = "aarch64-linux";
+            Rico1 = "aarch64-linux";
+            Rico2 = "aarch64-linux";
+            Wynne = "x86_64-linux";
+            Layne = "x86_64-linux";
+            Bifrost = "X86_64-linux";
           };
-        };
-        Rico1 = {
-          hostname = "Rico1";
-          sshUser = "adtya";
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.Rico1;
+          deployConfig = hostname: arch: {
+            inherit hostname;
+            sshUser = "adtya";
+            profiles.system = {
+              user = "root";
+              path = deploy.${arch}.activate.nixos hosts.${hostname};
+            };
           };
-        };
-        Rico2 = {
-          hostname = "Rico2";
-          sshUser = "adtya";
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.aarch64-linux.activate.nixos self.nixosConfigurations.Rico2;
-          };
-        };
-        Wynne = {
-          hostname = "Wynne";
-          sshUser = "adtya";
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.Wynne;
-          };
-        };
-        Layne = {
-          hostname = "Layne";
-          sshUser = "adtya";
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.Layne;
-          };
-        };
-        Bifrost = {
-          hostname = "Bifrost";
-          sshUser = "adtya";
-          profiles.system = {
-            user = "root";
-            path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.Bifrost;
-          };
-        };
-      };
-    }
-    // flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-        treeFmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
-      in
-      {
-        formatter = treeFmtEval.config.build.wrapper;
-        devShells.default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            git
-            sops
-            age
-            ssh-to-age
-            deploy-rs.packages.${pkgs.system}.default
-          ];
-        };
-        packages.digitalOceanImage =
-          (pkgs.nixos {
-            imports = [ "${nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix" ];
-            system.stateVersion = "24.11";
-          }).digitalOceanImage;
-      }
-    );
+        in
+        inputs.nixpkgs.lib.mapAttrs deployConfig hostArch;
+    };
 }
