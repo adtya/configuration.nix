@@ -66,48 +66,34 @@
             inputs.recipes.overlays.default
           ];
         };
-      treeFmtEval = pkgs: inputs.treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
     in
     {
-      formatter = forAllSystems (system: (treeFmtEval (pkgsFor system)).config.build.wrapper);
+      formatter = forAllSystems (
+        system:
+        (import ./formatter.nix {
+          pkgs = pkgsFor system;
+          inherit (inputs) treefmt-nix;
+        })
+      );
+
       devShells = forAllSystems (
         system:
-        let
+        (import ./devshells.nix {
           pkgs = pkgsFor system;
-        in
-        {
-          default = pkgs.mkShell {
-            buildInputs = with pkgs; [
-              git
-              sops
-              age
-              ssh-to-age
-              inputs.deploy-rs.packages.${pkgs.system}.default
-            ];
-          };
-
-        }
+          inherit (inputs) deploy-rs;
+        })
       );
 
       packages = forAllSystems (
         system:
-        let
+        (import ./packages.nix {
           pkgs = pkgsFor system;
-        in
-        {
-          inherit
-            (
-              (pkgs.nixos {
-                imports = [ "${inputs.nixpkgs}/nixos/modules/virtualisation/digital-ocean-image.nix" ];
-                system.stateVersion = "24.11";
-              })
-            )
-            digitalOceanImage
-            ;
-        }
+          inherit (inputs) nixpkgs;
+        })
       );
 
       nixosModules.default = import ./modules;
+
       nixosConfigurations = {
         Skipper =
           let
