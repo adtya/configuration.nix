@@ -1,5 +1,5 @@
 {
-  description = "NixOS Configuration for Skipper";
+  description = "My NixOS Recipes";
 
   nixConfig = {
     extra-substituters = [

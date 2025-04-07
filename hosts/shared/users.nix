@@ -13,7 +13,7 @@
         inherit (config.users.users.root) group;
         neededForUsers = true;
       };
-      "passwd/adtya" = {
+      "passwd/${username}" = {
         mode = "400";
         owner = config.users.users.root.name;
         inherit (config.users.users.root) group;
