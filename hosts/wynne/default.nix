@@ -5,6 +5,8 @@ _: {
     ./services
     ./network
     ./security.nix
+
+    ../shared/users.nix
   ];
 
   nodeconfig = {

@@ -1,4 +1,4 @@
-{ osConfig, username, ... }:
+{ primary-user, ... }:
 {
   programs.git = {
     enable = true;
@@ -10,7 +10,7 @@
       };
     };
     userEmail = "adtya@adtya.xyz";
-    userName = osConfig.users.users.${username}.description;
+    userName = primary-user.long-name;
     signing = {
       key = "51E4F5AB1B82BE45B4229CC243A5E25AA5A27849";
       signByDefault = true;

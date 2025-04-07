@@ -1,6 +1,6 @@
 { lib, config, ... }:
 let
-  cfg = config.nodeconfig;
+  cfg = config.nodeconfig.nix;
 in
 {
   options.nodeconfig.nix = {
@@ -49,7 +49,7 @@ in
   };
 
   config =
-    lib.mkIf cfg.nix.auto-gc {
+    lib.mkIf cfg.auto-gc {
       nix.gc = {
         automatic = true;
         dates = "Fri *-*-* 00:00:00";
@@ -57,18 +57,18 @@ in
         randomizedDelaySec = "1h";
       };
     }
-    // lib.mkIf cfg.nix.auto-optimise {
+    // lib.mkIf cfg.auto-optimise {
       nix.optimise = {
         automatic = true;
         dates = [ "Fri *-*-* 06:00:00" ];
       };
     }
-    // lib.mkIf cfg.nix.is-laptop {
+    // lib.mkIf cfg.is-laptop {
       nix.daemonCPUSchedPolicy = "idle";
       nix.daemonIOSchedClass = "idle";
     }
-    // lib.mkIf cfg.nix.disable-channels { nix.channel.enable = false; }
-    // lib.mkIf cfg.nix.cool-features {
+    // lib.mkIf cfg.disable-channels { nix.channel.enable = false; }
+    // lib.mkIf cfg.cool-features {
       nix.settings = {
         experimental-features = [
           "nix-command"
@@ -82,8 +82,8 @@ in
         use-cgroups = true;
       };
     }
-    // lib.mkIf cfg.nix.trust-wheel { nix.settings.trusted-users = [ "@wheel" ]; }
-    // lib.mkIf cfg.nix.enable-extra-substituters {
+    // lib.mkIf cfg.trust-wheel { nix.settings.trusted-users = [ "@wheel" ]; }
+    // lib.mkIf cfg.enable-extra-substituters {
       nix.settings = {
         trusted-substituters = [
           "https://adtya.cachix.org"

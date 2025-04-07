@@ -1,7 +1,7 @@
-{ username, ... }:
+{ primary-user, ... }:
 {
   environment.persistence."/persist/state" = {
-    users."${username}" = {
+    users."${primary-user.name}" = {
       directories = [
         "Documents"
         "Downloads"

@@ -6,6 +6,8 @@
     ./programs
     ./services
     ./security.nix
+
+    ../shared/users.nix
   ];
 
   nodeconfig = {

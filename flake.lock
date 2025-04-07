@@ -554,27 +554,6 @@
         "type": "github"
       }
     },
-    "nix-darwin": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1742595055,
-        "narHash": "sha256-cEetDber6LF8W4ThmRc4rwKs/o8y2GH0pUdX7e6CnAQ=",
-        "owner": "LnL7",
-        "repo": "nix-darwin",
-        "rev": "e9f41de2a81f04390afd106959adf352a207628f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LnL7",
-        "ref": "master",
-        "repo": "nix-darwin",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1742395137,
@@ -808,7 +787,6 @@
         "lanzaboote": "lanzaboote",
         "lix-module": "lix-module",
         "neovim-nightly": "neovim-nightly",
-        "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_6",
         "recipes": "recipes",
         "smc-fonts": "smc-fonts",

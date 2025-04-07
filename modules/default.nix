@@ -5,5 +5,6 @@ _: {
     ./nix.nix
     ./pi.nix
     ./server.nix
+    ./users.nix
   ];
 }

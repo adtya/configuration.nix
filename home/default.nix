@@ -1,10 +1,10 @@
-{ inputs, username, ... }:
+{ inputs, primary-user, ... }:
 {
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    extraSpecialArgs = { inherit inputs username; };
-    users.${username} = _: {
+    extraSpecialArgs = { inherit inputs primary-user; };
+    users.${primary-user.name} = _: {
       imports = [
         ./programs
         ./services

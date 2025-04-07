@@ -9,6 +9,8 @@
     ./services
     ./virtualisation
     ./security.nix
+
+    ../shared/users.nix
   ];
 
   nodeconfig = {
