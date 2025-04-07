@@ -1,8 +1,4 @@
-{
-  config,
-  primary-user,
-  ...
-}:
+{ config, primary-user, ... }:
 {
   sops = {
     secrets = {
@@ -23,8 +19,7 @@
   nodeconfig.users = {
     root-password-hash-file = config.sops.secrets."passwd/root".path;
     primary = {
-      inherit (primary-user) name;
-      inherit (primary-user) long-name;
+      inherit (primary-user) name long-name;
       password-hash-file = config.sops.secrets."passwd/${primary-user.name}".path;
       extra-groups = [
         "wheel"
