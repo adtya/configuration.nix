@@ -96,6 +96,18 @@
             name = "adtya";
             long-name = "Adithya Nair";
           };
+          common-module = hostname: system: {
+            imports = [
+              inputs.sops-nix.nixosModules.sops
+              inputs.recipes.nixosModules.default
+              inputs.self.nixosModules.default
+            ];
+
+            sops.defaultSopsFile = ./secrets.yaml;
+            system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+            networking.hostName = lib.mkDefault hostname;
+            nixpkgs.hostPlatform = lib.mkDefault system;
+          };
         in
         {
           Skipper =
@@ -103,24 +115,12 @@
               hostname = "Skipper";
               system = "x86_64-linux";
             in
-            inputs.nixpkgs.lib.nixosSystem {
+            lib.nixosSystem {
               inherit system;
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                {
-                  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-                  networking.hostName = lib.mkDefault hostname;
-                  nixpkgs.hostPlatform = lib.mkDefault system;
-                }
-                inputs.lix-module.nixosModules.default
-                inputs.sops-nix.nixosModules.sops
-                inputs.disko.nixosModules.disko
-                inputs.impermanence.nixosModules.impermanence
-                inputs.lanzaboote.nixosModules.lanzaboote
-                inputs.home-manager.nixosModules.home-manager
-                inputs.self.nixosModules.default
-                ./common
+                (common-module hostname system)
                 ./hosts/skipper
                 ./home
               ];
@@ -130,20 +130,12 @@
               hostname = "Rico0";
               system = "aarch64-linux";
             in
-            inputs.nixpkgs.lib.nixosSystem {
+            lib.nixosSystem {
               inherit system;
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                {
-                  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-                  networking.hostName = lib.mkDefault hostname;
-                  nixpkgs.hostPlatform = lib.mkDefault system;
-                }
-                inputs.sops-nix.nixosModules.sops
-                inputs.recipes.nixosModules.default
-                inputs.self.nixosModules.default
-                ./common
+                (common-module hostname system)
                 ./hosts/rico0
               ];
             };
@@ -152,20 +144,12 @@
               hostname = "Rico1";
               system = "aarch64-linux";
             in
-            inputs.nixpkgs.lib.nixosSystem {
+            lib.nixosSystem {
               inherit system;
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                {
-                  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-                  networking.hostName = lib.mkDefault hostname;
-                  nixpkgs.hostPlatform = lib.mkDefault system;
-                }
-                inputs.sops-nix.nixosModules.sops
-                inputs.recipes.nixosModules.default
-                inputs.self.nixosModules.default
-                ./common
+                (common-module hostname system)
                 ./hosts/rico1
               ];
             };
@@ -174,20 +158,12 @@
               hostname = "Rico2";
               system = "aarch64-linux";
             in
-            inputs.nixpkgs.lib.nixosSystem {
+            lib.nixosSystem {
               inherit system;
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                {
-                  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-                  networking.hostName = lib.mkDefault hostname;
-                  nixpkgs.hostPlatform = lib.mkDefault system;
-                }
-                inputs.sops-nix.nixosModules.sops
-                inputs.recipes.nixosModules.default
-                inputs.self.nixosModules.default
-                ./common
+                (common-module hostname system)
                 ./hosts/rico2
               ];
             };
@@ -196,20 +172,12 @@
               hostname = "Wynne";
               system = "x86_64-linux";
             in
-            inputs.nixpkgs.lib.nixosSystem {
+            lib.nixosSystem {
               inherit system;
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                {
-                  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-                  networking.hostName = lib.mkDefault hostname;
-                  nixpkgs.hostPlatform = lib.mkDefault system;
-                }
-                inputs.sops-nix.nixosModules.sops
-                inputs.recipes.nixosModules.default
-                inputs.self.nixosModules.default
-                ./common
+                (common-module hostname system)
                 ./hosts/wynne
               ];
             };
@@ -218,20 +186,12 @@
               hostname = "Layne";
               system = "x86_64-linux";
             in
-            inputs.nixpkgs.lib.nixosSystem {
+            lib.nixosSystem {
               inherit system;
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                {
-                  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-                  networking.hostName = lib.mkDefault hostname;
-                  nixpkgs.hostPlatform = lib.mkDefault system;
-                }
-                inputs.sops-nix.nixosModules.sops
-                inputs.recipes.nixosModules.default
-                inputs.self.nixosModules.default
-                ./common
+                (common-module hostname system)
                 ./hosts/layne
               ];
             };
@@ -240,20 +200,12 @@
               hostname = "Bifrost";
               system = "x86_64-linux";
             in
-            inputs.nixpkgs.lib.nixosSystem {
+            lib.nixosSystem {
               inherit system;
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                {
-                  system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-                  networking.hostName = lib.mkForce hostname;
-                  nixpkgs.hostPlatform = lib.mkDefault system;
-                }
-                inputs.sops-nix.nixosModules.sops
-                inputs.recipes.nixosModules.default
-                inputs.self.nixosModules.default
-                ./common
+                (common-module hostname system)
                 ./hosts/bifrost
               ];
             };
@@ -281,6 +233,6 @@
             };
           };
         in
-        inputs.nixpkgs.lib.mapAttrs deployConfig hostArch;
+        lib.mapAttrs deployConfig hostArch;
     };
 }
