@@ -32,7 +32,7 @@ in
       type = lib.types.bool;
       default = true;
       example = false;
-      description = "Enable cool (but experimental features)";
+      description = "Enable cool (but experimental) features";
     };
     trust-wheel = lib.mkOption {
       type = lib.types.bool;
@@ -48,27 +48,27 @@ in
     };
   };
 
-  config =
-    lib.mkIf cfg.auto-gc {
+  config = lib.mkMerge [
+    (lib.mkIf cfg.auto-gc {
       nix.gc = {
         automatic = true;
         dates = "Fri *-*-* 00:00:00";
         options = "--delete-old";
         randomizedDelaySec = "1h";
       };
-    }
-    // lib.mkIf cfg.auto-optimise {
+    })
+    (lib.mkIf cfg.auto-optimise {
       nix.optimise = {
         automatic = true;
         dates = [ "Fri *-*-* 06:00:00" ];
       };
-    }
-    // lib.mkIf cfg.is-laptop {
+    })
+    (lib.mkIf cfg.is-laptop {
       nix.daemonCPUSchedPolicy = "idle";
       nix.daemonIOSchedClass = "idle";
-    }
-    // lib.mkIf cfg.disable-channels { nix.channel.enable = false; }
-    // lib.mkIf cfg.cool-features {
+    })
+    (lib.mkIf cfg.disable-channels { nix.channel.enable = false; })
+    (lib.mkIf cfg.cool-features {
       nix.settings = {
         experimental-features = [
           "nix-command"
@@ -81,9 +81,9 @@ in
         sandbox = true;
         use-cgroups = true;
       };
-    }
-    // lib.mkIf cfg.trust-wheel { nix.settings.trusted-users = [ "@wheel" ]; }
-    // lib.mkIf cfg.enable-extra-substituters {
+    })
+    (lib.mkIf cfg.trust-wheel { nix.settings.trusted-users = [ "@wheel" ]; })
+    (lib.mkIf cfg.enable-extra-substituters {
       nix.settings = {
         trusted-substituters = [
           "https://adtya.cachix.org"
@@ -96,5 +96,6 @@ in
           "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         ];
       };
-    };
+    })
+  ];
 }
