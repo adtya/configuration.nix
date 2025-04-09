@@ -23,4 +23,5 @@
       };
     };
   };
+  nodeconfig.users.primary.extra-groups = [ "podman" ];
 }
