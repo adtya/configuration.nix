@@ -50,13 +50,7 @@
         system:
         import inputs.nixpkgs {
           inherit system;
-          config = {
-            allowUnfree = true;
-            permittedInsecurePackages = [
-              "aspnetcore-runtime-6.0.36"
-              "dotnet-sdk-6.0.428"
-            ];
-          };
+          config.allowUnfree = true;
           overlays = [
             (import ./packages)
             inputs.recipes.overlays.default
@@ -102,7 +96,6 @@
               inputs.recipes.nixosModules.default
               inputs.self.nixosModules.default
             ];
-
             sops.defaultSopsFile = ./secrets.yaml;
             system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
             networking.hostName = lib.mkDefault hostname;
