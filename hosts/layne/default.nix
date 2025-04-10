@@ -4,7 +4,6 @@ _: {
     ./programs
     ./services
     ./network
-    ./security.nix
     ./users.nix
 
     ../shared/users.nix
@@ -15,10 +14,20 @@ _: {
     nix = {
       auto-optimise = true;
       auto-gc = true;
+      is-laptop = true;
+      disable-channels  = true;
+      cool-features = true;
+      trust-wheel = true;
+      enable-extra-substituters = true;
     };
     is-server = true;
     facts = {
       local-ip = "192.168.1.14";
+    };
+    sudo = {
+      enable = true;
+      primary-user-is-wheel = true;
+      wheel-is-god = true;
     };
   };
 

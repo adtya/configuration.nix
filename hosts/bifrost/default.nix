@@ -6,7 +6,6 @@
     ./network
     ./programs
     ./services
-    ./security.nix
 
     ../shared/users.nix
   ];
@@ -16,6 +15,11 @@
     nix = {
       auto-optimise = true;
       auto-gc = true;
+      is-laptop = true;
+      disable-channels  = true;
+      cool-features = true;
+      trust-wheel = true;
+      enable-extra-substituters = true;
     };
     is-server = true;
     #    facts = {
@@ -23,6 +27,11 @@
     #  local-ip = "10.122.0.3";
     #  wireguard-ip = "10.10.10.1";
     #};
+    sudo = {
+      enable = true;
+      primary-user-is-wheel = true;
+      wheel-is-god = true;
+    };
   };
 
   i18n = {

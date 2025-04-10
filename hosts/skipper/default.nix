@@ -23,6 +23,15 @@
     nix = {
       auto-optimise = true;
       is-laptop = true;
+      disable-channels  = true;
+      cool-features = true;
+      trust-wheel = true;
+      enable-extra-substituters = true;
+    };
+    sudo = {
+      enable = true;
+      primary-user-is-wheel = true;
+      wheel-is-god = false;
     };
   };
 

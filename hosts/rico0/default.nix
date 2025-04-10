@@ -5,7 +5,6 @@ _: {
     ./services
     ./containers
     ./network
-    ./security.nix
 
     ../shared/users.nix
   ];
@@ -15,12 +14,22 @@ _: {
     nix = {
       auto-optimise = true;
       auto-gc = true;
+      is-laptop = true;
+      disable-channels  = true;
+      cool-features = true;
+      trust-wheel = true;
+      enable-extra-substituters = true;
     };
     is-pi = true;
     is-server = true;
     facts = {
       local-ip = "192.168.1.10";
       tailscale-ip = "100.69.69.10";
+    };
+    sudo = {
+      enable = true;
+      primary-user-is-wheel = true;
+      wheel-is-god = true;
     };
   };
 
