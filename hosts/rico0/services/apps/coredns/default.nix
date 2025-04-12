@@ -33,7 +33,7 @@ in
     '';
   };
   systemd.services.coredns = {
-    after = [ "tailscaled.service" ];
+    after = [ "tailscaled.service" "tailscaled-autoconnect.service" ];
     unitConfig.Requires = [ "tailscaled.service" ];
     serviceConfig.RestartSec = "5s";
   };
