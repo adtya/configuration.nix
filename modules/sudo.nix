@@ -40,7 +40,7 @@ in
             extraConfig = ''
               Defaults lecture="never"
             '';
-            wheelNeedsPassword = cfg.wheel-is-god;
+            wheelNeedsPassword = !cfg.wheel-is-god;
           };
 
         };
