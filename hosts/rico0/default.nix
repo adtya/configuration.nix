@@ -15,7 +15,7 @@ _: {
       auto-optimise = true;
       auto-gc = true;
       is-laptop = true;
-      disable-channels  = true;
+      disable-channels = true;
       cool-features = true;
       trust-wheel = true;
       enable-extra-substituters = true;

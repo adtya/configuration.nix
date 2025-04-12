@@ -23,7 +23,7 @@
     nix = {
       auto-optimise = true;
       is-laptop = true;
-      disable-channels  = true;
+      disable-channels = true;
       cool-features = true;
       trust-wheel = true;
       enable-extra-substituters = true;
