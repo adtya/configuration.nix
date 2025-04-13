@@ -141,9 +141,9 @@ in
         "size 90% 90%,class:^(org.pwmt.zathura)$"
         "center,class:^(org.pwmt.zathura)$"
 
-        "float,class:lutris"
-        "center,class:lutris"
-        "size 60% 60%,class:lutris"
+        "float,class:net.lutris.Lutris"
+        "center,class:net.lutris.Lutris"
+        "size 60% 60%,class:net.lutris.Lutris"
 
         "dimaround,class:^(gcr-prompter)$"
       ];
