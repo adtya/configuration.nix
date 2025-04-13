@@ -36,7 +36,7 @@
     gh
     hcloud
     impala
-    #localsend
+    localsend
     ripgrep
     seahorse
     swayimg
@@ -44,7 +44,6 @@
     transmission-remote-gtk
     wl-clipboard
     xdg-utils
-    yubioath-flutter
   ];
 
   programs = {
