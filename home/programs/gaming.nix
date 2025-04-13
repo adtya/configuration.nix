@@ -18,5 +18,6 @@
       ];
     })
     protonplus
+    wineWowPackages.waylandFull
   ];
 }
