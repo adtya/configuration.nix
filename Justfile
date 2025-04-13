@@ -8,14 +8,14 @@ update:
 
 build host:
   if [ "{{host}}" = "{{hostname}}" ]; then \
-  nixos-rebuild --flake .#{{host}} build; \
+  nh os build -H {{host}} .; \
   else \
   nixos-rebuild --build-host {{host}} --target-host {{host}} --flake .#{{host}} build; \
   fi
 
 deploy host:
   if [ "{{host}}" = "{{hostname}}" ]; then \
-  nixos-rebuild --flake .#{{host}} switch; \
+  nh os switch -H {{host}} .; \
   else \
   deploy --skip-checks --remote-build --targets .#{{host}}; \
   fi
