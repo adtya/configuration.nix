@@ -1,6 +1,9 @@
 { lib, pkgs, ... }:
 {
-  imports = [ ./filesystem.nix ];
+  imports = [
+    ./filesystem.nix
+    ./keyboard.nix
+  ];
 
   boot = {
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;

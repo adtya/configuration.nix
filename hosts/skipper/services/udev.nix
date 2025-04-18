@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-{
+_: {
   services.udev = {
     enable = true;
-    packages = [ pkgs.yubikey-personalization ];
     extraRules = ''
       ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="bfq"
       ACTION=="add|change", KERNEL=="sd[a-z]*", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="bfq"
