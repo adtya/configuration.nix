@@ -13,6 +13,13 @@ build host:
   nixos-rebuild --build-host {{host}} --target-host {{host}} --flake .#{{host}} build; \
   fi
 
+boot host:
+  if [ "{{host}}" = "{{hostname}}" ]; then \
+  nh os boot -H {{host}} .; \
+  else \
+  nixos-rebuild --build-host {{host}} --target-host {{host}} --flake .#{{host}} boot; \
+  fi
+
 deploy host:
   if [ "{{host}}" = "{{hostname}}" ]; then \
   nh os switch -H {{host}} .; \
