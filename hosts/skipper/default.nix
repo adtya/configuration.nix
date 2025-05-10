@@ -88,7 +88,7 @@
       LC_TIME = "en_IN.UTF-8";
       LC_ALL = "en_IN.UTF-8";
     };
-    supportedLocales = [
+    extraLocales = [
       "ml_IN/UTF-8"
       "en_IN/UTF-8"
       "en_US.UTF-8/UTF-8"

@@ -19,7 +19,7 @@
       path = "${config.xdg.dataHome}/zsh/zsh_history";
     };
     envExtra = lib.optionalString config.services.gnome-keyring.enable ''export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/keyring/ssh"'';
-    initExtra = ''
+    initContent = ''
       bindkey -v '^?' backward-delete-char
     '';
     shellAliases = {

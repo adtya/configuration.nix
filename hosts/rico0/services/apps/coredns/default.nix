@@ -3,8 +3,7 @@ let
   tailscaleInterface = config.services.tailscale.interfaceName;
   tailscaleIP = config.nodeconfig.facts.tailscale-ip;
   tailnetName = config.nodeconfig.facts.tailnet-name;
-  zoneFile = pkgs.substituteAll {
-    src = ./labs.adtya.xyz;
+  zoneFile = pkgs.replaceVars ./labs.adtya.xyz {
     inherit tailnetName tailscaleIP;
   };
 in

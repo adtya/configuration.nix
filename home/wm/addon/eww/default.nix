@@ -5,8 +5,7 @@
   ...
 }:
 let
-  configFile = pkgs.substituteAll {
-    src = ./config/eww.yuck;
+  configFile = pkgs.replaceVars ./config/eww.yuck {
     test_string = "Testing Out Eww!";
   };
 
