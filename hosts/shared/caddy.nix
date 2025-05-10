@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   sops = {
     secrets = {
@@ -11,7 +11,7 @@
   };
   services.caddy = {
     enable = true;
-    package = pkgs.caddy-hetzner;
+    package = inputs.caddy-hetzner.packages.${pkgs.system}.caddy;
     email = "admin@acomputer.lol";
     extraConfig = ''
       (hetzner) {

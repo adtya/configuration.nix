@@ -33,6 +33,7 @@
     adtyaxyz.url = "github:/adtya/adtya.xyz?ref=main";
     wiki.url = "github:/adtya/wiki?ref=main";
     recipes.url = "github:/adtya/recipes.nix?ref=main";
+    caddy-hetzner.url = "github:/adtya/caddy-hetzner?ref=main";
     smc-fonts.url = "gitlab:smc/smc-fonts-flake?ref=trunk";
   };
 
