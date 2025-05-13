@@ -16,6 +16,7 @@
     enable = true;
     authKeyFile = config.sops.secrets."tailscale_auth".path;
     openFirewall = true;
+    extraSetFlags = [ "--webclient" ];
   };
 
   networking.firewall.trustedInterfaces = [ config.services.tailscale.interfaceName ];
