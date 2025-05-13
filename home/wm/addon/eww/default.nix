@@ -5,9 +5,7 @@
   ...
 }:
 let
-  configFile = pkgs.replaceVars ./config/eww.yuck {
-    test_string = "Testing Out Eww!";
-  };
+  configFile = pkgs.replaceVars ./config/eww.yuck { test_string = "Testing Out Eww!"; };
 
   cssFile = ./config/eww.scss;
 
