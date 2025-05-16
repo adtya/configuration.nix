@@ -8,6 +8,7 @@
       just
       sops
       ssh-to-age
+      nil
     ];
   };
 }
