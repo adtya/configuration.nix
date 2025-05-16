@@ -38,7 +38,7 @@
   # required for nixos-rebuild if target-host is of different arch. (even if --build-host is used)
   boot.binfmt = {
     emulatedSystems = [ "aarch64-linux" ];
-    preferStaticEmulators = true; # cross-arch inside podman?
+    #preferStaticEmulators = true; # cross-arch inside podman? disabled until https://github.com/NixOS/nixpkgs/pull/402027
   };
 
   console.useXkbConfig = true;
