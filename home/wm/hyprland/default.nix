@@ -164,7 +164,7 @@ in
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
         "SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service"
 
-        "SUPER,Return,        exec, ${kitty} ${tmux} new"
+        "SUPER,Return,        exec, ${kitty} ${tmux} -u new"
         "SUPER_SHIFT,Return,  exec, ${kitty}"
         "SUPER,d,             exec, ${rofi} -show drun"
         "SUPER,e,             exec, ${kitty} --class=yazi ${yazi}"

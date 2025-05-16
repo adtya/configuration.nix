@@ -1,5 +1,1 @@
-_: {
-  imports = [
-    ./homepage.nix
-  ];
-}
+_: { imports = [ ./homepage.nix ]; }
