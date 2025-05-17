@@ -16,6 +16,7 @@
     ./virtualisation
     ./security.nix
 
+    ../shared/locale.nix
     ../shared/users.nix
   ];
 
@@ -73,14 +74,6 @@
     };
 
   gtk.iconCache.enable = true;
-
-  i18n = {
-    defaultLocale = "en_IN";
-    extraLocales = [
-      "ml_IN"
-      "en_US.UTF-8"
-    ];
-  };
 
   services.xserver.xkb = {
     layout = "us";

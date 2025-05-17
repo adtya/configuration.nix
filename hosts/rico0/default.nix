@@ -6,6 +6,7 @@ _: {
     ./containers
     ./network
 
+    ../shared/locale.nix
     ../shared/users.nix
   ];
 
@@ -31,11 +32,6 @@ _: {
       primary-user-is-wheel = true;
       wheel-is-god = true;
     };
-  };
-
-  i18n = {
-    defaultLocale = "en_IN";
-    extraLocales = [ "en_US.UTF-8" ];
   };
 
   time.timeZone = "Asia/Kolkata";

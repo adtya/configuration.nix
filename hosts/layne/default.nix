@@ -6,6 +6,7 @@ _: {
     ./network
     ./users.nix
 
+    ../shared/locale.nix
     ../shared/users.nix
   ];
 
@@ -33,11 +34,6 @@ _: {
 
   environment.sessionVariables = {
     VDPAU_DRIVER = "va_gl";
-  };
-
-  i18n = {
-    defaultLocale = "en_IN";
-    extraLocales = [ "en_US.UTF-8" ];
   };
 
   time.timeZone = "Asia/Kolkata";
