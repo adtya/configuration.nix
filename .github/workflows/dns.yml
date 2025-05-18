@@ -2,8 +2,12 @@ name: DNSControl
 on:
   push:
     branches: ["main"]
+    paths:
+     - dns/**
   pull_request:
     branches: ["main"]
+    paths:
+     - dns/**
 jobs:
   preview:
     runs-on: ubuntu-latest

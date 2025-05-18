@@ -2,8 +2,12 @@ name: Tailscale ACLs
 on:
   push:
     branches: ["main"]
+    paths:
+     - tailnet/**
   pull_request:
     branches: ["main"]
+    paths:
+     - tailnet/**
 jobs:
   test:
     runs-on: ubuntu-latest
