@@ -1,0 +1,60 @@
+name: DNSControl
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check dnscontrol.js
+        id: dnscontrol-check
+        uses: koenrh/dnscontrol-action@v3
+        with:
+          config_file: dns/dnsconfig.js
+          args: check
+  preview:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Preview DNS updates
+        id: dnscontrol-preview
+        uses: koenrh/dnscontrol-action@v3
+        env:
+          DYNADOT_API_KEY: ${{ secrets.DYNADOT_API_KEY }}
+          DIGITALOCEAN_API_TOKEN: ${{ secrets.DIGITALOCEAN_API_TOKEN }}
+          HETZNER_DNS_API_KEY: ${{ secrets.HETZNER_DNS_API_KEY }}
+        with:
+          config_file: dns/dnsconfig.js
+          creds_file: dns/creds.json
+          args: preview
+      - name: Comment DNS Updates on PR
+        if: github.event_name == 'pull_request'
+        uses: unsplash/comment-on-pr@v1.3.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: |
+            ```
+            ${{ steps.dnscontrol-preview.outputs.preview_comment }}
+            ```
+          check_for_duplicate_msg: true
+  push:
+    needs: preview
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Publish DNS updates
+        id: dnscontrol-publish
+        uses: koenrh/dnscontrol-action@v3
+        env:
+          DYNADOT_API_KEY: ${{ secrets.DYNADOT_API_KEY }}
+          DIGITALOCEAN_API_TOKEN: ${{ secrets.DIGITALOCEAN_API_TOKEN }}
+          HETZNER_DNS_API_KEY: ${{ secrets.HETZNER_DNS_API_KEY }}
+        with:
+          config_file: dns/dnsconfig.js
+          creds_file: dns/creds.json
+          args: push

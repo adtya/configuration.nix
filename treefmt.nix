@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+_: {
   projectRootFile = "flake.nix";
   programs = {
     shellcheck.enable = true;

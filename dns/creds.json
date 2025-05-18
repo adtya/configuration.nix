@@ -1,0 +1,14 @@
+{
+  "dynadot": {
+    "TYPE": "DYNADOT",
+    "key": "$DYNADOT_API_KEY"
+  },
+  "digitalocean": {
+    "TYPE": "DIGITALOCEAN",
+    "token": "$DIGITALOCEAN_API_TOKEN"
+  },
+  "hetzner": {
+    "TYPE": "HETZNER",
+    "api_key": "$HETZNER_DNS_API_KEY"
+  }
+}

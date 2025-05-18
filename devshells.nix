@@ -9,6 +9,7 @@
       sops
       ssh-to-age
       nil
+      dnscontrol
     ];
   };
 }
