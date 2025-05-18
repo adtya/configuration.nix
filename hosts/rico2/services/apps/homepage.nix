@@ -79,12 +79,6 @@ in
                         same-tab = true;
                       }
                       {
-                        title = "Vaultwarden";
-                        url = "https://vault.labs.adtya.xyz/";
-                        icon = "si:vaultwarden";
-                        same-tab = true;
-                      }
-                      {
                         title = "Transmission";
                         url = "https://transmission.labs.adtya.xyz/";
                         icon = "si:transmission";
@@ -112,18 +106,6 @@ in
                         title = "Sonarr";
                         url = "https://sonarr.labs.adtya.xyz/";
                         icon = "si:sonarr";
-                        same-tab = true;
-                      }
-                      {
-                        title = "Lidarr";
-                        url = "https://lidarr.labs.adtya.xyz/";
-                        icon = "si:lidarr";
-                        same-tab = true;
-                      }
-                      {
-                        title = "Readarr";
-                        url = "https://readarr.labs.adtya.xyz/";
-                        icon = "si:readarr";
                         same-tab = true;
                       }
                     ];
