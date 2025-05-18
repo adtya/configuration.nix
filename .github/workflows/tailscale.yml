@@ -3,11 +3,11 @@ on:
   push:
     branches: ["main"]
     paths:
-     - tailnet/**
+      - tailnet/**
   pull_request:
     branches: ["main"]
     paths:
-     - tailnet/**
+      - tailnet/**
 jobs:
   test:
     runs-on: ubuntu-latest
