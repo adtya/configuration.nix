@@ -1,13 +1,14 @@
 name: DNSControl
 on:
+  workflow_dispatch:
   push:
     branches: ["main"]
     paths:
-     - dns/**
+      - dns/**
   pull_request:
     branches: ["main"]
     paths:
-     - dns/**
+      - dns/**
 jobs:
   preview:
     runs-on: ubuntu-latest
