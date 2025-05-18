@@ -50,6 +50,7 @@ in
       variables = [ "--all" ];
     };
     settings = {
+      ecosystem.no_update_news = true;
       general = {
         border_size = 1;
         "col.active_border" = "rgb(bd93f9)";
