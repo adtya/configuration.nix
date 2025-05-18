@@ -1,4 +1,4 @@
-name: Sync Tailscale ACLs
+name: Tailscale ACLs
 
 on:
   push:
@@ -7,14 +7,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-  acls:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
 
       - name: Test ACL
-        if: github.event_name == 'pull_request'
         id: test-acl
         uses: tailscale/gitops-acl-action@v1
         with:
@@ -23,6 +22,13 @@ jobs:
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET}}
           tailnet: ${{ secrets.TS_TAILNET }}
           action: test
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
 
       - name: Deploy ACL
         if: github.event_name == 'push'
