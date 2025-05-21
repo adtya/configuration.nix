@@ -13,6 +13,7 @@ _: {
       "ext4"
       "exfat"
       "ntfs"
+      "zfs"
     ];
   };
 }

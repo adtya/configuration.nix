@@ -91,7 +91,7 @@
             name = "adtya";
             long-name = "Adithya Nair";
           };
-          common-module = hostname: system: {
+          common-module = hostname: hostId: system: {
             imports = [
               inputs.sops-nix.nixosModules.sops
               inputs.recipes.nixosModules.default
@@ -99,7 +99,10 @@
             ];
             sops.defaultSopsFile = ./secrets.yaml;
             system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
-            networking.hostName = lib.mkDefault hostname;
+            networking = {
+              hostName = lib.mkDefault hostname;
+              hostId = lib.mkDefault hostId;
+            };
             nixpkgs.hostPlatform = lib.mkDefault system;
           };
         in
@@ -107,6 +110,7 @@
           Skipper =
             let
               hostname = "Skipper";
+              hostId = "dfb83800";
               system = "x86_64-linux";
             in
             lib.nixosSystem {
@@ -114,7 +118,7 @@
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                (common-module hostname system)
+                (common-module hostname hostId system)
                 ./hosts/skipper
                 ./home
               ];
@@ -122,6 +126,7 @@
           Rico0 =
             let
               hostname = "Rico0";
+              hostId = "dfb83810";
               system = "aarch64-linux";
             in
             lib.nixosSystem {
@@ -129,13 +134,14 @@
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                (common-module hostname system)
+                (common-module hostname hostId system)
                 ./hosts/rico0
               ];
             };
           Rico1 =
             let
               hostname = "Rico1";
+              hostId = "dfb83811";
               system = "aarch64-linux";
             in
             lib.nixosSystem {
@@ -143,13 +149,14 @@
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                (common-module hostname system)
+                (common-module hostname hostId system)
                 ./hosts/rico1
               ];
             };
           Rico2 =
             let
               hostname = "Rico2";
+              hostId = "dfb83812";
               system = "aarch64-linux";
             in
             lib.nixosSystem {
@@ -157,13 +164,14 @@
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                (common-module hostname system)
+                (common-module hostname hostId system)
                 ./hosts/rico2
               ];
             };
           Wynne =
             let
               hostname = "Wynne";
+              hostId = "dfb83813";
               system = "x86_64-linux";
             in
             lib.nixosSystem {
@@ -171,13 +179,14 @@
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                (common-module hostname system)
+                (common-module hostname hostId system)
                 ./hosts/wynne
               ];
             };
           Layne =
             let
               hostname = "Layne";
+              hostId = "dfb83814";
               system = "x86_64-linux";
             in
             lib.nixosSystem {
@@ -185,13 +194,14 @@
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                (common-module hostname system)
+                (common-module hostname hostId system)
                 ./hosts/layne
               ];
             };
           Bifrost =
             let
               hostname = "Bifrost";
+              hostId = "dfb83815";
               system = "x86_64-linux";
             in
             lib.nixosSystem {
@@ -199,7 +209,7 @@
               pkgs = pkgsFor system;
               specialArgs = { inherit inputs primary-user; };
               modules = [
-                (common-module hostname system)
+                (common-module hostname hostId system)
                 ./hosts/bifrost
               ];
             };
