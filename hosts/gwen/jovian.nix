@@ -6,6 +6,7 @@
     steam = {
       enable = true;
       autoStart = true;
+      desktopSession = "plasma";
       user = primary-user.name;
     };
   };
