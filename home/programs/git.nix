@@ -9,7 +9,7 @@
         syntax-theme = "Dracula";
       };
     };
-    userEmail = "adtya@adtya.xyz";
+    userEmail = primary-user.email;
     userName = primary-user.long-name;
     signing = {
       key = "51E4F5AB1B82BE45B4229CC243A5E25AA5A27849";

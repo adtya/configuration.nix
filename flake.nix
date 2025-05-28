@@ -90,6 +90,7 @@
           primary-user = {
             name = "adtya";
             long-name = "Adithya Nair";
+            email = "adtya@adtya.xyz";
           };
           common-module = hostname: hostId: system: {
             imports = [
