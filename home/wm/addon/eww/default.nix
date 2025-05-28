@@ -40,7 +40,8 @@ in
         Description = "ElKowars wacky widgets - daemon";
         Documentation = "https://elkowar.github.io/eww/";
         PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session-pre.target" ];
+        After = [ "graphical-session.target" ];
+        ConditionEnvironment = [ "WAYLAND_DISPLAY" ];
       };
       Install = {
         WantedBy = [ "graphical-session.target" ];
@@ -56,8 +57,9 @@ in
         Description = "ElKowars wacky widgets";
         Documentation = "https://elkowar.github.io/eww/";
         PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session-pre.target" ];
+        After = [ "graphical-session.target" ];
         Requires = [ "eww.service" ];
+        ConditionEnvironment = [ "WAYLAND_DISPLAY" ];
       };
       Install = {
         WantedBy = [ "graphical-session.target" ];

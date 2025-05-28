@@ -5,7 +5,8 @@
       Unit = {
         Description = "Polkit Authentication Agent";
         PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session-pre.target" ];
+        After = [ "graphical-session.target" ];
+        ConditionEnvironment = [ "WAYLAND_DISPLAY" ];
       };
       Install = {
         WantedBy = [ "graphical-session.target" ];
