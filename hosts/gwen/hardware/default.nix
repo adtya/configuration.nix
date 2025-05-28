@@ -8,7 +8,6 @@
       settings = {
         General = {
           Experimental = true;
-          KernelExperimental = true;
         };
       };
       package = pkgs.bluez.override { enableExperimental = true; };

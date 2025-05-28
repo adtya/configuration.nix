@@ -1,9 +1,9 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [ ./plymouth.nix ];
 
   boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "kvm-amd" ];
     initrd = {
       systemd.enable = true;
