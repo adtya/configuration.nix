@@ -57,7 +57,10 @@ in
         Description = "ElKowars wacky widgets";
         Documentation = "https://elkowar.github.io/eww/";
         PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session.target" "eww.service" ];
+        After = [
+          "graphical-session.target"
+          "eww.service"
+        ];
         Requires = [ "eww.service" ];
         ConditionEnvironment = [ "WAYLAND_DISPLAY" ];
       };
