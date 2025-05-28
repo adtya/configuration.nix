@@ -1,5 +1,8 @@
 _: {
-  imports = [ ./neovim.nix ];
+  imports = [
+    ./neovim.nix
+    ./nh.nix
+  ];
   programs = {
     command-not-found.enable = false;
     dconf.enable = true;
