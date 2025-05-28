@@ -12,6 +12,7 @@
     ./services
 
     ./desktop.nix
+    ./jovian.nix
     ./security.nix
 
     ../shared/locale.nix
