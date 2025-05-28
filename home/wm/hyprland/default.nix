@@ -18,6 +18,7 @@ let
   rofi = lib.getExe config.programs.rofi.package;
   swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
   tmux = lib.getExe config.programs.tmux.package;
+  uwsm = lib.getExe pkgs.uwsm;
   walker = lib.getExe pkgs.walker;
   wpaperctl = "${config.services.wpaperd.package}/bin/wpaperctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
@@ -158,14 +159,14 @@ in
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
         "SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service"
 
-        "SUPER,Return,        exec, ${kitty} ${tmux} -u new"
-        "SUPER_SHIFT,Return,  exec, ${kitty}"
-        ''SUPER,d,            exec, ${rofi} -show drun -run-command "uwsm app -- {cmd}"''
+        "SUPER,Return,        exec, ${uwsm} app -- ${kitty} ${tmux} -u new"
+        "SUPER_SHIFT,Return,  exec, ${uwsm} app -- ${kitty}"
+        ''SUPER,d,            exec, ${rofi} -show drun -run-command "${uwsm} app -- {cmd}"''
         "SUPER_SHIFT,d,       exec, ${walker}"
-        "SUPER,e,             exec, ${kitty} --class=yazi ${yazi}"
+        "SUPER,e,             exec, ${uwsm} app -- ${kitty} --class=yazi ${yazi}"
         "SUPER_SHIFT,u,       exec, ${swaync-client} -t -sw"
-        "SUPER,i,             exec, ${firefox}"
-        "SUPER_SHIFT,i,       exec, ${librewolf}"
+        "SUPER,i,             exec, ${uwsm} app -- ${firefox}"
+        "SUPER_SHIFT,i,       exec, ${uwsm} app -- ${librewolf}"
 
         "SUPER_SHIFT,escape,  exec, ${pkgs.misc-scripts}/bin/power-menu"
         "SUPER,f11,           exec, ${pkgs.misc-scripts}/bin/tmux-sessions"
