@@ -1,13 +1,12 @@
-{ config, username, ... }:
-{
+_: {
   imports = [
     ./btrfs.nix
     ./dbus.nix
     ./geoclue.nix
     ./keyd.nix
     ./pipewire.nix
-    ./udev.nix
     ./ssh.nix
+    ./udev.nix
   ];
   services = {
     cpupower-gui.enable = true;

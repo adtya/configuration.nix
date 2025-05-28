@@ -38,17 +38,9 @@ in
       };
     };
   };
-  programs.zsh.profileExtra = ''
-    if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] ; then
-      exec ${lib.getExe cfg.package}
-    fi
-  '';
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd = {
-      enable = true;
-      variables = [ "--all" ];
-    };
+    systemd.enable = false;
     settings = {
       ecosystem.no_update_news = true;
       general = {

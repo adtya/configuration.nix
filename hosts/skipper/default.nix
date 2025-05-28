@@ -14,6 +14,8 @@
     ./programs
     ./services
     ./virtualisation
+
+    ./desktop.nix
     ./security.nix
 
     ../shared/locale.nix
@@ -82,15 +84,6 @@
   };
 
   time.timeZone = "Asia/Kolkata";
-
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    config.common = {
-      default = [ "gtk" ];
-      "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-    };
-  };
 
   system = {
     switch = {
