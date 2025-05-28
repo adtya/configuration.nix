@@ -160,7 +160,7 @@ in
 
         "SUPER,Return,        exec, ${kitty} ${tmux} -u new"
         "SUPER_SHIFT,Return,  exec, ${kitty}"
-        "SUPER,d,             exec, ${rofi} -show drun"
+        ''SUPER,d,            exec, ${rofi} -show drun -run-command "uwsm app -- {cmd}"''
         "SUPER_SHIFT,d,       exec, ${walker}"
         "SUPER,e,             exec, ${kitty} --class=yazi ${yazi}"
         "SUPER_SHIFT,u,       exec, ${swaync-client} -t -sw"
