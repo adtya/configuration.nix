@@ -6,15 +6,5 @@ _: {
         enable = true;
       };
     };
-    displayManager = {
-      enable = true;
-      sddm = {
-        enable = true;
-        wayland = {
-          enable = true;
-          compositor = "kwin";
-        };
-      };
-    };
   };
 }
