@@ -7,20 +7,21 @@
 let
   cfg = config.wayland.windowManager.hyprland;
 
-  brightnessctl = "${lib.getExe pkgs.brightnessctl}";
-  firefox = "${lib.getExe config.programs.firefox.finalPackage}";
-  grimblast = "${lib.getExe pkgs.grimblast}";
+  brightnessctl = lib.getExe pkgs.brightnessctl;
+  firefox = lib.getExe config.programs.firefox.finalPackage;
+  grimblast = lib.getExe pkgs.grimblast;
   hyprctl = "${cfg.package}/bin/hyprctl";
-  kitty = "${lib.getExe config.programs.kitty.package}";
-  librewolf = "${lib.getExe pkgs.librewolf}";
+  kitty = lib.getExe config.programs.kitty.package;
+  librewolf = lib.getExe pkgs.librewolf;
   loginctl = "${pkgs.systemd}/bin/loginctl";
-  playerctl = "${lib.getExe pkgs.playerctl}";
-  rofi = "${lib.getExe config.programs.rofi.package}";
+  playerctl = lib.getExe pkgs.playerctl;
+  rofi = lib.getExe config.programs.rofi.package;
   swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
-  tmux = "${lib.getExe config.programs.tmux.package}";
+  tmux = lib.getExe config.programs.tmux.package;
+  walker = lib.getExe pkgs.walker;
   wpaperctl = "${config.services.wpaperd.package}/bin/wpaperctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
-  yazi = "${lib.getExe pkgs.yazi}";
+  yazi = lib.getExe pkgs.yazi;
 
   pictures = "${config.xdg.userDirs.pictures}";
 in
@@ -160,6 +161,7 @@ in
         "SUPER,Return,        exec, ${kitty} ${tmux} -u new"
         "SUPER_SHIFT,Return,  exec, ${kitty}"
         "SUPER,d,             exec, ${rofi} -show drun"
+        "SUPER_SHIFT,d,       exec, ${walker}"
         "SUPER,e,             exec, ${kitty} --class=yazi ${yazi}"
         "SUPER_SHIFT,u,       exec, ${swaync-client} -t -sw"
         "SUPER,i,             exec, ${firefox}"

@@ -8,6 +8,7 @@
     ./waybar
     ./auth-agent.nix
     ./hypridle.nix
+    ./walker.nix
     ./wpaperd.nix
   ];
 }
