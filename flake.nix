@@ -124,6 +124,21 @@
                 ./home
               ];
             };
+          Gwen =
+            let
+              hostname = "Gwen";
+              hostId = "dfb83801";
+              system = "x86_64-linux";
+            in
+            lib.nixosSystem {
+              inherit system;
+              pkgs = pkgsFor system;
+              specialArgs = { inherit inputs primary-user; };
+              modules = [
+                (common-module hostname hostId system)
+                ./hosts/gwen
+              ];
+            };
           Rico0 =
             let
               hostname = "Rico0";
@@ -222,6 +237,7 @@
           hosts = inputs.self.nixosConfigurations;
           hostArch = {
             Skipper = "x86_64-linux";
+            Gwen = "x86_64-linux";
             Rico0 = "aarch64-linux";
             Rico1 = "aarch64-linux";
             Rico2 = "aarch64-linux";
