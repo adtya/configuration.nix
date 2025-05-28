@@ -30,6 +30,10 @@
     flake-utils.url = "github:numtide/flake-utils?ref=main";
     treefmt-nix.url = "github:numtide/treefmt-nix?ref=main";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS?ref=development";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     adtyaxyz.url = "github:/adtya/adtya.xyz?ref=main";
     wiki.url = "github:/adtya/wiki?ref=main";
     recipes.url = "github:/adtya/recipes.nix?ref=main";

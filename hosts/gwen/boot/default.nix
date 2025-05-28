@@ -16,7 +16,10 @@
         "sd_mod"
         "sdhci_pci"
       ];
-      kernelModules = [ "dm-snapshot" ];
+      kernelModules = [
+        "dm-snapshot"
+        "amdgpu"
+      ];
     };
     bootspec.enable = true;
     consoleLogLevel = 3;
