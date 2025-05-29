@@ -48,9 +48,7 @@
 
   environment = {
     pathsToLink = [
-      "/share/applications"
-      "/share/xdg-desktop-portal"
-      "/share/zsh"
+      "/share"
     ];
     sessionVariables = {
       VDPAU_DRIVER = "va_gl";
