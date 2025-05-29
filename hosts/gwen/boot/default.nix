@@ -1,9 +1,7 @@
-{ pkgs, ... }:
-{
-  imports = [ ./plymouth.nix ];
+_: {
+  #imports = [ ./plymouth.nix ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
     kernelModules = [ "kvm-amd" ];
     initrd = {
       systemd.enable = true;
@@ -16,10 +14,7 @@
         "sd_mod"
         "sdhci_pci"
       ];
-      kernelModules = [
-        "dm-snapshot"
-        "amdgpu"
-      ];
+      kernelModules = [ "amdgpu" ];
     };
     bootspec.enable = true;
     consoleLogLevel = 3;
@@ -27,9 +22,6 @@
       "amd_pstate=active"
       "quiet"
     ];
-    kernel.sysctl = {
-      "vm.dirty_ratio" = 3;
-    };
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;

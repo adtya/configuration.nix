@@ -2,7 +2,13 @@
 {
   imports = [ ./filesystem.nix ];
   hardware = {
-    amdgpu.initrd.enable = true;
+    amdgpu = {
+      amdvlk = {
+        enable = true;
+        support32Bit.enable = true;
+      };
+      initrd.enable = true;
+    };
     bluetooth = {
       enable = true;
       settings = {
@@ -17,8 +23,6 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [ amdvlk ];
-      extraPackages32 = with pkgs.driversi686Linux; [ amdvlk ];
     };
     xone.enable = true;
   };
