@@ -9,11 +9,9 @@ _: {
     };
     supportedFilesystems = [
       "vfat"
-      "btrfs"
-      "ext4"
       "exfat"
-      "ntfs"
-      "zfs"
+      "ext4"
+      "btrfs"
     ];
   };
 }
