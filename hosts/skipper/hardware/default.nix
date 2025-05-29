@@ -1,9 +1,6 @@
 { lib, pkgs, ... }:
 {
-  imports = [
-    ./filesystem.nix
-    ./keyboard.nix
-  ];
+  imports = [ ./filesystem.nix ];
 
   boot = {
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
@@ -35,7 +32,6 @@
     };
     cpu.intel.updateMicrocode = lib.mkDefault true;
     enableRedistributableFirmware = true;
-    gpgSmartcards.enable = true;
     graphics = {
       enable = true;
       extraPackages = with pkgs; [
@@ -44,11 +40,11 @@
         libvdpau-va-gl
       ];
     };
+    keyboard.qmk.enable = true;
     sensor.hddtemp = {
       enable = true;
       drives = [ "/dev/disk/by-path/pci-0000:01:00.0-nvme-1" ];
     };
-    xone.enable = true;
   };
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }
