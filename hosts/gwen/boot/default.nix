@@ -1,5 +1,5 @@
 _: {
-  #imports = [ ./plymouth.nix ];
+  imports = [ ./plymouth.nix ];
 
   boot = {
     kernelModules = [ "kvm-amd" ];
@@ -24,7 +24,10 @@ _: {
     ];
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        consoleMode = "5";
+      };
     };
   };
 }

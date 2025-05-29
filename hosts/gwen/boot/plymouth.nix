@@ -4,7 +4,7 @@ let
 in
 {
   boot.plymouth = {
-    enable = false;
+    enable = true;
     themePackages = lib.mkDefault [
       (pkgs.adi1090x-plymouth-themes.override { selected_themes = [ theme ]; })
     ];
