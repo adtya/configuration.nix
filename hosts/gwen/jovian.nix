@@ -1,5 +1,11 @@
-{ primary-user, ... }:
+{ inputs, pkgs, primary-user, ... }:
 {
+  environment.systemPackages = with inputs.jovian.legacyPackages.${pkgs.system}; [
+    galileo-mura
+    jupiter-dock-updater-bin
+    jupiter-hw-support
+    steamdeck-bios-fwupd
+  ];
   programs.steam = {
     enable = true;
     extest.enable = true;

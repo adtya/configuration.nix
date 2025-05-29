@@ -40,6 +40,7 @@
   environment = {
     pathsToLink = [ "/share" ];
     sessionVariables = {
+      VDPAU_DRIVER = "radeonsi";
       NIXOS_OZONE_WL = 1;
     };
   };
