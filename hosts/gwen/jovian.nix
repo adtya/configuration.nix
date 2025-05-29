@@ -8,7 +8,7 @@
     steam = {
       enable = true;
       autoStart = true;
-      desktopSession = "plasma";
+      desktopSession = "gnome";
       user = primary-user.name;
     };
   };
