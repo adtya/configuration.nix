@@ -39,9 +39,7 @@
 
   environment = {
     pathsToLink = [
-      "/share/applications"
-      "/share/xdg-desktop-portal"
-      "/share/zsh"
+      "/share"
     ];
     sessionVariables = {
       NIXOS_OZONE_WL = 1;
