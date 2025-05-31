@@ -18,8 +18,7 @@ chpower() {
     exec systemctl hibernate
     ;;
   Logout)
-    [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ] && hyprctl dispatch exit
-    [ -n "$NIRI_SOCKET" ] && niri msg action quit
+    exec loginctl terminate-user ""
     ;;
   *)
     notify-send -t 1500 -u low "Invalid Option"
