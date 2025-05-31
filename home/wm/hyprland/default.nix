@@ -27,19 +27,6 @@ let
   pictures = "${config.xdg.userDirs.pictures}";
 in
 {
-  xdg.portal = {
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
-    configPackages = [ pkgs.hyprland ];
-    config = {
-      Hyprland = {
-        default = [
-          "Hyprland"
-          "gtk"
-        ];
-        "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
-      };
-    };
-  };
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = false;

@@ -1,4 +1,9 @@
-{ inputs, pkgs, primary-user, ... }:
+{
+  inputs,
+  pkgs,
+  primary-user,
+  ...
+}:
 {
   environment.systemPackages = with inputs.jovian.legacyPackages.${pkgs.system}; [
     galileo-mura
