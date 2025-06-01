@@ -98,6 +98,9 @@ in
         "bordercolor rgb(ff5555),xwayland:1"
 
         "workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$"
+        "workspace 0,class:^(im.dino.Dino)$"
+        "workspace 0,class:^(org.telegram.desktop)$"
+        "workspace 0,class:^(discord)$"
 
         "float,class:^(pavucontrol)$"
         "size 50% 50%,class:^(pavucontrol)$"
