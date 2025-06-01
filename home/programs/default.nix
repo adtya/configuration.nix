@@ -38,6 +38,7 @@
     localsend
     ripgrep
     seahorse
+    spotify
     telegram-desktop
     transmission-remote-gtk
     wl-clipboard

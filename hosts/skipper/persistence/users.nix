@@ -30,6 +30,7 @@
         ".config/hcloud"
         ".config/lazygit"
         ".config/nvim"
+        ".config/spotify"
         ".config/transmission-daemon"
         ".config/transmission-remote-gtk"
 
@@ -54,9 +55,7 @@
         ".config/wallpaper_config.json"
         {
           file = ".config/sops/age/keys.txt";
-          parentDirectory = {
-            mode = "0700";
-          };
+          parentDirectory.mode = "0700";
         }
       ];
     };
