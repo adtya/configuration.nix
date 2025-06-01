@@ -8,7 +8,7 @@ let
   cfg = config.wayland.windowManager.hyprland;
 
   brightnessctl = lib.getExe pkgs.brightnessctl;
-  blueberry = lib.getExe pkgs.blueberry;
+  blueberry = "${pkgs.blueberry}/bin/blueberry";
   firefox = lib.getExe config.programs.firefox.finalPackage;
   grimblast = lib.getExe pkgs.grimblast;
   hyprctl = "${cfg.package}/bin/hyprctl";
@@ -113,6 +113,10 @@ in
         "float,class:^(blueberry.py)$"
         "size 50% 50%,class:^(blueberry.py)$"
         "center,class:^(blueberry.py)$"
+
+        "float,class:^(.blueman-manager-wrapped)$"
+        "size 50% 50%,class:^(.blueman-manager-wrapped)$"
+        "center,class:^(.blueman-manager-wrapped)$"
 
         "float,class:^(mpv)$"
         "size 90% 90%,class:^(mpv)$"
