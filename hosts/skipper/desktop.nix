@@ -2,7 +2,10 @@
 {
   services.displayManager = {
     enable = true;
-    cosmic-greeter.enable = true;
+  };
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
   };
   programs.uwsm = {
     enable = true;
