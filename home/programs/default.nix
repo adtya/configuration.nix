@@ -33,6 +33,7 @@
     doctl
     flyctl
     gh
+    gnome-software
     hcloud
     impala
     localsend

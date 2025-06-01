@@ -131,6 +131,10 @@ in
         "center,class:org.gnome.Software"
         "size 60% 60%,class:org.gnome.Software"
 
+        "float,class:org.gnome.Software"
+        "center,class:org.gnome.Software"
+        "size 60% 60%,class:org.gnome.Software"
+
         "dimaround,class:^(gcr-prompter)$"
       ];
 
