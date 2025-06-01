@@ -38,7 +38,6 @@
     localsend
     ripgrep
     seahorse
-    swayimg
     telegram-desktop
     transmission-remote-gtk
     wl-clipboard
@@ -51,6 +50,7 @@
       enableZshIntegration = false;
     };
     lazygit.enable = true;
+    swayimg.enable = true;
     zoxide.enable = true;
   };
 }
