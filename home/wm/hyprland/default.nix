@@ -97,43 +97,39 @@ in
       windowrulev2 = [
         "bordercolor rgb(ff5555),xwayland:1"
 
-        "workspace 2,class:^(firefox)$,title:^(Mozilla Firefox)$"
-        "workspace 0,class:^(im.dino.Dino)$"
-        "workspace 0,class:^(org.telegram.desktop)$"
-        "workspace 0,class:^(discord)$"
+        "workspace 2,class:firefox,title:Mozilla Firefox"
+        "workspace 10,class:im.dino.Dino"
+        "workspace 10,class:org.telegram.desktop"
+        "workspace 10,class:discord"
 
-        "float,class:^(pavucontrol)$"
-        "size 50% 50%,class:^(pavucontrol)$"
-        "center,class:^(pavucontrol)$"
+        "float,class:org.pulseaudio.pavucontrol"
+        "size 50% 50%,class:org.pulseaudio.pavucontrol"
+        "center,class:org.pulseaudio.pavucontrol"
 
-        "float,class:^(nm-connection-editor)$"
-        "size 50% 50%,class:^(nm-connection-editor)$"
-        "center,class:^(nm-connection-editor)$"
+        "float,class:blueberry.py"
+        "size 50% 50%,class:blueberry.py"
+        "center,class:blueberry.py"
 
-        "float,class:^(blueberry.py)$"
-        "size 50% 50%,class:^(blueberry.py)$"
-        "center,class:^(blueberry.py)$"
+        "float,class:.blueman-manager-wrapped"
+        "size 50% 50%,class:.blueman-manager-wrapped"
+        "center,class:.blueman-manager-wrapped"
 
-        "float,class:^(.blueman-manager-wrapped)$"
-        "size 50% 50%,class:^(.blueman-manager-wrapped)$"
-        "center,class:^(.blueman-manager-wrapped)$"
-
-        "float,class:^(mpv)$"
-        "size 90% 90%,class:^(mpv)$"
-        "center,class:^(mpv)$"
-        "dimaround,class:^(mpv)$"
+        "float,class:mpv"
+        "size 90% 90%,class:mpv"
+        "center,class:mpv"
+        "dimaround,class:mpv"
 
         "float,class:^(swayimg_.*)$"
         "size 90% 90%,class:^(swayimg_.*)$"
         "center,class:^(swayimg_.*)$"
 
-        "float,class:^(org.pwmt.zathura)$"
-        "size 90% 90%,class:^(org.pwmt.zathura)$"
-        "center,class:^(org.pwmt.zathura)$"
+        "float,class:org.pwmt.zathura"
+        "size 90% 90%,class:org.pwmt.zathura"
+        "center,class:org.pwmt.zathura"
 
-        "float,class:net.lutris.Lutris"
-        "center,class:net.lutris.Lutris"
-        "size 60% 60%,class:net.lutris.Lutris"
+        "float,class:org.gnome.Software"
+        "center,class:org.gnome.Software"
+        "size 60% 60%,class:org.gnome.Software"
 
         "dimaround,class:^(gcr-prompter)$"
       ];
