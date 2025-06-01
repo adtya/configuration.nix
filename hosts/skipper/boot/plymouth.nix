@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 let
-  theme = "owl";
+  theme = "hexagon_dots";
 in
 {
   boot.plymouth = {
