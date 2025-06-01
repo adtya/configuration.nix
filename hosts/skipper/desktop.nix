@@ -11,6 +11,12 @@
       prettyName = "Hyprland";
     };
   };
+  environment.systemPackages = [
+    pkgs.dracula-theme
+    pkgs.dracula-icon-theme
+    pkgs.adwaita-icon-theme
+    pkgs.gnome-themes-extra
+  ];
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;

@@ -1,12 +1,12 @@
 { pkgs, ... }:
 let
   theme = {
-    name = "Adwaita";
-    package = pkgs.gnome-themes-extra;
+    name = "Dracula";
+    package = pkgs.dracula-theme;
   };
   iconTheme = {
-    name = "Adwaita";
-    package = pkgs.gnome-themes-extra;
+    name = "Dracula";
+    package = pkgs.dracula-icon-theme;
   };
   cursorTheme = {
     name = "Bibata-Modern-Amber";
@@ -14,6 +14,7 @@ let
   };
 in
 {
+  home.packages = [ theme.package ];
   home.pointerCursor = cursorTheme // {
     gtk.enable = true;
     size = 24;
@@ -21,7 +22,11 @@ in
   };
   gtk = {
     enable = true;
-    inherit theme cursorTheme iconTheme;
+    inherit cursorTheme iconTheme;
+    theme = {
+      inherit (theme) name;
+      package = null;
+    };
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
       gtk-decoration-layout = ":appmenu";
