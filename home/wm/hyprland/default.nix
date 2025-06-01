@@ -8,6 +8,7 @@ let
   cfg = config.wayland.windowManager.hyprland;
 
   brightnessctl = lib.getExe pkgs.brightnessctl;
+  blueberry = lib.getExe pkgs.blueberry;
   firefox = lib.getExe config.programs.firefox.finalPackage;
   grimblast = lib.getExe pkgs.grimblast;
   hyprctl = "${cfg.package}/bin/hyprctl";
@@ -157,7 +158,7 @@ in
 
         "SUPER_SHIFT,escape,  exec, ${pkgs.misc-scripts}/bin/power-menu"
         "SUPER,f11,           exec, ${pkgs.misc-scripts}/bin/tmux-sessions"
-        "SUPER_SHIFT,b,       exec, ${pkgs.rofi-bluetooth}/bin/rofi-bluetooth"
+        "SUPER_SHIFT,b,       exec, ${uwsm} app -- ${blueberry}"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
         "SUPER_SHIFT,W,       exec, ${wpaperctl} next"
