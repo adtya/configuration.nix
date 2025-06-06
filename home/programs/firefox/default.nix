@@ -11,6 +11,13 @@
         id = 0;
         name = "Default";
         isDefault = true;
+        # https://github.com/hyprwm/Hyprland/discussions/10355
+        userChrome = ''
+          /* Reduce minimum window width for firefox */
+          :root:not([chromehidden~="toolbar"]){
+            min-width: 20px !important;
+          }
+        '';
         search = {
           default = "ddg";
           engines = {
