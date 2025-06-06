@@ -171,8 +171,8 @@ in
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
         "SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service"
 
-        "SUPER,Return,        exec, ${uwsm} app -- ${kitty} ${tmux} -u new"
-        "SUPER_SHIFT,Return,  exec, ${uwsm} app -- ${kitty}"
+        "SUPER,Return,        exec, ${uwsm} app -- ${kitty}"
+        "SUPER_SHIFT,Return,  exec, ${uwsm} app -- ${kitty} ${tmux} -u new"
         ''SUPER,d,            exec, ${rofi} -show drun -run-command "${uwsm} app -- {cmd}"''
         "SUPER_SHIFT,d,       exec, ${walker}"
         "SUPER,e,             exec, ${uwsm} app -- ${kitty} --class=yazi ${yazi}"
