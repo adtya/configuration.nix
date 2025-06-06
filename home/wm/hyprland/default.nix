@@ -54,10 +54,14 @@ in
       decoration = {
         dim_around = 0.6;
         rounding = 5;
+        blur = {
+          enabled = true;
+          size = 5;
+          passes = 1;
+        };
         shadow = {
           color = "rgba(1E202966)";
-          offset = "1 2";
-          range = 60;
+          range = 3;
           render_power = 3;
           scale = 0.97;
         };
@@ -86,13 +90,21 @@ in
         vfr = true;
       };
 
-      animation = [
-        "windows,1,3,default,slide"
-        "fade,1,3,default"
-        "border,1,3,default"
-        "borderangle,1,3,default"
-        "workspaces,1,3,default,slide"
-      ];
+      gestures = {
+        workspace_swipe = "on";
+      };
+
+      animations = {
+        enabled = true;
+        animation = [
+          "windows,1,3,default,slide"
+          "windowsOut,1,3,default,slide"
+          "fade,1,3,default"
+          "border,1,3,default"
+          "borderangle,1,3,default"
+          "workspaces,1,3,default,slide"
+        ];
+      };
 
       windowrulev2 = [
         "bordercolor rgb(ff5555),xwayland:1"
@@ -136,6 +148,11 @@ in
         "size 60% 60%,class:org.gnome.Software"
 
         "dimaround,class:^(gcr-prompter)$"
+      ];
+
+      layerrule = [
+        "blur, waybar"
+        "ignorezero, waybar"
       ];
 
       exec-once = [ "${hyprctl} setcursor ${config.gtk.cursorTheme.name} 24" ];

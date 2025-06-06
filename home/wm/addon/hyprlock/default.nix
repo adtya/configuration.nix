@@ -2,6 +2,7 @@ _: {
   programs.hyprlock = {
     enable = true;
     settings = {
+      animations.enabled = true;
       general = {
         ignore_empty_input = true;
         hide_cursor = true;
@@ -10,6 +11,10 @@ _: {
         path = "screenshot";
         blur_passes = 2;
         blur_size = 5;
+        contrast = 1;
+        brightness = 0.5;
+        vibrancy = 0.2;
+        vibrancy_darkness = 0.2;
       };
       input-field = {
         outer_color = "rgb(bd93f9)";
