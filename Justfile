@@ -10,14 +10,14 @@ build host:
   if [ "{{host}}" = "{{hostname}}" ]; then \
   nh os build -H {{host}} .; \
   else \
-  nixos-rebuild --build-host {{host}} --target-host {{host}} --flake .#{{host}} build; \
+  nixos-rebuild --fast --build-host {{host}} --target-host {{host}} --flake .#{{host}} build; \
   fi
 
 boot host:
   if [ "{{host}}" = "{{hostname}}" ]; then \
   nh os boot -H {{host}} .; \
   else \
-  nixos-rebuild --build-host {{host}} --target-host {{host}} --flake .#{{host}} --use-remote-sudo boot; \
+  nixos-rebuild --fast --build-host {{host}} --target-host {{host}} --flake .#{{host}} --use-remote-sudo boot; \
   fi
 
 deploy host:
