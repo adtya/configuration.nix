@@ -15,7 +15,6 @@ _: {
     fwupd.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
-    irqbalance.enable = true;
     logind.extraConfig = ''
       HandlePowerKey=ignore
     '';
