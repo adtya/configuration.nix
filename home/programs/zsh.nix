@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ config, lib, ... }:
 {
   programs.zsh = {
     enable = true;
@@ -23,7 +18,7 @@
       bindkey -v '^?' backward-delete-char
     '';
     shellAliases = {
-      cat = "${pkgs.bat}/bin/bat";
+      cat = lib.getExe config.programs.bat.package;
       cp = "cp -v";
       grep = "grep --color=auto";
       ln = "ln -v";
