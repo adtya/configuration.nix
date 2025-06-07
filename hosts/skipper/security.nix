@@ -4,6 +4,7 @@ _: {
       services = {
         passwd.enableGnomeKeyring = true;
         login.enableGnomeKeyring = true;
+        cosmic-greeter.enableGnomeKeyring = true;
         hyprlock = { };
       };
     };
