@@ -2,7 +2,6 @@
 {
   imports = [
     inputs.jovian.nixosModules.default
-    inputs.lix-module.nixosModules.default
     inputs.disko.nixosModules.disko
 
     ./boot
