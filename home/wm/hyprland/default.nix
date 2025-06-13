@@ -68,7 +68,7 @@ in
       };
 
       monitor = [
-        "eDP-1,  preferred,  0x0,         1"
+        "eDP-1,  preferred,  0x0,         auto"
         ",       preferred,  auto-right,  auto"
       ];
 
