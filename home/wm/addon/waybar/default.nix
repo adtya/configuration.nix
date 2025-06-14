@@ -2,10 +2,7 @@
 {
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar.override {
-      hyprlandSupport = true;
-      swaySupport = false;
-    };
+    package = pkgs.waybar;
     systemd.enable = true;
     style = ./style.css;
     settings = {
