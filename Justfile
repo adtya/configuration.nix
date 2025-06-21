@@ -6,18 +6,18 @@ update:
   git add flake.lock
   git commit -m "Update inputs"
 
-build host:
-  if [ "{{host}}" = "{{hostname}}" ]; then \
-  nh os build -H {{host}} .; \
+build builder target:
+  if [ "{{target}}" = "{{hostname}}" ]; then \
+  nh os build -H {{target}} .; \
   else \
-  nixos-rebuild --fast --build-host {{host}} --target-host {{host}} --flake .#{{host}} build; \
+  nixos-rebuild --no-reexec --build-host {{builder}} --target-host {{target}} --flake .#{{target}} build; \
   fi
 
-boot host:
-  if [ "{{host}}" = "{{hostname}}" ]; then \
-  nh os boot -H {{host}} .; \
+boot builder target:
+  if [ "{{target}}" = "{{hostname}}" ]; then \
+  nh os boot -H {{target}} .; \
   else \
-  nixos-rebuild --fast --build-host {{host}} --target-host {{host}} --flake .#{{host}} --use-remote-sudo boot; \
+  nixos-rebuild --no-reexec --build-host {{builder}} --target-host {{target}} --flake .#{{target}} --use-remote-sudo boot; \
   fi
 
 deploy host:
