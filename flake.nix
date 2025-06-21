@@ -108,9 +108,9 @@
           };
         in
         {
-          Skipper =
+          skipper =
             let
-              hostname = "Skipper";
+              hostname = "skipper";
               hostId = "dfb83800";
               system = "x86_64-linux";
             in
@@ -124,9 +124,9 @@
                 ./home
               ];
             };
-          Gwen =
+          gwen =
             let
-              hostname = "Gwen";
+              hostname = "gwen";
               hostId = "dfb83801";
               system = "x86_64-linux";
             in
@@ -139,9 +139,9 @@
                 ./hosts/gwen
               ];
             };
-          Rico0 =
+          rico0 =
             let
-              hostname = "Rico0";
+              hostname = "rico0";
               hostId = "dfb83810";
               system = "aarch64-linux";
             in
@@ -154,9 +154,9 @@
                 ./hosts/rico0
               ];
             };
-          Rico1 =
+          rico1 =
             let
-              hostname = "Rico1";
+              hostname = "rico1";
               hostId = "dfb83811";
               system = "aarch64-linux";
             in
@@ -169,9 +169,9 @@
                 ./hosts/rico1
               ];
             };
-          Rico2 =
+          rico2 =
             let
-              hostname = "Rico2";
+              hostname = "rico2";
               hostId = "dfb83812";
               system = "aarch64-linux";
             in
@@ -184,9 +184,9 @@
                 ./hosts/rico2
               ];
             };
-          Wynne =
+          wynne =
             let
-              hostname = "Wynne";
+              hostname = "wynne";
               hostId = "dfb83813";
               system = "x86_64-linux";
             in
@@ -199,9 +199,9 @@
                 ./hosts/wynne
               ];
             };
-          Layne =
+          layne =
             let
-              hostname = "Layne";
+              hostname = "layne";
               hostId = "dfb83814";
               system = "x86_64-linux";
             in
@@ -214,9 +214,9 @@
                 ./hosts/layne
               ];
             };
-          Bifrost =
+          bifrost =
             let
-              hostname = "Bifrost";
+              hostname = "bifrost";
               hostId = "dfb83815";
               system = "x86_64-linux";
             in
@@ -236,14 +236,14 @@
           deploy = inputs.deploy-rs.lib;
           hosts = inputs.self.nixosConfigurations;
           hostArch = {
-            Skipper = "x86_64-linux";
-            Gwen = "x86_64-linux";
-            Rico0 = "aarch64-linux";
-            Rico1 = "aarch64-linux";
-            Rico2 = "aarch64-linux";
-            Wynne = "x86_64-linux";
-            Layne = "x86_64-linux";
-            Bifrost = "X86_64-linux";
+            skipper = "x86_64-linux";
+            gwen = "x86_64-linux";
+            rico0 = "aarch64-linux";
+            rico1 = "aarch64-linux";
+            rico2 = "aarch64-linux";
+            wynne = "x86_64-linux";
+            layne = "x86_64-linux";
+            bifrost = "X86_64-linux";
           };
           deployConfig = hostname: arch: {
             inherit hostname;
