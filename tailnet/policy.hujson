@@ -63,6 +63,12 @@
 		},
 		{
 			"action": "accept",
+			"src":    ["tag:laptop"],
+			"dst":    ["tag:homelab"],
+			"users":  ["root"],
+		},
+		{
+			"action": "accept",
 			"src":    ["tag:homelab"],
 			"dst":    ["tag:homelab"],
 			"users":  ["autogroup:nonroot", "root"],
