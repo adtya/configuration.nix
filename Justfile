@@ -17,7 +17,7 @@ boot builder target:
   if [ "{{target}}" = "{{hostname}}" ]; then \
   nh os boot -H {{target}} .; \
   else \
-  nixos-rebuild --no-reexec --build-host {{builder}} --target-host {{target}} --flake .#{{target}} --use-remote-sudo boot; \
+  nixos-rebuild --no-reexec --build-host {{builder}} --target-host root@{{target}} --flake .#{{target}} boot; \
   fi
 
 deploy host:
