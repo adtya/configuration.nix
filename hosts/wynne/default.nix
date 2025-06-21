@@ -37,11 +37,5 @@ _: {
   };
 
   time.timeZone = "Asia/Kolkata";
-  system = {
-    switch = {
-      enable = false;
-      enableNg = true;
-    };
-    stateVersion = "24.05";
-  };
+  system.stateVersion = "24.05";
 }
