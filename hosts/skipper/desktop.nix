@@ -6,9 +6,11 @@
   };
   programs.uwsm = {
     enable = true;
-    waylandCompositors.hyprland = {
-      binPath = lib.getExe pkgs.hyprland;
-      prettyName = "Hyprland";
+    waylandCompositors = {
+      hyprland = {
+        binPath = lib.getExe pkgs.hyprland;
+        prettyName = "Hyprland";
+      };
     };
   };
   environment.systemPackages = [
@@ -20,9 +22,9 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-      pkgs.xdg-desktop-portal-gtk
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
     ];
     config = {
       common = {
@@ -31,6 +33,7 @@
           "*"
         ];
         "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "gtk" ];
       };
       Hyprland = {
         default = [
