@@ -45,7 +45,7 @@ in
       };
 
       master = {
-        mfact = 0.65;
+        mfact = 0.8;
         new_status = "master";
         new_on_top = true;
         drop_at_cursor = false;
