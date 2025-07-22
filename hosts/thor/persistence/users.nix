@@ -5,6 +5,7 @@
       directories = [
         "Documents"
         "Downloads"
+        "Games"
         "Others"
         "Projects"
         "Pictures"
@@ -20,6 +21,7 @@
           directory = ".ssh";
           mode = "0700";
         }
+        ".steam"
         ".var"
 
         ".config/1Password"
@@ -42,6 +44,7 @@
         ".local/share/keyrings"
         ".local/share/nvim"
         ".local/share/nix"
+        ".local/share/Steam"
         ".local/share/systemd"
         ".local/share/TelegramDesktop"
         ".local/share/zsh"

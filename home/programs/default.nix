@@ -9,6 +9,7 @@
     ./direnv.nix
     ./eza.nix
     ./files.nix
+    ./gaming.nix
     ./git.nix
     ./gnupg.nix
     ./kitty.nix
