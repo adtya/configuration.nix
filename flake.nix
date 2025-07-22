@@ -124,10 +124,26 @@
                 ./home
               ];
             };
+          thor =
+            let
+              hostname = "thor";
+              hostId = "dfb83801";
+              system = "x86_64-linux";
+            in
+            lib.nixosSystem {
+              inherit system;
+              pkgs = pkgsFor system;
+              specialArgs = { inherit inputs primary-user; };
+              modules = [
+                (common-module hostname hostId system)
+                ./hosts/thor
+                ./home
+              ];
+            };
           gwen =
             let
               hostname = "gwen";
-              hostId = "dfb83801";
+              hostId = "dfb83802";
               system = "x86_64-linux";
             in
             lib.nixosSystem {
@@ -237,6 +253,7 @@
           hosts = inputs.self.nixosConfigurations;
           hostArch = {
             skipper = "x86_64-linux";
+            thor = "x86_64-linux";
             gwen = "x86_64-linux";
             rico0 = "aarch64-linux";
             rico1 = "aarch64-linux";
