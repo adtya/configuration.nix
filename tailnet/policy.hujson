@@ -6,7 +6,7 @@
 		"tag:homelab": ["autogroup:admin"],
 		"tag:phone":   ["autogroup:admin"],
 		"tag:laptop":  ["autogroup:admin"],
-		"tag:deck":    ["autogroup:admin"],
+		"tag:desktop": ["autogroup:admin"],
 	},
 
 	// Define access control lists for users, groups, autogroups, tags,
@@ -49,8 +49,8 @@
 	"ssh": [
 		{
 			"action": "accept",
-			"src":    ["tag:laptop", "tag:phone"],
-			"dst":    ["tag:homelab", "tag:laptop", "tag:deck"],
+			"src":    ["tag:desktop", "tag:laptop", "tag:phone"],
+			"dst":    ["tag:homelab", "tag:laptop", "tag:desktop"],
 			"users":  ["autogroup:nonroot"],
 		},
 		{
