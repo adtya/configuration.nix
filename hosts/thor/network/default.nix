@@ -74,6 +74,7 @@
         General = {
           AddressRandomization = "network";
           EnableNetworkConfiguration = false;
+          ControlPortOverNL80211 = false; # Needed for iwd to work with ath12k
         };
         Settings = {
           AutoConnect = "yes";

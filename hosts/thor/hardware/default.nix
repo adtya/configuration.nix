@@ -3,7 +3,7 @@
   imports = [ ./filesystem.nix ];
 
   boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_testing;
     kernelModules = [ "kvm-amd" ];
     initrd = {
       availableKernelModules = [
