@@ -121,7 +121,7 @@
               modules = [
                 (common-module hostname hostId system)
                 ./hosts/skipper
-                ./home
+                ./home/skipper.nix
               ];
             };
           thor =
@@ -137,7 +137,7 @@
               modules = [
                 (common-module hostname hostId system)
                 ./hosts/thor
-                ./home
+                ./home/thor.nix
               ];
             };
           gwen =

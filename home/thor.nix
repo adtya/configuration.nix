@@ -6,14 +6,10 @@
     extraSpecialArgs = { inherit inputs primary-user; };
     users.${primary-user.name} = _: {
       imports = [
-        ./programs
-        ./services
-        ./wm
-        ./gtk.nix
-        ./qt.nix
-        ./xdg.nix
+        ./common
+        ./thor
       ];
-      home.stateVersion = "23.11";
+      home.stateVersion = "25.11";
     };
   };
 }

@@ -1,8 +1,5 @@
 _: {
-  imports = [
-    ./gpg-agent.nix
-    ./transmission.nix
-  ];
+  imports = [ ./gpg-agent.nix ];
   services = {
     gnome-keyring = {
       enable = true;
