@@ -48,7 +48,6 @@
   environment = {
     pathsToLink = [ "/share" ];
     sessionVariables = {
-      VDPAU_DRIVER = "va_gl";
       NIXOS_OZONE_WL = 1;
     };
   };

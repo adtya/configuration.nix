@@ -21,6 +21,7 @@
       ];
     };
   };
+  environment.sessionVariables.VDPAU_DRIVER = "radeonsi";
 
   hardware = {
     amdgpu = {
@@ -42,7 +43,6 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [ libvdpau-va-gl ];
     };
   };
 }
