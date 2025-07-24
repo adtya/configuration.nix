@@ -22,8 +22,6 @@
           "network"
           "bluetooth"
           "wireplumber"
-          "backlight"
-          "battery"
           "clock"
           "custom/notification"
         ];
@@ -43,44 +41,6 @@
           interval = 1;
           format = "{:%H:%M}";
           format-alt = "{:%d %B %Y, %A}";
-        };
-        backlight = {
-          format = "{icon}";
-          format-icons = [
-            "󰃚"
-            "󰃛"
-            "󰃜"
-            "󰃝"
-            "󰃞"
-            "󰃟"
-            "󰃠"
-          ];
-          tooltip = false;
-        };
-        battery = {
-          states = {
-            good = 90;
-            warning = 30;
-            critical = 10;
-          };
-          format = "{icon}";
-          format-alt = "{icon} {capacity}% ({time})";
-          format-charging = "󰂄 {capacity}%";
-          format-plugged = "‭󰚥 {capacity}%";
-          format-icons = [
-            "󰂃"
-            "󰁺"
-            "󰁻"
-            "󰁼"
-            "󰁽"
-            "󰁾"
-            "󰁿"
-            "󰂀"
-            "󰂁"
-            "󰂂"
-            "󰁹"
-          ];
-          tooltip = false;
         };
         network = {
           format-wifi = "󰖩";

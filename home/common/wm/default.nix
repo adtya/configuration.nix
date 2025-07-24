@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./addon
+    ./addons
     ./hyprland
   ];
 }
