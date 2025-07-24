@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   programs.waybar.settings = {
     mainBar = {
       modules-right = lib.mkBefore [

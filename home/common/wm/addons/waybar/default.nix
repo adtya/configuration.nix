@@ -16,16 +16,15 @@
           "hyprland/submap"
         ];
         modules-center = [ ];
-        modules-right =
-          [
-            "tray"
-            "idle_inhibitor"
-            "network"
-            "bluetooth"
-            "wireplumber"
-            "clock"
-            "custom/notification"
-          ];
+        modules-right = [
+          "tray"
+          "idle_inhibitor"
+          "network"
+          "bluetooth"
+          "wireplumber"
+          "clock"
+          "custom/notification"
+        ];
         "hyprland/workspaces" = {
           separate-outputs = true;
         };

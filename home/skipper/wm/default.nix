@@ -1,1 +1,6 @@
-_: { imports = [ ./addons ]; }
+_: {
+  imports = [
+    ./addons
+    ./hyprland.nix
+  ];
+}

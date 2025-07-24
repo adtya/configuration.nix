@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./waybar
     ./hypridle.nix
+    ./waybar.nix
   ];
 }

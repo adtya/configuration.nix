@@ -67,11 +67,6 @@ in
         };
       };
 
-      monitor = [
-        "eDP-1,  preferred,  0x0,         1"
-        ",       preferred,  auto-right,  auto"
-      ];
-
       input = {
         kb_layout = "us";
         kb_options = "rupeesign:4";

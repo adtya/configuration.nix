@@ -1,1 +1,6 @@
-_: { imports = [ ./programs ]; }
+_: {
+  imports = [
+    ./programs
+    ./wm
+  ];
+}
