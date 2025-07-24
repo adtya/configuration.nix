@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 let
-  brightnessctl = "${pkgs.brightnessctl}/bin/brightnessctl";
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
   lock-session = "${pkgs.systemd}/bin/loginctl lock-session";
 in
@@ -15,16 +14,6 @@ in
         after_sleep_cmd = "${hyprctl} dispatch dpms on";
       };
       listener = [
-        {
-          timeout = 10;
-          on-timeout = "${brightnessctl} --quiet --device=dell::kbd_backlight --save set 0";
-          on-resume = "${brightnessctl} --quiet --device=dell::kbd_backlight --restore";
-        }
-        {
-          timeout = 150;
-          on-timeout = "${brightnessctl} --quiet --device=intel_backlight --save set 30";
-          on-resume = "${brightnessctl} --quiet --device=intel_backlight --restore";
-        }
         {
           timeout = 300;
           on-timeout = lock-session;
