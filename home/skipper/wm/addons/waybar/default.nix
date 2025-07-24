@@ -1,7 +1,7 @@
-_: {
+{lib, ...}: {
   programs.waybar.settings = {
     mainBar = {
-      modules-right = [
+      modules-right = lib.mkBefore [
         "backlight"
         "battery"
       ];
