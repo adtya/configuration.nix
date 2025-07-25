@@ -3,7 +3,6 @@ _: {
     ./btrfs.nix
     ./dbus.nix
     ./geoclue.nix
-    ./keyd.nix
     ./pipewire.nix
     ./ssh.nix
     ./udev.nix

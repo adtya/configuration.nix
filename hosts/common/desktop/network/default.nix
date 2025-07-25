@@ -1,6 +1,5 @@
 { lib, ... }:
 {
-  imports = [ ../../shared/tailscale.nix ];
   systemd = {
     network = {
       enable = true;
@@ -55,19 +54,6 @@
   networking = {
     useDHCP = lib.mkDefault false;
     useNetworkd = true;
-
-    firewall = {
-      allowedTCPPorts = [
-        41414 # Torrent
-        53317 # LocalSend
-      ];
-      allowedUDPPorts = [
-        6771 # Torrent
-        41414 # Torrent
-        53317 # LocalSend
-      ];
-    };
-
     wireless.iwd = {
       enable = true;
       settings = {

@@ -120,7 +120,7 @@
               specialArgs = { inherit inputs primary-user; };
               modules = [
                 (common-module hostname hostId system)
-                ./hosts/skipper
+                ./hosts/skipper.nix
                 ./home/skipper.nix
               ];
             };
@@ -136,7 +136,7 @@
               specialArgs = { inherit inputs primary-user; };
               modules = [
                 (common-module hostname hostId system)
-                ./hosts/thor
+                ./hosts/thor.nix
                 ./home/thor.nix
               ];
             };

@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 {
-  imports = [ ./filesystem.nix ];
+  imports = [ ./disko.nix ];
 
   boot = {
     kernelPackages = lib.mkDefault pkgs.linuxPackages_testing;
@@ -23,30 +23,14 @@
   };
 
   environment.sessionVariables.VDPAU_DRIVER = "radeonsi";
-  systemd.tmpfiles.rules = [
-    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-  ];
+  systemd.tmpfiles.rules = [ "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}" ];
 
   hardware = {
     amdgpu = {
       initrd.enable = true;
       opencl.enable = true;
     };
-    bluetooth = {
-      enable = true;
-      settings = {
-        General = {
-          Experimental = true;
-          KernelExperimental = true;
-        };
-      };
-      package = pkgs.bluez.override { enableExperimental = true; };
-    };
     cpu.amd.updateMicrocode = true;
-    enableRedistributableFirmware = true;
-    graphics = {
-      enable = true;
-      enable32Bit = true;
-    };
+    graphics.enable32Bit = true;
   };
 }
