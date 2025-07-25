@@ -140,21 +140,6 @@
                 ./home/thor.nix
               ];
             };
-          gwen =
-            let
-              hostname = "gwen";
-              hostId = "dfb83802";
-              system = "x86_64-linux";
-            in
-            lib.nixosSystem {
-              inherit system;
-              pkgs = pkgsFor system;
-              specialArgs = { inherit inputs primary-user; };
-              modules = [
-                (common-module hostname hostId system)
-                ./hosts/gwen
-              ];
-            };
           rico0 =
             let
               hostname = "rico0";
@@ -209,7 +194,6 @@
           hostArch = {
             skipper = "x86_64-linux";
             thor = "x86_64-linux";
-            gwen = "x86_64-linux";
             rico0 = "aarch64-linux";
             rico1 = "aarch64-linux";
             rico2 = "aarch64-linux";
