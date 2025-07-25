@@ -17,12 +17,15 @@ boot builder target:
   if [ "{{target}}" = "{{hostname}}" ]; then \
   nh os boot -H {{target}} .; \
   else \
-  nixos-rebuild --no-reexec --build-host {{builder}} --target-host {{target}} --flake .#{{target}} --sudo boot; \
+  nixos-rebuild --no-reexec --build-host {{builder}} --target-host {{target}} --flake .#{{target}} --sudo --ask-sudo-password boot; \
   fi
 
-deploy host:
+deploy builder host:
   if [ "{{host}}" = "{{hostname}}" ]; then \
   nh os switch -H {{host}} .; \
   else \
-  deploy --skip-checks --remote-build --targets .#{{host}}; \
+  nixos-rebuild --no-reexec --build-host {{builder}} --target-host {{host}} --flake .#{{host}} --sudo --ask-sudo-password switch; \
   fi
+
+deploy-rs host:
+  deploy --skip-checks --remote-build --targets .#{{host}};
