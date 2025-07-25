@@ -143,10 +143,6 @@ in
         "center,class:org.gnome.Software"
         "size 60% 60%,class:org.gnome.Software"
 
-        "float,class:.virt-manager-wrapped"
-        "size 25% 50%,class:.virt-manager-wrapped,title:Virtual Machine Manager"
-        "move 5%% 10%,class:.virt-manager-wrapped,title:Virtual Machine Manager"
-
         "dimaround,class:^(gcr-prompter)$"
       ];
 

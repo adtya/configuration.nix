@@ -35,7 +35,6 @@ _: {
       "/var/lib/btrfs"
       "/var/lib/cni"
       "/var/lib/flatpak"
-      "/var/lib/libvirt"
       "/var/lib/nixos"
       "/var/lib/sbctl"
       "/var/lib/systemd"

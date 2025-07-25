@@ -1,6 +1,1 @@
-_: {
-  imports = [
-    ./containers.nix
-    ./libvirtd.nix
-  ];
-}
+_: { imports = [ ./containers.nix ]; }

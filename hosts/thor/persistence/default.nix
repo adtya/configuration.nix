@@ -1,1 +1,6 @@
-_: { imports = [ ./users.nix ]; }
+_: {
+  imports = [
+    ./system.nix
+    ./users.nix
+  ];
+}

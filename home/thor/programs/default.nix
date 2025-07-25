@@ -1,1 +1,6 @@
-_: { imports = [ ./gaming.nix ]; }
+_: {
+  imports = [
+    ./gaming.nix
+    ./virt-manager.nix
+  ];
+}
