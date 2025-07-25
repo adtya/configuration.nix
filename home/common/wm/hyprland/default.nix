@@ -7,7 +7,6 @@
 let
   cfg = config.wayland.windowManager.hyprland;
 
-  brightnessctl = lib.getExe pkgs.brightnessctl;
   blueberry = "${pkgs.blueberry}/bin/blueberry";
   firefox = lib.getExe config.programs.firefox.finalPackage;
   grimblast = lib.getExe pkgs.grimblast;
@@ -71,22 +70,12 @@ in
         kb_layout = "us";
         kb_options = "rupeesign:4";
         kb_variant = "altgr-intl";
-        touchpad = {
-          clickfinger_behavior = true;
-          disable_while_typing = true;
-          natural_scroll = true;
-          tap-to-click = true;
-        };
       };
 
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         vfr = true;
-      };
-
-      gestures = {
-        workspace_swipe = "on";
       };
 
       animations = {
@@ -165,7 +154,6 @@ in
         "SUPER_SHIFT,F,       fullscreen,0"
 
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
-        "SUPER_SHIFT,C,       exec, systemctl --user restart kanshi.service"
 
         "SUPER,Return,        exec, ${uwsm} app -- ${kitty}"
         "SUPER_SHIFT,Return,  exec, ${uwsm} app -- ${kitty} ${tmux} -u new"
@@ -223,8 +211,6 @@ in
       ];
 
       binde = [
-        ",XF86MonBrightnessUp,   exec, ${brightnessctl} --quiet --device=intel_backlight set +5%"
-        ",XF86MonBrightnessDown, exec, ${brightnessctl} --quiet --device=intel_backlight set 5%-"
         ",XF86AudioRaiseVolume,  exec, ${wpctl} set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
         ",XF86AudioLowerVolume,  exec, ${wpctl} set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ];
