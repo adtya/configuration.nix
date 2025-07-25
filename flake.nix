@@ -215,21 +215,6 @@
                 ./hosts/wynne
               ];
             };
-          layne =
-            let
-              hostname = "layne";
-              hostId = "dfb83814";
-              system = "x86_64-linux";
-            in
-            lib.nixosSystem {
-              inherit system;
-              pkgs = pkgsFor system;
-              specialArgs = { inherit inputs primary-user; };
-              modules = [
-                (common-module hostname hostId system)
-                ./hosts/layne
-              ];
-            };
         };
 
       deploy.nodes =
@@ -244,7 +229,6 @@
             rico1 = "aarch64-linux";
             rico2 = "aarch64-linux";
             wynne = "x86_64-linux";
-            layne = "x86_64-linux";
           };
           deployConfig = hostname: arch: {
             inherit hostname;
