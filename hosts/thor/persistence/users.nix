@@ -6,6 +6,7 @@
         "Games"
         ".steam"
         ".local/share/Steam"
+        ".local/share/vulkan"
       ];
     };
   };
