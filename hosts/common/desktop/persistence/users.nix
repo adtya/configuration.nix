@@ -31,6 +31,7 @@
         ".config/lazygit"
         ".config/nvim"
         ".config/spotify"
+        ".config/transmission"
 
         {
           directory = ".local/share/containers";

@@ -41,7 +41,7 @@
     seahorse
     spotify
     telegram-desktop
-    transmission-remote-gtk
+    transmission_4-gtk
     wl-clipboard
     xdg-utils
   ];
