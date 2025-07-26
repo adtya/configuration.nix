@@ -74,7 +74,4 @@
     options = "rupeesign:4";
     variant = "altgr-intl";
   };
-
-  time.timeZone = "Asia/Kolkata";
-
 }

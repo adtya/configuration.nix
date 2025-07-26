@@ -4,4 +4,6 @@ _: {
     ./tailscale.nix
     ./users.nix
   ];
+
+  time.timeZone = "Asia/Kolkata";
 }
