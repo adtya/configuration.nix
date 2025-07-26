@@ -1,3 +1,1 @@
-_: {
-  services.ratbagd.enable = true;
-}
+_: { services.ratbagd.enable = true; }
