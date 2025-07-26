@@ -3,7 +3,6 @@
   imports = [
     inputs.disko.nixosModules.disko
     inputs.impermanence.nixosModules.impermanence
-    inputs.lanzaboote.nixosModules.lanzaboote
     inputs.home-manager.nixosModules.home-manager
 
     ./boot
