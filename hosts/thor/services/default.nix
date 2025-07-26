@@ -1,1 +1,6 @@
-_: { services.ratbagd.enable = true; }
+_: {
+  services = {
+    hardware.openrgb.enable = true;
+    ratbagd.enable = true;
+  };
+}
