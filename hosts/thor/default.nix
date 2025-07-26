@@ -2,6 +2,7 @@ _: {
   imports = [
     ./hardware
     ./persistence
+    ./services
     ./virtualisation
     ./network.nix
   ];

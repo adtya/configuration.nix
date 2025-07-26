@@ -107,10 +107,6 @@ in
         "size 50% 50%,class:blueberry.py"
         "center,class:blueberry.py"
 
-        "float,class:.blueman-manager-wrapped"
-        "size 50% 50%,class:.blueman-manager-wrapped"
-        "center,class:.blueman-manager-wrapped"
-
         "float,class:mpv"
         "size 90% 90%,class:mpv"
         "center,class:mpv"
