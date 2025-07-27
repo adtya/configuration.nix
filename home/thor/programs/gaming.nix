@@ -5,9 +5,9 @@
       extraPkgs = p: [
         p.gamemode
         p.gamescope
+        p.mangohud
         p.vulkan-tools
       ];
     })
-    protonplus
   ];
 }
