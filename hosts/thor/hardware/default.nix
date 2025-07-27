@@ -4,7 +4,7 @@
 
   boot = {
     kernelPackages = lib.mkDefault pkgs.linuxPackages_testing;
-    kernelModules = [ "kvm-amd" ];
+    kernelModules = [ "kvm-amd" "ntsync" ];
     initrd = {
       availableKernelModules = [
         "ahci"
