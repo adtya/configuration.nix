@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, config, ... }:
 let
   hyprctl = "${config.wayland.windowManager.hyprland.package}/bin/hyprctl";
   lock-session = "${pkgs.systemd}/bin/loginctl lock-session";
@@ -13,21 +13,6 @@ in
         before_sleep_cmd = lock-session;
         after_sleep_cmd = "${hyprctl} dispatch dpms on";
       };
-      listener = [
-        {
-          timeout = 300;
-          on-timeout = lock-session;
-        }
-        {
-          timeout = 420;
-          on-timeout = "${hyprctl} dispatch dpms off";
-          on-resume = "${hyprctl} dispatch dpms on";
-        }
-        {
-          timeout = 600;
-          on-timeout = "${pkgs.systemd}/bin/systemctl suspend";
-        }
-      ];
     };
   };
 }
