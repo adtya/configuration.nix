@@ -4,6 +4,8 @@ _: {
       monitor = [ "DP-1,  preferred,  0x0,  auto" ];
 
       windowrulev2 = [
+        "workspace 9,class:steam"
+
         "float,class:.virt-manager-wrapped"
         "size 25% 50%,class:.virt-manager-wrapped,title:Virtual Machine Manager"
         "move 5%% 10%,class:.virt-manager-wrapped,title:Virtual Machine Manager"
