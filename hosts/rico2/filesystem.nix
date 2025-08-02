@@ -1,4 +1,8 @@
 _: {
+  services.btrfs.autoScrub = {
+    enable = true;
+    fileSystems = [ "/mnt/system" ];
+  };
   boot = {
     initrd.supportedFilesystems = [
       "vfat"
