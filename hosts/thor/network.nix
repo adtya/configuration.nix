@@ -3,7 +3,8 @@ _: {
     wireless.iwd = {
       settings = {
         General = {
-          ControlPortOverNL80211 = false; # Needed for iwd to work with ath12k
+          # https://bugzilla.kernel.org/show_bug.cgi?id=218733
+          ControlPortOverNL80211 = false;
         };
       };
     };

@@ -3,7 +3,7 @@
   imports = [ ./disko.nix ];
 
   boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_testing;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
     kernelParams = [ "amd_pstate=active" ];
     kernelModules = [
       "kvm-amd"
