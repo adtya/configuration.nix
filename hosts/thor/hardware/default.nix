@@ -44,6 +44,7 @@
     amdgpu = {
       initrd.enable = true;
       opencl.enable = true;
+      overdrive.enable = true;
     };
     cpu.amd.updateMicrocode = true;
     graphics.enable32Bit = true;
