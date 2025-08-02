@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 {
-  imports = [ ./disko.nix ];
+  imports = [ ./filesystem.nix ];
 
   boot = {
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;

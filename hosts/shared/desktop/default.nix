@@ -6,15 +6,14 @@
     inputs.home-manager.nixosModules.home-manager
 
     ./boot
-    ./hardware
     ./network
     ./persistence
     ./programs
     ./services
     ./virtualisation
 
+    ./hardware.nix
     ./desktop.nix
-    ./locale.nix
     ./security.nix
   ];
 
@@ -66,6 +65,10 @@
     };
 
   gtk.iconCache.enable = true;
+
+  i18n = {
+    extraLocales = [ "ml_IN/UTF-8" ];
+  };
 
   services.xserver.xkb = {
     layout = "us";

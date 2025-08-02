@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./common/desktop.nix
+    ./shared/desktop.nix
     ./skipper
   ];
 }

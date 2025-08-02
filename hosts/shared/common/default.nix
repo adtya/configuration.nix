@@ -1,5 +1,9 @@
 _: {
-  imports = [ ./disko.nix ];
+  imports = [
+    ./services
+    ./users.nix
+  ];
+
   boot = {
     initrd = {
       supportedFilesystems = [
@@ -14,4 +18,11 @@ _: {
       "btrfs"
     ];
   };
+
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocales = [ "en_IN/UTF-8" ];
+  };
+
+  time.timeZone = "Asia/Kolkata";
 }

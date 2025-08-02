@@ -1,10 +1,8 @@
 _: {
   imports = [
-    ./btrfs.nix
     ./dbus.nix
     ./geoclue.nix
     ./pipewire.nix
-    ./ssh.nix
     ./udev.nix
   ];
   services = {
