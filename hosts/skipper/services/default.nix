@@ -1,1 +1,8 @@
-_: { imports = [ ./keyd.nix ]; }
+_: {
+  imports = [ ./keyd.nix ];
+  services = {
+    cpupower-gui.enable = true;
+    thermald.enable = true;
+    upower.enable = true;
+  };
+}

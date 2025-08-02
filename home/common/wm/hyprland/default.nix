@@ -95,9 +95,6 @@ in
         "bordercolor rgb(ff5555),xwayland:1"
 
         "workspace 2,class:firefox,title:Mozilla Firefox"
-        "workspace 10,class:im.dino.Dino"
-        "workspace 10,class:org.telegram.desktop"
-        "workspace 10,class:discord"
 
         "float,class:org.pulseaudio.pavucontrol"
         "size 50% 50%,class:org.pulseaudio.pavucontrol"

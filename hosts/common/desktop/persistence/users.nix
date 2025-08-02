@@ -24,7 +24,6 @@
 
         ".config/1Password"
         ".config/dconf"
-        ".config/discord"
         ".config/doctl"
         ".config/gh"
         ".config/hcloud"
@@ -37,14 +36,12 @@
           directory = ".local/share/containers";
           mode = "0700";
         }
-        ".local/share/dino"
         ".local/share/direnv"
         ".local/share/flatpak"
         ".local/share/keyrings"
         ".local/share/nvim"
         ".local/share/nix"
         ".local/share/systemd"
-        ".local/share/TelegramDesktop"
         ".local/share/zsh"
         ".local/share/zoxide"
 

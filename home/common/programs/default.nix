@@ -28,19 +28,15 @@
     android-file-transfer
     blueberry
     devenv
-    dino
-    discord
     doctl
     flyctl
     gh
-    gnome-software
     hcloud
     impala
     localsend
     ripgrep
     seahorse
     spotify
-    telegram-desktop
     transmission_4-gtk
     wl-clipboard
     xdg-utils

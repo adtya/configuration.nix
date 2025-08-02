@@ -8,7 +8,6 @@ _: {
     ./udev.nix
   ];
   services = {
-    cpupower-gui.enable = true;
     flatpak.enable = true;
     fstrim.enable = true;
     fwupd.enable = true;
@@ -19,8 +18,6 @@ _: {
     '';
     pcscd.enable = true;
     power-profiles-daemon.enable = true;
-    thermald.enable = true;
     udisks2.enable = true;
-    upower.enable = true;
   };
 }
