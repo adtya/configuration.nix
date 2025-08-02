@@ -1,8 +1,14 @@
-{ lib, ... }:
-{
-  imports = [ ./filesystem.nix ];
-
+_: {
   boot = {
+    initrd.supportedFilesystems = [
+      "vfat"
+      "btrfs"
+    ];
+    supportedFilesystems = [
+      "vfat"
+      "btrfs"
+      "ext4"
+    ];
     consoleLogLevel = 3;
     initrd = {
       systemd.enable = true;
@@ -19,5 +25,5 @@
       };
     };
   };
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+
 }

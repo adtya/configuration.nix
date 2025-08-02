@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+_: {
   imports = [
     ./neovim.nix
     ./starship.nix
@@ -14,5 +13,4 @@
     sops
     age
   ];
-
 }

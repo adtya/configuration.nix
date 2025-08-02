@@ -1,7 +1,23 @@
 { lib, ... }:
 {
-  imports = [ ../../shared/tailscale.nix ];
+  boot.kernel.sysctl = {
+    "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+  };
+  networking = {
+    useDHCP = lib.mkDefault false;
+    useNetworkd = true;
+    firewall = {
+      allowPing = true;
+      logRefusedConnections = lib.mkDefault false;
+    };
+  };
   systemd = {
+    services = {
+      NetworkManager-wait-online.enable = false;
+      systemd-networkd.stopIfChanged = false;
+      systemd-resolved.stopIfChanged = false;
+    };
     network = {
       enable = true;
       wait-online.enable = false;
@@ -59,8 +75,4 @@
   };
 
   services.resolved.enable = true;
-  networking = {
-    useDHCP = lib.mkDefault false;
-    useNetworkd = true;
-  };
 }

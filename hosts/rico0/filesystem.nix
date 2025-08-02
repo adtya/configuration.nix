@@ -1,14 +1,7 @@
 _: {
-  boot = {
-    initrd.supportedFilesystems = [
-      "vfat"
-      "btrfs"
-    ];
-    supportedFilesystems = [
-      "vfat"
-      "btrfs"
-      "ext4"
-    ];
+  services.btrfs.autoScrub = {
+    enable = true;
+    fileSystems = [ "/mnt/system" ];
   };
   fileSystems = {
     "/" = {
@@ -17,7 +10,7 @@ _: {
       options = [
         "subvol=@root"
         "compress-force=zstd"
-        "noatime"
+        "relatime"
       ];
       neededForBoot = true;
     };
@@ -28,7 +21,7 @@ _: {
       options = [
         "subvol=@nix"
         "compress-force=zstd"
-        "noatime"
+        "relatime"
       ];
       neededForBoot = true;
     };
@@ -39,7 +32,7 @@ _: {
       options = [
         "subvol=@persist"
         "compress-force=zstd"
-        "noatime"
+        "relatime"
       ];
       neededForBoot = true;
     };
@@ -50,7 +43,7 @@ _: {
       options = [
         "subvol=/"
         "compress-force=zstd"
-        "noatime"
+        "relatime"
       ];
     };
 

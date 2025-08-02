@@ -152,7 +152,7 @@
               specialArgs = { inherit inputs primary-user; };
               modules = [
                 (common-module hostname hostId system)
-                ./hosts/rico0
+                ./hosts/rico0.nix
               ];
             };
           rico1 =
