@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.waybar = {
     enable = true;
@@ -53,7 +53,7 @@
         wireplumber = {
           format = "{icon}";
           format-muted = "‭󰝟";
-          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+          on-click = "${lib.getExe pkgs.pwvucontrol}";
           format-icons = [
             "󰕿"
             "󰖀"
@@ -66,7 +66,7 @@
           format-connected = "󰂱";
           format-disabled = "󰂲";
           format-off = "󰂲";
-          on-click = "${pkgs.blueberry}/bin/blueberry";
+          on-click = "${lib.getExe' pkgs.blueberry "blueberry"}";
           tooltip = false;
         };
         tray = {

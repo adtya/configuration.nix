@@ -96,9 +96,9 @@ in
 
         "workspace 2,class:firefox,title:Mozilla Firefox"
 
-        "float,class:org.pulseaudio.pavucontrol"
-        "size 50% 50%,class:org.pulseaudio.pavucontrol"
-        "center,class:org.pulseaudio.pavucontrol"
+        "float,class:com.saivert.pwvucontrol"
+        "size 50% 50%,class:com.saivert.pwvucontrol"
+        "center,class:com.saivert.pwvucontrol"
 
         "float,class:blueberry.py"
         "size 50% 50%,class:blueberry.py"
