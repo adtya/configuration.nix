@@ -23,8 +23,6 @@ let
   wpaperctl = "${config.services.wpaperd.package}/bin/wpaperctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   yazi = lib.getExe pkgs.yazi;
-
-  pictures = "${config.xdg.userDirs.pictures}";
 in
 {
   wayland.windowManager.hyprland = {
@@ -199,8 +197,8 @@ in
       ];
 
       bindr = [
-        ",print,             exec, XDG_SCREENSHOTS_DIR=${pictures}/Screenshots ${grimblast} --notify save screen"
-        "SHIFT,print,        exec, XDG_SCREENSHOTS_DIR=${pictures}/Screenshots ${grimblast} --notify --freeze save area"
+        ",print,             exec, ${grimblast} --notify save screen"
+        "SHIFT,print,        exec, ${grimblast} --notify --freeze save area"
       ];
 
       binde = [

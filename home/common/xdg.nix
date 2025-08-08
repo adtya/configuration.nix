@@ -1,17 +1,17 @@
-_: {
+{ config, ... }:
+{
   home.preferXdgDirectories = true;
   xdg = {
     enable = true;
     mime.enable = true;
-    mimeApps = {
+    mimeApps.enable = true;
+
+    userDirs = {
       enable = true;
-      defaultApplications = {
-        "x-scheme-handler/tonsite" = [ "org.telegram.desktop.desktop" ];
-        "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
-        "x-scheme-handler/magnet" = [ "io.github.TransmissionRemoteGtk.desktop" ];
+      extraConfig = {
+        XDG_SCREENSHOTS_DIR = "${config.xdg.userDirs.pictures}/Screenshots";
       };
     };
-    userDirs.enable = true;
 
     desktopEntries."nixos-manual" = {
       name = "NixOS Manual";
