@@ -1,5 +1,8 @@
-_: {
+{ inputs, ... }:
+{
   imports = [
+    inputs.chaotic.nixosModules.default
+
     ./hardware
     ./persistence
     ./services

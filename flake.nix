@@ -14,6 +14,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     home-manager = {
       url = "github:nix-community/home-manager?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,13 +27,6 @@
     flake-utils.url = "github:numtide/flake-utils?ref=main";
     treefmt-nix.url = "github:numtide/treefmt-nix?ref=main";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
-    jovian = {
-      url = "github:Jovian-Experiments/Jovian-NixOS?ref=development";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    adtyaxyz.url = "github:/adtya/adtya.xyz?ref=main";
-    wiki.url = "github:/adtya/wiki?ref=main";
-    recipes.url = "github:/adtya/recipes.nix?ref=main";
     caddy-hetzner.url = "github:/adtya/caddy-hetzner?ref=main";
     smc-fonts.url = "gitlab:smc/smc-fonts-flake?ref=trunk";
   };
@@ -52,10 +46,7 @@
         import inputs.nixpkgs {
           inherit system;
           config.allowUnfree = true;
-          overlays = [
-            (import ./packages)
-            inputs.recipes.overlays.default
-          ];
+          overlays = [ (import ./packages) ];
         };
     in
     {
@@ -95,7 +86,6 @@
           common-module = hostname: hostId: system: {
             imports = [
               inputs.sops-nix.nixosModules.sops
-              inputs.recipes.nixosModules.default
               inputs.self.nixosModules.default
             ];
             sops.defaultSopsFile = ./secrets.yaml;

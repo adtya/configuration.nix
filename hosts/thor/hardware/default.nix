@@ -3,8 +3,7 @@
   imports = [ ./filesystem.nix ];
 
   boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
-    kernelParams = [ "amd_pstate=active" ];
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_cachyos;
     kernelModules = [
       "kvm-amd"
       "ntsync"
@@ -12,12 +11,10 @@
     initrd = {
       availableKernelModules = [
         "ahci"
-        "xhci_pci"
-        "thunderbolt"
         "nvme"
-        "sd_mod"
+        "thunderbolt"
         "usbhid"
-        "usb_storage"
+        "xhci_pci"
       ];
       kernelModules = [
         "amdgpu"
