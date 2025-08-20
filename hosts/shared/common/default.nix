@@ -20,6 +20,7 @@ _: {
   };
 
   i18n = {
+    defaultCharset = "UTF-8";
     defaultLocale = "en_US.UTF-8";
     extraLocales = [ "en_IN/UTF-8" ];
   };
