@@ -3,7 +3,7 @@
   imports = [ ./filesystem.nix ];
 
   boot = {
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_cachyos;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
     kernelModules = [
       "kvm-amd"
       "ntsync"
