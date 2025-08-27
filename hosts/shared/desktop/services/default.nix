@@ -11,9 +11,6 @@ _: {
     fwupd.enable = true;
     gnome.gnome-keyring.enable = true;
     gvfs.enable = true;
-    logind.extraConfig = ''
-      HandlePowerKey=ignore
-    '';
     pcscd.enable = true;
     power-profiles-daemon.enable = true;
     udisks2.enable = true;
