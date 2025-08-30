@@ -9,6 +9,11 @@ _: {
         "float,class:.piper-wrapped"
         "size 50% 50%,class:.piper-wrapped"
         "center,class:.piper-wrapped"
+
+        "workspace 9,class:net.lutris.Lutris"
+        "float,class:net.lutris.Lutris"
+        "center,class:net.lutris.Lutris"
+        "size 60% 60%,class:net.lutris.Lutris"
       ];
     };
   };

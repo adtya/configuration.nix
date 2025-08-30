@@ -5,6 +5,8 @@
       directories = [
         "Games"
         ".steam"
+        ".local/share/icons/hicolor"
+        ".local/share/lutris"
         ".local/share/Steam"
         ".local/share/vulkan"
       ];
