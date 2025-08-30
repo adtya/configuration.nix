@@ -1,9 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./gaming.nix
-    ./virt-manager.nix
-  ];
+  imports = [ ./gaming.nix ];
 
   home.packages = [ pkgs.piper ];
 

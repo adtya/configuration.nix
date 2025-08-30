@@ -3,7 +3,6 @@ _: {
     ./hardware
     ./persistence
     ./services
-    ./virtualisation
     ./boot.nix
     ./network.nix
   ];
