@@ -31,6 +31,7 @@
     doctl
     flyctl
     gh
+    gnome-disk-utility
     hcloud
     impala
     localsend
