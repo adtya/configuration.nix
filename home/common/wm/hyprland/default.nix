@@ -7,7 +7,7 @@
 let
   cfg = config.wayland.windowManager.hyprland;
 
-  blueberry = "${pkgs.blueberry}/bin/blueberry";
+  overskride = lib.getExe pkgs.overskride;
   firefox = lib.getExe config.programs.firefox.finalPackage;
   grimblast = lib.getExe pkgs.grimblast;
   hyprctl = "${cfg.package}/bin/hyprctl";
@@ -98,9 +98,9 @@ in
         "size 50% 50%,class:com.saivert.pwvucontrol"
         "center,class:com.saivert.pwvucontrol"
 
-        "float,class:blueberry.py"
-        "size 50% 50%,class:blueberry.py"
-        "center,class:blueberry.py"
+        "float,class:io.github.kaii_lb.Overskride"
+        "size 50% 50%,class:io.github.kaii_lb.Overskride"
+        "center,class:io.github.kaii_lb.Overskride"
 
         "float,class:mpv"
         "size 90% 90%,class:mpv"
@@ -157,7 +157,7 @@ in
 
         "SUPER_SHIFT,escape,  exec, ${pkgs.misc-scripts}/bin/power-menu"
         "SUPER,f11,           exec, ${pkgs.misc-scripts}/bin/tmux-sessions"
-        "SUPER_SHIFT,b,       exec, ${uwsm} app -- ${blueberry}"
+        "SUPER_SHIFT,b,       exec, ${uwsm} app -- ${overskride}"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
         "SUPER_SHIFT,W,       exec, ${wpaperctl} next"
