@@ -97,9 +97,9 @@
           };
         in
         {
-          skipper =
+          Skipper =
             let
-              hostname = "skipper";
+              hostname = "Skipper";
               hostId = "dfb83800";
               system = "x86_64-linux";
             in
@@ -113,9 +113,9 @@
                 ./home/skipper.nix
               ];
             };
-          thor =
+          Thor =
             let
-              hostname = "thor";
+              hostname = "Thor";
               hostId = "dfb83801";
               system = "x86_64-linux";
             in
@@ -181,8 +181,8 @@
           deploy = inputs.deploy-rs.lib;
           hosts = inputs.self.nixosConfigurations;
           hostArch = {
-            skipper = "x86_64-linux";
-            thor = "x86_64-linux";
+            Skipper = "x86_64-linux";
+            Thor = "x86_64-linux";
             rico0 = "aarch64-linux";
             rico1 = "aarch64-linux";
             rico2 = "aarch64-linux";
