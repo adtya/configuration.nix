@@ -21,6 +21,7 @@
       "--webclient"
       "--ssh"
     ];
+    extraUpFlags = [ "--ssh" ];
   };
 
   networking.firewall.trustedInterfaces = [ config.services.tailscale.interfaceName ];
