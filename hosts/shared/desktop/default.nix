@@ -32,6 +32,8 @@
     };
   };
 
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   console.useXkbConfig = true;
 
   environment = {
