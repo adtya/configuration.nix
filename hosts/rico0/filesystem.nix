@@ -9,7 +9,7 @@ _: {
       fsType = "btrfs";
       options = [
         "subvol=@root"
-        "compress-force=zstd"
+        "compress=zstd"
         "relatime"
       ];
       neededForBoot = true;
@@ -20,7 +20,7 @@ _: {
       fsType = "btrfs";
       options = [
         "subvol=@nix"
-        "compress-force=zstd"
+        "compress=zstd"
         "relatime"
       ];
       neededForBoot = true;
@@ -31,7 +31,7 @@ _: {
       fsType = "btrfs";
       options = [
         "subvol=@persist"
-        "compress-force=zstd"
+        "compress=zstd"
         "relatime"
       ];
       neededForBoot = true;
@@ -42,7 +42,7 @@ _: {
       fsType = "btrfs";
       options = [
         "subvol=/"
-        "compress-force=zstd"
+        "compress=zstd"
         "relatime"
       ];
     };
