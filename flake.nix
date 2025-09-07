@@ -129,9 +129,9 @@
                 ./home/thor.nix
               ];
             };
-          rico0 =
+          Rico0 =
             let
-              hostname = "rico0";
+              hostname = "Rico0";
               hostId = "dfb83810";
               system = "aarch64-linux";
             in
@@ -144,9 +144,9 @@
                 ./hosts/rico0.nix
               ];
             };
-          rico1 =
+          Rico1 =
             let
-              hostname = "rico1";
+              hostname = "Rico1";
               hostId = "dfb83811";
               system = "aarch64-linux";
             in
@@ -159,9 +159,9 @@
                 ./hosts/rico1.nix
               ];
             };
-          rico2 =
+          Rico2 =
             let
-              hostname = "rico2";
+              hostname = "Rico2";
               hostId = "dfb83812";
               system = "aarch64-linux";
             in
@@ -183,9 +183,9 @@
           hostArch = {
             Skipper = "x86_64-linux";
             Thor = "x86_64-linux";
-            rico0 = "aarch64-linux";
-            rico1 = "aarch64-linux";
-            rico2 = "aarch64-linux";
+            Rico0 = "aarch64-linux";
+            Rico1 = "aarch64-linux";
+            Rico2 = "aarch64-linux";
           };
           deployConfig = hostname: arch: {
             inherit hostname;
