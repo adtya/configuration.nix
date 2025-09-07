@@ -48,7 +48,7 @@ _: {
     };
 
     "/boot" = {
-      device = "/dev/disk/by-partlabel/BOOT";
+      device = "/dev/disk/by-partlabel/RICO1_BOOT";
       fsType = "vfat";
       options = [
         "fmask=0022"
