@@ -1,4 +1,5 @@
-_: {
+{ lib, ... }:
+{
   imports = [
     ./programs
     ./services

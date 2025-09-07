@@ -1,6 +1,1 @@
-_: {
-  imports = [
-    ./caddy.nix
-    ./ssh.nix
-  ];
-}
+_: { imports = [ ./caddy.nix ]; }
