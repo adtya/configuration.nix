@@ -3,10 +3,6 @@
   systemd = {
     network = {
       enable = true;
-      wait-online = {
-        enable = true;
-        anyInterface = true;
-      };
       networks = {
         "40-ether" = {
           enable = true;
