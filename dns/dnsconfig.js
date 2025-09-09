@@ -15,6 +15,7 @@ D(
   DefaultTTL("900s"),
   CNAME("if3", "if3.fly.dev."),
   TXT("_github-pages-challenge-adtya", "c83b7cfc33c02c0499d401da51b801"),
+  TXT("_atproto", "did=did:plc:4qhsxvly7gyyu42pow7mqkye"),
   END,
 );
 
@@ -25,7 +26,6 @@ D(
   DNS_PROVIDER_TWO,
   NAMESERVER_TTL("1d"),
   DefaultTTL("900s"),
-  TXT("_atproto", "did=did:plc:4qhsxvly7gyyu42pow7mqkye"),
   END,
 );
 
