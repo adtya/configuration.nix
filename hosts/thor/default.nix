@@ -3,6 +3,7 @@ _: {
     ./hardware
     ./persistence
     ./programs
+    ./remote
     ./services
     ./boot.nix
     ./network.nix
