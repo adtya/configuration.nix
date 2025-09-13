@@ -1,8 +1,13 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   systemd = {
     network = {
       enable = true;
+      wait-online = {
+        anyInterface = true;
+        ignoredInterfaces = [ config.services.tailscale.interfaceName ];
+        timeout = 15;
+      };
       networks = {
         "40-ether" = {
           enable = true;
