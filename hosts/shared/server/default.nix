@@ -28,12 +28,12 @@
   powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 
   systemd = {
-    enableEmergencyMode = false;
-    watchdog = {
-      runtimeTime = "15s";
-      rebootTime = "30s";
-      kexecTime = "1m";
+    settings.Manager = {
+      KExecWatchdogSec = "1m";
+      RebootWatchdogSec = "30s";
+      RuntimeWatchdogSec = "15s";
     };
+    enableEmergencyMode = false;
     sleep.extraConfig = ''
       AllowSuspend=no
       AllowHibernation=no
