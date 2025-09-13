@@ -14,6 +14,8 @@ _: {
         enable = true;
         configurationLimit = 15;
       };
+      timeout = 0;
+
     };
   };
 

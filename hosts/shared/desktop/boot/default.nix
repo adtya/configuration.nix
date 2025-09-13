@@ -13,6 +13,7 @@
       "vm.dirty_ratio" = 3;
     };
     loader = {
+      timeout = 0;
       efi.canTouchEfiVariables = true;
     };
   };
