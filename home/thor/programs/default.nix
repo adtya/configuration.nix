@@ -2,5 +2,8 @@
 {
   imports = [ ./gaming.nix ];
 
-  home.packages = [ pkgs.piper ];
+  home.packages = with pkgs; [
+    discord
+    piper
+  ];
 }
