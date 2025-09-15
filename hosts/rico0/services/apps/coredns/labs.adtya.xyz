@@ -6,6 +6,7 @@ $TTL    86400
 ns IN A   @tailscaleIP@
 
 rico0           IN CNAME rico0.@tailnetName@.
+pihole          IN CNAME rico0
 
 rico1           IN CNAME rico1.@tailnetName@.
 
