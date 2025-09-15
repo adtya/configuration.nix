@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   inputs,
   ...
 }:
@@ -32,9 +33,15 @@
       }
     '';
   };
-  systemd.services.caddy = {
+  systemd.services.caddy = lib.mkIf config.services.caddy.enable {
     serviceConfig.EnvironmentFile = config.sops.secrets."caddy/env_file".path;
+    after = [
+      "tailscaled.service"
+      "tailscaled-autoconnect.service"
+    ];
+    unitConfig.Requires = [ "tailscaled.service" ];
   };
+
   networking.firewall.allowedTCPPorts = [
     80
     443
