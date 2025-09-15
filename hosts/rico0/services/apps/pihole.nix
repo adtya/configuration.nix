@@ -44,6 +44,7 @@
           ipv6.active = false;
           sync.server = "in.pool.ntp.org";
         };
+        webserver.interface.theme = "lcars";
       };
     };
     pihole-web = {
