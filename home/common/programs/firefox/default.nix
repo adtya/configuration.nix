@@ -33,6 +33,10 @@
                       value = "unstable";
                     }
                     {
+                      name = "sort";
+                      value = "alpha_asc";
+                    }
+                    {
                       name = "query";
                       value = "{searchTerms}";
                     }
@@ -50,6 +54,10 @@
                     {
                       name = "channel";
                       value = "unstable";
+                    }
+                    {
+                      name = "sort";
+                      value = "alpha_asc";
                     }
                     {
                       name = "query";
