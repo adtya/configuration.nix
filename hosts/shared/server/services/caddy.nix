@@ -27,11 +27,6 @@
         }
       }
     '';
-    globalConfig = ''
-      servers {
-        metrics
-      }
-    '';
   };
   systemd.services.caddy = lib.mkIf config.services.caddy.enable {
     serviceConfig.EnvironmentFile = config.sops.secrets."caddy/env_file".path;
