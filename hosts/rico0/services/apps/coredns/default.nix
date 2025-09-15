@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   tailscaleInterface = config.services.tailscale.interfaceName;
   tailscaleIP = config.nodeconfig.facts.tailscale-ip;
@@ -29,7 +34,7 @@ in
       }
     '';
   };
-  systemd.services.coredns = {
+  systemd.services.coredns = lib.mkIf config.services.coredns.enable {
     after = [
       "tailscaled.service"
       "tailscaled-autoconnect.service"
