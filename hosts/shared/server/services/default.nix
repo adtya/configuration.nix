@@ -1,1 +1,6 @@
-_: { imports = [ ./caddy.nix ]; }
+_: {
+  imports = [
+    ./caddy.nix
+    ./tailscale.nix
+  ];
+}
