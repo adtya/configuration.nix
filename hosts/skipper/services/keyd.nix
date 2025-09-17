@@ -8,6 +8,7 @@ _: {
           main = {
             pageup = "noop";
             pagedown = "noop";
+            up = "noop";
           };
         };
       };
