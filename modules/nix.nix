@@ -85,6 +85,11 @@ in
     (lib.mkIf cfg.trust-wheel { nix.settings.trusted-users = [ "@wheel" ]; })
     (lib.mkIf cfg.enable-extra-substituters {
       nix.settings = {
+        substituters = [
+          "https://adtya.cachix.org"
+          "https://nix-community.cachix.org"
+          "https://cache.nixos.org"
+        ];
         trusted-substituters = [
           "https://adtya.cachix.org"
           "https://nix-community.cachix.org"
