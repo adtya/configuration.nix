@@ -42,7 +42,7 @@
         ntp = {
           ipv4.active = false;
           ipv6.active = false;
-          sync.server = "in.pool.ntp.org";
+          sync.active = false;
         };
         webserver.interface.theme = "lcars";
       };
