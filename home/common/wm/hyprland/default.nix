@@ -16,7 +16,6 @@ let
   loginctl = "${pkgs.systemd}/bin/loginctl";
   playerctl = lib.getExe pkgs.playerctl;
   rofi = lib.getExe config.programs.rofi.package;
-  swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
   tmux = lib.getExe config.programs.tmux.package;
   uwsm = lib.getExe pkgs.uwsm;
   walker = lib.getExe pkgs.walker;
@@ -151,7 +150,6 @@ in
         ''SUPER,d,            exec, ${rofi} -show drun -run-command "${uwsm} app -- {cmd}"''
         "SUPER_SHIFT,d,       exec, ${walker}"
         "SUPER,e,             exec, ${uwsm} app -- ${kitty} --class=yazi ${yazi}"
-        "SUPER_SHIFT,u,       exec, ${swaync-client} -t -sw"
         "SUPER,i,             exec, ${uwsm} app -- ${firefox}"
         "SUPER_SHIFT,i,       exec, ${uwsm} app -- ${librewolf}"
 

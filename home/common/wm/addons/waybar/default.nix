@@ -23,7 +23,6 @@
           "bluetooth"
           "wireplumber"
           "clock"
-          "custom/notification"
         ];
         "hyprland/workspaces" = {
           separate-outputs = true;
@@ -72,27 +71,6 @@
         tray = {
           spacing = 4;
         };
-        "custom/notification" =
-          let
-            swaync-client = "${pkgs.swaynotificationcenter}/bin/swaync-client";
-          in
-          {
-            tooltip = false;
-            format = "{icon}";
-            format-icons = {
-              notification = "󱅫";
-              none = "󰂚";
-              dnd-notification = "󰂠";
-              dnd-none = "󰂠";
-              inhibited-notification = "󰂛";
-              inhibited-none = "󰂛";
-              dnd-inhibited-notification = "󰂛";
-              dnd-inhibited-none = "󰂛";
-            };
-            return-type = "json";
-            exec = "${swaync-client} -swb";
-            on-click = "${swaync-client} -d -sw";
-          };
       };
     };
   };
