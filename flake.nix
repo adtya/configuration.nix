@@ -90,8 +90,8 @@
             sops.defaultSopsFile = ./secrets.yaml;
             system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
             networking = {
-              hostName = lib.mkDefault hostname;
-              hostId = lib.mkDefault hostId;
+              hostName = lib.mkForce hostname;
+              hostId = lib.mkForce hostId;
             };
             nixpkgs.hostPlatform = lib.mkDefault system;
           };
@@ -127,6 +127,21 @@
                 (common-module hostname hostId system)
                 ./hosts/thor.nix
                 ./home/thor.nix
+              ];
+            };
+          Bifrost =
+            let
+              hostname = "Bifrost";
+              hostId = "dfb83802";
+              system = "x86_64-linux";
+            in
+            lib.nixosSystem {
+              inherit system;
+              pkgs = pkgsFor system;
+              specialArgs = { inherit inputs primary-user; };
+              modules = [
+                (common-module hostname hostId system)
+                ./hosts/bifrost.nix
               ];
             };
           Rico0 =
