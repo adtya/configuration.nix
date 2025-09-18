@@ -30,5 +30,6 @@
     };
     cpu.amd.updateMicrocode = true;
     graphics.enable32Bit = true;
+    xone.enable = true;
   };
 }
