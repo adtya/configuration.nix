@@ -1,7 +1,4 @@
-{ config
-, pkgs
-, ...
-}:
+{ config, pkgs, ... }:
 let
   dmenu = "${config.programs.rofi.package}/bin/rofi -dmenu";
   firefox = "${config.programs.firefox.finalPackage}/bin/firefox";
