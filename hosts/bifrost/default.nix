@@ -1,4 +1,5 @@
-{modulesPath, ...}: {
+{ modulesPath, ... }:
+{
   imports = [
     (modulesPath + "/virtualisation/digital-ocean-config.nix")
 
@@ -7,4 +8,3 @@
 
   system.stateVersion = "25.11";
 }
-

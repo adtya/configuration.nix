@@ -29,6 +29,7 @@
     caddy-hetzner.url = "github:/adtya/caddy-hetzner?ref=main";
     smc-fonts.url = "gitlab:smc/smc-fonts-flake?ref=trunk";
     adtyaxyz.url = "github:adtya/adtya.xyz?ref=main";
+    wiki.url = "github:adtya/wiki?ref=main";
   };
 
   outputs =
@@ -199,6 +200,7 @@
           hostArch = {
             Skipper = "x86_64-linux";
             Thor = "x86_64-linux";
+            Bifrost = "x86_64-linux";
             Rico0 = "aarch64-linux";
             Rico1 = "aarch64-linux";
             Rico2 = "aarch64-linux";

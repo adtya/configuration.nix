@@ -17,6 +17,8 @@ D(
   TXT("_atproto", "did=did:plc:4qhsxvly7gyyu42pow7mqkye"),
   CNAME("if3", "if3.fly.dev."),
   A("@", "134.209.147.152"),
+  CNAME("wiki", "bifrost.ironyofprivacy.org."),
+  CNAME("proofs", "bifrost.ironyofprivacy.org."),
   END,
 );
 
@@ -27,6 +29,8 @@ D(
   DNS_PROVIDER_TWO,
   NAMESERVER_TTL("1d"),
   DefaultTTL("900s"),
+  A("@", "134.209.147.152"),
+  A("bifrost", "134.209.147.152"),
   END,
 );
 

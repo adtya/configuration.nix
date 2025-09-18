@@ -1,3 +1,1 @@
-_: {
-  imports = [ ./apps ];
-}
+_: { imports = [ ./apps ]; }
