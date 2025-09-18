@@ -26,7 +26,6 @@
     flake-utils.url = "github:numtide/flake-utils?ref=main";
     treefmt-nix.url = "github:numtide/treefmt-nix?ref=main";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
-    caddy-hetzner.url = "github:/adtya/caddy-hetzner?ref=main";
     smc-fonts.url = "gitlab:smc/smc-fonts-flake?ref=trunk";
     adtyaxyz.url = "github:adtya/adtya.xyz?ref=main";
     wiki.url = "github:adtya/wiki?ref=main";

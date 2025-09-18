@@ -17,7 +17,10 @@
   };
   services.caddy = {
     enable = true;
-    package = inputs.caddy-hetzner.packages.${pkgs.system}.caddy;
+    package = pkgs.caddy.withPlugins {
+      plugins = [ "github.com/caddy-dns/hetzner@v1.0.0" ];
+      hash = "sha256-XPRZbZn/8pgd2ijB3Y52M94rCHkq1TJHMb95tQxZ5bE=";
+    };
     email = "admin@acomputer.lol";
     extraConfig = ''
       (hetzner) {
