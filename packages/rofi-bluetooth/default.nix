@@ -4,7 +4,7 @@
   makeWrapper,
   stdenvNoCC,
   bluez,
-  rofi-wayland,
+  rofi,
 }:
 stdenvNoCC.mkDerivation {
   pname = "rofi-bluetooth";
@@ -19,7 +19,7 @@ stdenvNoCC.mkDerivation {
   nativeBuildInputs = [ makeWrapper ];
   buildInputs = [
     bluez
-    rofi-wayland
+    rofi
   ];
 
   installPhase = ''
@@ -35,7 +35,7 @@ stdenvNoCC.mkDerivation {
     wrapProgram $out/bin/rofi-bluetooth --prefix PATH : ${
       lib.makeBinPath [
         bluez
-        rofi-wayland
+        rofi
       ]
     }
   '';

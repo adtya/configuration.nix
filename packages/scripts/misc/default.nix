@@ -5,7 +5,7 @@
   hyprland,
   kitty,
   libnotify,
-  rofi-wayland,
+  rofi,
   tmux,
 }:
 stdenvNoCC.mkDerivation {
@@ -18,7 +18,7 @@ stdenvNoCC.mkDerivation {
     hyprland
     kitty
     libnotify
-    rofi-wayland
+    rofi
     tmux
   ];
 
@@ -41,13 +41,13 @@ stdenvNoCC.mkDerivation {
       lib.makeBinPath [
         hyprland
         libnotify
-        rofi-wayland
+        rofi
       ]
     }
     wrapProgram $out/bin/tmux-sessions --prefix PATH : ${
       lib.makeBinPath [
         kitty
-        rofi-wayland
+        rofi
         tmux
       ]
     }

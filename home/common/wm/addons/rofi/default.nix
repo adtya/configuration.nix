@@ -3,7 +3,7 @@
   programs.rofi = {
     enable = true;
     cycle = false;
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
     font = "FiraCode Nerd Font 16";
     extraConfig = {
       show-icons = true;
