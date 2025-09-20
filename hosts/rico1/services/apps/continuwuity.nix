@@ -22,7 +22,7 @@
 
         well_known = {
           client = "https://matrix.ironyofprivacy.org";
-          server = "matrix.ironyofprivacy.org:433";
+          server = "matrix.ironyofprivacy.org:443";
         };
       };
     };
