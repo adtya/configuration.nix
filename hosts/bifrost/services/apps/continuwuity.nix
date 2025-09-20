@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+_:
 let
   domainName = "matrix.ironyofprivacy.org";
 in
