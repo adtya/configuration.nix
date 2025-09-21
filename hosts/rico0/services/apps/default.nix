@@ -1,6 +1,1 @@
-_: {
-  imports = [
-    ./coredns
-    ./pihole.nix
-  ];
-}
+_: { imports = [ ./pihole.nix ]; }

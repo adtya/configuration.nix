@@ -26,12 +26,6 @@ in
         bind ${tailscaleInterface}
         forward . 100.100.100.100:53
       }
-      .:53 {
-        errors
-        log stdout
-        bind ${tailscaleInterface}
-        forward . 1.1.1.1:53
-      }
     '';
   };
   systemd.services.coredns = lib.mkIf config.services.coredns.enable {
