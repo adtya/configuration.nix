@@ -26,7 +26,7 @@
       (hetzner) {
         tls {
           dns hetzner {env.HETZNER_ACCESS_TOKEN}
-          resolvers 1.1.1.1
+          resolvers 213.133.100.98
         }
       }
     '';
