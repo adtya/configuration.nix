@@ -20,7 +20,7 @@
 
         new_user_displayname_suffix = "🔥";
         require_auth_for_profile_requests = true;
-        allow_device_name_federation = true;
+        allow_device_name_federation = false;
         trusted_servers = [
           "matrix.org"
           "poddery.com"
