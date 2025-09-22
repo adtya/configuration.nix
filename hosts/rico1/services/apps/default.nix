@@ -1,1 +1,6 @@
-_: { imports = [ ./continuwuity.nix ]; }
+_: {
+  imports = [
+    ./continuwuity.nix
+    ./ntfy.nix
+  ];
+}

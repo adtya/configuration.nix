@@ -7,5 +7,6 @@ _: {
     ./wiki.nix
     ./continuwuity.nix
     ./ironyofprivacy.org.nix
+    ./ntfy.nix
   ];
 }
