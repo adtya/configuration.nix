@@ -39,7 +39,7 @@ D(
 function SETUP_FASTMAIL(domain) {
   D_EXTEND(
     domain,
-    DefaultTTL("1h"),
+    DefaultTTL("900s"),
     MX("@", 10, "in1-smtp.messagingengine.com."),
     MX("@", 20, "in2-smtp.messagingengine.com."),
     CNAME("mesmtp._domainkey", "mesmtp." + domain + ".dkim.fmhosted.com."),
