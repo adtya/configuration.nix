@@ -33,6 +33,7 @@ D(
   A("@", "134.209.147.152"),
   A("bifrost", "134.209.147.152"),
   CNAME("matrix", "bifrost.ironyofprivacy.org."),
+  CNAME("notify", "bifrost.ironyofprivacy.org."),
   END,
 );
 
