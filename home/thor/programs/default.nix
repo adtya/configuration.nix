@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  imports = [ ./gaming.nix ];
+  imports = [
+    ./gaming.nix
+    ./virt-manager.nix
+  ];
 
   home.packages = with pkgs; [
     discord

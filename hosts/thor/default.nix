@@ -5,6 +5,7 @@ _: {
     ./programs
     ./remote
     ./services
+    ./virtualisation
     ./boot.nix
     ./network.nix
   ];

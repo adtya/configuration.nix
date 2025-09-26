@@ -1,6 +1,9 @@
 _: {
   environment.persistence."/persist/state" = {
     hideMounts = true;
-    directories = [ "/etc/lact" ];
+    directories = [
+      "/etc/lact"
+      "/var/lib/libvirt"
+    ];
   };
 }
