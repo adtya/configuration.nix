@@ -1,4 +1,4 @@
-{ config, ... }:
+{lib, config, ... }:
 {
   sops = {
     secrets = {
@@ -24,5 +24,13 @@
       require-login = true;
       behind-proxy = true;
     };
+  };
+  systemd.services.ntfy-sh = lib.mkIf config.services.ntfy-sh.enable {
+    after = [
+      "tailscaled.service"
+      "tailscaled-autoconnect.service"
+    ];
+    unitConfig.Requires = [ "tailscaled.service" ];
+    serviceConfig.RestartSec = "5s";
   };
 }

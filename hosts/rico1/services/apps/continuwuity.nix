@@ -1,4 +1,4 @@
-{ config, ... }:
+{ lib, config, ... }:
 {
   sops = {
     secrets = {
@@ -34,5 +34,13 @@
         };
       };
     };
+  };
+  systemd.services.matrix-continuwuity = lib.mkIf config.services.matrix-continuwuity.enable {
+    after = [
+      "tailscaled.service"
+      "tailscaled-autoconnect.service"
+    ];
+    unitConfig.Requires = [ "tailscaled.service" ];
+    serviceConfig.RestartSec = "5s";
   };
 }
