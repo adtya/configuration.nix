@@ -5,14 +5,6 @@ _final: prev: {
   smc-nupuram = prev.callPackage ./smc-nupuram { };
 
   # package overrides
-  btop = prev.btop.overrideAttrs (_oldAttrs: {
-    src = prev.fetchFromGitHub {
-      owner = "aristocratos";
-      repo = "btop";
-      rev = "bdddfc46a2bbfe4ba70c7fba4fbb30978d61dab9";
-      hash = "sha256-2SGQLSyGMg3Fv10ewu8b64Z08fBbAkVCvEj2+0GGrHI=";
-    };
-  });
   gamemode = prev.gamemode.overrideAttrs (_oldAttrs: {
     version = "2025-09-04";
     src = prev.fetchFromGitHub {
