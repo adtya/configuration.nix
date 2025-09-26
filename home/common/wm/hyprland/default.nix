@@ -92,6 +92,8 @@ in
         "bordercolor rgb(ff5555),xwayland:1"
 
         "workspace 2,class:firefox,title:Mozilla Firefox"
+        "float,class:firefox,title:Library"
+        "size 50% 50%,class:firefox,title:Library"
 
         "float,class:com.saivert.pwvucontrol"
         "size 50% 50%,class:com.saivert.pwvucontrol"
