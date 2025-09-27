@@ -30,6 +30,7 @@
     };
     cpu.amd.updateMicrocode = true;
     graphics.enable32Bit = true;
+    steam-hardware.enable = true;
     xone.enable = true;
   };
 }
