@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 {
+  home.packages = with pkgs; [ cosmic-files ];
   programs = {
     fd = {
       enable = true;
