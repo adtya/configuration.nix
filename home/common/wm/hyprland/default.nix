@@ -116,15 +116,16 @@ in
         "size 90% 90%,class:org.pwmt.zathura"
         "center,class:org.pwmt.zathura"
 
-        "float,class:org.gnome.Software"
-        "center,class:org.gnome.Software"
-        "size 60% 60%,class:org.gnome.Software"
+        "float,class:com.system76.CosmicFiles"
+        "center,class:com.system76.CosmicFiles"
+        "size 60% 60%,class:com.system76.CosmicFiles"
 
-        "float,class:org.gnome.Software"
-        "center,class:org.gnome.Software"
-        "size 60% 60%,class:org.gnome.Software"
+        "float,class:com.vysp3r.ProtonPlus"
+        "center,class:com.vysp3r.ProtonPlus"
+        "size 60% 60%,class:com.vysp3r.ProtonPlus"
 
-        "dimaround,class:^(gcr-prompter)$"
+        "dimaround,class:io.elementary.desktop.agent-polkit"
+        "pin,class:io.elementary.desktop.agent-polkit"
       ];
 
       layerrule = [
