@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 let
   dmenu = "${config.programs.rofi.package}/bin/rofi -dmenu";
   firefox = "${config.programs.firefox.finalPackage}/bin/firefox";
@@ -10,7 +10,7 @@ in
     iconTheme.package = config.gtk.iconTheme.package;
     settings = {
       global = {
-        font = "FiraCode Nerd Font 11";
+        font = "Fira Code 14";
         monitor = 0;
         follow = "none";
         width = 300;

@@ -4,7 +4,7 @@
     enable = true;
     cycle = false;
     package = pkgs.rofi;
-    font = "FiraCode Nerd Font 16";
+    font = "Fira Code,Symbols Nerd Font 14";
     extraConfig = {
       show-icons = true;
     };
