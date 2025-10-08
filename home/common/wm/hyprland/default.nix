@@ -11,7 +11,7 @@ let
   firefox = lib.getExe config.programs.firefox.finalPackage;
   grimblast = lib.getExe pkgs.grimblast;
   hyprctl = "${cfg.package}/bin/hyprctl";
-  kitty = lib.getExe config.programs.kitty.package;
+  ghostty = lib.getExe config.programs.ghostty.package;
   librewolf = lib.getExe pkgs.librewolf;
   loginctl = "${pkgs.systemd}/bin/loginctl";
   playerctl = lib.getExe pkgs.playerctl;
@@ -147,10 +147,10 @@ in
 
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
 
-        "SUPER,Return,        exec, ${uwsm} app -- ${kitty}"
+        "SUPER,Return,        exec, ${uwsm} app -- ${ghostty}"
         ''SUPER,d,            exec, ${rofi} -show drun -run-command "${uwsm} app -- {cmd}"''
         "SUPER_SHIFT,d,       exec, ${walker}"
-        "SUPER,e,             exec, ${uwsm} app -- ${kitty} --class=yazi ${yazi}"
+        "SUPER,e,             exec, ${uwsm} app -- ${ghostty} --class=yazi -e ${yazi}"
         "SUPER,i,             exec, ${uwsm} app -- ${firefox}"
         "SUPER_SHIFT,i,       exec, ${uwsm} app -- ${librewolf}"
 

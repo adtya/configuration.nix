@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   home.packages = with pkgs; [ cosmic-files ];
   programs = {
@@ -26,19 +31,19 @@
         opener = {
           edit-text = [
             {
-              run = ''${config.programs.neovim.package}/bin/nvim "$0"'';
+              run = ''${lib.getExe config.programs.neovim.package} "$0"'';
               block = true;
             }
           ];
           terminal = [
             {
-              run = ''${config.programs.kitty.package}/bin/kitty --class=yazi -d="$0"'';
+              run = ''${lib.getExe config.programs.ghostty.package} --class=yazi --working-directory="$0"'';
               orphan = true;
             }
           ];
           open = [
             {
-              run = ''${pkgs.xdg-utils}/bin/xdg-open "$0"'';
+              run = ''${lib.getExe' pkgs.xdg-utils "xdg-open"} "$0"'';
               orphan = true;
             }
           ];

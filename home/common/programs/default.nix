@@ -9,9 +9,9 @@
     ./direnv.nix
     ./eza.nix
     ./files.nix
+    ./ghostty.nix
     ./git.nix
     ./gnupg.nix
-    ./kitty.nix
     ./mpv.nix
     ./neovim.nix
     ./ssh.nix
