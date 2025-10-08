@@ -16,7 +16,6 @@
     ./neovim.nix
     ./ssh.nix
     ./starship.nix
-    ./tmux.nix
     ./yt-dlp.nix
     ./zathura.nix
     ./zsh.nix

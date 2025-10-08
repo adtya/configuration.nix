@@ -16,7 +16,6 @@ let
   loginctl = "${pkgs.systemd}/bin/loginctl";
   playerctl = lib.getExe pkgs.playerctl;
   rofi = lib.getExe config.programs.rofi.package;
-  tmux = lib.getExe config.programs.tmux.package;
   uwsm = lib.getExe pkgs.uwsm;
   walker = lib.getExe pkgs.walker;
   wpaperctl = "${config.services.wpaperd.package}/bin/wpaperctl";
@@ -149,7 +148,6 @@ in
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
 
         "SUPER,Return,        exec, ${uwsm} app -- ${kitty}"
-        "SUPER_SHIFT,Return,  exec, ${uwsm} app -- ${kitty} ${tmux} -u new"
         ''SUPER,d,            exec, ${rofi} -show drun -run-command "${uwsm} app -- {cmd}"''
         "SUPER_SHIFT,d,       exec, ${walker}"
         "SUPER,e,             exec, ${uwsm} app -- ${kitty} --class=yazi ${yazi}"
@@ -157,7 +155,6 @@ in
         "SUPER_SHIFT,i,       exec, ${uwsm} app -- ${librewolf}"
 
         "SUPER_SHIFT,escape,  exec, ${pkgs.misc-scripts}/bin/power-menu"
-        "SUPER,f11,           exec, ${pkgs.misc-scripts}/bin/tmux-sessions"
         "SUPER_SHIFT,b,       exec, ${uwsm} app -- ${overskride}"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
