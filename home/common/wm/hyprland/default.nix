@@ -17,7 +17,6 @@ let
   playerctl = lib.getExe pkgs.playerctl;
   rofi = lib.getExe config.programs.rofi.package;
   uwsm = lib.getExe pkgs.uwsm;
-  walker = lib.getExe pkgs.walker;
   wpaperctl = "${config.services.wpaperd.package}/bin/wpaperctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   yazi = lib.getExe pkgs.yazi;
@@ -149,7 +148,6 @@ in
 
         "SUPER,Return,        exec, ${uwsm} app -- ${ghostty}"
         ''SUPER,d,            exec, ${rofi} -show drun -run-command "${uwsm} app -- {cmd}"''
-        "SUPER_SHIFT,d,       exec, ${walker}"
         "SUPER,e,             exec, ${uwsm} app -- ${ghostty} --class=yazi -e ${yazi}"
         "SUPER,i,             exec, ${uwsm} app -- ${firefox}"
         "SUPER_SHIFT,i,       exec, ${uwsm} app -- ${librewolf}"
