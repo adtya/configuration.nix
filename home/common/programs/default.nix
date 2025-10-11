@@ -25,7 +25,6 @@
     _1password-cli
     _1password-gui
     android-file-transfer
-    blueberry
     devenv
     doctl
     flyctl
