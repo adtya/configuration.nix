@@ -1,7 +1,22 @@
 _: {
   wayland.windowManager.hyprland = {
     settings = {
-      monitor = [ "DP-1,  preferred,  0x0,  auto" ];
+      experimental.xx_color_management_v4 = true;
+      render.cm_auto_hdr = 1;
+
+      monitorv2 = [
+        {
+          output = "DP-1";
+          mode = "3440x1440@175";
+          position = "0x0";
+          scale = "auto";
+          transform = 0;
+          vrr = 2;
+          supports_wide_color = 1;
+          supports_hdr = 1;
+          bitdepth = 10;
+        }
+      ];
 
       windowrulev2 = [
         "workspace 9,class:steam"

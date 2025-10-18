@@ -6,7 +6,6 @@
       youtubeSupport = true;
       scripts = with pkgs.mpvScripts; [
         mpris
-        modernx
         thumbfast
       ];
     };
@@ -16,8 +15,10 @@
       cache = "yes";
       cache-secs = "120";
       hwdec = "auto-safe";
-      gpu-context = "wayland";
       vo = "gpu-next";
+      gpu-context = "waylandvk";
+      gpu-api = "vulkan";
+      target-colorspace-hint = true;
     };
     defaultProfiles = [ "gpu-hq" ];
     scriptOpts = {

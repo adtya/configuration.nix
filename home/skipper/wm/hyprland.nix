@@ -5,9 +5,21 @@ in
 {
   wayland.windowManager.hyprland = {
     settings = {
-      monitor = [
-        "eDP-1,  preferred,  0x0,         1"
-        ",       preferred,  auto-right,  auto"
+      monitorv2 = [
+        {
+          output = "eDP-1";
+          mode = "preferred";
+          position = "0x0";
+          scale = "1";
+          transform = 0;
+        }
+        {
+          output = "";
+          mode = "preferred";
+          position = "auto-right";
+          scale = "auto";
+          transform = 0;
+        }
       ];
 
       input = {
