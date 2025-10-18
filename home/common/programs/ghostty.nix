@@ -10,6 +10,7 @@ _: {
       mouse-hide-while-typing = true;
       background-opacity = "0.98";
       background-blur = true;
+      window-inherit-working-directory = false;
       window-padding-x = 4;
       window-padding-balance = true;
       shell-integration = "zsh";
