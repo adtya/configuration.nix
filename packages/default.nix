@@ -14,4 +14,9 @@ _final: prev: {
       hash = "sha256-9DB8iWiyrM4EJ94ERC5SE9acrhqeI00BF1wU0umeNFg=";
     };
   });
+
+  caddy-custom = prev.caddy.withPlugins {
+    plugins = [ "github.com/caddy-dns/hetzner@v1.0.0" ];
+    hash = "sha256-J9eusS/Cx3kwIwVE0VlkWp3biWK3a4Z9/i2ufGQ+gtY=";
+  };
 }
