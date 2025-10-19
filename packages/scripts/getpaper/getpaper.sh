@@ -14,7 +14,7 @@ CURL_BASE_CMD="curl --silent ${API_KEY_HEADER}"
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 CONFIG_FILE="${CONFIG_DIR}/wallpaper_config.json"
 if [ ! -e "${CONFIG_FILE}" ]; then
-  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M", "look_at": 120}' | jq >"${CONFIG_FILE}"
+  echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "resolutions":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M", "look_at": 120}' | jq >"${CONFIG_FILE}"
 fi
 
 CONFIG="$(cat "${CONFIG_FILE}")"
@@ -53,6 +53,11 @@ if [ -n "${SIZE}" ]; then
   SIZE="atleast=${SIZE}&"
 fi
 
+RESOLUTIONS="$(echo "${CONFIG}" | jq -r '.resolutions // empty')"
+if [ -n "${RESOLUTIONS}" ]; then
+  RESOLUTIONS="resolutions=${RESOLUTIONS}&"
+fi
+
 RATIOS="$(echo "${CONFIG}" | jq -r '.ratios // empty')"
 if [ -n "${RATIOS}" ]; then
   RATIOS="ratios=${RATIOS}&"
@@ -78,7 +83,7 @@ if [ -z "${LOOK_AT}" ]; then
   LOOK_AT=120
 fi
 
-URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RATIOS}${COLORS}${AI_FILTER}${SORTING}${RANGE}"
+URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RESOLUTIONS}${RATIOS}${COLORS}${AI_FILTER}${SORTING}${RANGE}"
 CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
 RESULT="$(eval "${CURL_CMD}")"
 NO_OF_IMAGES="$(echo "${RESULT}" | jq -r '.meta.total')"
