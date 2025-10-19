@@ -17,9 +17,9 @@ let
   playerctl = lib.getExe pkgs.playerctl;
   rofi = lib.getExe config.programs.rofi.package;
   uwsm = lib.getExe pkgs.uwsm;
-  wpaperctl = "${config.services.wpaperd.package}/bin/wpaperctl";
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   yazi = lib.getExe pkgs.yazi;
+  systemctl = lib.getExe' pkgs.systemd "systemctl";
 in
 {
   wayland.windowManager.hyprland = {
@@ -156,7 +156,7 @@ in
         "SUPER_SHIFT,b,       exec, ${uwsm} app -- ${overskride}"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
-        "SUPER_SHIFT,W,       exec, ${wpaperctl} next"
+        "SUPER_SHIFT,W,       exec, ${systemctl} --user start swww-img.service"
 
         "SUPER,1,             workspace, 1"
         "SUPER,2,             workspace, 2"
