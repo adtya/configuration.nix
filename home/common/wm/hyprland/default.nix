@@ -29,6 +29,7 @@ in
       ecosystem.no_update_news = true;
       general = {
         border_size = 1;
+        no_border_on_floating = true;
         "col.active_border" = "rgb(bd93f9)";
         "col.inactive_border" = "rgba(44475aaa)";
         "col.nogroup_border" = "rgba(282a36dd)";
@@ -85,6 +86,18 @@ in
           "workspacesOut,1,5,default,slide"
         ];
       };
+
+      workspace = [
+        "w[tv1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
+      ];
+
+      windowrule = [
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
+      ];
 
       windowrulev2 = [
         "bordercolor rgb(ff5555),xwayland:1"
