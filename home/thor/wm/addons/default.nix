@@ -1,1 +1,6 @@
-_: { imports = [ ./hypridle.nix ]; }
+_: {
+  imports = [
+    ./hypridle.nix
+    ./waybar.nix
+  ];
+}

@@ -1,4 +1,8 @@
-_: {
+{ lib, pkgs, ... }:
+let
+  pkill = lib.getExe' pkgs.procps "pkill";
+in
+{
   wayland.windowManager.hyprland = {
     settings = {
       experimental.xx_color_management_v4 = true;
@@ -17,6 +21,8 @@ _: {
           bitdepth = 10;
         }
       ];
+
+      bind = [ "SUPER_ALT, W, exec, ${pkill} -SIGUSR1 waybar" ];
 
       windowrulev2 = [
         "workspace 9,class:steam"
