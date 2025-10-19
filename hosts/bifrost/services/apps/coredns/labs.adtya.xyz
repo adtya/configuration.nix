@@ -12,6 +12,7 @@ rico1           IN CNAME rico1.@tailnetName@.
 
 rico2           IN CNAME rico2.@tailnetName@.
 
+thor            IN CNAME thor.@tailnetName@.
 skipper         IN CNAME skipper.@tailnetName@.
 gloria          IN CNAME gloria.@tailnetName@.
 kowalski        IN CNAME kowalski.@tailnetName@.
