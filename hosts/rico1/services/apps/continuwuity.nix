@@ -35,12 +35,11 @@
       };
     };
   };
-  systemd.services.matrix-continuwuity = lib.mkIf config.services.matrix-continuwuity.enable {
+  systemd.services.continuwuity = lib.mkIf config.services.matrix-continuwuity.enable {
     after = [
       "tailscaled.service"
       "tailscaled-autoconnect.service"
     ];
     unitConfig.Requires = [ "tailscaled.service" ];
-    serviceConfig.RestartSec = "5s";
   };
 }
