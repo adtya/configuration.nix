@@ -47,8 +47,10 @@ in
       };
 
       decoration = {
+        dim_inactive = true;
         dim_around = 0.6;
         rounding = 5;
+        rounding_power = 4;
         blur = {
           enabled = true;
           size = 5;
@@ -56,7 +58,7 @@ in
         };
         shadow = {
           color = "rgba(1E202966)";
-          range = 3;
+          range = 10;
           render_power = 3;
           scale = 0.97;
         };
