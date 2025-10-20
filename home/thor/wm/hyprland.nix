@@ -6,7 +6,7 @@ in
   wayland.windowManager.hyprland = {
     settings = {
       experimental.xx_color_management_v4 = true;
-      render.cm_auto_hdr = 1;
+      render.cm_auto_hdr = 2;
 
       monitorv2 = [
         {
