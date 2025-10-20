@@ -11,14 +11,13 @@
     };
     config = {
       border = "no";
-      osc = "no";
       cache = "yes";
       cache-secs = "120";
       hwdec = "auto-safe";
       vo = "gpu-next";
       gpu-context = "waylandvk";
       gpu-api = "vulkan";
-      target-colorspace-hint = true;
+      target-colorspace-hint = "yes";
     };
     defaultProfiles = [ "gpu-hq" ];
     scriptOpts = {
