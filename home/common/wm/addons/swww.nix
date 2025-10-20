@@ -11,7 +11,7 @@ let
 
   wallpapers = "${config.xdg.userDirs.pictures}/Wallpapers/1440p/";
   wallpaperScript = pkgs.writeShellScriptBin "swww-img" ''
-    ${swww} img $(${find} ${wallpapers} -type f | ${shuf} -n1)
+    ${swww} img -t fade --transition-duration 1 $(${find} ${wallpapers} -type f | ${shuf} -n1)
   '';
 in
 {
