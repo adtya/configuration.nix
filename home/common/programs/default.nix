@@ -12,6 +12,7 @@
     ./ghostty.nix
     ./git.nix
     ./gnupg.nix
+    ./imv.nix
     ./mpv.nix
     ./neovim.nix
     ./ssh.nix
@@ -47,7 +48,6 @@
       enableZshIntegration = false;
     };
     lazygit.enable = true;
-    swayimg.enable = true;
     zoxide.enable = true;
   };
 }
