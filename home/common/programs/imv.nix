@@ -1,11 +1,14 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.imv = {
     enable = true;
-    package = pkgs.imv.overrideAttrs (new: old: {
-      postInstall = old.postInstall + ''
-        rm $out/share/applications/imv.desktop
-      '';
-    });
+    package = pkgs.imv.overrideAttrs (
+      _new: old: {
+        postInstall = old.postInstall + ''
+          rm $out/share/applications/imv.desktop
+        '';
+      }
+    );
     settings = {
       options = {
         background = "282a36";
