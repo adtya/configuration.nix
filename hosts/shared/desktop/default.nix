@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
     inputs.disko.nixosModules.disko
@@ -45,6 +50,7 @@
     sessionVariables = {
       NIXOS_OZONE_WL = 1;
     };
+    systemPackages = [ (lib.hiPrio pkgs.uutils-coreutils-noprefix) ];
   };
 
   fonts =
