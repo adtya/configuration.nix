@@ -11,13 +11,20 @@ fi
 
 CURL_BASE_CMD="curl --silent ${API_KEY_HEADER}"
 
+CACHE_DIR="${XDG_CACHE_HOME:-${HOME}/.cache}/getpaper"
+mkdir -p "$CACHE_DIR"
+
 CONFIG_DIR="${XDG_CONFIG_HOME:-${HOME}/.config}"
 CONFIG_FILE="${CONFIG_DIR}/wallpaper_config.json"
 if [ ! -e "${CONFIG_FILE}" ]; then
   echo '{"tags":null,"categories":"100","purity":"100", "sorting":"random", "size":null, "resolutions":null, "ratios":null, "colors":null, "ai_filter":1, "range": "1M", "look_at": 120}' | jq >"${CONFIG_FILE}"
 fi
 
+CONFIG_HASH="$(md5sum < $CONFIG_FILE | awk '{print $1}')"
+DATE="$(date '+%Y%m%d')"
+
 CONFIG="$(cat "${CONFIG_FILE}")"
+
 
 DIR="${1:-}"
 if [ -z "${DIR}" ]; then
@@ -83,9 +90,17 @@ if [ -z "${LOOK_AT}" ]; then
   LOOK_AT=120
 fi
 
+CACHE_FILE="$CACHE_DIR/$CONFIG_HASH-$DATE-1.json"
+
 URL="${WALLHAVEN_BASE_URL}/search?${TAGS}${CATEGORIES}${PURITY}${SIZE}${RESOLUTIONS}${RATIOS}${COLORS}${AI_FILTER}${SORTING}${RANGE}"
-CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
-RESULT="$(eval "${CURL_CMD}")"
+
+if [ ! -r "$CACHE_FILE" ]; then
+  CURL_CMD="${CURL_BASE_CMD} \"${URL}\""
+  RESULT="$(eval "${CURL_CMD}")"
+  echo $RESULT > $CACHE_FILE
+else
+  RESULT="$(cat $CACHE_FILE)"
+fi
 NO_OF_IMAGES="$(echo "${RESULT}" | jq -r '.meta.total')"
 if [ "${NO_OF_IMAGES}" -eq 0 ]; then
   echo "No wallpapers available for current configuration" >&2
@@ -103,7 +118,13 @@ if [ "${ITEM_PAGE}" -gt 0 ]; then
     SEED="seed=${SEED}&"
   fi
   CURL_CMD="${CURL_BASE_CMD} \"${URL}${SEED}page=$((ITEM_PAGE + 1))\""
-  RESULT="$(eval "${CURL_CMD}")"
+  CACHE_FILE="$CACHE_DIR/$CONFIG_HASH-$DATE-$((ITEM_PAGE + 1)).json"
+  if [ ! -r "$CACHE_FILE" ]; then
+    RESULT="$(eval "${CURL_CMD}")"
+    echo $RESULT > $CACHE_FILE
+  else
+    RESULT="$(cat $CACHE_FILE)"
+  fi
 fi
 IMAGE_URL="$(echo "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].path")"
 FILENAME="${IMAGE_URL##*/}"
@@ -111,3 +132,4 @@ if [ ! -f "${DIR}/${FILENAME}" ]; then
   curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
 fi
 echo "${DIR}/${FILENAME}"
+
