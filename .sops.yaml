@@ -1,5 +1,6 @@
 keys:
   - &user_adtya age1w5rvr4nl8xvjjxpct4e2a2eajvm79v4r9nyxrcn40fm8d7h9l9cqkk0jtt
+  - &host_gloria age16ellu2rwa6f249sk30ax0xvujcje9khmvlhaucq3frch572hkcrsnkgsfg
   - &host_skipper age1mhks8qmhjrtc2u5ufvp3pv2hn7tkadvmscnp7wd0ywmnse0szctqsnpy0a
   - &host_thor age17r9l5yuhw0ydal82ydgeq5xa9vh4l0xln3gp49r64xg84sphlcps0e5euq
   - &host_bifrost age10xjajsg4lvras4ztmlp8tcrzegz2kcvz6hrqeapl9yllfs63yu6q2e40cl
@@ -11,6 +12,7 @@ creation_rules:
     key_groups:
       - age:
           - *user_adtya
+          - *host_gloria
           - *host_skipper
           - *host_thor
           - *host_bifrost

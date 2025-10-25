@@ -4,10 +4,12 @@
   nixConfig = {
     extra-substituters = [
       "https://adtya.cachix.org"
+      "https://cache.soopy.moe"
       "https://nix-community.cachix.org"
     ];
     extra-trusted-public-keys = [
       "adtya.cachix.org-1:lAuNLx0Ehzx6FoH20rVkMD7KyZZevlLfvm3lwMAzrnU="
+      "cache.soopy.moe-1:0RZVsQeR+GOh0VQI9rvnHz55nVXkFardDqfm4+afjPo="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
@@ -18,6 +20,7 @@
       url = "github:nix-community/home-manager?ref=master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     disko.url = "github:nix-community/disko?ref=latest";
     impermanence.url = "github:nix-community/impermanence?ref=master";
     lanzaboote.url = "github:nix-community/lanzaboote?ref=master";
@@ -98,6 +101,22 @@
           };
         in
         {
+          Gloria =
+            let
+              hostname = "Gloria";
+              hostId = "dfb83799";
+              system = "x86_64-linux";
+            in
+            lib.nixosSystem {
+              inherit system;
+              pkgs = pkgsFor system;
+              specialArgs = { inherit inputs primary-user; };
+              modules = [
+                (common-module hostname hostId system)
+                ./hosts/gloria.nix
+                ./home/gloria.nix
+              ];
+            };
           Skipper =
             let
               hostname = "Skipper";
