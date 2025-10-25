@@ -5,8 +5,5 @@
     ./virt-manager.nix
   ];
 
-  home.packages = with pkgs; [
-    discord
-    piper
-  ];
+  home.packages = with pkgs; [ piper ];
 }
