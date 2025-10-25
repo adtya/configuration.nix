@@ -2,12 +2,10 @@
 {
   services.displayManager = {
     enable = true;
-    gdm = {
-      enable = true;
-      wayland = true;
-    };
+    cosmic-greeter.enable = true;
     sessionPackages = [ pkgs.hyprland ];
   };
+
   environment.systemPackages = [
     pkgs.dracula-theme
     pkgs.dracula-icon-theme
