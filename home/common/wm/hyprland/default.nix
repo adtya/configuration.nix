@@ -16,7 +16,6 @@ let
   loginctl = "${pkgs.systemd}/bin/loginctl";
   playerctl = lib.getExe pkgs.playerctl;
   rofi = lib.getExe config.programs.rofi.package;
-  uwsm = lib.getExe pkgs.uwsm;
   wpctl = "${pkgs.wireplumber}/bin/wpctl";
   yazi = lib.getExe pkgs.yazi;
   systemctl = lib.getExe' pkgs.systemd "systemctl";
@@ -24,7 +23,10 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    systemd.enable = false;
+    systemd = {
+      enable = true;
+      variables = [ "--all" ];
+    };
     settings = {
       ecosystem.no_update_news = true;
       general = {
@@ -161,14 +163,14 @@ in
 
         "SUPER_SHIFT,C,       exec, ${hyprctl} reload"
 
-        "SUPER,Return,        exec, ${uwsm} app -- ${ghostty}"
-        ''SUPER,d,            exec, ${rofi} -show drun -run-command "${uwsm} app -- {cmd}"''
-        "SUPER,e,             exec, ${uwsm} app -- ${ghostty} --class=yazi -e ${yazi}"
-        "SUPER,i,             exec, ${uwsm} app -- ${firefox}"
-        "SUPER_SHIFT,i,       exec, ${uwsm} app -- ${librewolf}"
+        "SUPER,Return,        exec, ${ghostty}"
+        "SUPER,d,             exec, ${rofi} -show drun"
+        "SUPER,e,             exec, ${ghostty} --class=yazi -e ${yazi}"
+        "SUPER,i,             exec, ${firefox}"
+        "SUPER_SHIFT,i,       exec, ${librewolf}"
 
         "SUPER_SHIFT,escape,  exec, ${pkgs.misc-scripts}/bin/power-menu"
-        "SUPER_SHIFT,b,       exec, ${uwsm} app -- ${overskride}"
+        "SUPER_SHIFT,b,       exec, ${overskride}"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
         "SUPER_SHIFT,W,       exec, ${systemctl} --user start swww-img.service"

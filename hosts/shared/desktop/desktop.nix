@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 {
   services.displayManager = {
     enable = true;
@@ -6,15 +6,7 @@
       enable = true;
       wayland = true;
     };
-  };
-  programs.uwsm = {
-    enable = true;
-    waylandCompositors = {
-      hyprland = {
-        binPath = lib.getExe pkgs.hyprland;
-        prettyName = "Hyprland";
-      };
-    };
+    sessionPackages = [ pkgs.hyprland ];
   };
   environment.systemPackages = [
     pkgs.dracula-theme
