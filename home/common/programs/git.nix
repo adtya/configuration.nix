@@ -1,21 +1,23 @@
 { primary-user, ... }:
 {
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      side-by-side = false;
+      syntax-theme = "Dracula";
+    };
+  };
+
   programs.git = {
     enable = true;
-    delta = {
-      enable = true;
-      options = {
-        side-by-side = false;
-        syntax-theme = "Dracula";
-      };
-    };
-    userEmail = primary-user.email;
-    userName = primary-user.long-name;
     signing = {
       key = "51E4F5AB1B82BE45B4229CC243A5E25AA5A27849";
       signByDefault = true;
     };
-    extraConfig = {
+    settings = {
+      user.email = primary-user.email;
+      user.name = primary-user.long-name;
       commit.verbose = true;
       core = {
         fsmonitor = true;
