@@ -16,7 +16,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  hardware.apple-t2.kernelChannel = "latest";
+  hardware.apple-t2.kernelChannel = "stable";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault true;
   hardware.enableRedistributableFirmware = true;
 }
