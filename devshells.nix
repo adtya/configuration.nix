@@ -1,9 +1,12 @@
 { pkgs, deploy-rs }:
+let
+  inherit (pkgs.stdenv.hostPlatform) system;
+in
 {
   default = pkgs.mkShell {
     buildInputs = with pkgs; [
       age
-      deploy-rs.packages.${pkgs.system}.default
+      deploy-rs.packages.${system}.default
       git
       just
       sops

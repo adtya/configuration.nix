@@ -49,7 +49,8 @@
 
   fonts =
     let
-      smc-fonts = inputs.smc-fonts.packages.${pkgs.system}.default;
+      inherit (pkgs.stdenv.hostPlatform) system;
+      smc-fonts = inputs.smc-fonts.packages.${system}.default;
     in
     {
       fontconfig.useEmbeddedBitmaps = true;

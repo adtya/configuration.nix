@@ -1,4 +1,7 @@
 { pkgs, inputs, ... }:
+let
+  inherit (pkgs.stdenv.hostPlatform) system;
+in
 {
   xdg = {
     desktopEntries = {
@@ -9,7 +12,7 @@
   };
   programs.neovim = {
     enable = true;
-    package = inputs.neovim-nightly.packages.${pkgs.system}.default;
+    package = inputs.neovim-nightly.packages.${system}.default;
     withNodeJs = true;
     withPython3 = true;
     withRuby = true;
