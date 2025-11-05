@@ -17,7 +17,7 @@
   services.caddy = {
     enable = true;
     package = pkgs.caddy-custom;
-    email = "admin@acomputer.lol";
+    email = "admin@ironyofprivacy.org";
     extraConfig = ''
       (hetzner) {
         tls {
