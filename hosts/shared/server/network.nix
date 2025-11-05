@@ -57,7 +57,6 @@
           networkConfig = {
             DHCP = "yes";
             IPv4Forwarding = "yes";
-            Domains = [ "~." ];
           };
           dhcpV4Config = {
             UseDomains = true;
@@ -74,5 +73,15 @@
     };
   };
 
-  services.resolved.enable = true;
+  services.resolved = {
+    enable = true;
+    dnsovertls = "opportunistic";
+    dnssec = "false";
+    extraConfig = ''
+      [Resolve]
+      DNS=194.242.2.2#dns.mullvad.net
+      FallbackDNS=
+      Domains=~.
+    '';
+  };
 }
