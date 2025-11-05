@@ -1,1 +1,1 @@
-_: { imports = [ ./pihole.nix ]; }
+_: { imports = [ ./blocky.nix ]; }
