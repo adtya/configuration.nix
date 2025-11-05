@@ -58,7 +58,7 @@
         dejavu_fonts
         liberation_ttf
         noto-fonts-cjk-sans
-        noto-fonts-emoji
+        noto-fonts-color-emoji
         fira-code
         nerd-fonts.symbols-only
         (smc-fonts.override { fonts = [ "chilanka" ]; })
