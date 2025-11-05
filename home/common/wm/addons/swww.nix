@@ -9,9 +9,9 @@ let
   find = lib.getExe pkgs.findutils;
   shuf = lib.getExe' pkgs.coreutils "shuf";
 
-  wallpapers = "${config.xdg.userDirs.pictures}/Wallpapers/1440p/";
+  wallpaperDir = "${config.xdg.userDirs.pictures}/Wallpapers/1440p";
   wallpaperScript = pkgs.writeShellScriptBin "swww-img" ''
-    ${swww} img -t fade --transition-duration 1 $(${find} ${wallpapers} -type f | ${shuf} -n1)
+    ${swww} img -t fade --transition-duration 1 $(${find} ${wallpaperDir}/ -type f | ${shuf} -n1)
   '';
 in
 {
@@ -20,7 +20,6 @@ in
     extraArgs = [
       "--format"
       "abgr"
-      "--no-cache"
     ];
   };
   systemd.user = {
