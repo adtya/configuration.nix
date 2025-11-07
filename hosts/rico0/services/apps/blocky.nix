@@ -4,7 +4,13 @@
     allowedTCPPorts = [ 53 ];
     allowedUDPPorts = [ 53 ];
   };
-  systemd.services.blocky.unitConfig.After = [ "network-online.target" ];
+  systemd.services.blocky = {
+    unitConfig = {
+      After = [ "network-online.target" ];
+      StartLimitIntervalSec = 0;
+    };
+    serviceConfig.RestartSec = "1s";
+  };
   services = {
     caddy.virtualHosts = {
       "dns.labs.adtya.xyz" = {
