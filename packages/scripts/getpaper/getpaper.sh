@@ -108,29 +108,34 @@ fi
 if [ "${NO_OF_IMAGES}" -gt "${LOOK_AT}" ]; then
   NO_OF_IMAGES=$LOOK_AT
 fi
-RANDOM_ITEM="$(shuf -i 0-$((NO_OF_IMAGES - 1)) -n 1 --random-source=/dev/urandom)"
-ITEM_PAGE=$((RANDOM_ITEM / 24))
-ITEM_NUMBER=$((RANDOM_ITEM % 24))
-if [ "${ITEM_PAGE}" -gt 0 ]; then
-  SEED="$(echo "${RESULT}" | jq -r '.meta.seed // empty')"
-  if [ -n "${SEED}" ]; then
-    SEED="seed=${SEED}&"
+
+IMAGE=0
+while [ "$IMAGE" -lt "$NO_OF_IMAGES" ]; do
+  IMAGE_PAGE=$((IMAGE / 24))
+  IMAGE_NUMBER=$((IMAGE % 24))
+  if [ "${IMAGE_PAGE}" -gt 0 ]; then
+    SEED="$(echo "${RESULT}" | jq -r '.meta.seed // empty')"
+    if [ -n "${SEED}" ]; then
+      SEED="seed=${SEED}&"
+    fi
+    CURL_CMD="${CURL_BASE_CMD} \"${URL}${SEED}page=$((IMAGE_PAGE + 1))\""
+    CACHE_FILE="$CACHE_DIR/$CONFIG_HASH-$DATE-$((IMAGE_PAGE + 1)).json"
+    if [ ! -e "$CACHE_FILE" ]; then
+      RESULT="$(eval "${CURL_CMD}")"
+      echo "$RESULT" >"$CACHE_FILE"
+    else
+      RESULT="$(cat "$CACHE_FILE")"
+    fi
   fi
-  CURL_CMD="${CURL_BASE_CMD} \"${URL}${SEED}page=$((ITEM_PAGE + 1))\""
-  CACHE_FILE="$CACHE_DIR/$CONFIG_HASH-$DATE-$((ITEM_PAGE + 1)).json"
-  if [ ! -e "$CACHE_FILE" ]; then
-    RESULT="$(eval "${CURL_CMD}")"
-    echo "$RESULT" >"$CACHE_FILE"
+  IMAGE_URL="$(echo "${RESULT}" | jq -r ".data[${IMAGE_NUMBER}].path")"
+  FILENAME="${IMAGE_URL##*/}"
+  if [ ! -f "${DIR}/${FILENAME}" ]; then
+    curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
+    echo "Downloaded: ${DIR}/${FILENAME}"
   else
-    RESULT="$(cat "$CACHE_FILE")"
+    echo "Exists: ${DIR}/${FILENAME}"
   fi
-fi
-IMAGE_URL="$(echo "${RESULT}" | jq -r ".data[${ITEM_NUMBER}].path")"
-FILENAME="${IMAGE_URL##*/}"
-if [ ! -f "${DIR}/${FILENAME}" ]; then
-  curl --silent -L --output-dir "${DIR}" -o "${FILENAME}" "${IMAGE_URL}"
-  echo "Downloaded: ${DIR}/${FILENAME}"
-else
-  echo "Exists: ${DIR}/${FILENAME}"
-fi
-echo "${DIR}/${FILENAME}" >&2
+  echo "${DIR}/${FILENAME}" >&2
+
+  IMAGE=$((IMAGE + 1))
+done
