@@ -1,10 +1,15 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   networking.firewall = {
     allowedTCPPorts = [ 53 ];
     allowedUDPPorts = [ 53 ];
   };
-  systemd.services.blocky = {
+  systemd.services.blocky = lib.mkIf config.services.blocky.enable {
     unitConfig = {
       After = [ "network-online.target" ];
       StartLimitIntervalSec = 0;
