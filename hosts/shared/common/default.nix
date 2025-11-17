@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./services
+    ./nix.nix
     ./users.nix
   ];
 
