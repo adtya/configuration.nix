@@ -3,8 +3,8 @@
   programs.imv = {
     enable = true;
     package = pkgs.imv.overrideAttrs (
-      _new: old: {
-        postInstall = old.postInstall + ''
+      _final: _prev: {
+        postInstall = ''
           rm $out/share/applications/imv.desktop
         '';
       }
