@@ -28,6 +28,7 @@
     android-file-transfer
     devenv
     doctl
+    file
     flyctl
     gh
     gnome-disk-utility
@@ -38,6 +39,7 @@
     seahorse
     spotify
     transmission_4-gtk
+    unzip
     wl-clipboard
     xdg-utils
   ];
