@@ -5,5 +5,8 @@
     ./virt-manager.nix
   ];
 
-  home.packages = with pkgs; [ piper ];
+  home.packages = with pkgs; [
+    ollama-rocm
+    piper
+  ];
 }

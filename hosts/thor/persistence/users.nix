@@ -4,6 +4,7 @@
     users."${primary-user.name}" = {
       directories = [
         "Games"
+        ".ollama"
         ".steam"
         ".local/share/icons/hicolor"
         ".local/share/lutris"
