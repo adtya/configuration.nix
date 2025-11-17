@@ -33,7 +33,10 @@ in
       "tailscaled.service"
       "tailscaled-autoconnect.service"
     ];
-    unitConfig.Requires = [ "tailscaled.service" ];
+    unitConfig = {
+      Requires = [ "tailscaled.service" ];
+      StartLimitIntervalSec = 0;
+    };
     serviceConfig.RestartSec = "5s";
   };
 }
