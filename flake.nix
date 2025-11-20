@@ -101,22 +101,6 @@
           };
         in
         {
-          Gloria =
-            let
-              hostname = "Gloria";
-              hostId = "dfb83799";
-              system = "x86_64-linux";
-            in
-            lib.nixosSystem {
-              inherit system;
-              pkgs = pkgsFor system;
-              specialArgs = { inherit inputs primary-user; };
-              modules = [
-                (common-module hostname hostId system)
-                ./hosts/gloria.nix
-                ./home/gloria.nix
-              ];
-            };
           Skipper =
             let
               hostname = "Skipper";

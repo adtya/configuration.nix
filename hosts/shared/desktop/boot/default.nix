@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+_:
 {
   imports = [ ./plymouth.nix ];
   boot = {
