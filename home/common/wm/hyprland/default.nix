@@ -81,13 +81,11 @@ in
       animations = {
         enabled = true;
         animation = [
-          "windows,1,5,default,popin"
-          "windowsOut,1,5,default,gnomed"
-          "layers,1,5,default,slide"
+          "windows,1,2,linear,slide"
+          "layers,1,1,default,slide"
           "fade,1,5,default"
           "border,1,5,default"
-          "workspaces,1,5,default,slide"
-          "workspacesOut,1,5,default,slide"
+          "workspaces,1,2,linear,slide"
         ];
       };
 
