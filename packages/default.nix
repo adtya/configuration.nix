@@ -17,6 +17,6 @@ _final: prev: {
 
   caddy-custom = prev.caddy.withPlugins {
     plugins = [ "github.com/caddy-dns/hetzner@v1.0.0" ];
-    hash = "sha256-AuBFjv7Qku+UeVMt+y3zHC7dyNnLf45b46MH6C0ukW8=";
+    hash = "sha256-KNKmbZ65NwbEbseo5S3O0HzKseJkm4ZPugNOjMai02s=";
   };
 }

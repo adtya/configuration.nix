@@ -26,7 +26,6 @@
     lanzaboote.url = "github:nix-community/lanzaboote?ref=master";
     sops-nix.url = "github:Mic92/sops-nix?ref=master";
     deploy-rs.url = "github:serokell/deploy-rs?ref=master";
-    flake-utils.url = "github:numtide/flake-utils?ref=main";
     treefmt-nix.url = "github:numtide/treefmt-nix?ref=main";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay?ref=master";
     smc-fonts.url = "gitlab:smc/smc-fonts-flake?ref=trunk";
