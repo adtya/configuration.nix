@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    protonplus
     (lutris.override {
       extraPkgs = p: [
         p.gamemode
