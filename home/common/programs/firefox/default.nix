@@ -23,6 +23,12 @@
           engines = {
             "bing".metaData.hidden = true;
             "google".metaData.hidden = true;
+            "perplexity".metaData.hidden = true;
+            "Merriam-Webster" = {
+              urls = [ { template = "https://www.merriam-webster.com/dictionary/{searchTerms}"; } ];
+              icon = "https://www.merriam-webster.com/favicon.ico";
+              definedAliases = [ "@define" ];
+            };
             "ProtonDB" = {
               urls = [
                 {
@@ -35,7 +41,7 @@
                   ];
                 }
               ];
-              icon = "https://www.protondb.com//favicon.ico";
+              icon = "https://www.protondb.com/favicon.ico";
               definedAliases = [ "@game" ];
             };
             "Nix Packages" = {
