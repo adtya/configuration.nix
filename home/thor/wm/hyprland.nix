@@ -24,9 +24,8 @@ in
 
       bind = [ "SUPER_ALT, W, exec, ${pkill} -SIGUSR1 waybar" ];
 
-      windowrulev2 = [
-        "workspace 9,class:steam"
 
+      windowrulev2 = [
         "float,class:.virt-manager-wrapped"
         "size 25% 50%,class:.virt-manager-wrapped,title:Virtual Machine Manager"
         "move 5%% 10%,class:.virt-manager-wrapped,title:Virtual Machine Manager"
@@ -34,6 +33,9 @@ in
         "float,class:.piper-wrapped"
         "size 50% 50%,class:.piper-wrapped"
         "center,class:.piper-wrapped"
+
+        "workspace 9,class:steam"
+        "float,class:steam"
 
         "workspace 9,class:net.lutris.Lutris"
         "float,class:net.lutris.Lutris"
