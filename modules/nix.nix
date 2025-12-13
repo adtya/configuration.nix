@@ -53,7 +53,7 @@ in
       nix.gc = {
         automatic = true;
         dates = "Fri *-*-* 00:00:00";
-        options = "--delete-old";
+        options = "--delete-older-than 7d";
         randomizedDelaySec = "1h";
       };
     })
