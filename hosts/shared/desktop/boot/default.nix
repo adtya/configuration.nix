@@ -1,5 +1,4 @@
-_:
-{
+_: {
   imports = [ ./plymouth.nix ];
   boot = {
     bootspec.enable = true;
