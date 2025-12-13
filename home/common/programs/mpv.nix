@@ -6,7 +6,6 @@
       youtubeSupport = true;
       scripts = with pkgs.mpvScripts; [
         mpris
-        thumbfast
       ];
     };
     config = {
@@ -20,12 +19,6 @@
       target-colorspace-hint = "yes";
     };
     defaultProfiles = [ "gpu-hq" ];
-    scriptOpts = {
-      thumbfast = {
-        network = "yes";
-        hwdec = "yes";
-      };
-    };
   };
 
   xdg.desktopEntries = {
