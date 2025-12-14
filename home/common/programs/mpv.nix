@@ -4,9 +4,7 @@
     enable = true;
     package = pkgs.mpv.override {
       youtubeSupport = true;
-      scripts = with pkgs.mpvScripts; [
-        mpris
-      ];
+      scripts = with pkgs.mpvScripts; [ mpris ];
     };
     config = {
       border = "no";

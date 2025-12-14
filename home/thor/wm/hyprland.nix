@@ -25,9 +25,7 @@ in
 
       bind = [ "SUPER_ALT, W, exec, ${pkill} -SIGUSR1 waybar" ];
 
-      windowrule = [
-        "novrr on,class:mpv"
-      ];
+      windowrule = [ "novrr on,class:mpv" ];
 
       windowrulev2 = [
         "float,class:.virt-manager-wrapped"
