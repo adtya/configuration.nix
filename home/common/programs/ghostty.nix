@@ -2,6 +2,8 @@ _: {
   programs.ghostty = {
     enable = true;
     settings = {
+      linux-cgroup = "always";
+      linux-cgroup-hard-fail = true;
       font-size = 14;
       font-family = "Fira Code";
       font-synthetic-style = false;

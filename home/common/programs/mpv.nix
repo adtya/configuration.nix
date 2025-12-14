@@ -11,9 +11,12 @@
       cache = "yes";
       cache-secs = "120";
       hwdec = "auto-safe";
+      ao = "pipewire";
       vo = "gpu-next";
       gpu-context = "waylandvk";
       gpu-api = "vulkan";
+      vulkan-async-compute = "yes";
+      vulkan-async-transfer = "yes";
       target-colorspace-hint = "yes";
     };
     defaultProfiles = [ "gpu-hq" ];
