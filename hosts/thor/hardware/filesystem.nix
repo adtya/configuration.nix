@@ -1,12 +1,13 @@
-_: {
+{ config, ... }:
+{
   services.btrfs.autoScrub = {
     enable = true;
-    fileSystems = [ "/mnt/system" ];
+    fileSystems = [ "/mnt/system" "/mnt/data" ];
   };
   disko.devices = {
     disk = {
-      main = {
-        device = "/dev/disk/by-id/nvme-uuid.6c12f8f5-70b0-4f0c-8fd3-50b2fd7d1203";
+      "${config.networking.hostName}" = {
+        device = "/dev/disk/by-id/nvme-eui.36355a30529803240025384500000001";
         type = "disk";
         content = {
           type = "gpt";
@@ -21,11 +22,11 @@ _: {
                 mountOptions = [ "umask=0077" ];
               };
             };
-            luks0 = {
+            CRYPT = {
               size = "100%";
               content = {
                 type = "luks";
-                name = "CRYPT";
+                name = "${config.networking.hostName}-ROOT";
                 settings = {
                   allowDiscards = true;
                   bypassWorkqueues = true;
@@ -70,5 +71,22 @@ _: {
       };
     };
   };
-  fileSystems."/persist".neededForBoot = true;
+
+  environment.etc.crypttab.text = ''
+    Thor-DATA UUID=025ac2cc-8dbd-4ae9-8f07-7ac9554ddaf2 /persist/secrets/luks/Thor-DATA.key
+  '';
+
+  fileSystems = {
+    "/persist".neededForBoot = true;
+    "/mnt/data" = {
+      device = "/dev/mapper/${config.networking.hostName}-DATA";
+      fsType = "btrfs";
+      options = [
+        "subvol=/"
+        "compress=zstd"
+        "relatime"
+      ];
+      neededForBoot = false;
+    };
+  };
 }
