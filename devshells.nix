@@ -8,7 +8,6 @@ in
       age
       deploy-rs.packages.${system}.default
       git
-      just
       sops
       ssh-to-age
       nil
