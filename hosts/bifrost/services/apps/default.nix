@@ -8,5 +8,6 @@ _: {
     ./continuwuity.nix
     ./ironyofprivacy.org.nix
     ./ntfy.nix
+    ./recipes.nix
   ];
 }

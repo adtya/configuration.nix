@@ -20,6 +20,7 @@ D(
   A("www", "134.209.147.152"),
   CNAME("wiki", "bifrost.ironyofprivacy.org."),
   CNAME("proofs", "bifrost.ironyofprivacy.org."),
+  CNAME("nix-recipes", "bifrost.ironyofprivacy.org."),
   END,
 );
 
