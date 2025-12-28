@@ -8,9 +8,8 @@ in
     caddy.virtualHosts."${domainName}" = {
       extraConfig = ''
         handle {
-          root * ${inputs.recipes.packages.${system}.docs.site}
+          root * ${inputs.recipes.packages.${system}.docs-site}/
           encode gzip
-          try_files {path} /index.html
           file_server
         }
       '';

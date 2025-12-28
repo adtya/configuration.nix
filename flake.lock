@@ -1019,11 +1019,11 @@
         "wiki": "wiki"
       },
       "locked": {
-        "lastModified": 1766853217,
-        "narHash": "sha256-5J/NOtaW/Q9r/YBkfrJZV34w9/quzQ6t472+lu7FYts=",
+        "lastModified": 1766985886,
+        "narHash": "sha256-51Y6lrqAyGh6WriIE+rItT96H2xwrg0E2WzJ/WEf4jM=",
         "owner": "adtya",
         "repo": "recipes.nix",
-        "rev": "6180c812495b12a20c1e6301a2a6dde99afdef6a",
+        "rev": "18dbddc93bdd16044cf99852ea08263036323329",
         "type": "github"
       },
       "original": {
