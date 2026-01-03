@@ -18,6 +18,7 @@
       vulkan-async-compute = "yes";
       vulkan-async-transfer = "yes";
       target-colorspace-hint = "yes";
+      target-colorspace-hint-mode = "source";
     };
     defaultProfiles = [ "gpu-hq" ];
   };

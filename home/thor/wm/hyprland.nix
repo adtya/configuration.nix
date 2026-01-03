@@ -5,7 +5,6 @@ in
 {
   wayland.windowManager.hyprland = {
     settings = {
-      experimental.xx_color_management_v4 = true;
       render.cm_auto_hdr = 2;
       misc.vrr = 3;
 
@@ -25,7 +24,9 @@ in
 
       bind = [ "SUPER_ALT, W, exec, ${pkill} -SIGUSR1 waybar" ];
 
-      windowrule = [ "novrr on,class:mpv" ];
+      windowrule = [
+        "match:class mpv, no_vrr on"
+      ];
 
       windowrulev2 = [
         "float,class:.virt-manager-wrapped"
