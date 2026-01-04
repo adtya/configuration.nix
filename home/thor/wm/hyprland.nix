@@ -6,7 +6,7 @@ in
   wayland.windowManager.hyprland = {
     settings = {
       render.cm_auto_hdr = 2;
-      misc.vrr = 3;
+      misc.vrr = 2;
 
       monitorv2 = [
         {
@@ -15,7 +15,7 @@ in
           position = "0x0";
           scale = "auto";
           transform = 0;
-          vrr = 3;
+          vrr = 2;
           supports_wide_color = 1;
           supports_hdr = 1;
           bitdepth = 10;
