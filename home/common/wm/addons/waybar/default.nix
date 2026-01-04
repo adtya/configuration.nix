@@ -65,7 +65,7 @@
           format-connected = "󰂱";
           format-disabled = "󰂲";
           format-off = "󰂲";
-          on-click = "${lib.getExe pkgs.overskride}";
+          on-click = "${lib.getExe' pkgs.blueberry "blueberry"}";
           tooltip = false;
         };
         tray = {

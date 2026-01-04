@@ -7,7 +7,7 @@
 let
   cfg = config.wayland.windowManager.hyprland;
 
-  overskride = lib.getExe pkgs.overskride;
+  blueberry = lib.getExe' pkgs.blueberry "blueberry";
   firefox = lib.getExe config.programs.firefox.finalPackage;
   grimblast = lib.getExe pkgs.grimblast;
   hyprctl = "${cfg.package}/bin/hyprctl";
@@ -169,7 +169,7 @@ in
         "SUPER_SHIFT,i,       exec, ${librewolf}"
 
         "SUPER_SHIFT,escape,  exec, ${pkgs.misc-scripts}/bin/power-menu"
-        "SUPER_SHIFT,b,       exec, ${overskride}"
+        "SUPER_SHIFT,b,       exec, ${blueberry}"
 
         "SUPER,escape,        exec, ${loginctl} lock-session"
         "SUPER_SHIFT,W,       exec, ${systemctl} --user start swww-img.service"
