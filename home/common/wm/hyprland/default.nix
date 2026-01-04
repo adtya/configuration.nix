@@ -94,52 +94,19 @@ in
       ];
 
       windowrule = [
-        "border_size 0, match:float 1"
+        "match:float 1, border_size 0"
+        "match:float 0, match:workspace w[tv1],            border_size 0, rounding 0"
+        "match:float 0, match:workspace f[1],              border_size 0, rounding 0"
 
-        "border_size 0, match:float 0, match:workspace w[tv1]"
-        "rounding 0, match:float 0, match:workspace w[tv1]"
-        "border_size 0, match:float 0, match:workspace f[1]"
-        "rounding 0, match:float 0, match:workspace f[1]"
-      ];
-
-      windowrulev2 = [
-        "bordercolor rgb(ff5555),xwayland:1"
-
-        "workspace 2,class:firefox,title:Mozilla Firefox"
-        "float,class:firefox,title:Library"
-        "size 50% 50%,class:firefox,title:Library"
-
-        "float,class:com.saivert.pwvucontrol"
-        "size 50% 50%,class:com.saivert.pwvucontrol"
-        "center,class:com.saivert.pwvucontrol"
-
-        "float,class:io.github.kaii_lb.Overskride"
-        "size 50% 50%,class:io.github.kaii_lb.Overskride"
-        "center,class:io.github.kaii_lb.Overskride"
-
-        "float,class:mpv"
-        "size 90% 90%,class:mpv"
-        "center,class:mpv"
-        "dimaround,class:mpv"
-
-        "float,class:imv"
-        "size 90% 90%,class:imv"
-        "center,class:imv"
-
-        "float,class:org.pwmt.zathura"
-        "size 90% 90%,class:org.pwmt.zathura"
-        "center,class:org.pwmt.zathura"
-
-        "float,class:com.system76.CosmicFiles"
-        "center,class:com.system76.CosmicFiles"
-        "size 60% 60%,class:com.system76.CosmicFiles"
-
-        "float,class:com.vysp3r.ProtonPlus"
-        "center,class:com.vysp3r.ProtonPlus"
-        "size 60% 60%,class:com.vysp3r.ProtonPlus"
-
-        "dimaround,class:io.elementary.desktop.agent-polkit"
-        "pin,class:io.elementary.desktop.agent-polkit"
+        "match:class firefox, match:title Mozilla Firefox, workspace 2"
+        "match:class firefox, match:title Library,         float 1, size (monitor_w*0.5) (monitor_h*0.5)"
+        "match:class blueberry.py,                         float 1, size (monitor_w*0.5) (monitor_h*0.5), center 1"
+        "match:class com.saivert.pwvucontrol,              float 1, size (monitor_w*0.5) (monitor_h*0.5), center 1"
+        "match:class mpv,                                  float 1, size (monitor_w*0.9) (monitor_h*0.9), center 1, dim_around 1"
+        "match:class imv,                                  float 1, size (monitor_w*0.9) (monitor_h*0.9), center 1, dim_around 1"
+        "match:class org.pwmt.zathura,                     float 1, size (monitor_w*0.9) (monitor_h*0.9), center 1"
+        "match:class com.system76.CosmicFiles,             float 1, size (monitor_w*0.6) (monitor_h*0.6), center 1"
+        "match:class io.elementary.desktop.agent-polkit,   dim_around 1, pin 1"
       ];
 
       layerrule = [

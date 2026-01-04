@@ -26,24 +26,13 @@ in
 
       windowrule = [
         "match:class mpv, no_vrr on"
-      ];
 
-      windowrulev2 = [
-        "float,class:.virt-manager-wrapped"
-        "size 25% 50%,class:.virt-manager-wrapped,title:Virtual Machine Manager"
-        "move 5%% 10%,class:.virt-manager-wrapped,title:Virtual Machine Manager"
+        "match:class .virt-manager-wrapped,                                      float 1"
+        "match:class .virt-manager-wrapped, match:title Virtual Machine Manager, size (monitor_w*0.25) (monitor_h*0.5), move (monitor_w*0.05) (monitor_h*0.1)"
+        "match:class .piper-wrapped,                                             float 1, size (monitor_w*0.5) (monitor_h*0.5), center 1"
+        "match:class steam,                                                      workspace 9, float 1"
+        "match:class net.lutris.Lutris,                                          workspace 9, float 1, center 1, size (monitor_w*0.6) (monitor_h*0.6)"
 
-        "float,class:.piper-wrapped"
-        "size 50% 50%,class:.piper-wrapped"
-        "center,class:.piper-wrapped"
-
-        "workspace 9,class:steam"
-        "float,class:steam"
-
-        "workspace 9,class:net.lutris.Lutris"
-        "float,class:net.lutris.Lutris"
-        "center,class:net.lutris.Lutris"
-        "size 60% 60%,class:net.lutris.Lutris"
       ];
     };
   };
